@@ -1,4 +1,4 @@
-PostgreSQL
-==========
+Database for Scuola247
+======================
 
-Database DDL e DML for Scuola247 on PostgreSQL
+Database DCL, DDL e DML for Scuola247
