@@ -5,8 +5,6 @@ SET standard_conforming_strings = on;
 -- Roles
 --
 
-CREATE ROLE "fol@scuola247.org";
-ALTER ROLE "fol@scuola247.org" WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION PASSWORD 'password' VALID UNTIL 'infinity';
 CREATE ROLE scuola247;
 ALTER ROLE scuola247 WITH NOSUPERUSER INHERIT NOCREATEROLE NOCREATEDB NOLOGIN NOREPLICATION VALID UNTIL 'infinity';
 CREATE ROLE scuola247_manager;
@@ -17,6 +15,6 @@ ALTER ROLE scuola247_manager WITH NOSUPERUSER INHERIT NOCREATEROLE NOCREATEDB NO
 -- Role memberships
 --
 
-GRANT scuola247_manager TO "fol@scuola247.org" GRANTED BY postgres;
-GRANT scuola247 TO "fol@scuola247.org" GRANTED BY postgres;
+GRANT scuola247_manager TO postgres GRANTED BY postgres;
+GRANT scuola247 TO postgres GRANTED BY postgres;
 
