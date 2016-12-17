@@ -86,10 +86,12 @@ proprietario e grupo vanno impostati su 'postgres'
 e le permission a 0770
 
 a questo punto siamo pronti per lanciare le
-stored provcedure per il caricamento
+stored provcedure per il caricamento delle immagini
+
 ******** purtroppo ho visto   **************
 ******** ora che ci sono      **************
 ******** errori da correggere **************
+
 public.wikimedia_0_reset();
 public.wikimedia_1_hydration();
 public.wikimedia_2_popolate_files();
