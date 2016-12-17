@@ -24,7 +24,7 @@ http://www.folstuff.eu/2016/12/installazione-virtualbox/
 Installato VirtualBoX bisogna fare la macchina
 virtuale con sopra ubuntu server
 qui spiego nel dettaglio tutti i passaggi 
-http://www.folstuff.eu/2016/12/installazione-di-ubuntu-server-a-64bit-su-una-macchina-virtuale-di-virtualbox/
+http://www.folstuff.eu/2016/12/installazione-di-ubuntu-server-su-una-macchina-virtuale-di-virtualbox/
 
 Poi è la volta dell'installazione di postgres
 anche per questo ho preparato una piccola guida
