@@ -11,7 +11,7 @@ L'ambiente su cui IO ho FATTO le prove è il seguente:
 Windows 10.1607
 VirtualBox 5.1.10
 Ubuntu 16.04.1 LTS
-PostgreSQL 9.5
+PostgreSQL 9.6
 Chiaramente cambiare la versione non DOVREBBE essere un problema
 questa la teoria poi la pratica ....
 
