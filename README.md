@@ -67,19 +67,26 @@ infine carichiamo i dati (escluse le immagini)
 scuola247_data.sql
 
 a questo punto eseguite il comando per registrare 
-l'estensione HTPP (he non viene riportata nel backup):
-eseguire CREATE EXTENSION http;
+l'estensione HTPP (che non viene riportata nel backup):
+
+CREATE EXTENSION http;
 
 Poi dobbiamo sistemare le sequenze con il comando:
+
 SELECT utility.set_all_sequences_2_the_max();
 
 bisogna a questo punto si deve la struttura
 delle directory che andranno ad ospitare
 le immagini sul file system:
+
 /var/lib/scuola247/persons/photos
+
 /var/lib/scuola247/persons/thumbnails
+
 /var/lib/scuola247/wikimedia_files/infos
+
 /var/lib/scuola247/wikimedia_files/photos
+
 /var/lib/scuola247/wikimedia_files/thumbnails
 
 proprietario e grupo vanno impostati su 'postgres'
@@ -95,9 +102,9 @@ stored provcedure per il caricamento delle immagini
 ******** errori da correggere **************
 
 
-public.wikimedia_0_reset();
-public.wikimedia_1_hydration();
-public.wikimedia_2_popolate_files();
-public.wikimedia_3_hydration_persons();
-public.wikimedia_4_popolate_files_persons();
+SELECT public.wikimedia_0_reset();
+SELECT public.wikimedia_1_hydration();
+SELECT public.wikimedia_2_popolate_files();
+SELECT public.wikimedia_3_hydration_persons();
+SELECT public.wikimedia_4_popolate_files_persons();
 
