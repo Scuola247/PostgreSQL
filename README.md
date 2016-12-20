@@ -103,8 +103,12 @@ stored provcedure per il caricamento delle immagini
 
 
 SELECT public.wikimedia_0_reset();
+
 SELECT public.wikimedia_1_hydration();
+
 SELECT public.wikimedia_2_popolate_files();
+
 SELECT public.wikimedia_3_hydration_persons();
+
 SELECT public.wikimedia_4_popolate_files_persons();
 
