@@ -95,20 +95,30 @@ e le permission a 0770
 a questo punto siamo pronti per lanciare le
 stored provcedure per il caricamento delle immagini
 
-******** purtroppo ho visto   **************
-
-******** ora che ci sono      **************
-
-******** errori da correggere **************
-
+imposto a null le colonne info, photo e thumbnail della tabella wikimedia_file
+imposto a null le colonne photo e thumbnail della tabella persons
+rimuovo, ricorsivamente, tutti i file a partire dalla directory '/var/lib/scuola247/'
 
 SELECT public.wikimedia_0_reset();
 
-SELECT public.wikimedia_1_hydration();
+idrato le colonne info, thumbnail e photo della tabella wikimedia_files 
+prendendo i dati dal sito di wikimedia (dalle url ricavate dal nome file)
+
+SELECT public.wikimedia_1_hydration(10000);
+
+popolo le directory a partire da '/var/lib/scuola247/wikimedia_files' 
+con i dati del comando precedente
 
 SELECT public.wikimedia_2_popolate_files();
 
+aggiorno le colonne photo e thumbnail della tabella persons 
+prendondo i dati dalla tabella wikimedia_files facendomi guidare
+dall'assegnazione fatta con la tabella wikimedia_files_persons
+
 SELECT public.wikimedia_3_hydration_persons();
+
+infine popolo le directory a partire da '/var/lib/scuola247/persons' 
+con i dati del comando precedente
 
 SELECT public.wikimedia_4_popolate_files_persons();
 
