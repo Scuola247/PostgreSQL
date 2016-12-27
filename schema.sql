@@ -5,7 +5,7 @@
 -- Dumped from database version 9.6.1
 -- Dumped by pg_dump version 9.6.1
 
--- Started on 2016-12-20 13:00:26 CET
+-- Started on 2016-12-27 19:38:25 CET
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -27,7 +27,7 @@ CREATE SCHEMA assert;
 ALTER SCHEMA assert OWNER TO postgres;
 
 --
--- TOC entry 3936 (class 0 OID 0)
+-- TOC entry 3934 (class 0 OID 0)
 -- Dependencies: 13
 -- Name: SCHEMA assert; Type: COMMENT; Schema: -; Owner: postgres
 --
@@ -46,7 +46,7 @@ CREATE SCHEMA diagnostic;
 ALTER SCHEMA diagnostic OWNER TO postgres;
 
 --
--- TOC entry 12 (class 2615 OID 16456)
+-- TOC entry 18 (class 2615 OID 16455)
 -- Name: translate; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -56,8 +56,8 @@ CREATE SCHEMA translate;
 ALTER SCHEMA translate OWNER TO postgres;
 
 --
--- TOC entry 3939 (class 0 OID 0)
--- Dependencies: 12
+-- TOC entry 3937 (class 0 OID 0)
+-- Dependencies: 18
 -- Name: SCHEMA translate; Type: COMMENT; Schema: -; Owner: postgres
 --
 
@@ -65,7 +65,7 @@ COMMENT ON SCHEMA translate IS 'Manage the translation of your public schema in 
 
 
 --
--- TOC entry 19 (class 2615 OID 16457)
+-- TOC entry 12 (class 2615 OID 16456)
 -- Name: unit_testing; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -75,8 +75,8 @@ CREATE SCHEMA unit_testing;
 ALTER SCHEMA unit_testing OWNER TO postgres;
 
 --
--- TOC entry 3940 (class 0 OID 0)
--- Dependencies: 19
+-- TOC entry 3938 (class 0 OID 0)
+-- Dependencies: 12
 -- Name: SCHEMA unit_testing; Type: COMMENT; Schema: -; Owner: postgres
 --
 
@@ -84,7 +84,7 @@ COMMENT ON SCHEMA unit_testing IS 'Eenable to use the unit_testing method to tes
 
 
 --
--- TOC entry 17 (class 2615 OID 16458)
+-- TOC entry 19 (class 2615 OID 16457)
 -- Name: unit_tests; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -94,8 +94,8 @@ CREATE SCHEMA unit_tests;
 ALTER SCHEMA unit_tests OWNER TO postgres;
 
 --
--- TOC entry 3941 (class 0 OID 0)
--- Dependencies: 17
+-- TOC entry 3939 (class 0 OID 0)
+-- Dependencies: 19
 -- Name: SCHEMA unit_tests; Type: COMMENT; Schema: -; Owner: postgres
 --
 
@@ -103,7 +103,7 @@ COMMENT ON SCHEMA unit_tests IS 'Contains all unit_test functions that use the u
 
 
 --
--- TOC entry 18 (class 2615 OID 16459)
+-- TOC entry 17 (class 2615 OID 16458)
 -- Name: utility; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -113,8 +113,8 @@ CREATE SCHEMA utility;
 ALTER SCHEMA utility OWNER TO postgres;
 
 --
--- TOC entry 3942 (class 0 OID 0)
--- Dependencies: 18
+-- TOC entry 3940 (class 0 OID 0)
+-- Dependencies: 17
 -- Name: SCHEMA utility; Type: COMMENT; Schema: -; Owner: postgres
 --
 
@@ -130,7 +130,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 3943 (class 0 OID 0)
+-- TOC entry 3941 (class 0 OID 0)
 -- Dependencies: 2
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
@@ -139,7 +139,7 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
 --
--- TOC entry 1 (class 3079 OID 109521)
+-- TOC entry 1 (class 3079 OID 16459)
 -- Name: adminpack; Type: EXTENSION; Schema: -; Owner: 
 --
 
@@ -147,7 +147,7 @@ CREATE EXTENSION IF NOT EXISTS adminpack WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 3944 (class 0 OID 0)
+-- TOC entry 3942 (class 0 OID 0)
 -- Dependencies: 1
 -- Name: EXTENSION adminpack; Type: COMMENT; Schema: -; Owner: 
 --
@@ -156,7 +156,7 @@ COMMENT ON EXTENSION adminpack IS 'administrative functions for PostgreSQL';
 
 
 --
--- TOC entry 7 (class 3079 OID 16469)
+-- TOC entry 7 (class 3079 OID 16468)
 -- Name: btree_gist; Type: EXTENSION; Schema: -; Owner: 
 --
 
@@ -164,7 +164,7 @@ CREATE EXTENSION IF NOT EXISTS btree_gist WITH SCHEMA public;
 
 
 --
--- TOC entry 3945 (class 0 OID 0)
+-- TOC entry 3943 (class 0 OID 0)
 -- Dependencies: 7
 -- Name: EXTENSION btree_gist; Type: COMMENT; Schema: -; Owner: 
 --
@@ -173,7 +173,7 @@ COMMENT ON EXTENSION btree_gist IS 'support for indexing common datatypes in GiS
 
 
 --
--- TOC entry 3 (class 3079 OID 109500)
+-- TOC entry 6 (class 3079 OID 17022)
 -- Name: http; Type: EXTENSION; Schema: -; Owner: 
 --
 
@@ -181,8 +181,8 @@ CREATE EXTENSION IF NOT EXISTS http WITH SCHEMA public;
 
 
 --
--- TOC entry 3946 (class 0 OID 0)
--- Dependencies: 3
+-- TOC entry 3944 (class 0 OID 0)
+-- Dependencies: 6
 -- Name: EXTENSION http; Type: COMMENT; Schema: -; Owner: 
 --
 
@@ -190,7 +190,7 @@ COMMENT ON EXTENSION http IS 'HTTP client for PostgreSQL, allows web page retrie
 
 
 --
--- TOC entry 4 (class 3079 OID 109463)
+-- TOC entry 5 (class 3079 OID 17043)
 -- Name: pldbgapi; Type: EXTENSION; Schema: -; Owner: 
 --
 
@@ -198,8 +198,8 @@ CREATE EXTENSION IF NOT EXISTS pldbgapi WITH SCHEMA public;
 
 
 --
--- TOC entry 3947 (class 0 OID 0)
--- Dependencies: 4
+-- TOC entry 3945 (class 0 OID 0)
+-- Dependencies: 5
 -- Name: EXTENSION pldbgapi; Type: COMMENT; Schema: -; Owner: 
 --
 
@@ -207,7 +207,7 @@ COMMENT ON EXTENSION pldbgapi IS 'server-side support for debugging PL/pgSQL fun
 
 
 --
--- TOC entry 6 (class 3079 OID 17081)
+-- TOC entry 4 (class 3079 OID 17080)
 -- Name: plpgsql_check; Type: EXTENSION; Schema: -; Owner: 
 --
 
@@ -215,8 +215,8 @@ CREATE EXTENSION IF NOT EXISTS plpgsql_check WITH SCHEMA public;
 
 
 --
--- TOC entry 3948 (class 0 OID 0)
--- Dependencies: 6
+-- TOC entry 3946 (class 0 OID 0)
+-- Dependencies: 4
 -- Name: EXTENSION plpgsql_check; Type: COMMENT; Schema: -; Owner: 
 --
 
@@ -224,7 +224,7 @@ COMMENT ON EXTENSION plpgsql_check IS 'extended check for plpgsql functions';
 
 
 --
--- TOC entry 5 (class 3079 OID 17086)
+-- TOC entry 3 (class 3079 OID 17085)
 -- Name: tablefunc; Type: EXTENSION; Schema: -; Owner: 
 --
 
@@ -232,8 +232,8 @@ CREATE EXTENSION IF NOT EXISTS tablefunc WITH SCHEMA public;
 
 
 --
--- TOC entry 3949 (class 0 OID 0)
--- Dependencies: 5
+-- TOC entry 3947 (class 0 OID 0)
+-- Dependencies: 3
 -- Name: EXTENSION tablefunc; Type: COMMENT; Schema: -; Owner: 
 --
 
@@ -243,7 +243,7 @@ COMMENT ON EXTENSION tablefunc IS 'functions that manipulate whole tables, inclu
 SET search_path = diagnostic, pg_catalog;
 
 --
--- TOC entry 1106 (class 1247 OID 17109)
+-- TOC entry 1130 (class 1247 OID 17108)
 -- Name: error; Type: TYPE; Schema: diagnostic; Owner: postgres
 --
 
@@ -266,7 +266,7 @@ ALTER TYPE error OWNER TO postgres;
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 1586 (class 1247 OID 17124)
+-- TOC entry 1610 (class 1247 OID 17110)
 -- Name: address_type; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -280,7 +280,7 @@ CREATE TYPE address_type AS ENUM (
 ALTER TYPE address_type OWNER TO postgres;
 
 --
--- TOC entry 1587 (class 1247 OID 17131)
+-- TOC entry 1611 (class 1247 OID 17117)
 -- Name: course_year; Type: DOMAIN; Schema: public; Owner: postgres
 --
 
@@ -291,7 +291,7 @@ CREATE DOMAIN course_year AS smallint
 ALTER DOMAIN course_year OWNER TO postgres;
 
 --
--- TOC entry 1589 (class 1247 OID 17134)
+-- TOC entry 1613 (class 1247 OID 17120)
 -- Name: explanation_type; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -305,7 +305,7 @@ CREATE TYPE explanation_type AS ENUM (
 ALTER TYPE explanation_type OWNER TO postgres;
 
 --
--- TOC entry 1113 (class 1247 OID 17142)
+-- TOC entry 1137 (class 1247 OID 17128)
 -- Name: file_extension; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -325,7 +325,7 @@ CREATE TYPE file_extension AS ENUM (
 ALTER TYPE file_extension OWNER TO postgres;
 
 --
--- TOC entry 1590 (class 1247 OID 17162)
+-- TOC entry 1614 (class 1247 OID 17148)
 -- Name: geographical_area; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -341,7 +341,7 @@ CREATE TYPE geographical_area AS ENUM (
 ALTER TYPE geographical_area OWNER TO postgres;
 
 --
--- TOC entry 1118 (class 1247 OID 17174)
+-- TOC entry 1142 (class 1247 OID 17160)
 -- Name: mime_type; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -361,7 +361,7 @@ CREATE TYPE mime_type AS ENUM (
 ALTER TYPE mime_type OWNER TO postgres;
 
 --
--- TOC entry 1121 (class 1247 OID 17193)
+-- TOC entry 1145 (class 1247 OID 17179)
 -- Name: mime_type_image; Type: DOMAIN; Schema: public; Owner: postgres
 --
 
@@ -372,7 +372,7 @@ CREATE DOMAIN mime_type_image AS mime_type
 ALTER DOMAIN mime_type_image OWNER TO postgres;
 
 --
--- TOC entry 1123 (class 1247 OID 17197)
+-- TOC entry 1147 (class 1247 OID 17183)
 -- Name: image; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -385,7 +385,7 @@ CREATE TYPE image AS (
 ALTER TYPE image OWNER TO postgres;
 
 --
--- TOC entry 1591 (class 1247 OID 17199)
+-- TOC entry 1615 (class 1247 OID 17185)
 -- Name: language; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -399,7 +399,7 @@ CREATE TYPE language AS ENUM (
 ALTER TYPE language OWNER TO postgres;
 
 --
--- TOC entry 1592 (class 1247 OID 17206)
+-- TOC entry 1616 (class 1247 OID 17192)
 -- Name: marital_status; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -414,7 +414,7 @@ CREATE TYPE marital_status AS ENUM (
 ALTER TYPE marital_status OWNER TO postgres;
 
 --
--- TOC entry 1593 (class 1247 OID 17215)
+-- TOC entry 1617 (class 1247 OID 17201)
 -- Name: period_lesson; Type: DOMAIN; Schema: public; Owner: postgres
 --
 
@@ -425,7 +425,7 @@ CREATE DOMAIN period_lesson AS smallint
 ALTER DOMAIN period_lesson OWNER TO postgres;
 
 --
--- TOC entry 1595 (class 1247 OID 17218)
+-- TOC entry 1619 (class 1247 OID 17204)
 -- Name: qualificationtion_types; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -441,7 +441,7 @@ CREATE TYPE qualificationtion_types AS ENUM (
 ALTER TYPE qualificationtion_types OWNER TO postgres;
 
 --
--- TOC entry 1596 (class 1247 OID 17230)
+-- TOC entry 1620 (class 1247 OID 17216)
 -- Name: relationships; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -457,7 +457,7 @@ CREATE TYPE relationships AS ENUM (
 ALTER TYPE relationships OWNER TO postgres;
 
 --
--- TOC entry 1597 (class 1247 OID 17242)
+-- TOC entry 1621 (class 1247 OID 17228)
 -- Name: role; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -474,7 +474,7 @@ CREATE TYPE role AS ENUM (
 ALTER TYPE role OWNER TO postgres;
 
 --
--- TOC entry 1598 (class 1247 OID 17256)
+-- TOC entry 1622 (class 1247 OID 17242)
 -- Name: sex; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -487,7 +487,7 @@ CREATE TYPE sex AS ENUM (
 ALTER TYPE sex OWNER TO postgres;
 
 --
--- TOC entry 1138 (class 1247 OID 17261)
+-- TOC entry 1162 (class 1247 OID 17247)
 -- Name: test_result; Type: DOMAIN; Schema: public; Owner: postgres
 --
 
@@ -497,7 +497,7 @@ CREATE DOMAIN test_result AS text;
 ALTER DOMAIN test_result OWNER TO postgres;
 
 --
--- TOC entry 1599 (class 1247 OID 17262)
+-- TOC entry 1623 (class 1247 OID 17248)
 -- Name: week; Type: DOMAIN; Schema: public; Owner: postgres
 --
 
@@ -508,7 +508,7 @@ CREATE DOMAIN week AS smallint
 ALTER DOMAIN week OWNER TO postgres;
 
 --
--- TOC entry 1601 (class 1247 OID 17264)
+-- TOC entry 1625 (class 1247 OID 17250)
 -- Name: week_day; Type: DOMAIN; Schema: public; Owner: postgres
 --
 
@@ -519,7 +519,7 @@ CREATE DOMAIN week_day AS smallint
 ALTER DOMAIN week_day OWNER TO postgres;
 
 --
--- TOC entry 1139 (class 1247 OID 17267)
+-- TOC entry 1163 (class 1247 OID 17253)
 -- Name: wikimedia_type; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -534,7 +534,7 @@ ALTER TYPE wikimedia_type OWNER TO postgres;
 SET search_path = unit_testing, pg_catalog;
 
 --
--- TOC entry 1142 (class 1247 OID 17272)
+-- TOC entry 1166 (class 1247 OID 17258)
 -- Name: check_point_status; Type: TYPE; Schema: unit_testing; Owner: postgres
 --
 
@@ -548,7 +548,7 @@ CREATE TYPE check_point_status AS ENUM (
 ALTER TYPE check_point_status OWNER TO postgres;
 
 --
--- TOC entry 1145 (class 1247 OID 17281)
+-- TOC entry 1169 (class 1247 OID 17267)
 -- Name: check_point; Type: TYPE; Schema: unit_testing; Owner: postgres
 --
 
@@ -564,7 +564,7 @@ CREATE TYPE check_point AS (
 ALTER TYPE check_point OWNER TO postgres;
 
 --
--- TOC entry 1148 (class 1247 OID 17284)
+-- TOC entry 1172 (class 1247 OID 17270)
 -- Name: unit_test_result; Type: TYPE; Schema: unit_testing; Owner: postgres
 --
 
@@ -579,7 +579,7 @@ ALTER TYPE unit_test_result OWNER TO postgres;
 SET search_path = utility, pg_catalog;
 
 --
--- TOC entry 1151 (class 1247 OID 17285)
+-- TOC entry 1175 (class 1247 OID 17271)
 -- Name: week_day; Type: DOMAIN; Schema: utility; Owner: postgres
 --
 
@@ -592,7 +592,7 @@ ALTER DOMAIN week_day OWNER TO postgres;
 SET search_path = assert, pg_catalog;
 
 --
--- TOC entry 534 (class 1255 OID 17287)
+-- TOC entry 562 (class 1255 OID 17273)
 -- Name: are_equal(anyarray); Type: FUNCTION; Schema: assert; Owner: postgres
 --
 
@@ -651,7 +651,7 @@ $_$;
 ALTER FUNCTION assert.are_equal(VARIADIC anyarray, OUT message text, OUT result boolean) OWNER TO postgres;
 
 --
--- TOC entry 535 (class 1255 OID 17288)
+-- TOC entry 563 (class 1255 OID 17274)
 -- Name: are_not_equal(anyarray); Type: FUNCTION; Schema: assert; Owner: postgres
 --
 
@@ -688,7 +688,7 @@ $_$;
 ALTER FUNCTION assert.are_not_equal(VARIADIC anyarray, OUT message text, OUT result boolean) OWNER TO postgres;
 
 --
--- TOC entry 536 (class 1255 OID 17289)
+-- TOC entry 564 (class 1255 OID 17275)
 -- Name: fail(text, text, text, diagnostic.error); Type: FUNCTION; Schema: assert; Owner: postgres
 --
 
@@ -719,7 +719,7 @@ $$;
 ALTER FUNCTION assert.fail(_function_name text, _test_name text, _message text, _error diagnostic.error, OUT _result unit_testing.unit_test_result) OWNER TO postgres;
 
 --
--- TOC entry 537 (class 1255 OID 17290)
+-- TOC entry 565 (class 1255 OID 17276)
 -- Name: is_equal(anyelement, anyelement); Type: FUNCTION; Schema: assert; Owner: postgres
 --
 
@@ -745,7 +745,7 @@ $_$;
 ALTER FUNCTION assert.is_equal(have anyelement, want anyelement, OUT message text, OUT result boolean) OWNER TO postgres;
 
 --
--- TOC entry 538 (class 1255 OID 17291)
+-- TOC entry 566 (class 1255 OID 17277)
 -- Name: is_false(boolean); Type: FUNCTION; Schema: assert; Owner: postgres
 --
 
@@ -771,7 +771,7 @@ $_$;
 ALTER FUNCTION assert.is_false(boolean, OUT message text, OUT result boolean) OWNER TO postgres;
 
 --
--- TOC entry 539 (class 1255 OID 17292)
+-- TOC entry 567 (class 1255 OID 17278)
 -- Name: is_greater_than(anyelement, anyelement); Type: FUNCTION; Schema: assert; Owner: postgres
 --
 
@@ -797,7 +797,7 @@ $_$;
 ALTER FUNCTION assert.is_greater_than(x anyelement, y anyelement, OUT message text, OUT result boolean) OWNER TO postgres;
 
 --
--- TOC entry 540 (class 1255 OID 17293)
+-- TOC entry 568 (class 1255 OID 17279)
 -- Name: is_less_than(anyelement, anyelement); Type: FUNCTION; Schema: assert; Owner: postgres
 --
 
@@ -823,7 +823,7 @@ $_$;
 ALTER FUNCTION assert.is_less_than(x anyelement, y anyelement, OUT message text, OUT result boolean) OWNER TO postgres;
 
 --
--- TOC entry 541 (class 1255 OID 17294)
+-- TOC entry 569 (class 1255 OID 17280)
 -- Name: is_not_equal(anyelement, anyelement); Type: FUNCTION; Schema: assert; Owner: postgres
 --
 
@@ -849,7 +849,7 @@ $_$;
 ALTER FUNCTION assert.is_not_equal(already_have anyelement, dont_want anyelement, OUT message text, OUT result boolean) OWNER TO postgres;
 
 --
--- TOC entry 542 (class 1255 OID 17295)
+-- TOC entry 570 (class 1255 OID 17281)
 -- Name: is_not_null(anyelement); Type: FUNCTION; Schema: assert; Owner: postgres
 --
 
@@ -875,7 +875,7 @@ $_$;
 ALTER FUNCTION assert.is_not_null(anyelement, OUT message text, OUT result boolean) OWNER TO postgres;
 
 --
--- TOC entry 543 (class 1255 OID 17296)
+-- TOC entry 571 (class 1255 OID 17282)
 -- Name: is_null(anyelement); Type: FUNCTION; Schema: assert; Owner: postgres
 --
 
@@ -901,7 +901,7 @@ $_$;
 ALTER FUNCTION assert.is_null(anyelement, OUT message text, OUT result boolean) OWNER TO postgres;
 
 --
--- TOC entry 544 (class 1255 OID 17297)
+-- TOC entry 572 (class 1255 OID 17283)
 -- Name: is_true(boolean); Type: FUNCTION; Schema: assert; Owner: postgres
 --
 
@@ -927,7 +927,7 @@ $_$;
 ALTER FUNCTION assert.is_true(boolean, OUT message text, OUT result boolean) OWNER TO postgres;
 
 --
--- TOC entry 545 (class 1255 OID 17298)
+-- TOC entry 573 (class 1255 OID 17284)
 -- Name: pass(text, text, text); Type: FUNCTION; Schema: assert; Owner: postgres
 --
 
@@ -959,7 +959,7 @@ ALTER FUNCTION assert.pass(_function_name text, _test_name text, _message text, 
 SET search_path = diagnostic, pg_catalog;
 
 --
--- TOC entry 546 (class 1255 OID 17299)
+-- TOC entry 574 (class 1255 OID 17285)
 -- Name: function_exists(regprocedure); Type: FUNCTION; Schema: diagnostic; Owner: postgres
 --
 
@@ -979,7 +979,7 @@ $$;
 ALTER FUNCTION diagnostic.function_exists(_function_signature regprocedure, OUT _found boolean) OWNER TO postgres;
 
 --
--- TOC entry 710 (class 1255 OID 17300)
+-- TOC entry 575 (class 1255 OID 17286)
 -- Name: function_name(text); Type: FUNCTION; Schema: diagnostic; Owner: postgres
 --
 
@@ -999,8 +999,8 @@ $$;
 ALTER FUNCTION diagnostic.function_name(_context text, OUT _function_name text) OWNER TO postgres;
 
 --
--- TOC entry 3963 (class 0 OID 0)
--- Dependencies: 710
+-- TOC entry 3961 (class 0 OID 0)
+-- Dependencies: 575
 -- Name: FUNCTION function_name(_context text, OUT _function_name text); Type: COMMENT; Schema: diagnostic; Owner: postgres
 --
 
@@ -1022,7 +1022,7 @@ But you have to manage the different ways you function will called (from another
 
 
 --
--- TOC entry 547 (class 1255 OID 17301)
+-- TOC entry 576 (class 1255 OID 17287)
 -- Name: function_syntax_error(text, text); Type: FUNCTION; Schema: diagnostic; Owner: postgres
 --
 
@@ -1048,7 +1048,7 @@ $$;
 ALTER FUNCTION diagnostic.function_syntax_error(_function_name text, _message_text text) OWNER TO postgres;
 
 --
--- TOC entry 548 (class 1255 OID 17302)
+-- TOC entry 577 (class 1255 OID 17288)
 -- Name: if_function_compile(text); Type: FUNCTION; Schema: diagnostic; Owner: postgres
 --
 
@@ -1071,7 +1071,7 @@ $$;
 ALTER FUNCTION diagnostic.if_function_compile(_function_signature text, OUT _compile boolean) OWNER TO postgres;
 
 --
--- TOC entry 549 (class 1255 OID 17303)
+-- TOC entry 578 (class 1255 OID 17289)
 -- Name: if_view_works(text); Type: FUNCTION; Schema: diagnostic; Owner: postgres
 --
 
@@ -1100,7 +1100,7 @@ $$;
 ALTER FUNCTION diagnostic.if_view_works(_view_name text, OUT _works boolean) OWNER TO postgres;
 
 --
--- TOC entry 550 (class 1255 OID 17304)
+-- TOC entry 579 (class 1255 OID 17290)
 -- Name: show(error); Type: FUNCTION; Schema: diagnostic; Owner: postgres
 --
 
@@ -1130,7 +1130,7 @@ $$;
 ALTER FUNCTION diagnostic.show(_error error) OWNER TO postgres;
 
 --
--- TOC entry 551 (class 1255 OID 17305)
+-- TOC entry 580 (class 1255 OID 17291)
 -- Name: test_function_name(); Type: FUNCTION; Schema: diagnostic; Owner: postgres
 --
 
@@ -1150,8 +1150,8 @@ $$;
 ALTER FUNCTION diagnostic.test_function_name() OWNER TO postgres;
 
 --
--- TOC entry 3964 (class 0 OID 0)
--- Dependencies: 551
+-- TOC entry 3962 (class 0 OID 0)
+-- Dependencies: 580
 -- Name: FUNCTION test_function_name(); Type: COMMENT; Schema: diagnostic; Owner: postgres
 --
 
@@ -1161,7 +1161,7 @@ COMMENT ON FUNCTION test_function_name() IS 'Show the correct use of function_na
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 587 (class 1255 OID 17313)
+-- TOC entry 616 (class 1255 OID 17292)
 -- Name: classroom_students_ex(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1200,7 +1200,7 @@ $$;
 ALTER FUNCTION public.classroom_students_ex(p_classroom bigint) OWNER TO postgres;
 
 --
--- TOC entry 589 (class 1255 OID 17314)
+-- TOC entry 617 (class 1255 OID 17293)
 -- Name: classrooms_list(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1246,7 +1246,7 @@ $$;
 ALTER FUNCTION public.classrooms_list(p_school_year bigint) OWNER TO postgres;
 
 --
--- TOC entry 590 (class 1255 OID 17315)
+-- TOC entry 618 (class 1255 OID 17294)
 -- Name: classrooms_students_addresses_ex_by_classroom(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1281,7 +1281,7 @@ $$;
 ALTER FUNCTION public.classrooms_students_addresses_ex_by_classroom(p_classroom bigint) OWNER TO postgres;
 
 --
--- TOC entry 552 (class 1255 OID 17316)
+-- TOC entry 581 (class 1255 OID 17295)
 -- Name: file_extension(mime_type); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1332,7 +1332,7 @@ $$;
 ALTER FUNCTION public.file_extension(p_mime_type mime_type) OWNER TO postgres;
 
 --
--- TOC entry 588 (class 1255 OID 17317)
+-- TOC entry 619 (class 1255 OID 17296)
 -- Name: grade_types_by_subject(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1357,7 +1357,7 @@ $$;
 ALTER FUNCTION public.grade_types_by_subject(p_subject bigint) OWNER TO postgres;
 
 --
--- TOC entry 591 (class 1255 OID 17318)
+-- TOC entry 620 (class 1255 OID 17297)
 -- Name: grades_by_metric(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1385,7 +1385,7 @@ $$;
 ALTER FUNCTION public.grades_by_metric(p_metric bigint) OWNER TO postgres;
 
 --
--- TOC entry 592 (class 1255 OID 17319)
+-- TOC entry 621 (class 1255 OID 17298)
 -- Name: grid_valutations_columns_by_classroom_teacher_subject(bigint, bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1420,7 +1420,7 @@ $$;
 ALTER FUNCTION public.grid_valutations_columns_by_classroom_teacher_subject(p_classroom bigint, p_teacher bigint, p_subject bigint) OWNER TO postgres;
 
 --
--- TOC entry 593 (class 1255 OID 17320)
+-- TOC entry 622 (class 1255 OID 17299)
 -- Name: grid_valutations_rows_by_classroom_teacher_subject(bigint, bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1557,7 +1557,7 @@ $$;
 ALTER FUNCTION public.grid_valutations_rows_by_classroom_teacher_subject(p_classroom bigint, p_teacher bigint, p_subject bigint) OWNER TO postgres;
 
 --
--- TOC entry 594 (class 1255 OID 17322)
+-- TOC entry 623 (class 1255 OID 17301)
 -- Name: in_rule(character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1580,16 +1580,16 @@ $$;
 ALTER FUNCTION public.in_rule(p_rule character varying) OWNER TO postgres;
 
 --
--- TOC entry 3972 (class 0 OID 0)
--- Dependencies: 594
+-- TOC entry 3970 (class 0 OID 0)
+-- Dependencies: 623
 -- Name: FUNCTION in_rule(p_rule character varying); Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON FUNCTION in_rule(p_rule character varying) IS 'Il comando  restituisce TRUE o FALSE a seconfrom_time se l''db_user collegato Ã¨ abilitato to_time rule indicato in input';
+COMMENT ON FUNCTION in_rule(p_rule character varying) IS 'Il comando  restituisce TRUE o FALSE a seconfrom_time se l''db_user collegato è abilitato to_time rule indicato in input';
 
 
 --
--- TOC entry 595 (class 1255 OID 17323)
+-- TOC entry 585 (class 1255 OID 17302)
 -- Name: in_rule(character varying, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1609,16 +1609,16 @@ $$;
 ALTER FUNCTION public.in_rule(p_rule character varying, p_person bigint) OWNER TO postgres;
 
 --
--- TOC entry 3974 (class 0 OID 0)
--- Dependencies: 595
+-- TOC entry 3972 (class 0 OID 0)
+-- Dependencies: 585
 -- Name: FUNCTION in_rule(p_rule character varying, p_person bigint); Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON FUNCTION in_rule(p_rule character varying, p_person bigint) IS 'Il comando  restituisce TRUE o FALSE a seconfrom_time se la person indicata in input Ã¨ abilitata to_time rule indicato in input';
+COMMENT ON FUNCTION in_rule(p_rule character varying, p_person bigint) IS 'Il comando  restituisce TRUE o FALSE a seconfrom_time se la person indicata in input è abilitata to_time rule indicato in input';
 
 
 --
--- TOC entry 596 (class 1255 OID 17324)
+-- TOC entry 624 (class 1255 OID 17303)
 -- Name: in_rule(character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1641,16 +1641,16 @@ $$;
 ALTER FUNCTION public.in_rule(p_rule character varying, p_usename character varying) OWNER TO postgres;
 
 --
--- TOC entry 3976 (class 0 OID 0)
--- Dependencies: 596
+-- TOC entry 3974 (class 0 OID 0)
+-- Dependencies: 624
 -- Name: FUNCTION in_rule(p_rule character varying, p_usename character varying); Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON FUNCTION in_rule(p_rule character varying, p_usename character varying) IS 'Il comando  restituisce TRUE o FALSE a seconfrom_time se l''db_user indicato Ã¨ abilitato to_time rule indicato in input';
+COMMENT ON FUNCTION in_rule(p_rule character varying, p_usename character varying) IS 'Il comando  restituisce TRUE o FALSE a seconfrom_time se l''db_user indicato è abilitato to_time rule indicato in input';
 
 
 --
--- TOC entry 597 (class 1255 OID 17325)
+-- TOC entry 625 (class 1255 OID 17304)
 -- Name: is_person_enable_to_any(character varying[], bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1675,7 +1675,7 @@ $$;
 ALTER FUNCTION public.is_person_enable_to_any(p_ruoli character varying[], p_person bigint) OWNER TO postgres;
 
 --
--- TOC entry 598 (class 1255 OID 17326)
+-- TOC entry 626 (class 1255 OID 17305)
 -- Name: is_session_user_enable_to_any(character varying[]); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1703,7 +1703,7 @@ $$;
 ALTER FUNCTION public.is_session_user_enable_to_any(p_ruoli character varying[]) OWNER TO postgres;
 
 --
--- TOC entry 553 (class 1255 OID 17327)
+-- TOC entry 582 (class 1255 OID 17306)
 -- Name: italian_fiscal_code(character varying, character varying, sex, date, smallint, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1772,16 +1772,16 @@ BEGIN
   END IF;  
      
   -- calcolate surname
-  _surname := translate(upper(_surname),'0123456789\/!|"Â£$%&()=?^*+-_.,:;@#Ã§Â°Â§[]{}<>''  ','');
-  _surname := translate(_surname,'Ã²Ã Ã¹Ã¨Ã©Ã¬','OAUEEI');
+  _surname := translate(upper(_surname),'0123456789\/!|"£$%&()=?^*+-_.,:;@#ç°§[]{}<>''  ','');
+  _surname := translate(_surname,'òàùèéì','OAUEEI');
   buffer := translate(_surname, 'AEIOU', '');
   buffer := buffer || translate(_surname, 'BCDFGHJKLMNPQRSTVWXYZ','');
   buffer := buffer || 'XXX';
   fiscal_code := left(buffer, 3);
 
   -- calcolate name
-  _name := translate(upper(_name),'0123456789\/!|"Â£$%&()=?^*+-_.,:;@#Ã§Â°Â§[]{}<>''  ','');
-  _name := translate(_name,'Ã²Ã Ã¹Ã¨Ã©Ã¬','OAUEEI');
+  _name := translate(upper(_name),'0123456789\/!|"£$%&()=?^*+-_.,:;@#ç°§[]{}<>''  ','');
+  _name := translate(_name,'òàùèéì','OAUEEI');
   buffer = translate(upper(_name), 'AEIOU', '');
   IF length(buffer) > 3 THEN
      buffer = left(buffer,1) || right(buffer, length(buffer)-2); 
@@ -1826,7 +1826,7 @@ $_$;
 ALTER FUNCTION public.italian_fiscal_code(_name character varying, _surname character varying, _sex sex, _birthday date, _country_of_birth smallint, _city_of_birth character varying) OWNER TO postgres;
 
 --
--- TOC entry 599 (class 1255 OID 17328)
+-- TOC entry 627 (class 1255 OID 17307)
 -- Name: lessons_by_teacher_classroom_subject(bigint, bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1855,8 +1855,8 @@ $$;
 ALTER FUNCTION public.lessons_by_teacher_classroom_subject(p_teacher bigint, p_classroom bigint, p_subject bigint) OWNER TO postgres;
 
 --
--- TOC entry 3980 (class 0 OID 0)
--- Dependencies: 599
+-- TOC entry 3978 (class 0 OID 0)
+-- Dependencies: 627
 -- Name: FUNCTION lessons_by_teacher_classroom_subject(p_teacher bigint, p_classroom bigint, p_subject bigint); Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -1864,7 +1864,7 @@ COMMENT ON FUNCTION lessons_by_teacher_classroom_subject(p_teacher bigint, p_cla
 
 
 --
--- TOC entry 600 (class 1255 OID 17329)
+-- TOC entry 628 (class 1255 OID 17308)
 -- Name: metrics_by_school(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1889,7 +1889,7 @@ $$;
 ALTER FUNCTION public.metrics_by_school(p_school bigint) OWNER TO postgres;
 
 --
--- TOC entry 554 (class 1255 OID 17330)
+-- TOC entry 583 (class 1255 OID 17309)
 -- Name: mime_type(file_extension); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1942,7 +1942,7 @@ $$;
 ALTER FUNCTION public.mime_type(p_file_extension file_extension) OWNER TO postgres;
 
 --
--- TOC entry 555 (class 1255 OID 17331)
+-- TOC entry 584 (class 1255 OID 17310)
 -- Name: my_sqlcode(text, character); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -2256,7 +2256,7 @@ $$;
 ALTER FUNCTION public.my_sqlcode(p_function text, p_id character) OWNER TO postgres;
 
 --
--- TOC entry 601 (class 1255 OID 17333)
+-- TOC entry 629 (class 1255 OID 17312)
 -- Name: persons_sel_thumbnail(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -2283,7 +2283,7 @@ $$;
 ALTER FUNCTION public.persons_sel_thumbnail(p_person bigint) OWNER TO postgres;
 
 --
--- TOC entry 602 (class 1255 OID 17334)
+-- TOC entry 631 (class 1255 OID 17313)
 -- Name: persons_surname_name(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -2317,7 +2317,7 @@ $$;
 ALTER FUNCTION public.persons_surname_name(p_person bigint) OWNER TO postgres;
 
 --
--- TOC entry 603 (class 1255 OID 17335)
+-- TOC entry 632 (class 1255 OID 17314)
 -- Name: photo_default(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -2384,19 +2384,19 @@ $$;
 ALTER FUNCTION public.photo_default() OWNER TO postgres;
 
 --
--- TOC entry 3985 (class 0 OID 0)
--- Dependencies: 603
+-- TOC entry 3983 (class 0 OID 0)
+-- Dependencies: 632
 -- Name: FUNCTION photo_default(); Type: COMMENT; Schema: public; Owner: postgres
 --
 
 COMMENT ON FUNCTION photo_default() IS 'Restituisce l''immagine di default per la photo della person
 ****************************************
-* Questa funzione Ã¨ definita IMMUTABLE *
+* Questa funzione è definita IMMUTABLE *
 ****************************************';
 
 
 --
--- TOC entry 604 (class 1255 OID 17337)
+-- TOC entry 633 (class 1255 OID 17316)
 -- Name: qualificationtions_tree(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -2433,7 +2433,7 @@ $$;
 ALTER FUNCTION public.qualificationtions_tree() OWNER TO postgres;
 
 --
--- TOC entry 605 (class 1255 OID 17338)
+-- TOC entry 634 (class 1255 OID 17317)
 -- Name: relatives_by_classroom(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -2497,7 +2497,7 @@ $$;
 ALTER FUNCTION public.relatives_by_classroom(p_classroom bigint) OWNER TO postgres;
 
 --
--- TOC entry 606 (class 1255 OID 17339)
+-- TOC entry 635 (class 1255 OID 17318)
 -- Name: rs_columns_list(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -2518,7 +2518,7 @@ $$;
 ALTER FUNCTION public.rs_columns_list() OWNER TO postgres;
 
 --
--- TOC entry 607 (class 1255 OID 17340)
+-- TOC entry 630 (class 1255 OID 17319)
 -- Name: rs_rows_list(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -2539,7 +2539,7 @@ $$;
 ALTER FUNCTION public.rs_rows_list() OWNER TO postgres;
 
 --
--- TOC entry 608 (class 1255 OID 17341)
+-- TOC entry 636 (class 1255 OID 17320)
 -- Name: ruoli_by_session_user(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -2565,7 +2565,7 @@ $$;
 ALTER FUNCTION public.ruoli_by_session_user() OWNER TO postgres;
 
 --
--- TOC entry 609 (class 1255 OID 17342)
+-- TOC entry 637 (class 1255 OID 17321)
 -- Name: school_years_list(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -2611,7 +2611,7 @@ $$;
 ALTER FUNCTION public.school_years_list(p_school bigint) OWNER TO postgres;
 
 --
--- TOC entry 611 (class 1255 OID 17343)
+-- TOC entry 638 (class 1255 OID 17322)
 -- Name: schools_by_description(character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -2638,7 +2638,7 @@ $$;
 ALTER FUNCTION public.schools_by_description(p_description character varying) OWNER TO postgres;
 
 --
--- TOC entry 612 (class 1255 OID 17344)
+-- TOC entry 640 (class 1255 OID 17323)
 -- Name: schools_del(bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -2671,10 +2671,10 @@ DELETE FROM system_messages WHERE function_name = 'schools_del';
 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('schools_del',1,'it','Non Ã¨ stata trovata nessuna riga nella tabella ''schools'' con: ''revisione'' = ''%s'',  ''school'' = ''%s'''); 
+                     VALUES ('schools_del',1,'it','Non è stata trovata nessuna riga nella tabella ''schools'' con: ''revisione'' = ''%s'',  ''school'' = ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('schools_del',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('schools_del',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('schools_del',3,'it','Controllare il valore di: ''revisione'', ''school'' e riprovare l''operazione'); 
@@ -2701,7 +2701,7 @@ $$;
 ALTER FUNCTION public.schools_del(p_rv bigint, p_school bigint) OWNER TO postgres;
 
 --
--- TOC entry 610 (class 1255 OID 17345)
+-- TOC entry 641 (class 1255 OID 17324)
 -- Name: schools_del_cascade(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3063,8 +3063,8 @@ $$;
 ALTER FUNCTION public.schools_del_cascade(school_da_cancellare bigint) OWNER TO postgres;
 
 --
--- TOC entry 3995 (class 0 OID 0)
--- Dependencies: 610
+-- TOC entry 3993 (class 0 OID 0)
+-- Dependencies: 641
 -- Name: FUNCTION schools_del_cascade(school_da_cancellare bigint); Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -3072,7 +3072,7 @@ COMMENT ON FUNCTION schools_del_cascade(school_da_cancellare bigint) IS 'Il coma
 
 
 --
--- TOC entry 613 (class 1255 OID 17346)
+-- TOC entry 642 (class 1255 OID 17325)
 -- Name: schools_enabled(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3092,7 +3092,7 @@ $$;
 ALTER FUNCTION public.schools_enabled() OWNER TO postgres;
 
 --
--- TOC entry 614 (class 1255 OID 17347)
+-- TOC entry 643 (class 1255 OID 17326)
 -- Name: schools_ins(character varying, character varying, character varying, boolean); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3135,7 +3135,7 @@ $$;
 ALTER FUNCTION public.schools_ins(OUT p_rv bigint, OUT p_school bigint, p_description character varying, p_on_date_processing_code character varying, p_mnemonic character varying, p_example boolean) OWNER TO postgres;
 
 --
--- TOC entry 616 (class 1255 OID 17348)
+-- TOC entry 645 (class 1255 OID 17327)
 -- Name: schools_ins(character varying, character varying, character varying, boolean, bytea); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3178,7 +3178,7 @@ $$;
 ALTER FUNCTION public.schools_ins(OUT p_rv bigint, OUT p_school bigint, p_description character varying, p_on_date_processing_code character varying, p_mnemonic character varying, p_example boolean, p_logo bytea) OWNER TO postgres;
 
 --
--- TOC entry 615 (class 1255 OID 17349)
+-- TOC entry 646 (class 1255 OID 17328)
 -- Name: schools_list(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3208,7 +3208,7 @@ $$;
 ALTER FUNCTION public.schools_list() OWNER TO postgres;
 
 --
--- TOC entry 617 (class 1255 OID 17350)
+-- TOC entry 647 (class 1255 OID 17329)
 -- Name: schools_sel(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3239,10 +3239,10 @@ CREATE FUNCTION schools_sel(OUT p_rv bigint, p_school bigint, OUT p_description 
 DELETE FROM system_messages WHERE function_name = 'schools_sel';
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('schools_sel',1,'it','Non Ã¨ stata trovata nessuna riga nella tabella ''schools'' con:  ''school'' = ''%s'''); 
+                     VALUES ('schools_sel',1,'it','Non è stata trovata nessuna riga nella tabella ''schools'' con:  ''school'' = ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('schools_sel',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('schools_sel',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('schools_sel',3,'it','Controllare il valore di: ''school'' e riprovare l''operazione'); 
@@ -3274,7 +3274,7 @@ $$;
 ALTER FUNCTION public.schools_sel(OUT p_rv bigint, p_school bigint, OUT p_description character varying, OUT p_on_date_processing_code character varying, OUT p_mnemonic character varying, OUT p_example boolean, OUT p_logo bytea) OWNER TO postgres;
 
 --
--- TOC entry 618 (class 1255 OID 17351)
+-- TOC entry 639 (class 1255 OID 17330)
 -- Name: schools_sel_logo(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3302,7 +3302,7 @@ $$;
 ALTER FUNCTION public.schools_sel_logo(p_school bigint) OWNER TO postgres;
 
 --
--- TOC entry 619 (class 1255 OID 17352)
+-- TOC entry 649 (class 1255 OID 17331)
 -- Name: schools_upd(bigint, bigint, character varying, character varying, character varying, boolean); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3333,10 +3333,10 @@ CREATE FUNCTION schools_upd(p_rv bigint, p_school bigint, p_description characte
 DELETE FROM system_messages WHERE function_name = 'schools_upd';
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('schools_upd',1,'it','Non Ã¨ stata trovata nessuna riga nella tabella ''schools'' con: ''revisione'' = ''%s'',  ''school'' = ''%s'''); 
+                     VALUES ('schools_upd',1,'it','Non è stata trovata nessuna riga nella tabella ''schools'' con: ''revisione'' = ''%s'',  ''school'' = ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('schools_upd',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('schools_upd',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('schools_upd',3,'it','Controllare il valore di: ''revisione'', ''school'' e riprovare l''operazione'); 
@@ -3365,7 +3365,7 @@ $$;
 ALTER FUNCTION public.schools_upd(p_rv bigint, p_school bigint, p_description character varying, p_on_date_processing_code character varying, p_mnemonic character varying, p_example boolean) OWNER TO postgres;
 
 --
--- TOC entry 621 (class 1255 OID 17353)
+-- TOC entry 650 (class 1255 OID 17332)
 -- Name: schools_upd(bigint, bigint, character varying, character varying, character varying, boolean, bytea); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3396,10 +3396,10 @@ CREATE FUNCTION schools_upd(p_rv bigint, p_school bigint, p_description characte
 DELETE FROM system_messages WHERE function_name = 'schools_upd';
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('schools_upd',1,'it','Non Ã¨ stata trovata nessuna riga nella tabella ''schools'' con: ''revisione'' = ''%s'',  ''school'' = ''%s'''); 
+                     VALUES ('schools_upd',1,'it','Non è stata trovata nessuna riga nella tabella ''schools'' con: ''revisione'' = ''%s'',  ''school'' = ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('schools_upd',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('schools_upd',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('schools_upd',3,'it','Controllare il valore di: ''revisione'', ''school'' e riprovare l''operazione'); 
@@ -3428,7 +3428,7 @@ $$;
 ALTER FUNCTION public.schools_upd(p_rv bigint, p_school bigint, p_description character varying, p_on_date_processing_code character varying, p_mnemonic character varying, p_example boolean, p_logo bytea) OWNER TO postgres;
 
 --
--- TOC entry 622 (class 1255 OID 17354)
+-- TOC entry 644 (class 1255 OID 17333)
 -- Name: schools_upd_logo(bigint, bigint, bytea); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3455,7 +3455,7 @@ $$;
 ALTER FUNCTION public.schools_upd_logo(p_rv bigint, p_school bigint, p_logo bytea) OWNER TO postgres;
 
 --
--- TOC entry 623 (class 1255 OID 17355)
+-- TOC entry 648 (class 1255 OID 17334)
 -- Name: session_db_user(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3481,8 +3481,8 @@ $$;
 ALTER FUNCTION public.session_db_user() OWNER TO postgres;
 
 --
--- TOC entry 4006 (class 0 OID 0)
--- Dependencies: 623
+-- TOC entry 4004 (class 0 OID 0)
+-- Dependencies: 648
 -- Name: FUNCTION session_db_user(); Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -3490,7 +3490,7 @@ COMMENT ON FUNCTION session_db_user() IS 'Il comando  restituisce l''db_user col
 
 
 --
--- TOC entry 620 (class 1255 OID 17356)
+-- TOC entry 651 (class 1255 OID 17335)
 -- Name: session_person(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3517,8 +3517,8 @@ $$;
 ALTER FUNCTION public.session_person(p_school bigint) OWNER TO postgres;
 
 --
--- TOC entry 4008 (class 0 OID 0)
--- Dependencies: 620
+-- TOC entry 4006 (class 0 OID 0)
+-- Dependencies: 651
 -- Name: FUNCTION session_person(p_school bigint); Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -3526,7 +3526,7 @@ COMMENT ON FUNCTION session_person(p_school bigint) IS 'Il comando  restituisce 
 
 
 --
--- TOC entry 624 (class 1255 OID 17357)
+-- TOC entry 652 (class 1255 OID 17336)
 -- Name: set_work_space_default(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3556,7 +3556,7 @@ $$;
 ALTER FUNCTION public.set_work_space_default(p_work_space bigint) OWNER TO postgres;
 
 --
--- TOC entry 625 (class 1255 OID 17358)
+-- TOC entry 653 (class 1255 OID 17337)
 -- Name: signatures_by_teacher_classroom(bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3581,7 +3581,7 @@ $$;
 ALTER FUNCTION public.signatures_by_teacher_classroom(p_teacher bigint, p_classroom bigint) OWNER TO postgres;
 
 --
--- TOC entry 626 (class 1255 OID 17359)
+-- TOC entry 654 (class 1255 OID 17338)
 -- Name: students_by_classroom(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3646,7 +3646,7 @@ $$;
 ALTER FUNCTION public.students_by_classroom(p_classroom bigint) OWNER TO postgres;
 
 --
--- TOC entry 627 (class 1255 OID 17360)
+-- TOC entry 656 (class 1255 OID 17339)
 -- Name: subjects_del(bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3679,10 +3679,10 @@ DELETE FROM system_messages WHERE function_name = 'subjects_del';
 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('subjects_del',1,'it','Non Ã¨ stata trovata nessuna riga nella tabella ''subjects'' con: ''revisione'' = ''%s'',  ''subject'' = ''%s'''); 
+                     VALUES ('subjects_del',1,'it','Non è stata trovata nessuna riga nella tabella ''subjects'' con: ''revisione'' = ''%s'',  ''subject'' = ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('subjects_del',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('subjects_del',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('subjects_del',3,'it','Controllare il valore di: ''revisione'', ''subject'' e riprovare l''operazione'); 
@@ -3711,7 +3711,7 @@ $$;
 ALTER FUNCTION public.subjects_del(p_rv bigint, p_subject bigint) OWNER TO postgres;
 
 --
--- TOC entry 628 (class 1255 OID 17361)
+-- TOC entry 657 (class 1255 OID 17340)
 -- Name: subjects_ins(bigint, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3754,7 +3754,7 @@ $$;
 ALTER FUNCTION public.subjects_ins(OUT p_rv bigint, OUT p_subject bigint, p_school bigint, p_description character varying) OWNER TO postgres;
 
 --
--- TOC entry 630 (class 1255 OID 17362)
+-- TOC entry 658 (class 1255 OID 17341)
 -- Name: subjects_ins(bigint, character varying, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3797,7 +3797,7 @@ $$;
 ALTER FUNCTION public.subjects_ins(OUT p_rv bigint, OUT p_subject bigint, p_school bigint, p_description character varying, p_metric bigint) OWNER TO postgres;
 
 --
--- TOC entry 629 (class 1255 OID 17363)
+-- TOC entry 659 (class 1255 OID 17342)
 -- Name: subjects_list(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3842,7 +3842,7 @@ $$;
 ALTER FUNCTION public.subjects_list(p_school bigint) OWNER TO postgres;
 
 --
--- TOC entry 631 (class 1255 OID 17364)
+-- TOC entry 660 (class 1255 OID 17343)
 -- Name: subjects_sel(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3873,10 +3873,10 @@ CREATE FUNCTION subjects_sel(OUT p_rv bigint, p_subject bigint, OUT p_school big
 DELETE FROM system_messages WHERE function_name = 'subjects_sel';
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('subjects_sel',1,'it','Non Ã¨ stata trovata nessuna riga nella tabella ''subjects'' con:  ''subject'' = ''%s'''); 
+                     VALUES ('subjects_sel',1,'it','Non è stata trovata nessuna riga nella tabella ''subjects'' con:  ''subject'' = ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('subjects_sel',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('subjects_sel',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('subjects_sel',3,'it','Controllare il valore di: ''subject'' e riprovare l''operazione'); 
@@ -3908,7 +3908,7 @@ $$;
 ALTER FUNCTION public.subjects_sel(OUT p_rv bigint, p_subject bigint, OUT p_school bigint, OUT p_description character varying) OWNER TO postgres;
 
 --
--- TOC entry 632 (class 1255 OID 17365)
+-- TOC entry 662 (class 1255 OID 17344)
 -- Name: subjects_upd(bigint, bigint, bigint, character varying, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -3939,10 +3939,10 @@ CREATE FUNCTION subjects_upd(p_rv bigint, p_subject bigint, p_school bigint, p_d
 DELETE FROM system_messages WHERE function_name = 'subjects_upd';
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('subjects_upd',1,'it','Non Ã¨ stata trovata nessuna riga nella tabella ''subjects'' con: ''revisione'' = ''%s'',  ''subject'' = ''%s'''); 
+                     VALUES ('subjects_upd',1,'it','Non è stata trovata nessuna riga nella tabella ''subjects'' con: ''revisione'' = ''%s'',  ''subject'' = ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('subjects_upd',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('subjects_upd',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('subjects_upd',3,'it','Controllare il valore di: ''revisione'', ''subject'' e riprovare l''operazione'); 
@@ -3971,7 +3971,7 @@ $$;
 ALTER FUNCTION public.subjects_upd(p_rv bigint, p_subject bigint, p_school bigint, p_description character varying, p_metric bigint) OWNER TO postgres;
 
 --
--- TOC entry 633 (class 1255 OID 17366)
+-- TOC entry 663 (class 1255 OID 17345)
 -- Name: teachers_by_school(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -4023,7 +4023,7 @@ $$;
 ALTER FUNCTION public.teachers_by_school(p_school bigint) OWNER TO postgres;
 
 --
--- TOC entry 634 (class 1255 OID 17367)
+-- TOC entry 664 (class 1255 OID 17346)
 -- Name: thumbnail_default(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -4055,19 +4055,19 @@ $$;
 ALTER FUNCTION public.thumbnail_default() OWNER TO postgres;
 
 --
--- TOC entry 4020 (class 0 OID 0)
--- Dependencies: 634
+-- TOC entry 4018 (class 0 OID 0)
+-- Dependencies: 664
 -- Name: FUNCTION thumbnail_default(); Type: COMMENT; Schema: public; Owner: postgres
 --
 
 COMMENT ON FUNCTION thumbnail_default() IS 'Restituisce l''immagine di default per la miniatura della photo della person
 ****************************************
-* Questa funzione Ã¨ definita IMMUTABLE *
+* Questa funzione è definita IMMUTABLE *
 ****************************************';
 
 
 --
--- TOC entry 635 (class 1255 OID 17368)
+-- TOC entry 665 (class 1255 OID 17347)
 -- Name: topics_by_subject_classroom(bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -4095,7 +4095,7 @@ $$;
 ALTER FUNCTION public.topics_by_subject_classroom(p_subject bigint, p_classroom bigint) OWNER TO postgres;
 
 --
--- TOC entry 636 (class 1255 OID 17369)
+-- TOC entry 666 (class 1255 OID 17348)
 -- Name: topics_del(bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -4109,7 +4109,7 @@ CREATE FUNCTION topics_del(p_rv bigint, p_topic bigint) RETURNS void
  *
  * Progetto... Scuola247
  * Versione... 1.0.0
- * Date....... martedÃ¬ 02 settembre 2014 (18:39:17 CEST)
+ * Date....... martedì 02 settembre 2014 (18:39:17 CEST)
  * 
  * This copyrighted subjectl is made available to anyone wishing to use,
  * modify, copy, or redistribute it subject to the terms and conditions
@@ -4128,10 +4128,10 @@ DELETE FROM system_messages WHERE function_name = 'topics_del';
 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('topics_del',1,'it','Non Ã¨ stata trovata nessuna riga nella tabella ''topics'' con: ''revisione'' = ''%s'',  ''topic'' = ''%s'''); 
+                     VALUES ('topics_del',1,'it','Non è stata trovata nessuna riga nella tabella ''topics'' con: ''revisione'' = ''%s'',  ''topic'' = ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('topics_del',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('topics_del',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('topics_del',3,'it','Controllare il valore di: ''revisione'', ''topic'' e riprovare l''operazione'); 
@@ -4160,7 +4160,7 @@ $$;
 ALTER FUNCTION public.topics_del(p_rv bigint, p_topic bigint) OWNER TO postgres;
 
 --
--- TOC entry 637 (class 1255 OID 17370)
+-- TOC entry 667 (class 1255 OID 17349)
 -- Name: topics_ins_rid(bigint, character varying, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -4174,7 +4174,7 @@ CREATE FUNCTION topics_ins_rid(OUT p_rv bigint, OUT p_topic bigint, p_subject bi
  *
  * Progetto... Scuola247
  * Versione... 1.0.0
- * Date....... martedÃ¬ 02 settembre 2014 (18:39:17 CEST)
+ * Date....... martedì 02 settembre 2014 (18:39:17 CEST)
  * 
  * This copyrighted subjectl is made available to anyone wishing to use,
  * modify, copy, or redistribute it subject to the terms and conditions
@@ -4194,10 +4194,10 @@ DELETE FROM system_messages WHERE function_name = 'topics_ins_rid';
 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('topics_ins_rid',1,'it','Non Ã¨ stata trovata la classroom: ''%s'''); 
+                     VALUES ('topics_ins_rid',1,'it','Non è stata trovata la classroom: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('topics_ins_rid',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('topics_ins_rid',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('topics_ins_rid',3,'it','Controllare il valore della classroom e riprovare l''operazione'); 
@@ -4230,7 +4230,7 @@ $$;
 ALTER FUNCTION public.topics_ins_rid(OUT p_rv bigint, OUT p_topic bigint, p_subject bigint, p_description character varying, p_classroom bigint) OWNER TO postgres;
 
 --
--- TOC entry 638 (class 1255 OID 17371)
+-- TOC entry 668 (class 1255 OID 17350)
 -- Name: topics_upd_rid(bigint, bigint, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -4244,7 +4244,7 @@ CREATE FUNCTION topics_upd_rid(p_rv bigint, p_topic bigint, p_description charac
  *
  * Progetto... Scuola247
  * Versione... 1.0.0
- * Date....... martedÃ¬ 02 settembre 2014 (18:55:26 CEST)
+ * Date....... martedì 02 settembre 2014 (18:55:26 CEST)
  * 
  * This copyrighted subjectl is made available to anyone wishing to use,
  * modify, copy, or redistribute it subject to the terms and conditions
@@ -4261,10 +4261,10 @@ CREATE FUNCTION topics_upd_rid(p_rv bigint, p_topic bigint, p_description charac
 DELETE FROM system_messages WHERE function_name = 'topics_upd_rid';
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('topics_upd_rid',1,'it','Non Ã¨ stata trovata nessuna riga nella tabella ''topics'' con: ''revisione'' = ''%s'',  ''topic'' = ''%s'''); 
+                     VALUES ('topics_upd_rid',1,'it','Non è stata trovata nessuna riga nella tabella ''topics'' con: ''revisione'' = ''%s'',  ''topic'' = ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('topics_upd_rid',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('topics_upd_rid',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('topics_upd_rid',3,'it','Controllare il valore di: ''revisione'', ''topic'' e riprovare l''operazione'); 
@@ -4294,7 +4294,7 @@ $$;
 ALTER FUNCTION public.topics_upd_rid(p_rv bigint, p_topic bigint, p_description character varying) OWNER TO postgres;
 
 --
--- TOC entry 639 (class 1255 OID 17372)
+-- TOC entry 669 (class 1255 OID 17351)
 -- Name: tr_absences_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -4394,7 +4394,7 @@ BEGIN
 	   END IF;	   
 	END IF;	
 --
--- controllo che l'student,  nello on_date, non sia giÃ  stato segborn come delay
+-- controllo che l'student,  nello on_date, non sia già stato segborn come delay
 --
 	PERFORM 1 FROM delays 
 	         WHERE classroom = new.classroom
@@ -4416,7 +4416,7 @@ BEGIN
 		END IF;	   
 	END IF;
 --
--- controllo che l'student,  nello on_date, non sia giÃ  stato segborn come uscito
+-- controllo che l'student,  nello on_date, non sia già stato segborn come uscito
 --
 	PERFORM 1 FROM leavings 
 	         WHERE classroom = new.classroom
@@ -4438,7 +4438,7 @@ BEGIN
 		END IF;	   
 	END IF;
 --
--- controllo che l'student, nello on_date, non sia giÃ  stato segborn come fuori classroom
+-- controllo che l'student, nello on_date, non sia già stato segborn come fuori classroom
 --
 	PERFORM 1 FROM out_of_classrooms 
 	         WHERE classroom = new.classroom
@@ -4503,7 +4503,7 @@ $$;
 ALTER FUNCTION public.tr_absences_iu() OWNER TO postgres;
 
 --
--- TOC entry 640 (class 1255 OID 17373)
+-- TOC entry 670 (class 1255 OID 17352)
 -- Name: tr_classrooms_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -4543,7 +4543,7 @@ $$;
 ALTER FUNCTION public.tr_classrooms_iu() OWNER TO postgres;
 
 --
--- TOC entry 641 (class 1255 OID 17374)
+-- TOC entry 671 (class 1255 OID 17353)
 -- Name: tr_classrooms_students_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -4577,11 +4577,11 @@ BEGIN
 		END IF;	   
 	END IF;
 --
--- l'aluuno puÃ² far parte di piÃ¹ classrooms:
+-- l'aluuno può far parte di più classrooms:
 -- esiste il caso che una classroom abbia alcune subjects in city e poi aluni students abbiano
--- alcune subjects e altri abbiano altre subjects, in questo caso ogni student farÃ  parte di due classrooms
+-- alcune subjects e altri abbiano altre subjects, in questo caso ogni student farà parte di due classrooms
 -- una per le subjects cities ed un'altra per le restanti.
--- questo commento Ã¨ stato messo per evitare di ripetere l'errore di aggiungere un controllo errato
+-- questo commento è stato messo per evitare di ripetere l'errore di aggiungere un controllo errato
  RETURN NEW;
 END;
 $$;
@@ -4590,7 +4590,7 @@ $$;
 ALTER FUNCTION public.tr_classrooms_students_iu() OWNER TO postgres;
 
 --
--- TOC entry 642 (class 1255 OID 17375)
+-- TOC entry 672 (class 1255 OID 17354)
 -- Name: tr_communications_media_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -4651,7 +4651,7 @@ $$;
 ALTER FUNCTION public.tr_communications_media_iu() OWNER TO postgres;
 
 --
--- TOC entry 643 (class 1255 OID 17376)
+-- TOC entry 673 (class 1255 OID 17355)
 -- Name: tr_conversations_invites_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -4693,7 +4693,7 @@ $$;
 ALTER FUNCTION public.tr_conversations_invites_iu() OWNER TO postgres;
 
 --
--- TOC entry 644 (class 1255 OID 17377)
+-- TOC entry 655 (class 1255 OID 17356)
 -- Name: tr_db_users_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -4731,7 +4731,7 @@ $$;
 ALTER FUNCTION public.tr_db_users_iu() OWNER TO postgres;
 
 --
--- TOC entry 646 (class 1255 OID 17378)
+-- TOC entry 674 (class 1255 OID 17357)
 -- Name: tr_delays_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -4824,7 +4824,7 @@ BEGIN
 		END IF;	   
 	END IF;	
 --
--- l'student in delay non puÃ² essere assente
+-- l'student in delay non può essere assente
 --
 	PERFORM 1 FROM absences WHERE on_date = new.on_date AND student = new.student;
 
@@ -4869,7 +4869,7 @@ $$;
 ALTER FUNCTION public.tr_delays_iu() OWNER TO postgres;
 
 --
--- TOC entry 647 (class 1255 OID 17379)
+-- TOC entry 675 (class 1255 OID 17358)
 -- Name: tr_explanations_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -4928,7 +4928,7 @@ BEGIN
 		END IF;	   
 	END IF;
 --
--- controllo che se la explanation Ã¨ stata fatta from_timel'student e questo sia maggiorenne
+-- controllo che se la explanation è stata fatta from_timel'student e questo sia maggiorenne
 --
 	IF new.created_by = new.student THEN
 		IF (SELECT extract('year' from age(new.registrato_il, v_born)) < 18) THEN
@@ -4959,7 +4959,7 @@ BEGIN
 		           AND extract('year' from age(new.registrato_il, p.born)) >= 18;
 		IF NOT FOUND THEN
 			--
-			-- altrimenti controllo se la person che ha creato la explanation Ã¨ nel rule di
+			-- altrimenti controllo se la person che ha creato la explanation è nel rule di
 			-- gestori, dirigenti, impiegati o teachers 
 			--
 			IF NOT in_uno_dei_ruoli('{"Supervisor","Executive","Impiegati","Teacher"}',new.created_by) THEN
@@ -5028,7 +5028,7 @@ $$;
 ALTER FUNCTION public.tr_explanations_iu() OWNER TO postgres;
 
 --
--- TOC entry 645 (class 1255 OID 17380)
+-- TOC entry 676 (class 1255 OID 17359)
 -- Name: tr_faults_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -5116,7 +5116,7 @@ $$;
 ALTER FUNCTION public.tr_faults_iu() OWNER TO postgres;
 
 --
--- TOC entry 648 (class 1255 OID 17381)
+-- TOC entry 677 (class 1255 OID 17360)
 -- Name: tr_grading_meetings_i(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -5149,7 +5149,7 @@ $$;
 ALTER FUNCTION public.tr_grading_meetings_i() OWNER TO postgres;
 
 --
--- TOC entry 649 (class 1255 OID 17382)
+-- TOC entry 678 (class 1255 OID 17361)
 -- Name: tr_grading_meetings_valutations_d(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -5180,7 +5180,7 @@ $$;
 ALTER FUNCTION public.tr_grading_meetings_valutations_d() OWNER TO postgres;
 
 --
--- TOC entry 650 (class 1255 OID 17383)
+-- TOC entry 679 (class 1255 OID 17362)
 -- Name: tr_grading_meetings_valutations_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -5333,7 +5333,7 @@ $$;
 ALTER FUNCTION public.tr_grading_meetings_valutations_iu() OWNER TO postgres;
 
 --
--- TOC entry 651 (class 1255 OID 17384)
+-- TOC entry 680 (class 1255 OID 17363)
 -- Name: tr_grading_meetings_valutations_qua_d(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -5365,7 +5365,7 @@ $$;
 ALTER FUNCTION public.tr_grading_meetings_valutations_qua_d() OWNER TO postgres;
 
 --
--- TOC entry 652 (class 1255 OID 17385)
+-- TOC entry 681 (class 1255 OID 17364)
 -- Name: tr_grading_meetings_valutations_qua_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -5453,7 +5453,7 @@ $$;
 ALTER FUNCTION public.tr_grading_meetings_valutations_qua_iu() OWNER TO postgres;
 
 --
--- TOC entry 653 (class 1255 OID 17386)
+-- TOC entry 682 (class 1255 OID 17365)
 -- Name: tr_leavings_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -5553,7 +5553,7 @@ BEGIN
 	   END IF;	   
 	END IF;	
 --
--- l'student che leaving_at non puÃ² essere assente
+-- l'student che leaving_at non può essere assente
 --
 	PERFORM 1 FROM absences WHERE on_date = new.on_date AND student = new.student;
 
@@ -5598,7 +5598,7 @@ $$;
 ALTER FUNCTION public.tr_leavings_iu() OWNER TO postgres;
 
 --
--- TOC entry 654 (class 1255 OID 17387)
+-- TOC entry 683 (class 1255 OID 17366)
 -- Name: tr_lessons_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -5679,7 +5679,7 @@ $$;
 ALTER FUNCTION public.tr_lessons_iu() OWNER TO postgres;
 
 --
--- TOC entry 655 (class 1255 OID 17388)
+-- TOC entry 684 (class 1255 OID 17367)
 -- Name: tr_messages_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -5725,7 +5725,7 @@ $$;
 ALTER FUNCTION public.tr_messages_iu() OWNER TO postgres;
 
 --
--- TOC entry 656 (class 1255 OID 17389)
+-- TOC entry 685 (class 1255 OID 17368)
 -- Name: tr_messages_read_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -5771,7 +5771,7 @@ $$;
 ALTER FUNCTION public.tr_messages_read_iu() OWNER TO postgres;
 
 --
--- TOC entry 658 (class 1255 OID 17390)
+-- TOC entry 686 (class 1255 OID 17369)
 -- Name: tr_notes_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -5813,7 +5813,7 @@ BEGIN
 		END IF;	   
 	END IF;
 --
--- se l'student Ã¨ stato specificato
+-- se l'student è stato specificato
 --
 	IF new.student IS NOT NULL THEN
 		--
@@ -5837,7 +5837,7 @@ BEGIN
 			END IF;	   
 		END IF;
 		--
-		-- l'student in delay non puÃ² essere assente
+		-- l'student in delay non può essere assente
 		--
 		PERFORM 1 FROM absences WHERE on_date = new.on_date AND student = new.student;
 
@@ -5891,9 +5891,9 @@ BEGIN
 		--
 		IF new.to_approve = TRUE THEN
 			--
-			-- se sono stati richiesti i visti controllo se Ã¨ cambiata la classroom, l'student o la description
+			-- se sono stati richiesti i visti controllo se è cambiata la classroom, l'student o la description
 			-- nel quto_time caso si devono cancellare i vecchi visti ed inserire i nuovi
-			-- ponendo attenzione che l'student puÃ² essere null
+			-- ponendo attenzione che l'student può essere null
 			--
 			IF old.to_approve = TRUE THEN
 				IF new.description != old.description THEN
@@ -5941,13 +5941,13 @@ BEGIN
 	END IF;
 
 	--
-	-- cancello fisicament i vecchi visti se Ã¨ stato determiborn di cancellarli
+	-- cancello fisicament i vecchi visti se è stato determiborn di cancellarli
 	--
 	IF v_delete_signed THEN 
 		DELETE FROM notes_signed WHERE note = old.note;
 	END IF;
 	--
-	-- inserirso i nuovi visti se Ã¨ stato determiborn di inserirli
+	-- inserirso i nuovi visti se è stato determiborn di inserirli
 	--
 	IF v_insert_signed THEN
 		IF new.student IS NULL THEN
@@ -5972,7 +5972,7 @@ $$;
 ALTER FUNCTION public.tr_notes_iu() OWNER TO postgres;
 
 --
--- TOC entry 660 (class 1255 OID 17391)
+-- TOC entry 687 (class 1255 OID 17370)
 -- Name: tr_notes_signed_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -6020,7 +6020,7 @@ $$;
 ALTER FUNCTION public.tr_notes_signed_iu() OWNER TO postgres;
 
 --
--- TOC entry 657 (class 1255 OID 17392)
+-- TOC entry 688 (class 1255 OID 17371)
 -- Name: tr_out_of_classrooms_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -6102,7 +6102,7 @@ BEGIN
 	   END IF;	   
 	END IF;
 --
--- l'student che leaving_at non puÃ² essere assente
+-- l'student che leaving_at non può essere assente
 --
 	PERFORM 1 FROM absences WHERE on_date = new.on_date AND student = new.student;
 
@@ -6147,7 +6147,7 @@ $$;
 ALTER FUNCTION public.tr_out_of_classrooms_iu() OWNER TO postgres;
 
 --
--- TOC entry 661 (class 1255 OID 17393)
+-- TOC entry 689 (class 1255 OID 17372)
 -- Name: tr_parents_meetings_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -6189,7 +6189,7 @@ $$;
 ALTER FUNCTION public.tr_parents_meetings_iu() OWNER TO postgres;
 
 --
--- TOC entry 662 (class 1255 OID 17394)
+-- TOC entry 690 (class 1255 OID 17373)
 -- Name: tr_schools_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -6241,7 +6241,7 @@ $$;
 ALTER FUNCTION public.tr_schools_iu() OWNER TO postgres;
 
 --
--- TOC entry 663 (class 1255 OID 17395)
+-- TOC entry 691 (class 1255 OID 17374)
 -- Name: tr_signatures_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -6300,7 +6300,7 @@ $$;
 ALTER FUNCTION public.tr_signatures_iu() OWNER TO postgres;
 
 --
--- TOC entry 664 (class 1255 OID 17396)
+-- TOC entry 692 (class 1255 OID 17375)
 -- Name: tr_teachears_notes_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -6386,7 +6386,7 @@ $$;
 ALTER FUNCTION public.tr_teachears_notes_iu() OWNER TO postgres;
 
 --
--- TOC entry 665 (class 1255 OID 17397)
+-- TOC entry 693 (class 1255 OID 17376)
 -- Name: tr_topics_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -6443,7 +6443,7 @@ $$;
 ALTER FUNCTION public.tr_topics_iu() OWNER TO postgres;
 
 --
--- TOC entry 666 (class 1255 OID 17398)
+-- TOC entry 661 (class 1255 OID 17377)
 -- Name: tr_valutations_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -6730,7 +6730,7 @@ BEGIN
 		END IF;	   
 	END IF;	     
 --
--- se la valutation Ã¨ private non puÃ² essere assegnata una note
+-- se la valutation è private non può essere assegnata una note
 --
 	IF  new.private = true AND new.note IS NOT NULL THEN
 		IF (TG_OP = 'UPDATE') THEN
@@ -6756,7 +6756,7 @@ $$;
 ALTER FUNCTION public.tr_valutations_iu() OWNER TO postgres;
 
 --
--- TOC entry 659 (class 1255 OID 17400)
+-- TOC entry 694 (class 1255 OID 17379)
 -- Name: tr_valutations_qualificationtions_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -6820,7 +6820,7 @@ $$;
 ALTER FUNCTION public.tr_valutations_qualificationtions_iu() OWNER TO postgres;
 
 --
--- TOC entry 667 (class 1255 OID 17401)
+-- TOC entry 695 (class 1255 OID 17380)
 -- Name: tr_weekly_timetables_days_iu(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -6868,7 +6868,7 @@ $$;
 ALTER FUNCTION public.tr_weekly_timetables_days_iu() OWNER TO postgres;
 
 --
--- TOC entry 668 (class 1255 OID 17402)
+-- TOC entry 696 (class 1255 OID 17381)
 -- Name: uno_nei_ruoli(character varying[]); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -6892,7 +6892,7 @@ $$;
 ALTER FUNCTION public.uno_nei_ruoli(p_ruoli character varying[]) OWNER TO postgres;
 
 --
--- TOC entry 669 (class 1255 OID 17403)
+-- TOC entry 697 (class 1255 OID 17382)
 -- Name: update_person_photo_and_thumbnail(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -6918,7 +6918,7 @@ $$;
 ALTER FUNCTION public.update_person_photo_and_thumbnail() OWNER TO postgres;
 
 --
--- TOC entry 670 (class 1255 OID 17404)
+-- TOC entry 698 (class 1255 OID 17383)
 -- Name: valutations_del(bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -6951,10 +6951,10 @@ DELETE FROM system_messages WHERE function_name = 'valutations_del';
 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('valutations_del',1,'it','Non Ã¨ stata trovata nessuna riga nella tabella ''valutations'' con: ''revisione'' = ''%s'',  ''valutation'' = ''%s'''); 
+                     VALUES ('valutations_del',1,'it','Non è stata trovata nessuna riga nella tabella ''valutations'' con: ''revisione'' = ''%s'',  ''valutation'' = ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('valutations_del',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('valutations_del',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('valutations_del',3,'it','Controllare il valore di: ''revisione'', ''valutation'' e riprovare l''operazione'); 
@@ -6981,7 +6981,7 @@ $$;
 ALTER FUNCTION public.valutations_del(p_rv bigint, p_valutation bigint) OWNER TO postgres;
 
 --
--- TOC entry 671 (class 1255 OID 17405)
+-- TOC entry 699 (class 1255 OID 17384)
 -- Name: valutations_ex_by_classroom_teacher_subject(bigint, bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -7024,7 +7024,7 @@ $$;
 ALTER FUNCTION public.valutations_ex_by_classroom_teacher_subject(p_classroom bigint, p_teacher bigint, p_subject bigint) OWNER TO postgres;
 
 --
--- TOC entry 672 (class 1255 OID 17406)
+-- TOC entry 700 (class 1255 OID 17385)
 -- Name: valutations_ins(bigint, bigint, bigint, bigint, bigint, bigint, character varying, boolean, bigint, date); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -7051,7 +7051,7 @@ $$;
 ALTER FUNCTION public.valutations_ins(OUT p_rv bigint, OUT p_valutation bigint, p_classroom bigint, p_student bigint, p_subject bigint, p_grade_type bigint, p_topic bigint, p_grade bigint, p_evaluation character varying, p_private boolean, p_teacher bigint, p_on_date date) OWNER TO postgres;
 
 --
--- TOC entry 674 (class 1255 OID 17407)
+-- TOC entry 701 (class 1255 OID 17386)
 -- Name: valutations_ins_note(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -7097,7 +7097,7 @@ $$;
 ALTER FUNCTION public.valutations_ins_note(OUT p_rv bigint, OUT p_note bigint, p_valutation bigint) OWNER TO postgres;
 
 --
--- TOC entry 675 (class 1255 OID 17408)
+-- TOC entry 702 (class 1255 OID 17387)
 -- Name: valutations_sel(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -7111,10 +7111,10 @@ CREATE FUNCTION valutations_sel(OUT p_rv bigint, p_valutation bigint, OUT p_eval
 DELETE FROM system_messages WHERE function_name = 'valutations_sel';
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('valutations_sel',1,'it','Non Ã¨ stata trovata nessuna riga nella tabella ''valutations'' con:  ''valutation'' = ''%s'''); 
+                     VALUES ('valutations_sel',1,'it','Non è stata trovata nessuna riga nella tabella ''valutations'' con:  ''valutation'' = ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('valutations_sel',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('valutations_sel',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('valutations_sel',3,'it','Controllare il valore di: ''valutation'' e riprovare l''operazione'); 
@@ -7146,7 +7146,7 @@ $$;
 ALTER FUNCTION public.valutations_sel(OUT p_rv bigint, p_valutation bigint, OUT p_evaluation character varying, OUT p_private boolean, OUT p_note boolean) OWNER TO postgres;
 
 --
--- TOC entry 676 (class 1255 OID 17409)
+-- TOC entry 703 (class 1255 OID 17388)
 -- Name: valutations_upd(bigint, bigint, character varying, boolean, boolean); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -7177,10 +7177,10 @@ CREATE FUNCTION valutations_upd(p_rv bigint, p_valutation bigint, p_evaluation c
 DELETE FROM system_messages WHERE function_name = 'valutations_upd';
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('valutations_upd',1,'it','Non Ã¨ stata trovata nessuna riga nella tabella ''valutations'' con: ''revisione'' = ''%s'',  ''valutation'' = ''%s'''); 
+                     VALUES ('valutations_upd',1,'it','Non è stata trovata nessuna riga nella tabella ''valutations'' con: ''revisione'' = ''%s'',  ''valutation'' = ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('valutations_upd',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('valutations_upd',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('valutations_upd',3,'it','Controllare il valore di: ''revisione'', ''valutation'' e riprovare l''operazione'); 
@@ -7228,7 +7228,7 @@ $$;
 ALTER FUNCTION public.valutations_upd(p_rv bigint, p_valutation bigint, p_evaluation character varying, p_private boolean, p_note boolean) OWNER TO postgres;
 
 --
--- TOC entry 678 (class 1255 OID 17411)
+-- TOC entry 704 (class 1255 OID 17390)
 -- Name: valutations_upd_grade(bigint, bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -7243,10 +7243,10 @@ CREATE FUNCTION valutations_upd_grade(p_rv bigint, p_valutation bigint, p_grade 
 DELETE FROM system_messages WHERE function_name = 'valutations_upd_grade';
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('valutations_upd_grade',1,'it','Non Ã¨ stata trovata nessuna riga nella tabella ''valutations'' con: ''revisione'' = ''%s'',  ''valutation'' = ''%s'''); 
+                     VALUES ('valutations_upd_grade',1,'it','Non è stata trovata nessuna riga nella tabella ''valutations'' con: ''revisione'' = ''%s'',  ''valutation'' = ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('valutations_upd_grade',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('valutations_upd_grade',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('valutations_upd_grade',3,'it','Controllare il valore di: ''revisione'', ''valutation'' e riprovare l''operazione'); 
@@ -7277,7 +7277,7 @@ $$;
 ALTER FUNCTION public.valutations_upd_grade(p_rv bigint, p_valutation bigint, p_grade bigint) OWNER TO postgres;
 
 --
--- TOC entry 204 (class 1259 OID 17412)
+-- TOC entry 212 (class 1259 OID 17391)
 -- Name: pk_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -7292,8 +7292,8 @@ CREATE SEQUENCE pk_seq
 ALTER TABLE pk_seq OWNER TO postgres;
 
 --
--- TOC entry 4064 (class 0 OID 0)
--- Dependencies: 204
+-- TOC entry 4062 (class 0 OID 0)
+-- Dependencies: 212
 -- Name: SEQUENCE pk_seq; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7305,7 +7305,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 205 (class 1259 OID 17414)
+-- TOC entry 213 (class 1259 OID 17393)
 -- Name: branches; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -7321,7 +7321,7 @@ ALTER TABLE branches OWNER TO postgres;
 SET default_with_oids = true;
 
 --
--- TOC entry 206 (class 1259 OID 17418)
+-- TOC entry 214 (class 1259 OID 17397)
 -- Name: classrooms; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -7339,7 +7339,7 @@ CREATE TABLE classrooms (
 ALTER TABLE classrooms OWNER TO postgres;
 
 --
--- TOC entry 207 (class 1259 OID 17422)
+-- TOC entry 215 (class 1259 OID 17401)
 -- Name: school_years; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -7356,16 +7356,16 @@ CREATE TABLE school_years (
 ALTER TABLE school_years OWNER TO postgres;
 
 --
--- TOC entry 4068 (class 0 OID 0)
--- Dependencies: 207
+-- TOC entry 4066 (class 0 OID 0)
+-- Dependencies: 215
 -- Name: TABLE school_years; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE school_years IS 'Rappresenta l''anno scolastico ed Ã¨ suddiviso per school';
+COMMENT ON TABLE school_years IS 'Rappresenta l''anno scolastico ed è suddiviso per school';
 
 
 --
--- TOC entry 208 (class 1259 OID 17430)
+-- TOC entry 216 (class 1259 OID 17409)
 -- Name: schools; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -7386,8 +7386,8 @@ CREATE TABLE schools (
 ALTER TABLE schools OWNER TO postgres;
 
 --
--- TOC entry 4070 (class 0 OID 0)
--- Dependencies: 208
+-- TOC entry 4068 (class 0 OID 0)
+-- Dependencies: 216
 -- Name: TABLE schools; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7395,8 +7395,8 @@ COMMENT ON TABLE schools IS 'An institution for the instruction of children or p
 
 
 --
--- TOC entry 4071 (class 0 OID 0)
--- Dependencies: 208
+-- TOC entry 4069 (class 0 OID 0)
+-- Dependencies: 216
 -- Name: COLUMN schools.school; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7404,8 +7404,8 @@ COMMENT ON COLUMN schools.school IS 'Uniquely identifies the table row';
 
 
 --
--- TOC entry 4072 (class 0 OID 0)
--- Dependencies: 208
+-- TOC entry 4070 (class 0 OID 0)
+-- Dependencies: 216
 -- Name: COLUMN schools.processing_code; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7413,8 +7413,8 @@ COMMENT ON COLUMN schools.processing_code IS 'A code that identify the school on
 
 
 --
--- TOC entry 4073 (class 0 OID 0)
--- Dependencies: 208
+-- TOC entry 4071 (class 0 OID 0)
+-- Dependencies: 216
 -- Name: COLUMN schools.mnemonic; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7422,8 +7422,8 @@ COMMENT ON COLUMN schools.mnemonic IS 'Short description to be use as code';
 
 
 --
--- TOC entry 4074 (class 0 OID 0)
--- Dependencies: 208
+-- TOC entry 4072 (class 0 OID 0)
+-- Dependencies: 216
 -- Name: COLUMN schools.example; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7431,8 +7431,8 @@ COMMENT ON COLUMN schools.example IS 'It indicates that the data have been inser
 
 
 --
--- TOC entry 4075 (class 0 OID 0)
--- Dependencies: 208
+-- TOC entry 4073 (class 0 OID 0)
+-- Dependencies: 216
 -- Name: COLUMN schools.logo; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7440,8 +7440,8 @@ COMMENT ON COLUMN schools.logo IS 'Picture to be used as a logo';
 
 
 --
--- TOC entry 4076 (class 0 OID 0)
--- Dependencies: 208
+-- TOC entry 4074 (class 0 OID 0)
+-- Dependencies: 216
 -- Name: COLUMN schools.behavior; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7449,7 +7449,7 @@ COMMENT ON COLUMN schools.behavior IS 'Indicates the subject used for the behavi
 
 
 --
--- TOC entry 209 (class 1259 OID 17441)
+-- TOC entry 217 (class 1259 OID 17420)
 -- Name: classrooms_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -7471,7 +7471,7 @@ CREATE VIEW classrooms_ex WITH (security_barrier='false') AS
 ALTER TABLE classrooms_ex OWNER TO postgres;
 
 --
--- TOC entry 679 (class 1255 OID 17446)
+-- TOC entry 705 (class 1255 OID 17425)
 -- Name: w_classrooms_ex(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -7491,7 +7491,7 @@ $$;
 ALTER FUNCTION public.w_classrooms_ex() OWNER TO postgres;
 
 --
--- TOC entry 210 (class 1259 OID 17447)
+-- TOC entry 218 (class 1259 OID 17426)
 -- Name: absences; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -7507,8 +7507,8 @@ CREATE TABLE absences (
 ALTER TABLE absences OWNER TO postgres;
 
 --
--- TOC entry 4080 (class 0 OID 0)
--- Dependencies: 210
+-- TOC entry 4078 (class 0 OID 0)
+-- Dependencies: 218
 -- Name: TABLE absences; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7516,8 +7516,8 @@ COMMENT ON TABLE absences IS 'Rileva le absences di un student';
 
 
 --
--- TOC entry 4081 (class 0 OID 0)
--- Dependencies: 210
+-- TOC entry 4079 (class 0 OID 0)
+-- Dependencies: 218
 -- Name: COLUMN absences.teacher; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7525,7 +7525,7 @@ COMMENT ON COLUMN absences.teacher IS 'Il teacher che ha certificato l''absence'
 
 
 --
--- TOC entry 211 (class 1259 OID 17451)
+-- TOC entry 219 (class 1259 OID 17430)
 -- Name: classrooms_students; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -7541,25 +7541,25 @@ CREATE TABLE classrooms_students (
 ALTER TABLE classrooms_students OWNER TO postgres;
 
 --
--- TOC entry 4083 (class 0 OID 0)
--- Dependencies: 211
+-- TOC entry 4081 (class 0 OID 0)
+-- Dependencies: 219
 -- Name: COLUMN classrooms_students.retreat_on; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN classrooms_students.retreat_on IS 'Data in cui l''student si Ã¨ ritirato from_timela classroom oppure Ã¨ stato trasferito in un''altra classroom dello stesso school o di un altro school';
+COMMENT ON COLUMN classrooms_students.retreat_on IS 'Data in cui l''student si è ritirato from_timela classroom oppure è stato trasferito in un''altra classroom dello stesso school o di un altro school';
 
 
 --
--- TOC entry 4084 (class 0 OID 0)
--- Dependencies: 211
+-- TOC entry 4082 (class 0 OID 0)
+-- Dependencies: 219
 -- Name: COLUMN classrooms_students.classroom_destination; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN classrooms_students.classroom_destination IS 'Viene tenuto traccia della classroom cui l''student Ã¨ stato trasferito se nello stesso school';
+COMMENT ON COLUMN classrooms_students.classroom_destination IS 'Viene tenuto traccia della classroom cui l''student è stato trasferito se nello stesso school';
 
 
 --
--- TOC entry 212 (class 1259 OID 17455)
+-- TOC entry 220 (class 1259 OID 17434)
 -- Name: absences_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -7575,8 +7575,8 @@ CREATE VIEW absences_grp AS
 ALTER TABLE absences_grp OWNER TO postgres;
 
 --
--- TOC entry 4086 (class 0 OID 0)
--- Dependencies: 212
+-- TOC entry 4084 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: VIEW absences_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7584,7 +7584,7 @@ COMMENT ON VIEW absences_grp IS 'Raggruppa le absences per classroom (e quindi p
 
 
 --
--- TOC entry 213 (class 1259 OID 17459)
+-- TOC entry 221 (class 1259 OID 17438)
 -- Name: absences_not_explanated_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -7601,16 +7601,16 @@ CREATE VIEW absences_not_explanated_grp AS
 ALTER TABLE absences_not_explanated_grp OWNER TO postgres;
 
 --
--- TOC entry 4088 (class 0 OID 0)
--- Dependencies: 213
+-- TOC entry 4086 (class 0 OID 0)
+-- Dependencies: 221
 -- Name: VIEW absences_not_explanated_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON VIEW absences_not_explanated_grp IS 'Raggruppa le absences per classroom (e quindi per anno scolastico) e student limitando perÃ² la selesson a quelle non giustificate';
+COMMENT ON VIEW absences_not_explanated_grp IS 'Raggruppa le absences per classroom (e quindi per anno scolastico) e student limitando però la selesson a quelle non giustificate';
 
 
 --
--- TOC entry 214 (class 1259 OID 17463)
+-- TOC entry 222 (class 1259 OID 17442)
 -- Name: cities; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -7624,7 +7624,7 @@ CREATE TABLE cities (
 ALTER TABLE cities OWNER TO postgres;
 
 --
--- TOC entry 215 (class 1259 OID 17466)
+-- TOC entry 223 (class 1259 OID 17445)
 -- Name: delays; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -7641,8 +7641,8 @@ CREATE TABLE delays (
 ALTER TABLE delays OWNER TO postgres;
 
 --
--- TOC entry 4091 (class 0 OID 0)
--- Dependencies: 215
+-- TOC entry 4089 (class 0 OID 0)
+-- Dependencies: 223
 -- Name: TABLE delays; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7650,7 +7650,7 @@ COMMENT ON TABLE delays IS 'Rileva i delays di un student';
 
 
 --
--- TOC entry 216 (class 1259 OID 17470)
+-- TOC entry 224 (class 1259 OID 17449)
 -- Name: delays_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -7666,8 +7666,8 @@ CREATE VIEW delays_grp AS
 ALTER TABLE delays_grp OWNER TO postgres;
 
 --
--- TOC entry 4093 (class 0 OID 0)
--- Dependencies: 216
+-- TOC entry 4091 (class 0 OID 0)
+-- Dependencies: 224
 -- Name: VIEW delays_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7675,7 +7675,7 @@ COMMENT ON VIEW delays_grp IS 'Raggruppa i delays per classroom (e quindi per an
 
 
 --
--- TOC entry 217 (class 1259 OID 17474)
+-- TOC entry 225 (class 1259 OID 17453)
 -- Name: delays_not_explained_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -7692,16 +7692,16 @@ CREATE VIEW delays_not_explained_grp AS
 ALTER TABLE delays_not_explained_grp OWNER TO postgres;
 
 --
--- TOC entry 4095 (class 0 OID 0)
--- Dependencies: 217
+-- TOC entry 4093 (class 0 OID 0)
+-- Dependencies: 225
 -- Name: VIEW delays_not_explained_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON VIEW delays_not_explained_grp IS 'Raggruppa i delays per classroom (e quindi per anno acolastico) e student limitando perÃ² la selesson a quelli non giustificati';
+COMMENT ON VIEW delays_not_explained_grp IS 'Raggruppa i delays per classroom (e quindi per anno acolastico) e student limitando però la selesson a quelli non giustificati';
 
 
 --
--- TOC entry 218 (class 1259 OID 17478)
+-- TOC entry 226 (class 1259 OID 17457)
 -- Name: leavings; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -7719,8 +7719,8 @@ CREATE TABLE leavings (
 ALTER TABLE leavings OWNER TO postgres;
 
 --
--- TOC entry 4097 (class 0 OID 0)
--- Dependencies: 218
+-- TOC entry 4095 (class 0 OID 0)
+-- Dependencies: 226
 -- Name: TABLE leavings; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7728,7 +7728,7 @@ COMMENT ON TABLE leavings IS 'Rileva i leavings di un student';
 
 
 --
--- TOC entry 219 (class 1259 OID 17482)
+-- TOC entry 227 (class 1259 OID 17461)
 -- Name: leavings_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -7744,8 +7744,8 @@ CREATE VIEW leavings_grp AS
 ALTER TABLE leavings_grp OWNER TO postgres;
 
 --
--- TOC entry 4099 (class 0 OID 0)
--- Dependencies: 219
+-- TOC entry 4097 (class 0 OID 0)
+-- Dependencies: 227
 -- Name: VIEW leavings_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7753,7 +7753,7 @@ COMMENT ON VIEW leavings_grp IS 'Raggruppa le leavings per classroom (e quindi p
 
 
 --
--- TOC entry 220 (class 1259 OID 17486)
+-- TOC entry 228 (class 1259 OID 17465)
 -- Name: leavings_not_explained_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -7770,16 +7770,16 @@ CREATE VIEW leavings_not_explained_grp AS
 ALTER TABLE leavings_not_explained_grp OWNER TO postgres;
 
 --
--- TOC entry 4101 (class 0 OID 0)
--- Dependencies: 220
+-- TOC entry 4099 (class 0 OID 0)
+-- Dependencies: 228
 -- Name: VIEW leavings_not_explained_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON VIEW leavings_not_explained_grp IS 'Raggruppa le leavings per classroom (e quindi per anno acolastico) e student limitando perÃ² la selesson a quelle non giutificate';
+COMMENT ON VIEW leavings_not_explained_grp IS 'Raggruppa le leavings per classroom (e quindi per anno acolastico) e student limitando però la selesson a quelle non giutificate';
 
 
 --
--- TOC entry 221 (class 1259 OID 17490)
+-- TOC entry 229 (class 1259 OID 17469)
 -- Name: notes; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -7800,46 +7800,46 @@ CREATE TABLE notes (
 ALTER TABLE notes OWNER TO postgres;
 
 --
--- TOC entry 4103 (class 0 OID 0)
--- Dependencies: 221
+-- TOC entry 4101 (class 0 OID 0)
+-- Dependencies: 229
 -- Name: COLUMN notes.disciplinary; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN notes.disciplinary IS 'Indica che l''annotezione Ã¨ di type disciplinary verrÃ  quindi riportata sul school_record personle per la signature di visione del genitore.
-L''annotezione Ã¨ rivolta a tutta la classroom a meno che non sia indicato il singolo student.
-Se si vuole fare una note disciplinary (ma anche normale) a due o piÃ¹ students Ã¨ necesario inserire la note per ciascuno.';
+COMMENT ON COLUMN notes.disciplinary IS 'Indica che l''annotezione è di type disciplinary verrà quindi riportata sul school_record personle per la signature di visione del genitore.
+L''annotezione è rivolta a tutta la classroom a meno che non sia indicato il singolo student.
+Se si vuole fare una note disciplinary (ma anche normale) a due o più students è necesario inserire la note per ciascuno.';
+
+
+--
+-- TOC entry 4102 (class 0 OID 0)
+-- Dependencies: 229
+-- Name: COLUMN notes.to_approve; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN notes.to_approve IS 'indica che è richiesto il visto from_time parte dell''student (se maggiorenne) o from_time parte di chi esercita la patria potestà e ha richiesto di essere avvisato.
+Se non è specificato l''student il visto deve essere richiesto per tutta la classroom, se però è una note disciplinary e manca l''student il visto deve essere richiesto per i soli students presenti';
+
+
+--
+-- TOC entry 4103 (class 0 OID 0)
+-- Dependencies: 229
+-- Name: COLUMN notes.classroom; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN notes.classroom IS 'indica se la note è per tutta la classroom';
 
 
 --
 -- TOC entry 4104 (class 0 OID 0)
--- Dependencies: 221
--- Name: COLUMN notes.to_approve; Type: COMMENT; Schema: public; Owner: postgres
---
-
-COMMENT ON COLUMN notes.to_approve IS 'indica che Ã¨ richiesto il visto from_time parte dell''student (se maggiorenne) o from_time parte di chi esercita la patria potestÃ  e ha richiesto di essere avvisato.
-Se non Ã¨ specificato l''student il visto deve essere richiesto per tutta la classroom, se perÃ² Ã¨ una note disciplinary e manca l''student il visto deve essere richiesto per i soli students presenti';
-
-
---
--- TOC entry 4105 (class 0 OID 0)
--- Dependencies: 221
--- Name: COLUMN notes.classroom; Type: COMMENT; Schema: public; Owner: postgres
---
-
-COMMENT ON COLUMN notes.classroom IS 'indica se la note Ã¨ per tutta la classroom';
-
-
---
--- TOC entry 4106 (class 0 OID 0)
--- Dependencies: 221
+-- Dependencies: 229
 -- Name: CONSTRAINT notes_ck_to_approve ON notes; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON CONSTRAINT notes_ck_to_approve ON notes IS 'Se Ã¨ una note disciplinary allat_time deve essere richiesto il visto';
+COMMENT ON CONSTRAINT notes_ck_to_approve ON notes IS 'Se è una note disciplinary allat_time deve essere richiesto il visto';
 
 
 --
--- TOC entry 222 (class 1259 OID 17499)
+-- TOC entry 230 (class 1259 OID 17478)
 -- Name: notes_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -7855,8 +7855,8 @@ CREATE VIEW notes_grp AS
 ALTER TABLE notes_grp OWNER TO postgres;
 
 --
--- TOC entry 4108 (class 0 OID 0)
--- Dependencies: 222
+-- TOC entry 4106 (class 0 OID 0)
+-- Dependencies: 230
 -- Name: VIEW notes_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7864,7 +7864,7 @@ COMMENT ON VIEW notes_grp IS 'Raggruppa le notes per classroom (e quindi per ann
 
 
 --
--- TOC entry 223 (class 1259 OID 17503)
+-- TOC entry 231 (class 1259 OID 17482)
 -- Name: out_of_classrooms; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -7883,17 +7883,17 @@ CREATE TABLE out_of_classrooms (
 ALTER TABLE out_of_classrooms OWNER TO postgres;
 
 --
--- TOC entry 4110 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 4108 (class 0 OID 0)
+-- Dependencies: 231
 -- Name: TABLE out_of_classrooms; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE out_of_classrooms IS 'Indica quando un student non Ã¨ presente in classroom ma non deve essere considerato assente ad example per impegni sportivi';
+COMMENT ON TABLE out_of_classrooms IS 'Indica quando un student non è presente in classroom ma non deve essere considerato assente ad example per impegni sportivi';
 
 
 --
--- TOC entry 4111 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 4109 (class 0 OID 0)
+-- Dependencies: 231
 -- Name: COLUMN out_of_classrooms.from_time; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7901,8 +7901,8 @@ COMMENT ON COLUMN out_of_classrooms.from_time IS 'at_time di leaving';
 
 
 --
--- TOC entry 4112 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 4110 (class 0 OID 0)
+-- Dependencies: 231
 -- Name: COLUMN out_of_classrooms.to_time; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7910,7 +7910,7 @@ COMMENT ON COLUMN out_of_classrooms.to_time IS 'at_time di rientro';
 
 
 --
--- TOC entry 224 (class 1259 OID 17508)
+-- TOC entry 232 (class 1259 OID 17487)
 -- Name: out_of_classrooms_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -7926,8 +7926,8 @@ CREATE VIEW out_of_classrooms_grp AS
 ALTER TABLE out_of_classrooms_grp OWNER TO postgres;
 
 --
--- TOC entry 4114 (class 0 OID 0)
--- Dependencies: 224
+-- TOC entry 4112 (class 0 OID 0)
+-- Dependencies: 232
 -- Name: VIEW out_of_classrooms_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7935,7 +7935,7 @@ COMMENT ON VIEW out_of_classrooms_grp IS 'Raggruppa le fuori classroom per class
 
 
 --
--- TOC entry 225 (class 1259 OID 17512)
+-- TOC entry 233 (class 1259 OID 17491)
 -- Name: persons; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -7961,8 +7961,8 @@ CREATE TABLE persons (
 ALTER TABLE persons OWNER TO postgres;
 
 --
--- TOC entry 4116 (class 0 OID 0)
--- Dependencies: 225
+-- TOC entry 4114 (class 0 OID 0)
+-- Dependencies: 233
 -- Name: COLUMN persons.note; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -7970,7 +7970,7 @@ COMMENT ON COLUMN persons.note IS 'contains addtional informatio about person';
 
 
 --
--- TOC entry 226 (class 1259 OID 17519)
+-- TOC entry 234 (class 1259 OID 17498)
 -- Name: classrooms_students_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -8009,7 +8009,7 @@ CREATE VIEW classrooms_students_ex AS
 ALTER TABLE classrooms_students_ex OWNER TO postgres;
 
 --
--- TOC entry 680 (class 1255 OID 17524)
+-- TOC entry 706 (class 1255 OID 17503)
 -- Name: w_classrooms_students_ex(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -8029,7 +8029,7 @@ $$;
 ALTER FUNCTION public.w_classrooms_students_ex() OWNER TO postgres;
 
 --
--- TOC entry 227 (class 1259 OID 17525)
+-- TOC entry 235 (class 1259 OID 17504)
 -- Name: subjects; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -8043,7 +8043,7 @@ CREATE TABLE subjects (
 ALTER TABLE subjects OWNER TO postgres;
 
 --
--- TOC entry 228 (class 1259 OID 17529)
+-- TOC entry 236 (class 1259 OID 17508)
 -- Name: valutations; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -8066,8 +8066,8 @@ CREATE TABLE valutations (
 ALTER TABLE valutations OWNER TO postgres;
 
 --
--- TOC entry 4121 (class 0 OID 0)
--- Dependencies: 228
+-- TOC entry 4119 (class 0 OID 0)
+-- Dependencies: 236
 -- Name: TABLE valutations; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -8075,25 +8075,25 @@ COMMENT ON TABLE valutations IS 'Contiene le valutations di tutti gli students f
 
 
 --
--- TOC entry 4122 (class 0 OID 0)
--- Dependencies: 228
+-- TOC entry 4120 (class 0 OID 0)
+-- Dependencies: 236
 -- Name: COLUMN valutations.private; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN valutations.private IS 'Indica che il grade Ã¨ visibile to_time solo teacher che lo ha inserito';
+COMMENT ON COLUMN valutations.private IS 'Indica che il grade è visibile to_time solo teacher che lo ha inserito';
 
 
 --
--- TOC entry 4123 (class 0 OID 0)
--- Dependencies: 228
+-- TOC entry 4121 (class 0 OID 0)
+-- Dependencies: 236
 -- Name: COLUMN valutations.teacher; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN valutations.teacher IS 'La colonna teacher Ã¨ stata inserita poichÃ¨ il teacher durante l`anno potrebbe cambiare in questo modo viene tenuto traccia di chi ha inserito il dato';
+COMMENT ON COLUMN valutations.teacher IS 'La colonna teacher è stata inserita poichè il teacher durante l`anno potrebbe cambiare in questo modo viene tenuto traccia di chi ha inserito il dato';
 
 
 --
--- TOC entry 229 (class 1259 OID 17534)
+-- TOC entry 237 (class 1259 OID 17513)
 -- Name: classrooms_teachers_subjects_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -8129,7 +8129,7 @@ CREATE VIEW classrooms_teachers_subjects_ex AS
 ALTER TABLE classrooms_teachers_subjects_ex OWNER TO postgres;
 
 --
--- TOC entry 556 (class 1255 OID 17539)
+-- TOC entry 587 (class 1255 OID 17518)
 -- Name: w_classrooms_teachers_subjects_ex(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -8151,7 +8151,7 @@ $$;
 ALTER FUNCTION public.w_classrooms_teachers_subjects_ex() OWNER TO postgres;
 
 --
--- TOC entry 230 (class 1259 OID 17540)
+-- TOC entry 238 (class 1259 OID 17519)
 -- Name: weekly_timetable; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -8165,7 +8165,7 @@ CREATE TABLE weekly_timetable (
 ALTER TABLE weekly_timetable OWNER TO postgres;
 
 --
--- TOC entry 231 (class 1259 OID 17544)
+-- TOC entry 239 (class 1259 OID 17523)
 -- Name: weekly_timetable_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -8182,7 +8182,7 @@ CREATE VIEW weekly_timetable_ex AS
 ALTER TABLE weekly_timetable_ex OWNER TO postgres;
 
 --
--- TOC entry 673 (class 1255 OID 17548)
+-- TOC entry 707 (class 1255 OID 17527)
 -- Name: w_weekly_timetable_ex(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -8204,7 +8204,7 @@ ALTER FUNCTION public.w_weekly_timetable_ex() OWNER TO postgres;
 SET search_path = utility, pg_catalog;
 
 --
--- TOC entry 557 (class 1255 OID 17549)
+-- TOC entry 586 (class 1255 OID 17528)
 -- Name: day_name(week_day); Type: FUNCTION; Schema: utility; Owner: postgres
 --
 
@@ -8226,7 +8226,7 @@ ALTER FUNCTION utility.day_name(_weekday week_day) OWNER TO postgres;
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 232 (class 1259 OID 17550)
+-- TOC entry 240 (class 1259 OID 17529)
 -- Name: weekly_timetables_days; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -8246,17 +8246,17 @@ CREATE TABLE weekly_timetables_days (
 ALTER TABLE weekly_timetables_days OWNER TO postgres;
 
 --
--- TOC entry 4129 (class 0 OID 0)
--- Dependencies: 232
+-- TOC entry 4127 (class 0 OID 0)
+-- Dependencies: 240
 -- Name: COLUMN weekly_timetables_days.team_teaching; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN weekly_timetables_days.team_teaching IS 'Indica il numero di team_teaching (1 il primo insegnante, 2 il secondo insgnante e cosÃ¬ street) se c''Ã¨ un insegnante solo mettere 1 ';
+COMMENT ON COLUMN weekly_timetables_days.team_teaching IS 'Indica il numero di team_teaching (1 il primo insegnante, 2 il secondo insgnante e così street) se c''è un insegnante solo mettere 1 ';
 
 
 --
--- TOC entry 4130 (class 0 OID 0)
--- Dependencies: 232
+-- TOC entry 4128 (class 0 OID 0)
+-- Dependencies: 240
 -- Name: CONSTRAINT weekly_timetables_days_ck_teacher_subject ON weekly_timetables_days; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -8264,7 +8264,7 @@ COMMENT ON CONSTRAINT weekly_timetables_days_ck_teacher_subject ON weekly_timeta
 
 
 --
--- TOC entry 233 (class 1259 OID 17556)
+-- TOC entry 241 (class 1259 OID 17535)
 -- Name: weekly_timetables_days_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -8291,7 +8291,7 @@ CREATE VIEW weekly_timetables_days_ex AS
 ALTER TABLE weekly_timetables_days_ex OWNER TO postgres;
 
 --
--- TOC entry 677 (class 1255 OID 17561)
+-- TOC entry 708 (class 1255 OID 17540)
 -- Name: w_weekly_timetables_days_ex(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -8311,11 +8311,11 @@ $$;
 ALTER FUNCTION public.w_weekly_timetables_days_ex() OWNER TO postgres;
 
 --
--- TOC entry 681 (class 1255 OID 17562)
+-- TOC entry 709 (class 1255 OID 17541)
 -- Name: weekly_timetable_xt_subject(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
-CREATE FUNCTION weekly_timetable_xt_subject(p_weekly_timetable bigint) RETURNS TABLE(period text, "lunedÃ¬" text, "martedÃ¬" text, "mercoledÃ¬" text, "giovedÃ¬" text, "venerdÃ¬" text, sabato text)
+CREATE FUNCTION weekly_timetable_xt_subject(p_weekly_timetable bigint) RETURNS TABLE(period text, "lunedì" text, "martedì" text, "mercoledì" text, "giovedì" text, "venerdì" text, sabato text)
     LANGUAGE plpgsql SECURITY DEFINER
     SET search_path TO public, pg_temp
     AS $_$
@@ -8326,7 +8326,7 @@ BEGIN
                                  WHERE weekly_timetable='  || p_weekly_timetable || ' ORDER BY 1',
                                  $$VALUES (1),(2),(3),(4),(5),(6)$$
                                )
-                   AS ct (period text, lunedÃ¬ text, martedÃ¬ text, mercoledÃ¬ text, giovedÃ¬ text, venerdÃ¬ text, sabato text);                   
+                   AS ct (period text, lunedì text, martedì text, mercoledì text, giovedì text, venerdì text, sabato text);                   
  END;
 $_$;
 
@@ -8334,11 +8334,11 @@ $_$;
 ALTER FUNCTION public.weekly_timetable_xt_subject(p_weekly_timetable bigint) OWNER TO postgres;
 
 --
--- TOC entry 682 (class 1255 OID 17563)
+-- TOC entry 710 (class 1255 OID 17542)
 -- Name: weekly_timetable_xt_teacher(bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
-CREATE FUNCTION weekly_timetable_xt_teacher(p_weekly_timetable bigint) RETURNS TABLE(period text, "lunedÃ¬" text, "martedÃ¬" text, "mercoledÃ¬" text, "giovedÃ¬" text, "venerdÃ¬" text, sabato text)
+CREATE FUNCTION weekly_timetable_xt_teacher(p_weekly_timetable bigint) RETURNS TABLE(period text, "lunedì" text, "martedì" text, "mercoledì" text, "giovedì" text, "venerdì" text, sabato text)
     LANGUAGE plpgsql SECURITY DEFINER
     SET search_path TO public, pg_temp
     AS $_$
@@ -8349,7 +8349,7 @@ BEGIN
                                  WHERE weekly_timetable='  || p_weekly_timetable || ' ORDER BY 1',
                                  $$VALUES (1),(2),(3),(4),(5),(6)$$
                                )
-                   AS ct (period text, lunedÃ¬ text, martedÃ¬ text, mercoledÃ¬ text, giovedÃ¬ text, venerdÃ¬ text, sabato text);                   
+                   AS ct (period text, lunedì text, martedì text, mercoledì text, giovedì text, venerdì text, sabato text);                   
  END;
 $_$;
 
@@ -8357,7 +8357,7 @@ $_$;
 ALTER FUNCTION public.weekly_timetable_xt_teacher(p_weekly_timetable bigint) OWNER TO postgres;
 
 --
--- TOC entry 683 (class 1255 OID 17564)
+-- TOC entry 711 (class 1255 OID 17543)
 -- Name: where_sequence(text, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -8406,8 +8406,8 @@ $$;
 ALTER FUNCTION public.where_sequence(name text, search_value bigint) OWNER TO postgres;
 
 --
--- TOC entry 4136 (class 0 OID 0)
--- Dependencies: 683
+-- TOC entry 4134 (class 0 OID 0)
+-- Dependencies: 711
 -- Name: FUNCTION where_sequence(name text, search_value bigint); Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -8415,7 +8415,7 @@ COMMENT ON FUNCTION where_sequence(name text, search_value bigint) IS 'Restituis
 
 
 --
--- TOC entry 714 (class 1255 OID 17565)
+-- TOC entry 720 (class 1255 OID 17544)
 -- Name: wikimedia_0_reset(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -8423,11 +8423,12 @@ CREATE FUNCTION wikimedia_0_reset() RETURNS TABLE(_message text)
     LANGUAGE plpgsql
     AS $$
 DECLARE
-  row_count_wikimedia_files int = 0;
-  row_count_persons         int = 0;
-  my_command                text;
-  error		            diagnostic.error;
-  my_data_path              text = '/var/lib/scuola247/';
+  row_count_wikimedia_files_persons	int = 0;
+  row_count_wikimedia_files		int = 0;
+  row_count_persons         		int = 0;
+  my_command                		text;
+  error		            		diagnostic.error;
+  my_data_path              		text = '/var/lib/scuola247/';
 BEGIN 
 
 -- table wikimedia_files
@@ -8458,6 +8459,14 @@ BEGIN
     PERFORM diagnostic.show(error);
   END;  
 
+-- table wikimedia_files_persons
+
+  DELETE FROM wikimedia_files_persons;
+
+    GET DIAGNOSTICS row_count_wikimedia_files_persons = ROW_COUNT;
+    RAISE NOTICE 'table wikmedia_files_persons.................................: % rows deleted', row_count_wikimedia_files_persons::text;
+    _message =   'table wikmedia_files_persons.................................: ' || row_count_wikimedia_files_persons::text || ' rows deleted'; RETURN NEXT; 
+  
 -- files wikimedia_files/infos
   
   BEGIN   
@@ -8535,20 +8544,76 @@ $$;
 ALTER FUNCTION public.wikimedia_0_reset() OWNER TO postgres;
 
 --
--- TOC entry 4138 (class 0 OID 0)
--- Dependencies: 714
+-- TOC entry 4136 (class 0 OID 0)
+-- Dependencies: 720
 -- Name: FUNCTION wikimedia_0_reset(); Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON FUNCTION wikimedia_0_reset() IS 'This procedure delete all data downloaded from wikimedia';
+COMMENT ON FUNCTION wikimedia_0_reset() IS 'delete all data downloaded from wikimedia either in table or in files';
 
 
 --
--- TOC entry 711 (class 1255 OID 107872)
--- Name: wikimedia_1_hydration(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- TOC entry 719 (class 1255 OID 17551)
+-- Name: wikimedia_1_recreate_wikimedia_files_persons(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
-CREATE FUNCTION wikimedia_1_hydration(_count integer DEFAULT 1) RETURNS TABLE(_message text)
+CREATE FUNCTION wikimedia_1_recreate_wikimedia_files_persons() RETURNS TABLE(message text)
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+  row_count integer;
+BEGIN 
+
+  DELETE FROM wikimedia_files_persons;
+
+  GET DIAGNOSTICS row_count = ROW_COUNT;
+  message := 'wikimedia_files_persons deleted .................: ' || row_count::text;
+  RETURN NEXT; 
+  
+  WITH p AS (SELECT person, ((row_number() OVER() -1 )% (select count (*) from wikimedia_files where type = 'Male portrait')) + 1 AS row_number FROM persons WHERE sex = 'M' ORDER BY person),
+       w AS (SELECT wikimedia_file, row_number() OVER() AS row_number from wikimedia_files  WHERE type = 'Male portrait' ORDER BY wikimedia_file)
+  INSERT INTO wikimedia_files_persons (person, wikimedia_file) 
+  SELECT  p.person, w.wikimedia_file
+  FROM p
+  JOIN w on p.row_number = w.row_number;
+  
+  GET DIAGNOSTICS row_count = ROW_COUNT;
+  message := 'wikimedia_files_persons (Male) inserted .........: ' || row_count::text;
+  RETURN NEXT; 
+
+  WITH p AS (SELECT person, ((row_number() OVER() -1 )% (select count (*) from wikimedia_files where type = 'Female portrait')) + 1 AS row_number FROM persons WHERE sex = 'F' ORDER BY person),
+       w AS (SELECT wikimedia_file, row_number() OVER() AS row_number from wikimedia_files  WHERE type = 'Female portrait' ORDER BY wikimedia_file)
+  INSERT INTO wikimedia_files_persons (person, wikimedia_file) 
+  SELECT  p.person, w.wikimedia_file
+  FROM p
+  JOIN w on p.row_number = w.row_number;
+ 
+  GET DIAGNOSTICS row_count = ROW_COUNT;
+  message := 'wikimedia_files_persons (Female) inserted .......: ' || row_count::text;
+  RETURN NEXT; 
+
+  RETURN;
+  END
+$$;
+
+
+ALTER FUNCTION public.wikimedia_1_recreate_wikimedia_files_persons() OWNER TO postgres;
+
+--
+-- TOC entry 4137 (class 0 OID 0)
+-- Dependencies: 719
+-- Name: FUNCTION wikimedia_1_recreate_wikimedia_files_persons(); Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON FUNCTION wikimedia_1_recreate_wikimedia_files_persons() IS 'recreates the table wikimedia_files_persons randomly distributing the rows of the table wikimedia_files taking account only of males and females. Required only when you want to distribute photo and thumbnails to new rows of persons table';
+
+
+--
+-- TOC entry 588 (class 1255 OID 17545)
+-- Name: wikimedia_2_wikimedia_files_hydration(integer); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION wikimedia_2_wikimedia_files_hydration(_count integer DEFAULT 1) RETURNS TABLE(_message text)
     LANGUAGE plpgsql
     AS $$
 <<me>>
@@ -8642,19 +8707,19 @@ BEGIN
   END LOOP;
 
 
-  RAISE NOTICE 'wikimedia_files: set info ***OK*** ........: % ', ctr_info_ok;
-  RAISE NOTICE 'wikimedia_files: set info !!!KO!!! ........: % ', ctr_info_ko;
-  RAISE NOTICE 'wikimedia_files: set thumbnail ***KO*** ...: % ', ctr_thumbnail_ok;
-  RAISE NOTICE 'wikimedia_files: set thumbnail !!!OK!!! ...: % ', ctr_thumbnail_ko;
-  RAISE NOTICE 'wikimedia_files: set photo ***KO*** .......: % ', ctr_photo_ok;
-  RAISE NOTICE 'wikimedia_files: set photo !!!OK!!! .......: % ', ctr_photo_ko;
+  RAISE NOTICE 'wikimedia_files: set info !!!OK!!! ........: % ', ctr_info_ok;
+  RAISE NOTICE 'wikimedia_files: set info ***KO*** ........: % ', ctr_info_ko;
+  RAISE NOTICE 'wikimedia_files: set thumbnail !!!OK!!! ...: % ', ctr_thumbnail_ok;
+  RAISE NOTICE 'wikimedia_files: set thumbnail ***KO*** ...: % ', ctr_thumbnail_ko;
+  RAISE NOTICE 'wikimedia_files: set photo !!!OK!!! .......: % ', ctr_photo_ok;
+  RAISE NOTICE 'wikimedia_files: set photo ***KO*** .......: % ', ctr_photo_ko;
 
-  _message := 'wikimedia_files: set info ***OK*** ........: ' || ctr_info_ok::text; RETURN NEXT; 
-  _message := 'wikimedia_files: set info !!!KO!!! ........: ' || ctr_info_ko::text; RETURN NEXT;
-  _message := 'wikimedia_files: set thumbnail ***KO*** ...: ' || ctr_thumbnail_ok::text; RETURN NEXT; 
-  _message := 'wikimedia_files: set thumbnail !!!OK!!! ...: ' || ctr_thumbnail_ko::text; RETURN NEXT; 
-  _message := 'wikimedia_files: set photo ***KO*** .......: ' || ctr_photo_ok::text; RETURN NEXT; 
-  _message := 'wikimedia_files: set photo !!!OK!!! .......: ' || ctr_photo_ko::text; RETURN NEXT; 
+  _message := 'wikimedia_files: set info !!!OK!!! ........: ' || ctr_info_ok::text; RETURN NEXT; 
+  _message := 'wikimedia_files: set info ***KO*** ........: ' || ctr_info_ko::text; RETURN NEXT;
+  _message := 'wikimedia_files: set thumbnail !!!OK!!! ...: ' || ctr_thumbnail_ok::text; RETURN NEXT; 
+  _message := 'wikimedia_files: set thumbnail ***KO*** ...: ' || ctr_thumbnail_ko::text; RETURN NEXT; 
+  _message := 'wikimedia_files: set photo !!!OK!!! .......: ' || ctr_photo_ok::text; RETURN NEXT; 
+  _message := 'wikimedia_files: set photo ***KO*** .......: ' || ctr_photo_ko::text; RETURN NEXT; 
       
   RAISE NOTICE '****************************** READ CAREFULLY ******************************';
   RAISE NOTICE '****************************** READ CAREFULLY ******************************';
@@ -8680,25 +8745,25 @@ END
 $$;
 
 
-ALTER FUNCTION public.wikimedia_1_hydration(_count integer) OWNER TO postgres;
+ALTER FUNCTION public.wikimedia_2_wikimedia_files_hydration(_count integer) OWNER TO postgres;
 
 --
--- TOC entry 4139 (class 0 OID 0)
--- Dependencies: 711
--- Name: FUNCTION wikimedia_1_hydration(_count integer); Type: COMMENT; Schema: public; Owner: postgres
+-- TOC entry 4138 (class 0 OID 0)
+-- Dependencies: 588
+-- Name: FUNCTION wikimedia_2_wikimedia_files_hydration(_count integer); Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON FUNCTION wikimedia_1_hydration(_count integer) IS 'This procedure updates the columns "info", "photo" and "thumbnail" of wikimedia_files table taking the data from the Wikimedia Commons site (http://commons.wikimedia.org) all downloaded data have a compatible license of GPLv3 (you can check the license in the column "info").
+COMMENT ON FUNCTION wikimedia_2_wikimedia_files_hydration(_count integer) IS 'Updates the columns "info", "photo" and "thumbnail" of wikimedia_files table taking the data from the Wikimedia Commons site (http://commons.wikimedia.org) all downloaded data have a compatible license of GPL (you can check the license in the column "info").
 This procedure is made because to have a light script to create and populate the scuola247 database the heavy data like picture and info file are hydrate from this procedure.
-Since the command is costly in terms of execution time, the _count parameter default set to 1, allows you to limit the run to experiment, verified the smooth running and setting the count parameter to a high value (typically 10,000 ) you run the rest of the work';
+Since the command is costly in terms of execution time, the _count parameter default set to 1, allows you to limit the run to experiment, verified the smooth running and setting the count parameter to a high value (my suggestione is: 500 ) you run the rest of the work';
 
 
 --
--- TOC entry 712 (class 1255 OID 17568)
--- Name: wikimedia_2_popolate_files(); Type: FUNCTION; Schema: public; Owner: postgres
+-- TOC entry 589 (class 1255 OID 17547)
+-- Name: wikimedia_3_wikimedia_files_popolate_files(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
-CREATE FUNCTION wikimedia_2_popolate_files() RETURNS TABLE(message text)
+CREATE FUNCTION wikimedia_3_wikimedia_files_popolate_files() RETURNS TABLE(message text)
     LANGUAGE plpgsql
     AS $$
 DECLARE
@@ -8797,32 +8862,30 @@ END
 $$;
 
 
-ALTER FUNCTION public.wikimedia_2_popolate_files() OWNER TO postgres;
+ALTER FUNCTION public.wikimedia_3_wikimedia_files_popolate_files() OWNER TO postgres;
 
 --
--- TOC entry 4140 (class 0 OID 0)
--- Dependencies: 712
--- Name: FUNCTION wikimedia_2_popolate_files(); Type: COMMENT; Schema: public; Owner: postgres
+-- TOC entry 4139 (class 0 OID 0)
+-- Dependencies: 589
+-- Name: FUNCTION wikimedia_3_wikimedia_files_popolate_files(); Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON FUNCTION wikimedia_2_popolate_files() IS 'This procedure create the info, photo and thumbnail file for the corresponding columns of table wikimedia_files as the template: 
+COMMENT ON FUNCTION wikimedia_3_wikimedia_files_popolate_files() IS 'This procedure create the info, photo and thumbnail file for the corresponding columns of table wikimedia_files as the template: 
 "/var/lib/scuola247/wikimedia_files/infos/<wikimedia_file>.<name.extension>"
 "/var/lib/scuola247/wikimedia_files/photos/<wikimedia_file>.<name.extension>"
 "/var/lib/scuola247/wikimedia_files/thumbnails/<wikimedia_file>.<name.extension>"';
 
 
 --
--- TOC entry 713 (class 1255 OID 17569)
--- Name: wikimedia_3_hydration_persons(); Type: FUNCTION; Schema: public; Owner: postgres
+-- TOC entry 718 (class 1255 OID 17548)
+-- Name: wikimedia_4_persons_hydration(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
-CREATE FUNCTION wikimedia_3_hydration_persons() RETURNS TABLE(message text)
+CREATE FUNCTION wikimedia_4_persons_hydration() RETURNS TABLE(message text)
     LANGUAGE plpgsql
     AS $$
+<<me>>
 DECLARE
-  my_record record;
-  url_wikimedia_api_prefix text := 'https://tools.wmflabs.org/magnus-toolserver/commonsapi.php?image=';
-
   ctr_photo_ok int = 0;
   ctr_thumbnail_ok int = 0;
   
@@ -8856,24 +8919,24 @@ END
 $$;
 
 
-ALTER FUNCTION public.wikimedia_3_hydration_persons() OWNER TO postgres;
+ALTER FUNCTION public.wikimedia_4_persons_hydration() OWNER TO postgres;
 
 --
--- TOC entry 4141 (class 0 OID 0)
--- Dependencies: 713
--- Name: FUNCTION wikimedia_3_hydration_persons(); Type: COMMENT; Schema: public; Owner: postgres
+-- TOC entry 4140 (class 0 OID 0)
+-- Dependencies: 718
+-- Name: FUNCTION wikimedia_4_persons_hydration(); Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON FUNCTION wikimedia_3_hydration_persons() IS 'This procedure updates the table columns "photo" and "thumbnail" of the table "persons" taking the data from the wikimedia_files table.
+COMMENT ON FUNCTION wikimedia_4_persons_hydration() IS 'Updates the table columns "photo" and "thumbnail" of the table "persons" taking the data from the wikimedia_files table.
 The operation is performed only if the photo column of person table is null and the photo column of wikimedia_files table is not null.';
 
 
 --
--- TOC entry 561 (class 1255 OID 17570)
--- Name: wikimedia_4_popolate_files_persons(); Type: FUNCTION; Schema: public; Owner: postgres
+-- TOC entry 590 (class 1255 OID 17549)
+-- Name: wikimedia_5_persons_popolate_files(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
-CREATE FUNCTION wikimedia_4_popolate_files_persons() RETURNS TABLE(message text)
+CREATE FUNCTION wikimedia_5_persons_popolate_files() RETURNS TABLE(message text)
     LANGUAGE plpgsql
     AS $$
 DECLARE
@@ -8947,211 +9010,21 @@ END
 $$;
 
 
-ALTER FUNCTION public.wikimedia_4_popolate_files_persons() OWNER TO postgres;
+ALTER FUNCTION public.wikimedia_5_persons_popolate_files() OWNER TO postgres;
 
 --
--- TOC entry 4142 (class 0 OID 0)
--- Dependencies: 561
--- Name: FUNCTION wikimedia_4_popolate_files_persons(); Type: COMMENT; Schema: public; Owner: postgres
+-- TOC entry 4141 (class 0 OID 0)
+-- Dependencies: 590
+-- Name: FUNCTION wikimedia_5_persons_popolate_files(); Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON FUNCTION wikimedia_4_popolate_files_persons() IS 'This procedure create the photo and thumbnail file for the corresponding columns of table persons as the templater: 
-"<postgresql installation path>/scuola247/persons/photos/<person>.jpg"
-"<postgresql installation path>/scuola247/persons/thumbnails/<person>.jpg"';
-
-
---
--- TOC entry 558 (class 1255 OID 17571)
--- Name: wikimedia_old_1_wikimedia_from_disk(); Type: FUNCTION; Schema: public; Owner: postgres
---
-
-CREATE FUNCTION wikimedia_old_1_wikimedia_from_disk() RETURNS TABLE(message text)
-    LANGUAGE plpgsql
-    AS $$
-DECLARE
-  row_count integer;
-BEGIN 
-
--- azzero il file di wikimedia per i ritratti
-                        
-  DELETE FROM wikimedia WHERE type = 'Male portrait';
-  
-  GET DIAGNOSTICS row_count = ROW_COUNT;
-  message := 'Ritratti maschili di wikimedia cancellati..: ' || row_count::text;
-  RETURN NEXT;   
-  
-  DELETE FROM wikimedia WHERE type = 'Female portrait';
-
-  GET DIAGNOSTICS row_count = ROW_COUNT;
-  message := 'Ritratti femminili di wikimedia cancellati.: ' || row_count::text;
-  RETURN NEXT; 
-
--- inserisco i ritratti che ho su file
-
-  INSERT INTO wikimedia (name, type)
-  SELECT pg_ls_dir, 'Male portrait'  FROM pg_ls_dir('scuola247/images/men')
-  WHERE pg_ls_dir NOT IN ('info', 'thumbnails');
-  
-  GET DIAGNOSTICS row_count = ROW_COUNT;
-  message := 'Ritratti maschili di wikimedia inseriti....: ' || row_count::text;
-  RETURN NEXT;
-
-  INSERT INTO wikimedia (name, type)
-  SELECT pg_ls_dir, 'Female portrait' FROM pg_ls_dir('scuola247/images/women')
-  WHERE pg_ls_dir NOT IN ('info', 'thumbnails');
-    
-  GET DIAGNOSTICS row_count = ROW_COUNT;
-  message := 'Ritratti femminili di wikimedia inseriti...: ' || row_count::text;
-  RETURN NEXT;
-
-  RETURN;
-  END
-$$;
-
-
-ALTER FUNCTION public.wikimedia_old_1_wikimedia_from_disk() OWNER TO postgres;
-
---
--- TOC entry 4143 (class 0 OID 0)
--- Dependencies: 558
--- Name: FUNCTION wikimedia_old_1_wikimedia_from_disk(); Type: COMMENT; Schema: public; Owner: postgres
---
-
-COMMENT ON FUNCTION wikimedia_old_1_wikimedia_from_disk() IS '1Â° STEP nel processo di popolamento delle immagini da wikimedia.
-Dopo aver selezionato manualmente i file di wikimedia popolo la tabella wikimedia a partire dai suddetti file: creo in pratica il catalogo dei file di wikimedia selezionati memorizzando il nome del file e il suo tipo: ritratto femminile o maschile
-';
+COMMENT ON FUNCTION wikimedia_5_persons_popolate_files() IS 'Create the photo and thumbnail file for the corresponding columns of table persons as the template: 
+"<var/lib/scuola247/persons/photos/<person>.jpg"
+"<var/lib/scuola247/persons/thumbnails/<person>.jpg"';
 
 
 --
--- TOC entry 559 (class 1255 OID 17572)
--- Name: wikimedia_old_3_persons_file(); Type: FUNCTION; Schema: public; Owner: postgres
---
-
-CREATE FUNCTION wikimedia_old_3_persons_file() RETURNS TABLE(message text)
-    LANGUAGE plpgsql
-    AS $$
-DECLARE
-  row_count integer;
-BEGIN 
-
-  WITH p AS (SELECT person, ((row_number() OVER() -1 )% (select count (*) from wikimedia where type = 'Male portrait')) + 1 AS row_number FROM persons WHERE sex = 'M'),
-       c AS (SELECT file, row_number() OVER() AS row_number from wikimedia  WHERE type = 'Male portrait')
-  UPDATE persons per SET file = c.file
-  FROM p
-  JOIN c on p.row_number = c.row_number
-  WHERE per.person = p.person;
-
-  GET DIAGNOSTICS row_count = ROW_COUNT;
-  message := 'Filename persone maschile aggiornato.......: ' || row_count::text;
-  RETURN NEXT; 
-
-  WITH p AS (SELECT person, ((row_number() OVER() -1 )% (select count (*) from wikimedia where type = 'Female portrait')) + 1 AS row_number FROM persons WHERE sex = 'F'),
-       c AS (SELECT file, row_number() OVER() AS row_number from wikimedia  WHERE type = 'Female portrait')
-  UPDATE persons per SET file = c.file
-  FROM p
-  JOIN c on p.row_number = c.row_number
-  WHERE per.person = p.person;
- 
-  GET DIAGNOSTICS row_count = ROW_COUNT;
-  message := 'Filename persone femminili aggiornate......: ' || row_count::text;
-  RETURN NEXT; 
-
-  RETURN;
-  END
-$$;
-
-
-ALTER FUNCTION public.wikimedia_old_3_persons_file() OWNER TO postgres;
-
---
--- TOC entry 4144 (class 0 OID 0)
--- Dependencies: 559
--- Name: FUNCTION wikimedia_old_3_persons_file(); Type: COMMENT; Schema: public; Owner: postgres
---
-
-COMMENT ON FUNCTION wikimedia_old_3_persons_file() IS '3Â° STEP nel processo di popolamento delle immagini da wikimedia 
-Aggiorno la tabella persons assegnando in maniera casuale le immagini che ho nella tabella wikimedia, prima per i maschi e poi per le femmine, nel caso le persone siano di piÃ¹ delle immagini queste verranno riutilizzate ciclicamente in maniera da avere tutte le persone con un''immagine anche se Ã¨ ovviamente possibile che la stessa immagine sia assegnata a piÃ¹ persone';
-
-
---
--- TOC entry 560 (class 1255 OID 17573)
--- Name: wikimedia_old_4_alt_persons_photo_thumbnail_from_disk(boolean); Type: FUNCTION; Schema: public; Owner: postgres
---
-
-CREATE FUNCTION wikimedia_old_4_alt_persons_photo_thumbnail_from_disk(p_only_null boolean DEFAULT true) RETURNS TABLE(message text)
-    LANGUAGE plpgsql
-    AS $$
-DECLARE
-  row_count integer;
-BEGIN 
- 
-  UPDATE persons p SET photo = pg_read_binary_file('scuola247/images/men/' || w.name) 
-  FROM wikimedia w 
-  WHERE w.file = p.file 
-    AND p.sex = 'M'
-    AND ((photo IS NULL AND p_only_null) OR (NOT p_only_null));
-  
-  GET DIAGNOSTICS row_count = ROW_COUNT;
-  message := 'Photo persone maschili aggiornate..........: ' || row_count::text;
-  RETURN NEXT; 
-
-  UPDATE persons p SET thumbnail = pg_read_binary_file('scuola247/images/men/thumbnails/' || w.name) 
-  FROM wikimedia w 
-  WHERE w.file = p.file 
-    AND p.sex = 'M'
-    AND ((thumbnail IS NULL AND p_only_null) OR (NOT p_only_null));
-  
-  GET DIAGNOSTICS row_count = ROW_COUNT;
-  message := 'Miniature persone maschili aggiornate......: ' || row_count::text;
-  RETURN NEXT; 
-
-  UPDATE persons p SET photo = pg_read_binary_file('scuola247/images/women/' || w.name) 
-  FROM wikimedia w 
-  WHERE w.file = p.file 
-    AND p.sex = 'F'
-    AND ((photo IS NULL AND p_only_null) OR (NOT p_only_null));
-
-  GET DIAGNOSTICS row_count = ROW_COUNT;
-  message := 'Photo persone femminili aggiornate.........: ' || row_count::text;
-  RETURN NEXT; 
-
-  UPDATE persons p SET thumbnail = pg_read_binary_file('scuola247/images/women/thumbnails/' || w.name) 
-  FROM wikimedia w 
-  WHERE w.file = p.file 
-    AND p.sex = 'F'
-    AND ((thumbnail IS NULL AND p_only_null) OR (NOT p_only_null));
-  
-  GET DIAGNOSTICS row_count = ROW_COUNT;
-  message := 'Miniature persone femminili aggiornate.....: ' || row_count::text;
-  RETURN NEXT; 
-
-  RETURN;
-  END
-$$;
-
-
-ALTER FUNCTION public.wikimedia_old_4_alt_persons_photo_thumbnail_from_disk(p_only_null boolean) OWNER TO postgres;
-
---
--- TOC entry 4145 (class 0 OID 0)
--- Dependencies: 560
--- Name: FUNCTION wikimedia_old_4_alt_persons_photo_thumbnail_from_disk(p_only_null boolean); Type: COMMENT; Schema: public; Owner: postgres
---
-
-COMMENT ON FUNCTION wikimedia_old_4_alt_persons_photo_thumbnail_from_disk(p_only_null boolean) IS '4Â° STEP (alternativa) nel processo di popolamento delle immagini da wikimedia.
-E'' per quelle persone che hanno scaricato su disco le immagini con altri mezzi.
-Lo script aggiorna il campo photo e thumbnails con le immagine prese dalla directory scuola247 che deve essere presente nella directory di installazione di postgres e avere la seguente struttura:
-/images/men/<name> (colonna photo per le persone con: sex=''M'')
-/images/men/thumbnails/<name> (colonna photo per le persone con: sex=''M'')
-/images/men/<name>  (colonna thumbnail per le persone con: sex=''M'')
-/images/women/<name> (colonna photo per le persone con: sex=''M'')
-/images/men/<name> (colonna thumbnail per le persone con: sex=''F'')
-/images/women/thumbnails/<name>  (colonna thumbnail per le persone con: sex=''F'')
-Il nome del file viene preso dalla colonna omonima della tabella wikimedia puntata dalla colonna file';
-
-
---
--- TOC entry 704 (class 1255 OID 17574)
+-- TOC entry 712 (class 1255 OID 17553)
 -- Name: work_spaces_del(bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -9189,7 +9062,7 @@ $$;
 ALTER FUNCTION public.work_spaces_del(p_rv bigint, p_work_space bigint) OWNER TO postgres;
 
 --
--- TOC entry 705 (class 1255 OID 17575)
+-- TOC entry 713 (class 1255 OID 17554)
 -- Name: work_spaces_ins(character varying, bigint, bigint, bigint, bigint, bigint, bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -9214,7 +9087,7 @@ $$;
 ALTER FUNCTION public.work_spaces_ins(OUT p_rv bigint, OUT p_work_space bigint, p_description character varying, p_school bigint, p_school_year bigint, p_classroom bigint, p_subject bigint, p_teacher bigint, p_family bigint, p_student bigint) OWNER TO postgres;
 
 --
--- TOC entry 706 (class 1255 OID 17576)
+-- TOC entry 714 (class 1255 OID 17555)
 -- Name: work_spaces_list(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -9248,7 +9121,7 @@ $$;
 ALTER FUNCTION public.work_spaces_list() OWNER TO postgres;
 
 --
--- TOC entry 707 (class 1255 OID 17577)
+-- TOC entry 715 (class 1255 OID 17556)
 -- Name: work_spaces_upd(bigint, bigint, character varying, bigint, bigint, bigint, bigint, bigint, bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -9263,10 +9136,10 @@ CREATE FUNCTION work_spaces_upd(p_rv bigint, p_work_space bigint, p_description 
 DELETE FROM system_messages WHERE function_name = 'work_spaces_upd';
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('work_spaces_upd',1,'it','Non Ã¨ stata trovata nessuna riga nella tabella ''work_spaces'' con: ''revisione'' = ''%s'',  ''work_space'' = ''%s'''); 
+                     VALUES ('work_spaces_upd',1,'it','Non è stata trovata nessuna riga nella tabella ''work_spaces'' con: ''revisione'' = ''%s'',  ''work_space'' = ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
-                     VALUES ('work_spaces_upd',2,'it','La funzione in errore Ã¨: ''%s'''); 
+                     VALUES ('work_spaces_upd',2,'it','La funzione in errore è: ''%s'''); 
 
 INSERT INTO system_messages (function_name, id, language, description)
                      VALUES ('work_spaces_upd',3,'it','Controllare il valore di: ''revisione'', ''work_space'' e riprovare l''operazione'); 
@@ -9308,7 +9181,7 @@ ALTER FUNCTION public.work_spaces_upd(p_rv bigint, p_work_space bigint, p_descri
 SET search_path = translate, pg_catalog;
 
 --
--- TOC entry 562 (class 1255 OID 17578)
+-- TOC entry 591 (class 1255 OID 17557)
 -- Name: synch(); Type: FUNCTION; Schema: translate; Owner: postgres
 --
 
@@ -9488,7 +9361,7 @@ $$;
 ALTER FUNCTION translate.synch() OWNER TO postgres;
 
 --
--- TOC entry 563 (class 1255 OID 17580)
+-- TOC entry 592 (class 1255 OID 17559)
 -- Name: translation(); Type: FUNCTION; Schema: translate; Owner: postgres
 --
 
@@ -9548,7 +9421,7 @@ ALTER FUNCTION translate.translation() OWNER TO postgres;
 SET search_path = unit_testing, pg_catalog;
 
 --
--- TOC entry 564 (class 1255 OID 17581)
+-- TOC entry 593 (class 1255 OID 17560)
 -- Name: count_unit_tests(); Type: FUNCTION; Schema: unit_testing; Owner: postgres
 --
 
@@ -9568,7 +9441,7 @@ $$;
 ALTER FUNCTION unit_testing.count_unit_tests() OWNER TO postgres;
 
 --
--- TOC entry 565 (class 1255 OID 17582)
+-- TOC entry 594 (class 1255 OID 17561)
 -- Name: count_unit_tests_level(); Type: FUNCTION; Schema: unit_testing; Owner: postgres
 --
 
@@ -9588,7 +9461,7 @@ $$;
 ALTER FUNCTION unit_testing.count_unit_tests_level() OWNER TO postgres;
 
 --
--- TOC entry 566 (class 1255 OID 17583)
+-- TOC entry 595 (class 1255 OID 17562)
 -- Name: fol(); Type: FUNCTION; Schema: unit_testing; Owner: postgres
 --
 
@@ -9611,7 +9484,7 @@ $$;
 ALTER FUNCTION unit_testing.fol() OWNER TO postgres;
 
 --
--- TOC entry 567 (class 1255 OID 17584)
+-- TOC entry 596 (class 1255 OID 17563)
 -- Name: my_sqlcode(text, character); Type: FUNCTION; Schema: unit_testing; Owner: postgres
 --
 
@@ -9636,7 +9509,7 @@ $$;
 ALTER FUNCTION unit_testing.my_sqlcode(p_function text, p_id character) OWNER TO postgres;
 
 --
--- TOC entry 569 (class 1255 OID 17585)
+-- TOC entry 598 (class 1255 OID 17564)
 -- Name: run(boolean, boolean, boolean, bigint, text, text); Type: FUNCTION; Schema: unit_testing; Owner: postgres
 --
 
@@ -9841,13 +9714,13 @@ BEGIN
       END IF;
     END LOOP;
     RAISE EXCEPTION SQLSTATE 'ZZZZZ'; -- raise the error to abort the transaction and rollback all data updates
-  EXCEPTION WHEN SQLSTATE 'ZZZZZ' THEN -- questo Ã¨ per annullare eventuali modifiche ai dati fatte dai test
+  EXCEPTION WHEN SQLSTATE 'ZZZZZ' THEN -- questo è per annullare eventuali modifiche ai dati fatte dai test
             WHEN plpgsql_error THEN
               GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
               --PERFORM diagnostic.show(error);
               result = assert.fail(NULL,NULL,(error).message_text,error);   
               all_results=array_append(all_results, result);
-            WHEN OTHERS THEN -- questo Ã¨ nel caso, invece, venga generata un' eccezzione per qualsivoglia motivo non gestita e quindi da rilanciare
+            WHEN OTHERS THEN -- questo è nel caso, invece, venga generata un' eccezzione per qualsivoglia motivo non gestita e quindi da rilanciare
               GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
               RAISE NOTICE '$$$$$$$$$$$$$$$$$$$$$';
               RAISE NOTICE 'UNEXPECTED EXCEPTION!';
@@ -9909,8 +9782,8 @@ $_$;
 ALTER FUNCTION unit_testing.run(_check_functions boolean, _check_queries boolean, _check_unit_tests boolean, _unit_test_set bigint, _verbosity text, _note text, OUT _current_test bigint) OWNER TO postgres;
 
 --
--- TOC entry 4150 (class 0 OID 0)
--- Dependencies: 569
+-- TOC entry 4146 (class 0 OID 0)
+-- Dependencies: 598
 -- Name: FUNCTION run(_check_functions boolean, _check_queries boolean, _check_unit_tests boolean, _unit_test_set bigint, _verbosity text, _note text, OUT _current_test bigint); Type: COMMENT; Schema: unit_testing; Owner: postgres
 --
 
@@ -9918,7 +9791,7 @@ COMMENT ON FUNCTION run(_check_functions boolean, _check_queries boolean, _check
 
 
 --
--- TOC entry 570 (class 1255 OID 17587)
+-- TOC entry 599 (class 1255 OID 17566)
 -- Name: run_ex(); Type: FUNCTION; Schema: unit_testing; Owner: postgres
 --
 
@@ -9934,7 +9807,7 @@ $$;
 ALTER FUNCTION unit_testing.run_ex(OUT function text, OUT name text, OUT checked_at timestamp without time zone, OUT passed boolean, OUT message text, OUT returned_sqlstate text, OUT message_text text, OUT schema_name text, OUT table_name text, OUT column_name text, OUT constraint_name text, OUT pg_exception_context text, OUT pg_exception_detail text, OUT pg_exception_hint text, OUT pg_datatype_name text) OWNER TO postgres;
 
 --
--- TOC entry 571 (class 1255 OID 17588)
+-- TOC entry 600 (class 1255 OID 17567)
 -- Name: set_continuous_integration(boolean); Type: FUNCTION; Schema: unit_testing; Owner: postgres
 --
 
@@ -10050,7 +9923,7 @@ $$;
 ALTER FUNCTION unit_testing.set_continuous_integration(activate boolean) OWNER TO postgres;
 
 --
--- TOC entry 572 (class 1255 OID 17589)
+-- TOC entry 601 (class 1255 OID 17568)
 -- Name: show(check_point); Type: FUNCTION; Schema: unit_testing; Owner: postgres
 --
 
@@ -10075,7 +9948,7 @@ $$;
 ALTER FUNCTION unit_testing.show(_check_point check_point) OWNER TO postgres;
 
 --
--- TOC entry 573 (class 1255 OID 17590)
+-- TOC entry 602 (class 1255 OID 17569)
 -- Name: tr_continuous_integration(); Type: FUNCTION; Schema: unit_testing; Owner: postgres
 --
 
@@ -10095,7 +9968,7 @@ $$;
 ALTER FUNCTION unit_testing.tr_continuous_integration() OWNER TO postgres;
 
 --
--- TOC entry 708 (class 1255 OID 17591)
+-- TOC entry 716 (class 1255 OID 17570)
 -- Name: tr_dependencies_iu(); Type: FUNCTION; Schema: unit_testing; Owner: postgres
 --
 
@@ -10160,7 +10033,7 @@ $$;
 ALTER FUNCTION unit_testing.tr_dependencies_iu() OWNER TO postgres;
 
 --
--- TOC entry 574 (class 1255 OID 17592)
+-- TOC entry 603 (class 1255 OID 17571)
 -- Name: tr_unit_test_sets_details_iu(); Type: FUNCTION; Schema: unit_testing; Owner: postgres
 --
 
@@ -10206,7 +10079,7 @@ ALTER FUNCTION unit_testing.tr_unit_test_sets_details_iu() OWNER TO postgres;
 SET search_path = unit_tests, pg_catalog;
 
 --
--- TOC entry 576 (class 1255 OID 17593)
+-- TOC entry 605 (class 1255 OID 17572)
 -- Name: _school_years(); Type: FUNCTION; Schema: unit_tests; Owner: postgres
 --
 
@@ -10254,7 +10127,7 @@ $$;
 ALTER FUNCTION unit_tests._school_years(OUT _results unit_testing.unit_test_result[]) OWNER TO postgres;
 
 --
--- TOC entry 577 (class 1255 OID 17594)
+-- TOC entry 606 (class 1255 OID 17573)
 -- Name: mime_type(); Type: FUNCTION; Schema: unit_tests; Owner: postgres
 --
 
@@ -10350,7 +10223,7 @@ $$;
 ALTER FUNCTION unit_tests.mime_type(OUT _results unit_testing.unit_test_result[]) OWNER TO postgres;
 
 --
--- TOC entry 578 (class 1255 OID 17595)
+-- TOC entry 607 (class 1255 OID 17574)
 -- Name: schools(); Type: FUNCTION; Schema: unit_tests; Owner: postgres
 --
 
@@ -10783,8 +10656,8 @@ $$;
 ALTER FUNCTION unit_tests.schools(OUT _results unit_testing.unit_test_result[]) OWNER TO postgres;
 
 --
--- TOC entry 4152 (class 0 OID 0)
--- Dependencies: 578
+-- TOC entry 4148 (class 0 OID 0)
+-- Dependencies: 607
 -- Name: FUNCTION schools(OUT _results unit_testing.unit_test_result[]); Type: COMMENT; Schema: unit_tests; Owner: postgres
 --
 
@@ -10794,7 +10667,7 @@ COMMENT ON FUNCTION schools(OUT _results unit_testing.unit_test_result[]) IS 'Te
 SET search_path = utility, pg_catalog;
 
 --
--- TOC entry 709 (class 1255 OID 17597)
+-- TOC entry 717 (class 1255 OID 17576)
 -- Name: count_value(text, text, text); Type: FUNCTION; Schema: utility; Owner: postgres
 --
 
@@ -10837,8 +10710,8 @@ $$;
 ALTER FUNCTION utility.count_value(search_db text, search_schema text, search_table text) OWNER TO postgres;
 
 --
--- TOC entry 4153 (class 0 OID 0)
--- Dependencies: 709
+-- TOC entry 4149 (class 0 OID 0)
+-- Dependencies: 717
 -- Name: FUNCTION count_value(search_db text, search_schema text, search_table text); Type: COMMENT; Schema: utility; Owner: postgres
 --
 
@@ -10846,7 +10719,7 @@ COMMENT ON FUNCTION count_value(search_db text, search_schema text, search_table
 
 
 --
--- TOC entry 579 (class 1255 OID 17598)
+-- TOC entry 608 (class 1255 OID 17577)
 -- Name: entity2char(text); Type: FUNCTION; Schema: utility; Owner: postgres
 --
 
@@ -10894,7 +10767,7 @@ $$;
 ALTER FUNCTION utility.entity2char(t text) OWNER TO postgres;
 
 --
--- TOC entry 580 (class 1255 OID 17599)
+-- TOC entry 609 (class 1255 OID 17578)
 -- Name: entity_coding(); Type: FUNCTION; Schema: utility; Owner: postgres
 --
 
@@ -11163,7 +11036,7 @@ $$;
 ALTER FUNCTION utility.entity_coding() OWNER TO postgres;
 
 --
--- TOC entry 581 (class 1255 OID 17601)
+-- TOC entry 610 (class 1255 OID 17580)
 -- Name: enum2array(anyenum); Type: FUNCTION; Schema: utility; Owner: postgres
 --
 
@@ -11180,7 +11053,7 @@ end;$$;
 ALTER FUNCTION utility.enum2array(enum anyenum) OWNER TO postgres;
 
 --
--- TOC entry 582 (class 1255 OID 17602)
+-- TOC entry 611 (class 1255 OID 17581)
 -- Name: get_max_column_value(text, text, text); Type: FUNCTION; Schema: utility; Owner: postgres
 --
 
@@ -11210,8 +11083,8 @@ $$;
 ALTER FUNCTION utility.get_max_column_value(schema_name text, table_name text, column_name text, OUT max_value bigint) OWNER TO postgres;
 
 --
--- TOC entry 4155 (class 0 OID 0)
--- Dependencies: 582
+-- TOC entry 4151 (class 0 OID 0)
+-- Dependencies: 611
 -- Name: FUNCTION get_max_column_value(schema_name text, table_name text, column_name text, OUT max_value bigint); Type: COMMENT; Schema: utility; Owner: postgres
 --
 
@@ -11219,7 +11092,7 @@ COMMENT ON FUNCTION get_max_column_value(schema_name text, table_name text, colu
 
 
 --
--- TOC entry 583 (class 1255 OID 17603)
+-- TOC entry 612 (class 1255 OID 17582)
 -- Name: set_all_sequences_2_the_max(); Type: FUNCTION; Schema: utility; Owner: postgres
 --
 
@@ -11238,8 +11111,8 @@ $$;
 ALTER FUNCTION utility.set_all_sequences_2_the_max() OWNER TO postgres;
 
 --
--- TOC entry 4156 (class 0 OID 0)
--- Dependencies: 583
+-- TOC entry 4152 (class 0 OID 0)
+-- Dependencies: 612
 -- Name: FUNCTION set_all_sequences_2_the_max(); Type: COMMENT; Schema: utility; Owner: postgres
 --
 
@@ -11247,7 +11120,7 @@ COMMENT ON FUNCTION set_all_sequences_2_the_max() IS 'sets all database sequence
 
 
 --
--- TOC entry 568 (class 1255 OID 17604)
+-- TOC entry 597 (class 1255 OID 17583)
 -- Name: set_sequence_2_the_max(text, text); Type: FUNCTION; Schema: utility; Owner: postgres
 --
 
@@ -11280,8 +11153,8 @@ $$;
 ALTER FUNCTION utility.set_sequence_2_the_max(p_sequence_namespace text, p_sequence_name text) OWNER TO postgres;
 
 --
--- TOC entry 4157 (class 0 OID 0)
--- Dependencies: 568
+-- TOC entry 4153 (class 0 OID 0)
+-- Dependencies: 597
 -- Name: FUNCTION set_sequence_2_the_max(p_sequence_namespace text, p_sequence_name text); Type: COMMENT; Schema: utility; Owner: postgres
 --
 
@@ -11289,7 +11162,7 @@ COMMENT ON FUNCTION set_sequence_2_the_max(p_sequence_namespace text, p_sequence
 
 
 --
--- TOC entry 575 (class 1255 OID 17605)
+-- TOC entry 604 (class 1255 OID 17584)
 -- Name: strip_tags(text); Type: FUNCTION; Schema: utility; Owner: postgres
 --
 
@@ -11303,8 +11176,8 @@ $_$;
 ALTER FUNCTION utility.strip_tags(text) OWNER TO postgres;
 
 --
--- TOC entry 4158 (class 0 OID 0)
--- Dependencies: 575
+-- TOC entry 4154 (class 0 OID 0)
+-- Dependencies: 604
 -- Name: FUNCTION strip_tags(text); Type: COMMENT; Schema: utility; Owner: postgres
 --
 
@@ -11312,7 +11185,7 @@ COMMENT ON FUNCTION strip_tags(text) IS 'Strip out the HTML tags from a string';
 
 
 --
--- TOC entry 584 (class 1255 OID 17606)
+-- TOC entry 613 (class 1255 OID 17585)
 -- Name: system_messages_locale(text, text, integer); Type: FUNCTION; Schema: utility; Owner: postgres
 --
 
@@ -11328,7 +11201,7 @@ DECLARE
     rc integer;
     
 BEGIN 
-    -- Ã¨ possibile conoscere il lingaggio del sistema con
+    -- è possibile conoscere il lingaggio del sistema con
     -- SHOW lc_message
     -- ed impostarlo con:
     -- SET lc_message = 'xxx'
@@ -11359,7 +11232,7 @@ $$;
 ALTER FUNCTION utility.system_messages_locale(p_name_space text, p_function_name text, p_id integer) OWNER TO postgres;
 
 --
--- TOC entry 585 (class 1255 OID 17607)
+-- TOC entry 614 (class 1255 OID 17586)
 -- Name: url_decode(text); Type: FUNCTION; Schema: utility; Owner: postgres
 --
 
@@ -11385,7 +11258,7 @@ $$;
 ALTER FUNCTION utility.url_decode(encode_url text) OWNER TO postgres;
 
 --
--- TOC entry 586 (class 1255 OID 17608)
+-- TOC entry 615 (class 1255 OID 17587)
 -- Name: where_sequence(text, text, text, bigint); Type: FUNCTION; Schema: utility; Owner: postgres
 --
 
@@ -11450,8 +11323,8 @@ $$;
 ALTER FUNCTION utility.where_sequence(p_catalog text, p_schema text, p_sequence text, p_value bigint) OWNER TO postgres;
 
 --
--- TOC entry 4159 (class 0 OID 0)
--- Dependencies: 586
+-- TOC entry 4155 (class 0 OID 0)
+-- Dependencies: 615
 -- Name: FUNCTION where_sequence(p_catalog text, p_schema text, p_sequence text, p_value bigint); Type: COMMENT; Schema: utility; Owner: postgres
 --
 
@@ -11463,7 +11336,7 @@ So it can be usefull, starting from a value of the sequence, go back to the tabl
 SET search_path = pg_catalog;
 
 --
--- TOC entry 3130 (class 2605 OID 17609)
+-- TOC entry 3128 (class 2605 OID 17588)
 -- Name: CAST (public.file_extension AS public.mime_type); Type: CAST; Schema: pg_catalog; Owner: 
 --
 
@@ -11471,7 +11344,7 @@ CREATE CAST (public.file_extension AS public.mime_type) WITH FUNCTION public.mim
 
 
 --
--- TOC entry 3131 (class 2605 OID 17610)
+-- TOC entry 3129 (class 2605 OID 17589)
 -- Name: CAST (public.mime_type AS public.file_extension); Type: CAST; Schema: pg_catalog; Owner: 
 --
 
@@ -11481,7 +11354,7 @@ CREATE CAST (public.mime_type AS public.file_extension) WITH FUNCTION public.fil
 SET search_path = diagnostic, pg_catalog;
 
 --
--- TOC entry 234 (class 1259 OID 17611)
+-- TOC entry 242 (class 1259 OID 17590)
 -- Name: functions_check; Type: VIEW; Schema: diagnostic; Owner: postgres
 --
 
@@ -11514,8 +11387,8 @@ CREATE VIEW functions_check AS
 ALTER TABLE functions_check OWNER TO postgres;
 
 --
--- TOC entry 4160 (class 0 OID 0)
--- Dependencies: 234
+-- TOC entry 4156 (class 0 OID 0)
+-- Dependencies: 242
 -- Name: VIEW functions_check; Type: COMMENT; Schema: diagnostic; Owner: postgres
 --
 
@@ -11523,7 +11396,7 @@ COMMENT ON VIEW functions_check IS 'Check if functions can be compiled and if no
 
 
 --
--- TOC entry 235 (class 1259 OID 17616)
+-- TOC entry 243 (class 1259 OID 17595)
 -- Name: functions_list; Type: VIEW; Schema: diagnostic; Owner: postgres
 --
 
@@ -11538,8 +11411,8 @@ CREATE VIEW functions_list AS
 ALTER TABLE functions_list OWNER TO postgres;
 
 --
--- TOC entry 4161 (class 0 OID 0)
--- Dependencies: 235
+-- TOC entry 4157 (class 0 OID 0)
+-- Dependencies: 243
 -- Name: VIEW functions_list; Type: COMMENT; Schema: diagnostic; Owner: postgres
 --
 
@@ -11547,7 +11420,7 @@ COMMENT ON VIEW functions_list IS 'List all the function in all schema';
 
 
 --
--- TOC entry 236 (class 1259 OID 17621)
+-- TOC entry 244 (class 1259 OID 17600)
 -- Name: views_working; Type: VIEW; Schema: diagnostic; Owner: postgres
 --
 
@@ -11564,7 +11437,7 @@ ALTER TABLE views_working OWNER TO postgres;
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 237 (class 1259 OID 17625)
+-- TOC entry 245 (class 1259 OID 17604)
 -- Name: absences_certified_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -11580,8 +11453,8 @@ CREATE VIEW absences_certified_grp AS
 ALTER TABLE absences_certified_grp OWNER TO postgres;
 
 --
--- TOC entry 4162 (class 0 OID 0)
--- Dependencies: 237
+-- TOC entry 4158 (class 0 OID 0)
+-- Dependencies: 245
 -- Name: VIEW absences_certified_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -11589,7 +11462,7 @@ COMMENT ON VIEW absences_certified_grp IS 'groups the absences certified by date
 
 
 --
--- TOC entry 238 (class 1259 OID 17629)
+-- TOC entry 246 (class 1259 OID 17608)
 -- Name: absences_certified_grp_mat; Type: MATERIALIZED VIEW; Schema: public; Owner: postgres
 --
 
@@ -11606,7 +11479,7 @@ CREATE MATERIALIZED VIEW absences_certified_grp_mat AS
 ALTER TABLE absences_certified_grp_mat OWNER TO postgres;
 
 --
--- TOC entry 239 (class 1259 OID 17633)
+-- TOC entry 247 (class 1259 OID 17612)
 -- Name: explanations; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -11632,18 +11505,18 @@ CREATE TABLE explanations (
 ALTER TABLE explanations OWNER TO postgres;
 
 --
--- TOC entry 4164 (class 0 OID 0)
--- Dependencies: 239
+-- TOC entry 4160 (class 0 OID 0)
+-- Dependencies: 247
 -- Name: TABLE explanations; Type: COMMENT; Schema: public; Owner: postgres
 --
 
 COMMENT ON TABLE explanations IS 'contiene le explanations per absences, delays e leavings.
-PuÃ² essere fatta from_time un addetto scolastico che compilerÃ  la description o from_time un esercenta la patria potestÃ ';
+Può essere fatta from_time un addetto scolastico che compilerà la description o from_time un esercenta la patria potestà';
 
 
 --
--- TOC entry 4165 (class 0 OID 0)
--- Dependencies: 239
+-- TOC entry 4161 (class 0 OID 0)
+-- Dependencies: 247
 -- Name: COLUMN explanations.created_by; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -11651,17 +11524,17 @@ COMMENT ON COLUMN explanations.created_by IS 'La person, addetto scolastico, fam
 
 
 --
--- TOC entry 4166 (class 0 OID 0)
--- Dependencies: 239
+-- TOC entry 4162 (class 0 OID 0)
+-- Dependencies: 247
 -- Name: COLUMN explanations.registered_on; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN explanations.registered_on IS 'Data ed at_time in cui la explanation Ã¨ stata usata (Ã¨ stata cioÃ¨ associata ad un''absence)';
+COMMENT ON COLUMN explanations.registered_on IS 'Data ed at_time in cui la explanation è stata usata (è stata cioè associata ad un''absence)';
 
 
 --
--- TOC entry 4167 (class 0 OID 0)
--- Dependencies: 239
+-- TOC entry 4163 (class 0 OID 0)
+-- Dependencies: 247
 -- Name: COLUMN explanations.registered_by; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -11669,8 +11542,8 @@ COMMENT ON COLUMN explanations.registered_by IS 'L''addetto scolastico che ha us
 
 
 --
--- TOC entry 4168 (class 0 OID 0)
--- Dependencies: 239
+-- TOC entry 4164 (class 0 OID 0)
+-- Dependencies: 247
 -- Name: COLUMN explanations.from_time; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -11678,8 +11551,8 @@ COMMENT ON COLUMN explanations.from_time IS 'on_date di begin_on della explanati
 
 
 --
--- TOC entry 4169 (class 0 OID 0)
--- Dependencies: 239
+-- TOC entry 4165 (class 0 OID 0)
+-- Dependencies: 247
 -- Name: COLUMN explanations.to_time; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -11687,8 +11560,8 @@ COMMENT ON COLUMN explanations.to_time IS 'on_date di end_on explanation (per i 
 
 
 --
--- TOC entry 4170 (class 0 OID 0)
--- Dependencies: 239
+-- TOC entry 4166 (class 0 OID 0)
+-- Dependencies: 247
 -- Name: COLUMN explanations.coming_at; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -11696,8 +11569,8 @@ COMMENT ON COLUMN explanations.coming_at IS 'at_time di coming_atta (delay)';
 
 
 --
--- TOC entry 4171 (class 0 OID 0)
--- Dependencies: 239
+-- TOC entry 4167 (class 0 OID 0)
+-- Dependencies: 247
 -- Name: COLUMN explanations.leaving_at; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -11705,7 +11578,7 @@ COMMENT ON COLUMN explanations.leaving_at IS 'Ora di leaving';
 
 
 --
--- TOC entry 240 (class 1259 OID 17643)
+-- TOC entry 248 (class 1259 OID 17622)
 -- Name: absences_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -11742,7 +11615,7 @@ CREATE VIEW absences_ex AS
 ALTER TABLE absences_ex OWNER TO postgres;
 
 --
--- TOC entry 241 (class 1259 OID 17648)
+-- TOC entry 249 (class 1259 OID 17627)
 -- Name: absences_month_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -11766,8 +11639,8 @@ CREATE VIEW absences_month_grp AS
 ALTER TABLE absences_month_grp OWNER TO postgres;
 
 --
--- TOC entry 4174 (class 0 OID 0)
--- Dependencies: 241
+-- TOC entry 4170 (class 0 OID 0)
+-- Dependencies: 249
 -- Name: VIEW absences_month_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -11776,7 +11649,7 @@ viene usata una crossjoin per creare la lista di tutte le classrooms person tutt
 
 
 --
--- TOC entry 242 (class 1259 OID 17653)
+-- TOC entry 250 (class 1259 OID 17632)
 -- Name: delays_month_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -11800,8 +11673,8 @@ CREATE VIEW delays_month_grp AS
 ALTER TABLE delays_month_grp OWNER TO postgres;
 
 --
--- TOC entry 4176 (class 0 OID 0)
--- Dependencies: 242
+-- TOC entry 4172 (class 0 OID 0)
+-- Dependencies: 250
 -- Name: VIEW delays_month_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -11810,7 +11683,7 @@ viene usata una crossjoin per creare la lista di tutte le classrooms person tutt
 
 
 --
--- TOC entry 243 (class 1259 OID 17658)
+-- TOC entry 251 (class 1259 OID 17637)
 -- Name: leavings_month_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -11834,7 +11707,7 @@ CREATE VIEW leavings_month_grp AS
 ALTER TABLE leavings_month_grp OWNER TO postgres;
 
 --
--- TOC entry 244 (class 1259 OID 17663)
+-- TOC entry 252 (class 1259 OID 17642)
 -- Name: notes_month_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -11857,7 +11730,7 @@ CREATE VIEW notes_month_grp AS
 ALTER TABLE notes_month_grp OWNER TO postgres;
 
 --
--- TOC entry 245 (class 1259 OID 17668)
+-- TOC entry 253 (class 1259 OID 17647)
 -- Name: out_of_classrooms_month_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -11881,7 +11754,7 @@ CREATE VIEW out_of_classrooms_month_grp AS
 ALTER TABLE out_of_classrooms_month_grp OWNER TO postgres;
 
 --
--- TOC entry 246 (class 1259 OID 17673)
+-- TOC entry 254 (class 1259 OID 17652)
 -- Name: classbooks_month_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -11920,7 +11793,7 @@ UNION ALL
 ALTER TABLE classbooks_month_grp OWNER TO postgres;
 
 --
--- TOC entry 247 (class 1259 OID 17677)
+-- TOC entry 255 (class 1259 OID 17656)
 -- Name: persons_addresses; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -11937,7 +11810,7 @@ CREATE TABLE persons_addresses (
 ALTER TABLE persons_addresses OWNER TO postgres;
 
 --
--- TOC entry 248 (class 1259 OID 17681)
+-- TOC entry 256 (class 1259 OID 17660)
 -- Name: classrooms_students_addresses_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -11967,7 +11840,7 @@ CREATE VIEW classrooms_students_addresses_ex AS
 ALTER TABLE classrooms_students_addresses_ex OWNER TO postgres;
 
 --
--- TOC entry 249 (class 1259 OID 17686)
+-- TOC entry 257 (class 1259 OID 17665)
 -- Name: lessons; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -11990,17 +11863,17 @@ CREATE TABLE lessons (
 ALTER TABLE lessons OWNER TO postgres;
 
 --
--- TOC entry 4184 (class 0 OID 0)
--- Dependencies: 249
+-- TOC entry 4180 (class 0 OID 0)
+-- Dependencies: 257
 -- Name: COLUMN lessons.substitute; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN lessons.substitute IS 'Indica se la lesson Ã¨ di substitute cioÃ¨ tenuta from_time un insegnante non titolare della cattedra';
+COMMENT ON COLUMN lessons.substitute IS 'Indica se la lesson è di substitute cioè tenuta from_time un insegnante non titolare della cattedra';
 
 
 --
--- TOC entry 4185 (class 0 OID 0)
--- Dependencies: 249
+-- TOC entry 4181 (class 0 OID 0)
+-- Dependencies: 257
 -- Name: COLUMN lessons.from_time; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12008,8 +11881,8 @@ COMMENT ON COLUMN lessons.from_time IS 'begin_on della lesson';
 
 
 --
--- TOC entry 4186 (class 0 OID 0)
--- Dependencies: 249
+-- TOC entry 4182 (class 0 OID 0)
+-- Dependencies: 257
 -- Name: COLUMN lessons.to_time; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12017,8 +11890,8 @@ COMMENT ON COLUMN lessons.to_time IS 'end_on della lesson';
 
 
 --
--- TOC entry 4187 (class 0 OID 0)
--- Dependencies: 249
+-- TOC entry 4183 (class 0 OID 0)
+-- Dependencies: 257
 -- Name: COLUMN lessons.assignment; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12026,7 +11899,7 @@ COMMENT ON COLUMN lessons.assignment IS 'assignment assegnati durante la lesson'
 
 
 --
--- TOC entry 250 (class 1259 OID 17695)
+-- TOC entry 258 (class 1259 OID 17674)
 -- Name: classrooms_teachers; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12043,7 +11916,7 @@ UNION
 ALTER TABLE classrooms_teachers OWNER TO postgres;
 
 --
--- TOC entry 251 (class 1259 OID 17699)
+-- TOC entry 259 (class 1259 OID 17678)
 -- Name: delays_certified_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12059,8 +11932,8 @@ CREATE VIEW delays_certified_grp AS
 ALTER TABLE delays_certified_grp OWNER TO postgres;
 
 --
--- TOC entry 4190 (class 0 OID 0)
--- Dependencies: 251
+-- TOC entry 4186 (class 0 OID 0)
+-- Dependencies: 259
 -- Name: VIEW delays_certified_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12068,7 +11941,7 @@ COMMENT ON VIEW delays_certified_grp IS 'raggruppa i delays certified from_time 
 
 
 --
--- TOC entry 252 (class 1259 OID 17703)
+-- TOC entry 260 (class 1259 OID 17682)
 -- Name: leavings_certified_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12084,8 +11957,8 @@ CREATE VIEW leavings_certified_grp AS
 ALTER TABLE leavings_certified_grp OWNER TO postgres;
 
 --
--- TOC entry 4192 (class 0 OID 0)
--- Dependencies: 252
+-- TOC entry 4188 (class 0 OID 0)
+-- Dependencies: 260
 -- Name: VIEW leavings_certified_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12093,7 +11966,7 @@ COMMENT ON VIEW leavings_certified_grp IS 'raggruppa le leavings certified from_
 
 
 --
--- TOC entry 253 (class 1259 OID 17707)
+-- TOC entry 261 (class 1259 OID 17686)
 -- Name: lessons_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12108,8 +11981,8 @@ CREATE VIEW lessons_grp AS
 ALTER TABLE lessons_grp OWNER TO postgres;
 
 --
--- TOC entry 4194 (class 0 OID 0)
--- Dependencies: 253
+-- TOC entry 4190 (class 0 OID 0)
+-- Dependencies: 261
 -- Name: VIEW lessons_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12117,7 +11990,7 @@ COMMENT ON VIEW lessons_grp IS 'raggruppa le lezioi fatti from_time ogni teacher
 
 
 --
--- TOC entry 254 (class 1259 OID 17711)
+-- TOC entry 262 (class 1259 OID 17690)
 -- Name: notes_iussed_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12132,7 +12005,7 @@ CREATE VIEW notes_iussed_grp AS
 ALTER TABLE notes_iussed_grp OWNER TO postgres;
 
 --
--- TOC entry 255 (class 1259 OID 17715)
+-- TOC entry 263 (class 1259 OID 17694)
 -- Name: out_of_classrooms_certified_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12148,8 +12021,8 @@ CREATE VIEW out_of_classrooms_certified_grp AS
 ALTER TABLE out_of_classrooms_certified_grp OWNER TO postgres;
 
 --
--- TOC entry 4197 (class 0 OID 0)
--- Dependencies: 255
+-- TOC entry 4193 (class 0 OID 0)
+-- Dependencies: 263
 -- Name: VIEW out_of_classrooms_certified_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12157,7 +12030,7 @@ COMMENT ON VIEW out_of_classrooms_certified_grp IS 'raggruppa i fuori classrooms
 
 
 --
--- TOC entry 256 (class 1259 OID 17719)
+-- TOC entry 264 (class 1259 OID 17698)
 -- Name: signatures; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12173,7 +12046,7 @@ CREATE TABLE signatures (
 ALTER TABLE signatures OWNER TO postgres;
 
 --
--- TOC entry 257 (class 1259 OID 17723)
+-- TOC entry 265 (class 1259 OID 17702)
 -- Name: signatures_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12188,8 +12061,8 @@ CREATE VIEW signatures_grp AS
 ALTER TABLE signatures_grp OWNER TO postgres;
 
 --
--- TOC entry 4200 (class 0 OID 0)
--- Dependencies: 257
+-- TOC entry 4196 (class 0 OID 0)
+-- Dependencies: 265
 -- Name: VIEW signatures_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12197,7 +12070,7 @@ COMMENT ON VIEW signatures_grp IS 'raggruppa le signatures fatte from_time ogni 
 
 
 --
--- TOC entry 258 (class 1259 OID 17727)
+-- TOC entry 266 (class 1259 OID 17706)
 -- Name: classrooms_teachers_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12233,7 +12106,7 @@ CREATE VIEW classrooms_teachers_ex AS
 ALTER TABLE classrooms_teachers_ex OWNER TO postgres;
 
 --
--- TOC entry 259 (class 1259 OID 17732)
+-- TOC entry 267 (class 1259 OID 17711)
 -- Name: classrooms_teachers_subject; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12247,7 +12120,7 @@ CREATE VIEW classrooms_teachers_subject AS
 ALTER TABLE classrooms_teachers_subject OWNER TO postgres;
 
 --
--- TOC entry 260 (class 1259 OID 17736)
+-- TOC entry 268 (class 1259 OID 17715)
 -- Name: communication_types; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12262,17 +12135,17 @@ CREATE TABLE communication_types (
 ALTER TABLE communication_types OWNER TO postgres;
 
 --
--- TOC entry 4204 (class 0 OID 0)
--- Dependencies: 260
+-- TOC entry 4200 (class 0 OID 0)
+-- Dependencies: 268
 -- Name: TABLE communication_types; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE communication_types IS 'Indica i tipi di citiescazioni gestiti from_time singolo school e l''eventuale gestione della notification che viene tenuta distinta from_time school a school perchÃ¨ potrebbe avere costi aggiuntivi che non tutti gli schools vogliono';
+COMMENT ON TABLE communication_types IS 'Indica i tipi di citiescazioni gestiti from_time singolo school e l''eventuale gestione della notification che viene tenuta distinta from_time school a school perchè potrebbe avere costi aggiuntivi che non tutti gli schools vogliono';
 
 
 --
--- TOC entry 4205 (class 0 OID 0)
--- Dependencies: 260
+-- TOC entry 4201 (class 0 OID 0)
+-- Dependencies: 268
 -- Name: COLUMN communication_types.notificationtion_management; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12280,7 +12153,7 @@ COMMENT ON COLUMN communication_types.notificationtion_management IS 'indica se 
 
 
 --
--- TOC entry 261 (class 1259 OID 17741)
+-- TOC entry 269 (class 1259 OID 17720)
 -- Name: communications_media; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12297,8 +12170,8 @@ CREATE TABLE communications_media (
 ALTER TABLE communications_media OWNER TO postgres;
 
 --
--- TOC entry 4207 (class 0 OID 0)
--- Dependencies: 261
+-- TOC entry 4203 (class 0 OID 0)
+-- Dependencies: 269
 -- Name: COLUMN communications_media.notification; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12306,7 +12179,7 @@ COMMENT ON COLUMN communications_media.notification IS 'Indica se usare questo m
 
 
 --
--- TOC entry 262 (class 1259 OID 17746)
+-- TOC entry 270 (class 1259 OID 17725)
 -- Name: conversations; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12324,8 +12197,8 @@ CREATE TABLE conversations (
 ALTER TABLE conversations OWNER TO postgres;
 
 --
--- TOC entry 4209 (class 0 OID 0)
--- Dependencies: 262
+-- TOC entry 4205 (class 0 OID 0)
+-- Dependencies: 270
 -- Name: COLUMN conversations.school_record; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12333,28 +12206,28 @@ COMMENT ON COLUMN conversations.school_record IS 'Riferimento alla tabella class
 
 
 --
--- TOC entry 4210 (class 0 OID 0)
--- Dependencies: 262
+-- TOC entry 4206 (class 0 OID 0)
+-- Dependencies: 270
 -- Name: COLUMN conversations.confidential; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN conversations.confidential IS 'Indica che la conversation puÃ² essere visualizzata solo dai partecipante e non, come Ã¨ norma, anche dagli addetti scolastici.
+COMMENT ON COLUMN conversations.confidential IS 'Indica che la conversation può essere visualizzata solo dai partecipante e non, come è norma, anche dagli addetti scolastici.
 Inoltre non viene inclusa nella stampa del school_record personle.';
 
 
 --
--- TOC entry 4211 (class 0 OID 0)
--- Dependencies: 262
+-- TOC entry 4207 (class 0 OID 0)
+-- Dependencies: 270
 -- Name: COLUMN conversations.end_on; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN conversations.end_on IS 'quando una conversation Ã¨ terminta non + piÃ¹ possibile aggiungere o modificare messages';
+COMMENT ON COLUMN conversations.end_on IS 'quando una conversation è terminta non + più possibile aggiungere o modificare messages';
 
 
 SET default_with_oids = false;
 
 --
--- TOC entry 263 (class 1259 OID 17753)
+-- TOC entry 271 (class 1259 OID 17732)
 -- Name: conversations_invites; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12368,18 +12241,18 @@ CREATE TABLE conversations_invites (
 ALTER TABLE conversations_invites OWNER TO postgres;
 
 --
--- TOC entry 4213 (class 0 OID 0)
--- Dependencies: 263
+-- TOC entry 4209 (class 0 OID 0)
+-- Dependencies: 271
 -- Name: TABLE conversations_invites; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE conversations_invites IS 'definisce gli invitati ad una conversation cioÃ¨ le persons abilitate a vedere e/o partecipare ad una determinata conversation';
+COMMENT ON TABLE conversations_invites IS 'definisce gli invitati ad una conversation cioè le persons abilitate a vedere e/o partecipare ad una determinata conversation';
 
 
 SET default_with_oids = true;
 
 --
--- TOC entry 264 (class 1259 OID 17757)
+-- TOC entry 272 (class 1259 OID 17736)
 -- Name: countries; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12393,7 +12266,7 @@ CREATE TABLE countries (
 ALTER TABLE countries OWNER TO postgres;
 
 --
--- TOC entry 265 (class 1259 OID 17761)
+-- TOC entry 273 (class 1259 OID 17740)
 -- Name: degrees; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12408,8 +12281,8 @@ CREATE TABLE degrees (
 ALTER TABLE degrees OWNER TO postgres;
 
 --
--- TOC entry 4216 (class 0 OID 0)
--- Dependencies: 265
+-- TOC entry 4212 (class 0 OID 0)
+-- Dependencies: 273
 -- Name: COLUMN degrees.course_years; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12420,7 +12293,7 @@ COMMENT ON COLUMN degrees.course_years IS 'anni del corso ad example:
 
 
 --
--- TOC entry 266 (class 1259 OID 17765)
+-- TOC entry 274 (class 1259 OID 17744)
 -- Name: delays_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12457,7 +12330,7 @@ CREATE VIEW delays_ex AS
 ALTER TABLE delays_ex OWNER TO postgres;
 
 --
--- TOC entry 267 (class 1259 OID 17770)
+-- TOC entry 275 (class 1259 OID 17749)
 -- Name: districts; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12471,7 +12344,7 @@ CREATE TABLE districts (
 ALTER TABLE districts OWNER TO postgres;
 
 --
--- TOC entry 268 (class 1259 OID 17773)
+-- TOC entry 276 (class 1259 OID 17752)
 -- Name: faults; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12487,8 +12360,8 @@ CREATE TABLE faults (
 ALTER TABLE faults OWNER TO postgres;
 
 --
--- TOC entry 4220 (class 0 OID 0)
--- Dependencies: 268
+-- TOC entry 4216 (class 0 OID 0)
+-- Dependencies: 276
 -- Name: TABLE faults; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12496,7 +12369,7 @@ COMMENT ON TABLE faults IS 'Rileva le faults di un student';
 
 
 --
--- TOC entry 269 (class 1259 OID 17780)
+-- TOC entry 277 (class 1259 OID 17759)
 -- Name: faults_grp; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12512,8 +12385,8 @@ CREATE VIEW faults_grp AS
 ALTER TABLE faults_grp OWNER TO postgres;
 
 --
--- TOC entry 4222 (class 0 OID 0)
--- Dependencies: 269
+-- TOC entry 4218 (class 0 OID 0)
+-- Dependencies: 277
 -- Name: VIEW faults_grp; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12521,7 +12394,7 @@ COMMENT ON VIEW faults_grp IS 'Raggruppa le faults per classroom (e quindi per a
 
 
 --
--- TOC entry 270 (class 1259 OID 17784)
+-- TOC entry 278 (class 1259 OID 17763)
 -- Name: grade_types; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12536,8 +12409,8 @@ CREATE TABLE grade_types (
 ALTER TABLE grade_types OWNER TO postgres;
 
 --
--- TOC entry 4224 (class 0 OID 0)
--- Dependencies: 270
+-- TOC entry 4220 (class 0 OID 0)
+-- Dependencies: 278
 -- Name: TABLE grade_types; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12546,7 +12419,7 @@ Example: `Oral` or `Written` ';
 
 
 --
--- TOC entry 271 (class 1259 OID 17788)
+-- TOC entry 279 (class 1259 OID 17767)
 -- Name: grades; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12562,8 +12435,8 @@ CREATE TABLE grades (
 ALTER TABLE grades OWNER TO postgres;
 
 --
--- TOC entry 4226 (class 0 OID 0)
--- Dependencies: 271
+-- TOC entry 4222 (class 0 OID 0)
+-- Dependencies: 279
 -- Name: TABLE grades; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12573,7 +12446,7 @@ COMMENT ON TABLE grades IS 'For each metric here we have the possible grades';
 SET default_with_oids = false;
 
 --
--- TOC entry 272 (class 1259 OID 17792)
+-- TOC entry 280 (class 1259 OID 17771)
 -- Name: grading_meetings; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12589,8 +12462,8 @@ CREATE TABLE grading_meetings (
 ALTER TABLE grading_meetings OWNER TO postgres;
 
 --
--- TOC entry 4228 (class 0 OID 0)
--- Dependencies: 272
+-- TOC entry 4224 (class 0 OID 0)
+-- Dependencies: 280
 -- Name: COLUMN grading_meetings.on_date; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12598,16 +12471,16 @@ COMMENT ON COLUMN grading_meetings.on_date IS 'Data dello grading_meeting';
 
 
 --
--- TOC entry 4229 (class 0 OID 0)
--- Dependencies: 272
+-- TOC entry 4225 (class 0 OID 0)
+-- Dependencies: 280
 -- Name: COLUMN grading_meetings.close; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN grading_meetings.close IS 'Indica che lo grading_meeting Ã¨ close e non si possono piÃ¹ fare modifiche';
+COMMENT ON COLUMN grading_meetings.close IS 'Indica che lo grading_meeting è close e non si possono più fare modifiche';
 
 
 --
--- TOC entry 273 (class 1259 OID 17797)
+-- TOC entry 281 (class 1259 OID 17776)
 -- Name: grading_meetings_valutations; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12629,17 +12502,17 @@ CREATE TABLE grading_meetings_valutations (
 ALTER TABLE grading_meetings_valutations OWNER TO postgres;
 
 --
--- TOC entry 4231 (class 0 OID 0)
--- Dependencies: 273
+-- TOC entry 4227 (class 0 OID 0)
+-- Dependencies: 281
 -- Name: COLUMN grading_meetings_valutations.grade; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN grading_meetings_valutations.grade IS 'Se il teacher Ã¨ nullo indica il grade di grading_meeting altrimenti il grade proposto from_time teacher';
+COMMENT ON COLUMN grading_meetings_valutations.grade IS 'Se il teacher è nullo indica il grade di grading_meeting altrimenti il grade proposto from_time teacher';
 
 
 --
--- TOC entry 4232 (class 0 OID 0)
--- Dependencies: 273
+-- TOC entry 4228 (class 0 OID 0)
+-- Dependencies: 281
 -- Name: COLUMN grading_meetings_valutations.lack_of_training; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12647,17 +12520,17 @@ COMMENT ON COLUMN grading_meetings_valutations.lack_of_training IS 'indica se l'
 
 
 --
--- TOC entry 4233 (class 0 OID 0)
--- Dependencies: 273
+-- TOC entry 4229 (class 0 OID 0)
+-- Dependencies: 281
 -- Name: COLUMN grading_meetings_valutations.council_vote; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN grading_meetings_valutations.council_vote IS 'Indica che il grade Ã¨ stato deciso from_time consiglio di classroom in difformitÃ  a quanto proposto from_time teacher se il teacher Ã¨ indicato _(quindi la riga del db indica una proposta di grade deve essere nullo)';
+COMMENT ON COLUMN grading_meetings_valutations.council_vote IS 'Indica che il grade è stato deciso from_time consiglio di classroom in difformità a quanto proposto from_time teacher se il teacher è indicato _(quindi la riga del db indica una proposta di grade deve essere nullo)';
 
 
 --
--- TOC entry 4234 (class 0 OID 0)
--- Dependencies: 273
+-- TOC entry 4230 (class 0 OID 0)
+-- Dependencies: 281
 -- Name: COLUMN grading_meetings_valutations.teacher; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12665,18 +12538,18 @@ COMMENT ON COLUMN grading_meetings_valutations.teacher IS 'se nullo indica il gr
 
 
 --
--- TOC entry 4235 (class 0 OID 0)
--- Dependencies: 273
+-- TOC entry 4231 (class 0 OID 0)
+-- Dependencies: 281
 -- Name: CONSTRAINT grading_meetings_valutations_ck_grade_consiglio ON grading_meetings_valutations; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON CONSTRAINT grading_meetings_valutations_ck_grade_consiglio ON grading_meetings_valutations IS 'Se Ã¨ indicato il teacher (proposta di grade) allat_time il flag ''council_vote'' non deve essere indicato perchÃ¨ Ã¨ valido solo per il grade di grading_meeting e viceversa';
+COMMENT ON CONSTRAINT grading_meetings_valutations_ck_grade_consiglio ON grading_meetings_valutations IS 'Se è indicato il teacher (proposta di grade) allat_time il flag ''council_vote'' non deve essere indicato perchè è valido solo per il grade di grading_meeting e viceversa';
 
 
 SET default_with_oids = true;
 
 --
--- TOC entry 274 (class 1259 OID 17807)
+-- TOC entry 282 (class 1259 OID 17786)
 -- Name: grading_meetings_valutations_qua; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12692,7 +12565,7 @@ CREATE TABLE grading_meetings_valutations_qua (
 ALTER TABLE grading_meetings_valutations_qua OWNER TO postgres;
 
 --
--- TOC entry 275 (class 1259 OID 17814)
+-- TOC entry 283 (class 1259 OID 17793)
 -- Name: holydays; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12707,7 +12580,7 @@ CREATE TABLE holydays (
 ALTER TABLE holydays OWNER TO postgres;
 
 --
--- TOC entry 276 (class 1259 OID 17818)
+-- TOC entry 284 (class 1259 OID 17797)
 -- Name: leavings_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12744,7 +12617,7 @@ CREATE VIEW leavings_ex AS
 ALTER TABLE leavings_ex OWNER TO postgres;
 
 --
--- TOC entry 277 (class 1259 OID 17823)
+-- TOC entry 285 (class 1259 OID 17802)
 -- Name: lessons_days; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12757,7 +12630,7 @@ CREATE VIEW lessons_days AS
 ALTER TABLE lessons_days OWNER TO postgres;
 
 --
--- TOC entry 278 (class 1259 OID 17827)
+-- TOC entry 286 (class 1259 OID 17806)
 -- Name: lessons_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12780,7 +12653,7 @@ CREATE VIEW lessons_ex AS
 ALTER TABLE lessons_ex OWNER TO postgres;
 
 --
--- TOC entry 279 (class 1259 OID 17832)
+-- TOC entry 287 (class 1259 OID 17811)
 -- Name: messages; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12796,8 +12669,8 @@ CREATE TABLE messages (
 ALTER TABLE messages OWNER TO postgres;
 
 --
--- TOC entry 4242 (class 0 OID 0)
--- Dependencies: 279
+-- TOC entry 4238 (class 0 OID 0)
+-- Dependencies: 287
 -- Name: COLUMN messages.from_time; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12805,7 +12678,7 @@ COMMENT ON COLUMN messages.from_time IS 'La person fisica che ha scritto il mess
 
 
 --
--- TOC entry 280 (class 1259 OID 17840)
+-- TOC entry 288 (class 1259 OID 17819)
 -- Name: messages_read; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12820,8 +12693,8 @@ CREATE TABLE messages_read (
 ALTER TABLE messages_read OWNER TO postgres;
 
 --
--- TOC entry 4244 (class 0 OID 0)
--- Dependencies: 280
+-- TOC entry 4240 (class 0 OID 0)
+-- Dependencies: 288
 -- Name: COLUMN messages_read.person; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12829,7 +12702,7 @@ COMMENT ON COLUMN messages_read.person IS 'Naturto_time person che ha letto il m
 
 
 --
--- TOC entry 281 (class 1259 OID 17844)
+-- TOC entry 289 (class 1259 OID 17823)
 -- Name: metrics; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12844,8 +12717,8 @@ CREATE TABLE metrics (
 ALTER TABLE metrics OWNER TO postgres;
 
 --
--- TOC entry 4246 (class 0 OID 0)
--- Dependencies: 281
+-- TOC entry 4242 (class 0 OID 0)
+-- Dependencies: 289
 -- Name: COLUMN metrics.sufficiency; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12853,7 +12726,7 @@ COMMENT ON COLUMN metrics.sufficiency IS 'indica i thousandths from_time raggiun
 
 
 --
--- TOC entry 282 (class 1259 OID 17849)
+-- TOC entry 290 (class 1259 OID 17828)
 -- Name: notes_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12883,7 +12756,7 @@ ALTER TABLE notes_ex OWNER TO postgres;
 SET default_with_oids = false;
 
 --
--- TOC entry 283 (class 1259 OID 17854)
+-- TOC entry 291 (class 1259 OID 17833)
 -- Name: notes_signed; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12898,8 +12771,8 @@ CREATE TABLE notes_signed (
 ALTER TABLE notes_signed OWNER TO postgres;
 
 --
--- TOC entry 4249 (class 0 OID 0)
--- Dependencies: 283
+-- TOC entry 4245 (class 0 OID 0)
+-- Dependencies: 291
 -- Name: COLUMN notes_signed.person; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -12907,16 +12780,16 @@ COMMENT ON COLUMN notes_signed.person IS 'person che deve vistare la note: i par
 
 
 --
--- TOC entry 4250 (class 0 OID 0)
--- Dependencies: 283
+-- TOC entry 4246 (class 0 OID 0)
+-- Dependencies: 291
 -- Name: COLUMN notes_signed.on_date; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN notes_signed.on_date IS 'date e at_time in cui la note Ã¨ stata vista from_timela person';
+COMMENT ON COLUMN notes_signed.on_date IS 'date e at_time in cui la note è stata vista from_timela person';
 
 
 --
--- TOC entry 284 (class 1259 OID 17858)
+-- TOC entry 292 (class 1259 OID 17837)
 -- Name: notes_signed_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12935,7 +12808,7 @@ CREATE VIEW notes_signed_ex AS
 ALTER TABLE notes_signed_ex OWNER TO postgres;
 
 --
--- TOC entry 285 (class 1259 OID 17863)
+-- TOC entry 293 (class 1259 OID 17842)
 -- Name: out_of_classrooms_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -12962,7 +12835,7 @@ CREATE VIEW out_of_classrooms_ex AS
 ALTER TABLE out_of_classrooms_ex OWNER TO postgres;
 
 --
--- TOC entry 286 (class 1259 OID 17868)
+-- TOC entry 294 (class 1259 OID 17847)
 -- Name: parents_meetings; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -12977,45 +12850,45 @@ CREATE TABLE parents_meetings (
 ALTER TABLE parents_meetings OWNER TO postgres;
 
 --
--- TOC entry 4254 (class 0 OID 0)
--- Dependencies: 286
+-- TOC entry 4250 (class 0 OID 0)
+-- Dependencies: 294
 -- Name: TABLE parents_meetings; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE parents_meetings IS 'in questa tabella sono memorizzati tutti i periodi di disponibilitÃ  per i parents_meetings person gli esercenti la patria ';
+COMMENT ON TABLE parents_meetings IS 'in questa tabella sono memorizzati tutti i periodi di disponibilità per i parents_meetings person gli esercenti la patria ';
 
 
 --
--- TOC entry 4255 (class 0 OID 0)
--- Dependencies: 286
+-- TOC entry 4251 (class 0 OID 0)
+-- Dependencies: 294
 -- Name: COLUMN parents_meetings.teacher; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN parents_meetings.teacher IS 'teacher che Ã¨ disponibile nella on_date indicata from_timela colonna il';
+COMMENT ON COLUMN parents_meetings.teacher IS 'teacher che è disponibile nella on_date indicata from_timela colonna il';
 
 
 --
--- TOC entry 4256 (class 0 OID 0)
--- Dependencies: 286
+-- TOC entry 4252 (class 0 OID 0)
+-- Dependencies: 294
 -- Name: COLUMN parents_meetings.person; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN parents_meetings.person IS 'person person la quale Ã¨ stato prenoteto il interview';
+COMMENT ON COLUMN parents_meetings.person IS 'person person la quale è stato prenoteto il interview';
 
 
 --
--- TOC entry 4257 (class 0 OID 0)
--- Dependencies: 286
+-- TOC entry 4253 (class 0 OID 0)
+-- Dependencies: 294
 -- Name: COLUMN parents_meetings.on_date; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN parents_meetings.on_date IS 'on_date e at_time in cui il teacher Ã¨ disponibile per un interview';
+COMMENT ON COLUMN parents_meetings.on_date IS 'on_date e at_time in cui il teacher è disponibile per un interview';
 
 
 SET default_with_oids = true;
 
 --
--- TOC entry 287 (class 1259 OID 17872)
+-- TOC entry 295 (class 1259 OID 17851)
 -- Name: persons_relations; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -13032,17 +12905,17 @@ CREATE TABLE persons_relations (
 ALTER TABLE persons_relations OWNER TO postgres;
 
 --
--- TOC entry 4259 (class 0 OID 0)
--- Dependencies: 287
+-- TOC entry 4255 (class 0 OID 0)
+-- Dependencies: 295
 -- Name: TABLE persons_relations; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE persons_relations IS 'Indica le relazioni fra le persons: tipicamente l''student (colonna person) avrÃ  come relationship ''Parent''  il padre (person_related_to) per indicare la madre si inserirÃ  una riga person i valori uguali a quelli appena detti avendo cura, questa volta, di mettere nella colona person_related_to il codice della person che identifica la madre';
+COMMENT ON TABLE persons_relations IS 'Indica le relazioni fra le persons: tipicamente l''student (colonna person) avrà come relationship ''Parent''  il padre (person_related_to) per indicare la madre si inserirà una riga person i valori uguali a quelli appena detti avendo cura, questa volta, di mettere nella colona person_related_to il codice della person che identifica la madre';
 
 
 --
--- TOC entry 4260 (class 0 OID 0)
--- Dependencies: 287
+-- TOC entry 4256 (class 0 OID 0)
+-- Dependencies: 295
 -- Name: COLUMN persons_relations.sign_request; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -13050,18 +12923,18 @@ COMMENT ON COLUMN persons_relations.sign_request IS 'Indica se, nel caso di note
 
 
 --
--- TOC entry 4261 (class 0 OID 0)
--- Dependencies: 287
+-- TOC entry 4257 (class 0 OID 0)
+-- Dependencies: 295
 -- Name: COLUMN persons_relations.can_do_explanation; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN persons_relations.can_do_explanation IS 'puÃ² signaturere explanations per la person in relationship';
+COMMENT ON COLUMN persons_relations.can_do_explanation IS 'può signaturere explanations per la person in relationship';
 
 
 SET default_with_oids = false;
 
 --
--- TOC entry 288 (class 1259 OID 17878)
+-- TOC entry 296 (class 1259 OID 17857)
 -- Name: persons_roles; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -13077,7 +12950,7 @@ ALTER TABLE persons_roles OWNER TO postgres;
 SET default_with_oids = true;
 
 --
--- TOC entry 289 (class 1259 OID 17882)
+-- TOC entry 297 (class 1259 OID 17861)
 -- Name: qualificationtions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -13095,18 +12968,18 @@ CREATE TABLE qualificationtions (
 ALTER TABLE qualificationtions OWNER TO postgres;
 
 --
--- TOC entry 4263 (class 0 OID 0)
--- Dependencies: 289
+-- TOC entry 4259 (class 0 OID 0)
+-- Dependencies: 297
 -- Name: TABLE qualificationtions; Type: COMMENT; Schema: public; Owner: postgres
 --
 
 COMMENT ON TABLE qualificationtions IS 'Descrive per il singolo school le competenze conoscenze e abilita.
-Mettendo tutto in una singola tabella si Ã¨ coniato il termine qualification per essere generico rispetto alla declicountry che puÃ² avere: Expertise, conosenza, abilitÃ ';
+Mettendo tutto in una singola tabella si è coniato il termine qualification per essere generico rispetto alla declicountry che può avere: Expertise, conosenza, abilità';
 
 
 --
--- TOC entry 4264 (class 0 OID 0)
--- Dependencies: 289
+-- TOC entry 4260 (class 0 OID 0)
+-- Dependencies: 297
 -- Name: COLUMN qualificationtions.qualificationtion_parent; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -13116,7 +12989,7 @@ COMMENT ON COLUMN qualificationtions.qualificationtion_parent IS 'Serve a creare
 SET default_with_oids = false;
 
 --
--- TOC entry 290 (class 1259 OID 17889)
+-- TOC entry 298 (class 1259 OID 17868)
 -- Name: qualificationtions_plan; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -13132,8 +13005,8 @@ CREATE TABLE qualificationtions_plan (
 ALTER TABLE qualificationtions_plan OWNER TO postgres;
 
 --
--- TOC entry 4266 (class 0 OID 0)
--- Dependencies: 290
+-- TOC entry 4262 (class 0 OID 0)
+-- Dependencies: 298
 -- Name: TABLE qualificationtions_plan; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -13144,7 +13017,7 @@ Serve in fase di valutation per presentare le qualificationtions coerenti person
 SET default_with_oids = true;
 
 --
--- TOC entry 291 (class 1259 OID 17893)
+-- TOC entry 299 (class 1259 OID 17872)
 -- Name: regions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -13160,7 +13033,7 @@ ALTER TABLE regions OWNER TO postgres;
 SET default_with_oids = false;
 
 --
--- TOC entry 292 (class 1259 OID 17896)
+-- TOC entry 300 (class 1259 OID 17875)
 -- Name: residence_grp_city; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -13176,7 +13049,7 @@ ALTER TABLE ONLY residence_grp_city REPLICA IDENTITY NOTHING;
 ALTER TABLE residence_grp_city OWNER TO postgres;
 
 --
--- TOC entry 293 (class 1259 OID 17899)
+-- TOC entry 301 (class 1259 OID 17878)
 -- Name: schools_school_years_classrooms_weekly_timetable; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13200,7 +13073,7 @@ CREATE VIEW schools_school_years_classrooms_weekly_timetable AS
 ALTER TABLE schools_school_years_classrooms_weekly_timetable OWNER TO postgres;
 
 --
--- TOC entry 294 (class 1259 OID 17904)
+-- TOC entry 302 (class 1259 OID 17883)
 -- Name: signatures_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13222,7 +13095,7 @@ ALTER TABLE signatures_ex OWNER TO postgres;
 SET default_with_oids = true;
 
 --
--- TOC entry 295 (class 1259 OID 17908)
+-- TOC entry 303 (class 1259 OID 17887)
 -- Name: system_messages; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -13238,7 +13111,7 @@ CREATE TABLE system_messages (
 ALTER TABLE system_messages OWNER TO postgres;
 
 --
--- TOC entry 296 (class 1259 OID 17916)
+-- TOC entry 304 (class 1259 OID 17895)
 -- Name: teachears_notes; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -13256,17 +13129,17 @@ CREATE TABLE teachears_notes (
 ALTER TABLE teachears_notes OWNER TO postgres;
 
 --
--- TOC entry 4273 (class 0 OID 0)
--- Dependencies: 296
+-- TOC entry 4269 (class 0 OID 0)
+-- Dependencies: 304
 -- Name: TABLE teachears_notes; Type: COMMENT; Schema: public; Owner: postgres
 --
 
 COMMENT ON TABLE teachears_notes IS 'Svolge le stesse funzioni della tabella notes ma per il registro del professore.
-L''unica differenza Ã¨ che non Ã¨ stato necessario replicare anche la colonna ''disciplinary'' perchÃ¨ le notes disciplinari si fanno solo sul registro di classroom mentre queste notes sono principalmente ad uso privato dell''insegnante.';
+L''unica differenza è che non è stato necessario replicare anche la colonna ''disciplinary'' perchè le notes disciplinari si fanno solo sul registro di classroom mentre queste notes sono principalmente ad uso privato dell''insegnante.';
 
 
 --
--- TOC entry 297 (class 1259 OID 17923)
+-- TOC entry 305 (class 1259 OID 17902)
 -- Name: teachers_classbooks_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13295,7 +13168,7 @@ CREATE VIEW teachers_classbooks_ex AS
 ALTER TABLE teachers_classbooks_ex OWNER TO postgres;
 
 --
--- TOC entry 298 (class 1259 OID 17928)
+-- TOC entry 306 (class 1259 OID 17907)
 -- Name: teachers_lessons_signatures_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13333,7 +13206,7 @@ UNION ALL
 ALTER TABLE teachers_lessons_signatures_ex OWNER TO postgres;
 
 --
--- TOC entry 299 (class 1259 OID 17933)
+-- TOC entry 307 (class 1259 OID 17912)
 -- Name: topics; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -13349,8 +13222,8 @@ CREATE TABLE topics (
 ALTER TABLE topics OWNER TO postgres;
 
 --
--- TOC entry 4277 (class 0 OID 0)
--- Dependencies: 299
+-- TOC entry 4273 (class 0 OID 0)
+-- Dependencies: 307
 -- Name: TABLE topics; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -13360,7 +13233,7 @@ COMMENT ON TABLE topics IS 'Contiene gli topics object di una valutation';
 SET default_with_oids = false;
 
 --
--- TOC entry 300 (class 1259 OID 17937)
+-- TOC entry 308 (class 1259 OID 17916)
 -- Name: usenames_ex; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -13374,8 +13247,8 @@ CREATE TABLE usenames_ex (
 ALTER TABLE usenames_ex OWNER TO postgres;
 
 --
--- TOC entry 4279 (class 0 OID 0)
--- Dependencies: 300
+-- TOC entry 4275 (class 0 OID 0)
+-- Dependencies: 308
 -- Name: TABLE usenames_ex; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -13383,8 +13256,8 @@ COMMENT ON TABLE usenames_ex IS 'add informations to usename''s system table use
 
 
 --
--- TOC entry 4280 (class 0 OID 0)
--- Dependencies: 300
+-- TOC entry 4276 (class 0 OID 0)
+-- Dependencies: 308
 -- Name: COLUMN usenames_ex.token; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -13392,7 +13265,7 @@ COMMENT ON COLUMN usenames_ex.token IS 'serve per il ripristino della password s
 
 
 --
--- TOC entry 301 (class 1259 OID 17944)
+-- TOC entry 309 (class 1259 OID 17923)
 -- Name: usenames_rolnames; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13407,7 +13280,7 @@ CREATE VIEW usenames_rolnames AS
 ALTER TABLE usenames_rolnames OWNER TO postgres;
 
 --
--- TOC entry 302 (class 1259 OID 17948)
+-- TOC entry 310 (class 1259 OID 17927)
 -- Name: valutations_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13442,7 +13315,7 @@ CREATE VIEW valutations_ex AS
 ALTER TABLE valutations_ex OWNER TO postgres;
 
 --
--- TOC entry 303 (class 1259 OID 17953)
+-- TOC entry 311 (class 1259 OID 17932)
 -- Name: valutations_references; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13481,7 +13354,7 @@ CREATE VIEW valutations_references AS
 ALTER TABLE valutations_references OWNER TO postgres;
 
 --
--- TOC entry 304 (class 1259 OID 17958)
+-- TOC entry 312 (class 1259 OID 17937)
 -- Name: valutations_ex_references; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13508,7 +13381,7 @@ ALTER TABLE valutations_ex_references OWNER TO postgres;
 SET default_with_oids = true;
 
 --
--- TOC entry 305 (class 1259 OID 17963)
+-- TOC entry 313 (class 1259 OID 17942)
 -- Name: valutations_qualificationtions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -13524,16 +13397,16 @@ CREATE TABLE valutations_qualificationtions (
 ALTER TABLE valutations_qualificationtions OWNER TO postgres;
 
 --
--- TOC entry 4286 (class 0 OID 0)
--- Dependencies: 305
+-- TOC entry 4282 (class 0 OID 0)
+-- Dependencies: 313
 -- Name: TABLE valutations_qualificationtions; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE valutations_qualificationtions IS 'Per ogni valutation inserita nella tabella valutations Ã¨ possibile collegare anche la valutation delle qualificationtions collegate che vengono memorizzate qui';
+COMMENT ON TABLE valutations_qualificationtions IS 'Per ogni valutation inserita nella tabella valutations è possibile collegare anche la valutation delle qualificationtions collegate che vengono memorizzate qui';
 
 
 --
--- TOC entry 306 (class 1259 OID 17970)
+-- TOC entry 314 (class 1259 OID 17949)
 -- Name: valutations_stats_classrooms_students_subjects; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13553,8 +13426,8 @@ CREATE VIEW valutations_stats_classrooms_students_subjects AS
 ALTER TABLE valutations_stats_classrooms_students_subjects OWNER TO postgres;
 
 --
--- TOC entry 4288 (class 0 OID 0)
--- Dependencies: 306
+-- TOC entry 4284 (class 0 OID 0)
+-- Dependencies: 314
 -- Name: VIEW valutations_stats_classrooms_students_subjects; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -13562,7 +13435,7 @@ COMMENT ON VIEW valutations_stats_classrooms_students_subjects IS 'statistiche p
 
 
 --
--- TOC entry 307 (class 1259 OID 17975)
+-- TOC entry 315 (class 1259 OID 17954)
 -- Name: valutations_stats_classrooms_students_subjects_on_date; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13579,7 +13452,7 @@ CREATE VIEW valutations_stats_classrooms_students_subjects_on_date AS
 ALTER TABLE valutations_stats_classrooms_students_subjects_on_date OWNER TO postgres;
 
 --
--- TOC entry 308 (class 1259 OID 17979)
+-- TOC entry 316 (class 1259 OID 17958)
 -- Name: valutations_stats_classrooms_students_subjects_on_date_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13610,7 +13483,7 @@ CREATE VIEW valutations_stats_classrooms_students_subjects_on_date_ex AS
 ALTER TABLE valutations_stats_classrooms_students_subjects_on_date_ex OWNER TO postgres;
 
 --
--- TOC entry 309 (class 1259 OID 17984)
+-- TOC entry 317 (class 1259 OID 17963)
 -- Name: valutations_stats_classrooms_students_subjects_on_date_ex_mat; Type: MATERIALIZED VIEW; Schema: public; Owner: postgres
 --
 
@@ -13642,7 +13515,7 @@ CREATE MATERIALIZED VIEW valutations_stats_classrooms_students_subjects_on_date_
 ALTER TABLE valutations_stats_classrooms_students_subjects_on_date_ex_mat OWNER TO postgres;
 
 --
--- TOC entry 310 (class 1259 OID 17992)
+-- TOC entry 318 (class 1259 OID 17971)
 -- Name: valutations_stats_classrooms_subjects; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13661,7 +13534,7 @@ CREATE VIEW valutations_stats_classrooms_subjects AS
 ALTER TABLE valutations_stats_classrooms_subjects OWNER TO postgres;
 
 --
--- TOC entry 311 (class 1259 OID 17996)
+-- TOC entry 319 (class 1259 OID 17975)
 -- Name: valutations_stats_classrooms_subjects_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13687,8 +13560,8 @@ CREATE VIEW valutations_stats_classrooms_subjects_ex AS
 ALTER TABLE valutations_stats_classrooms_subjects_ex OWNER TO postgres;
 
 --
--- TOC entry 4293 (class 0 OID 0)
--- Dependencies: 311
+-- TOC entry 4289 (class 0 OID 0)
+-- Dependencies: 319
 -- Name: VIEW valutations_stats_classrooms_subjects_ex; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -13696,7 +13569,7 @@ COMMENT ON VIEW valutations_stats_classrooms_subjects_ex IS 'statistiche per cla
 
 
 --
--- TOC entry 312 (class 1259 OID 18001)
+-- TOC entry 320 (class 1259 OID 17980)
 -- Name: weekly_timetable_teachers_ex; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13722,7 +13595,7 @@ ALTER TABLE weekly_timetable_teachers_ex OWNER TO postgres;
 SET default_with_oids = false;
 
 --
--- TOC entry 313 (class 1259 OID 18006)
+-- TOC entry 321 (class 1259 OID 17985)
 -- Name: wikimedia_files; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -13739,8 +13612,8 @@ CREATE TABLE wikimedia_files (
 ALTER TABLE wikimedia_files OWNER TO postgres;
 
 --
--- TOC entry 4296 (class 0 OID 0)
--- Dependencies: 313
+-- TOC entry 4292 (class 0 OID 0)
+-- Dependencies: 321
 -- Name: TABLE wikimedia_files; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -13748,8 +13621,8 @@ COMMENT ON TABLE wikimedia_files IS 'files from wikimedia commons';
 
 
 --
--- TOC entry 4297 (class 0 OID 0)
--- Dependencies: 313
+-- TOC entry 4293 (class 0 OID 0)
+-- Dependencies: 321
 -- Name: COLUMN wikimedia_files.info; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -13757,7 +13630,7 @@ COMMENT ON COLUMN wikimedia_files.info IS 'contiene tutti imetadati del file in 
 
 
 --
--- TOC entry 314 (class 1259 OID 18013)
+-- TOC entry 322 (class 1259 OID 17992)
 -- Name: wikimedia_files_persons; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -13771,7 +13644,7 @@ CREATE TABLE wikimedia_files_persons (
 ALTER TABLE wikimedia_files_persons OWNER TO postgres;
 
 --
--- TOC entry 315 (class 1259 OID 18017)
+-- TOC entry 323 (class 1259 OID 17996)
 -- Name: wikimedia_license_infos; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -13788,8 +13661,8 @@ CREATE VIEW wikimedia_license_infos AS
 ALTER TABLE wikimedia_license_infos OWNER TO postgres;
 
 --
--- TOC entry 4298 (class 0 OID 0)
--- Dependencies: 315
+-- TOC entry 4294 (class 0 OID 0)
+-- Dependencies: 323
 -- Name: VIEW wikimedia_license_infos; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -13799,7 +13672,7 @@ COMMENT ON VIEW wikimedia_license_infos IS 'Estrapola dalla colonna info della t
 SET search_path = translate, pg_catalog;
 
 --
--- TOC entry 316 (class 1259 OID 18021)
+-- TOC entry 324 (class 1259 OID 18000)
 -- Name: columns; Type: TABLE; Schema: translate; Owner: postgres
 --
 
@@ -13816,7 +13689,7 @@ CREATE TABLE columns (
 ALTER TABLE columns OWNER TO postgres;
 
 --
--- TOC entry 317 (class 1259 OID 18028)
+-- TOC entry 325 (class 1259 OID 18007)
 -- Name: languages; Type: TABLE; Schema: translate; Owner: postgres
 --
 
@@ -13830,8 +13703,8 @@ CREATE TABLE languages (
 ALTER TABLE languages OWNER TO postgres;
 
 --
--- TOC entry 4299 (class 0 OID 0)
--- Dependencies: 317
+-- TOC entry 4295 (class 0 OID 0)
+-- Dependencies: 325
 -- Name: TABLE languages; Type: COMMENT; Schema: translate; Owner: postgres
 --
 
@@ -13839,7 +13712,7 @@ COMMENT ON TABLE languages IS 'Language for translation';
 
 
 --
--- TOC entry 318 (class 1259 OID 18035)
+-- TOC entry 326 (class 1259 OID 18014)
 -- Name: parameters; Type: TABLE; Schema: translate; Owner: postgres
 --
 
@@ -13856,7 +13729,7 @@ CREATE TABLE parameters (
 ALTER TABLE parameters OWNER TO postgres;
 
 --
--- TOC entry 319 (class 1259 OID 18042)
+-- TOC entry 327 (class 1259 OID 18021)
 -- Name: pk_seq; Type: SEQUENCE; Schema: translate; Owner: postgres
 --
 
@@ -13871,7 +13744,7 @@ CREATE SEQUENCE pk_seq
 ALTER TABLE pk_seq OWNER TO postgres;
 
 --
--- TOC entry 320 (class 1259 OID 18044)
+-- TOC entry 328 (class 1259 OID 18023)
 -- Name: procedures; Type: TABLE; Schema: translate; Owner: postgres
 --
 
@@ -13886,7 +13759,7 @@ CREATE TABLE procedures (
 ALTER TABLE procedures OWNER TO postgres;
 
 --
--- TOC entry 321 (class 1259 OID 18051)
+-- TOC entry 329 (class 1259 OID 18030)
 -- Name: relations; Type: TABLE; Schema: translate; Owner: postgres
 --
 
@@ -13903,7 +13776,7 @@ ALTER TABLE relations OWNER TO postgres;
 SET search_path = unit_testing, pg_catalog;
 
 --
--- TOC entry 322 (class 1259 OID 18058)
+-- TOC entry 330 (class 1259 OID 18037)
 -- Name: pk_seq; Type: SEQUENCE; Schema: unit_testing; Owner: postgres
 --
 
@@ -13918,7 +13791,7 @@ CREATE SEQUENCE pk_seq
 ALTER TABLE pk_seq OWNER TO postgres;
 
 --
--- TOC entry 323 (class 1259 OID 18060)
+-- TOC entry 331 (class 1259 OID 18039)
 -- Name: dependencies; Type: TABLE; Schema: unit_testing; Owner: postgres
 --
 
@@ -13934,8 +13807,8 @@ CREATE TABLE dependencies (
 ALTER TABLE dependencies OWNER TO postgres;
 
 --
--- TOC entry 4300 (class 0 OID 0)
--- Dependencies: 323
+-- TOC entry 4296 (class 0 OID 0)
+-- Dependencies: 331
 -- Name: TABLE dependencies; Type: COMMENT; Schema: unit_testing; Owner: postgres
 --
 
@@ -13946,7 +13819,7 @@ It allows to determine the execution sequence of the various tests';
 SET default_with_oids = true;
 
 --
--- TOC entry 324 (class 1259 OID 18067)
+-- TOC entry 332 (class 1259 OID 18046)
 -- Name: system_messages; Type: TABLE; Schema: unit_testing; Owner: postgres
 --
 
@@ -13964,7 +13837,7 @@ ALTER TABLE system_messages OWNER TO postgres;
 SET default_with_oids = false;
 
 --
--- TOC entry 325 (class 1259 OID 18075)
+-- TOC entry 333 (class 1259 OID 18054)
 -- Name: tests; Type: TABLE; Schema: unit_testing; Owner: postgres
 --
 
@@ -13983,7 +13856,7 @@ CREATE TABLE tests (
 ALTER TABLE tests OWNER TO postgres;
 
 --
--- TOC entry 326 (class 1259 OID 18085)
+-- TOC entry 334 (class 1259 OID 18064)
 -- Name: tests_details; Type: TABLE; Schema: unit_testing; Owner: postgres
 --
 
@@ -13998,7 +13871,7 @@ CREATE TABLE tests_details (
 ALTER TABLE tests_details OWNER TO postgres;
 
 --
--- TOC entry 327 (class 1259 OID 18092)
+-- TOC entry 335 (class 1259 OID 18071)
 -- Name: tests_check_points_count; Type: VIEW; Schema: unit_testing; Owner: postgres
 --
 
@@ -14014,7 +13887,7 @@ CREATE VIEW tests_check_points_count AS
 ALTER TABLE tests_check_points_count OWNER TO postgres;
 
 --
--- TOC entry 328 (class 1259 OID 18096)
+-- TOC entry 336 (class 1259 OID 18075)
 -- Name: tests_check_points_count_crosstab; Type: VIEW; Schema: unit_testing; Owner: postgres
 --
 
@@ -14030,7 +13903,7 @@ CREATE VIEW tests_check_points_count_crosstab AS
 ALTER TABLE tests_check_points_count_crosstab OWNER TO postgres;
 
 --
--- TOC entry 329 (class 1259 OID 18100)
+-- TOC entry 337 (class 1259 OID 18079)
 -- Name: tests_functions_count; Type: VIEW; Schema: unit_testing; Owner: postgres
 --
 
@@ -14046,7 +13919,7 @@ CREATE VIEW tests_functions_count AS
 ALTER TABLE tests_functions_count OWNER TO postgres;
 
 --
--- TOC entry 330 (class 1259 OID 18104)
+-- TOC entry 338 (class 1259 OID 18083)
 -- Name: tests_functions_count_crosstab; Type: VIEW; Schema: unit_testing; Owner: postgres
 --
 
@@ -14062,7 +13935,7 @@ CREATE VIEW tests_functions_count_crosstab AS
 ALTER TABLE tests_functions_count_crosstab OWNER TO postgres;
 
 --
--- TOC entry 331 (class 1259 OID 18108)
+-- TOC entry 339 (class 1259 OID 18087)
 -- Name: unit_test_sets; Type: TABLE; Schema: unit_testing; Owner: postgres
 --
 
@@ -14075,7 +13948,7 @@ CREATE TABLE unit_test_sets (
 ALTER TABLE unit_test_sets OWNER TO postgres;
 
 --
--- TOC entry 332 (class 1259 OID 18115)
+-- TOC entry 340 (class 1259 OID 18094)
 -- Name: unit_test_sets_details; Type: TABLE; Schema: unit_testing; Owner: postgres
 --
 
@@ -14090,8 +13963,8 @@ CREATE TABLE unit_test_sets_details (
 ALTER TABLE unit_test_sets_details OWNER TO postgres;
 
 --
--- TOC entry 4302 (class 0 OID 0)
--- Dependencies: 332
+-- TOC entry 4298 (class 0 OID 0)
+-- Dependencies: 340
 -- Name: TABLE unit_test_sets_details; Type: COMMENT; Schema: unit_testing; Owner: postgres
 --
 
@@ -14099,7 +13972,7 @@ COMMENT ON TABLE unit_test_sets_details IS 'Contains the list of functions relet
 
 
 --
--- TOC entry 333 (class 1259 OID 18122)
+-- TOC entry 341 (class 1259 OID 18101)
 -- Name: unit_tests_list; Type: VIEW; Schema: unit_testing; Owner: postgres
 --
 
@@ -14117,8 +13990,8 @@ CREATE VIEW unit_tests_list AS
 ALTER TABLE unit_tests_list OWNER TO postgres;
 
 --
--- TOC entry 4303 (class 0 OID 0)
--- Dependencies: 333
+-- TOC entry 4299 (class 0 OID 0)
+-- Dependencies: 341
 -- Name: VIEW unit_tests_list; Type: COMMENT; Schema: unit_testing; Owner: postgres
 --
 
@@ -14126,7 +13999,7 @@ COMMENT ON VIEW unit_tests_list IS 'Return all test function (all function that 
 
 
 --
--- TOC entry 334 (class 1259 OID 18127)
+-- TOC entry 342 (class 1259 OID 18106)
 -- Name: unit_tests_level; Type: VIEW; Schema: unit_testing; Owner: postgres
 --
 
@@ -14160,7 +14033,7 @@ CREATE VIEW unit_tests_level AS
 ALTER TABLE unit_tests_level OWNER TO postgres;
 
 --
--- TOC entry 335 (class 1259 OID 18132)
+-- TOC entry 343 (class 1259 OID 18111)
 -- Name: unit_tests_circular_references; Type: VIEW; Schema: unit_testing; Owner: postgres
 --
 
@@ -14182,8 +14055,8 @@ UNION
 ALTER TABLE unit_tests_circular_references OWNER TO postgres;
 
 --
--- TOC entry 4304 (class 0 OID 0)
--- Dependencies: 335
+-- TOC entry 4300 (class 0 OID 0)
+-- Dependencies: 343
 -- Name: VIEW unit_tests_circular_references; Type: COMMENT; Schema: unit_testing; Owner: postgres
 --
 
@@ -14193,7 +14066,7 @@ COMMENT ON VIEW unit_tests_circular_references IS 'List all unit_test with cycli
 SET search_path = utility, pg_catalog;
 
 --
--- TOC entry 336 (class 1259 OID 18137)
+-- TOC entry 344 (class 1259 OID 18116)
 -- Name: entity_coding2; Type: TABLE; Schema: utility; Owner: postgres
 --
 
@@ -14206,8 +14079,8 @@ CREATE TABLE entity_coding2 (
 ALTER TABLE entity_coding2 OWNER TO postgres;
 
 --
--- TOC entry 4305 (class 0 OID 0)
--- Dependencies: 336
+-- TOC entry 4301 (class 0 OID 0)
+-- Dependencies: 344
 -- Name: TABLE entity_coding2; Type: COMMENT; Schema: utility; Owner: postgres
 --
 
@@ -14246,7 +14119,7 @@ insert into character_entity (ch, name) values
 
 
 --
--- TOC entry 337 (class 1259 OID 18144)
+-- TOC entry 345 (class 1259 OID 18123)
 -- Name: enums_values; Type: VIEW; Schema: utility; Owner: postgres
 --
 
@@ -14262,8 +14135,8 @@ CREATE VIEW enums_values AS
 ALTER TABLE enums_values OWNER TO postgres;
 
 --
--- TOC entry 4306 (class 0 OID 0)
--- Dependencies: 337
+-- TOC entry 4302 (class 0 OID 0)
+-- Dependencies: 345
 -- Name: VIEW enums_values; Type: COMMENT; Schema: utility; Owner: postgres
 --
 
@@ -14271,7 +14144,7 @@ COMMENT ON VIEW enums_values IS 'List all enum and all related values';
 
 
 --
--- TOC entry 338 (class 1259 OID 18149)
+-- TOC entry 346 (class 1259 OID 18128)
 -- Name: pk_seq; Type: SEQUENCE; Schema: utility; Owner: postgres
 --
 
@@ -14286,7 +14159,7 @@ CREATE SEQUENCE pk_seq
 ALTER TABLE pk_seq OWNER TO postgres;
 
 --
--- TOC entry 339 (class 1259 OID 18151)
+-- TOC entry 347 (class 1259 OID 18130)
 -- Name: sequence_references; Type: VIEW; Schema: utility; Owner: postgres
 --
 
@@ -14310,8 +14183,8 @@ CREATE VIEW sequence_references AS
 ALTER TABLE sequence_references OWNER TO postgres;
 
 --
--- TOC entry 4307 (class 0 OID 0)
--- Dependencies: 339
+-- TOC entry 4303 (class 0 OID 0)
+-- Dependencies: 347
 -- Name: VIEW sequence_references; Type: COMMENT; Schema: utility; Owner: postgres
 --
 
@@ -14319,7 +14192,7 @@ COMMENT ON VIEW sequence_references IS 'List tables and columns where sequences 
 
 
 --
--- TOC entry 340 (class 1259 OID 18156)
+-- TOC entry 348 (class 1259 OID 18135)
 -- Name: test; Type: TABLE; Schema: utility; Owner: postgres
 --
 
@@ -14335,7 +14208,7 @@ ALTER TABLE test OWNER TO postgres;
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 3262 (class 2606 OID 18165)
+-- TOC entry 3260 (class 2606 OID 18144)
 -- Name: absences absences_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14344,7 +14217,7 @@ ALTER TABLE ONLY absences
 
 
 --
--- TOC entry 3264 (class 2606 OID 18167)
+-- TOC entry 3262 (class 2606 OID 18146)
 -- Name: absences absences_uq_classroom_student_on_date; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14353,7 +14226,7 @@ ALTER TABLE ONLY absences
 
 
 --
--- TOC entry 3230 (class 2606 OID 18169)
+-- TOC entry 3228 (class 2606 OID 18148)
 -- Name: branches branches_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14362,7 +14235,7 @@ ALTER TABLE ONLY branches
 
 
 --
--- TOC entry 3232 (class 2606 OID 18171)
+-- TOC entry 3230 (class 2606 OID 18150)
 -- Name: branches branches_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14371,7 +14244,7 @@ ALTER TABLE ONLY branches
 
 
 --
--- TOC entry 3272 (class 2606 OID 18173)
+-- TOC entry 3270 (class 2606 OID 18152)
 -- Name: cities cities_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14380,7 +14253,7 @@ ALTER TABLE ONLY cities
 
 
 --
--- TOC entry 3274 (class 2606 OID 18175)
+-- TOC entry 3272 (class 2606 OID 18154)
 -- Name: cities cities_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14389,8 +14262,8 @@ ALTER TABLE ONLY cities
 
 
 --
--- TOC entry 4308 (class 0 OID 0)
--- Dependencies: 3274
+-- TOC entry 4304 (class 0 OID 0)
+-- Dependencies: 3272
 -- Name: CONSTRAINT cities_uq_description ON cities; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -14398,7 +14271,7 @@ COMMENT ON CONSTRAINT cities_uq_description ON cities IS 'Non ci possono essere 
 
 
 --
--- TOC entry 3237 (class 2606 OID 18177)
+-- TOC entry 3235 (class 2606 OID 18156)
 -- Name: classrooms classrooms_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14407,7 +14280,7 @@ ALTER TABLE ONLY classrooms
 
 
 --
--- TOC entry 3267 (class 2606 OID 18179)
+-- TOC entry 3265 (class 2606 OID 18158)
 -- Name: classrooms_students classrooms_students_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14416,7 +14289,7 @@ ALTER TABLE ONLY classrooms_students
 
 
 --
--- TOC entry 3269 (class 2606 OID 18181)
+-- TOC entry 3267 (class 2606 OID 18160)
 -- Name: classrooms_students classrooms_students_uq_classroom_student; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14425,7 +14298,7 @@ ALTER TABLE ONLY classrooms_students
 
 
 --
--- TOC entry 3239 (class 2606 OID 18183)
+-- TOC entry 3237 (class 2606 OID 18162)
 -- Name: classrooms classrooms_uq_classroom; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14434,7 +14307,7 @@ ALTER TABLE ONLY classrooms
 
 
 --
--- TOC entry 3241 (class 2606 OID 18185)
+-- TOC entry 3239 (class 2606 OID 18164)
 -- Name: classrooms classrooms_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14443,7 +14316,7 @@ ALTER TABLE ONLY classrooms
 
 
 --
--- TOC entry 3362 (class 2606 OID 18187)
+-- TOC entry 3360 (class 2606 OID 18166)
 -- Name: communication_types communication_types_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14452,7 +14325,7 @@ ALTER TABLE ONLY communication_types
 
 
 --
--- TOC entry 3364 (class 2606 OID 18189)
+-- TOC entry 3362 (class 2606 OID 18168)
 -- Name: communication_types communication_types_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14461,7 +14334,7 @@ ALTER TABLE ONLY communication_types
 
 
 --
--- TOC entry 3368 (class 2606 OID 18191)
+-- TOC entry 3366 (class 2606 OID 18170)
 -- Name: communications_media communications_media_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14470,7 +14343,7 @@ ALTER TABLE ONLY communications_media
 
 
 --
--- TOC entry 3377 (class 2606 OID 18193)
+-- TOC entry 3375 (class 2606 OID 18172)
 -- Name: conversations_invites conversations_invites_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14479,7 +14352,7 @@ ALTER TABLE ONLY conversations_invites
 
 
 --
--- TOC entry 3379 (class 2606 OID 18195)
+-- TOC entry 3377 (class 2606 OID 18174)
 -- Name: conversations_invites conversations_invites_uq_invited; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14488,16 +14361,16 @@ ALTER TABLE ONLY conversations_invites
 
 
 --
--- TOC entry 4309 (class 0 OID 0)
--- Dependencies: 3379
+-- TOC entry 4305 (class 0 OID 0)
+-- Dependencies: 3377
 -- Name: CONSTRAINT conversations_invites_uq_invited ON conversations_invites; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON CONSTRAINT conversations_invites_uq_invited ON conversations_invites IS 'Non Ã¨ possibile, per una determinata conversation, invitare la stessa person piÃ¹ volte';
+COMMENT ON CONSTRAINT conversations_invites_uq_invited ON conversations_invites IS 'Non è possibile, per una determinata conversation, invitare la stessa person più volte';
 
 
 --
--- TOC entry 3375 (class 2606 OID 18197)
+-- TOC entry 3373 (class 2606 OID 18176)
 -- Name: conversations conversations_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14506,7 +14379,7 @@ ALTER TABLE ONLY conversations
 
 
 --
--- TOC entry 3383 (class 2606 OID 18199)
+-- TOC entry 3381 (class 2606 OID 18178)
 -- Name: countries countries_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14515,7 +14388,7 @@ ALTER TABLE ONLY countries
 
 
 --
--- TOC entry 3385 (class 2606 OID 18201)
+-- TOC entry 3383 (class 2606 OID 18180)
 -- Name: countries countries_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14524,7 +14397,7 @@ ALTER TABLE ONLY countries
 
 
 --
--- TOC entry 3388 (class 2606 OID 18203)
+-- TOC entry 3386 (class 2606 OID 18182)
 -- Name: degrees degrees_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14533,7 +14406,7 @@ ALTER TABLE ONLY degrees
 
 
 --
--- TOC entry 3390 (class 2606 OID 18205)
+-- TOC entry 3388 (class 2606 OID 18184)
 -- Name: degrees degrees_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14542,7 +14415,7 @@ ALTER TABLE ONLY degrees
 
 
 --
--- TOC entry 3279 (class 2606 OID 18207)
+-- TOC entry 3277 (class 2606 OID 18186)
 -- Name: delays delays_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14551,7 +14424,7 @@ ALTER TABLE ONLY delays
 
 
 --
--- TOC entry 3281 (class 2606 OID 18209)
+-- TOC entry 3279 (class 2606 OID 18188)
 -- Name: delays delays_uq_classroom_student_on_date; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14560,16 +14433,16 @@ ALTER TABLE ONLY delays
 
 
 --
--- TOC entry 4310 (class 0 OID 0)
--- Dependencies: 3281
+-- TOC entry 4306 (class 0 OID 0)
+-- Dependencies: 3279
 -- Name: CONSTRAINT delays_uq_classroom_student_on_date ON delays; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON CONSTRAINT delays_uq_classroom_student_on_date ON delays IS 'Per un student di una classroom in un on_date Ã¨ possibile un solo delay';
+COMMENT ON CONSTRAINT delays_uq_classroom_student_on_date ON delays IS 'Per un student di una classroom in un on_date è possibile un solo delay';
 
 
 --
--- TOC entry 3392 (class 2606 OID 18211)
+-- TOC entry 3390 (class 2606 OID 18190)
 -- Name: districts districts_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14578,7 +14451,7 @@ ALTER TABLE ONLY districts
 
 
 --
--- TOC entry 3394 (class 2606 OID 18213)
+-- TOC entry 3392 (class 2606 OID 18192)
 -- Name: districts districts_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14587,7 +14460,7 @@ ALTER TABLE ONLY districts
 
 
 --
--- TOC entry 3342 (class 2606 OID 18215)
+-- TOC entry 3340 (class 2606 OID 18194)
 -- Name: explanations explanations_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14596,7 +14469,7 @@ ALTER TABLE ONLY explanations
 
 
 --
--- TOC entry 3398 (class 2606 OID 18217)
+-- TOC entry 3396 (class 2606 OID 18196)
 -- Name: faults faults_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14605,7 +14478,7 @@ ALTER TABLE ONLY faults
 
 
 --
--- TOC entry 3401 (class 2606 OID 18219)
+-- TOC entry 3399 (class 2606 OID 18198)
 -- Name: grade_types grade_types_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14614,7 +14487,7 @@ ALTER TABLE ONLY grade_types
 
 
 --
--- TOC entry 3403 (class 2606 OID 18221)
+-- TOC entry 3401 (class 2606 OID 18200)
 -- Name: grade_types grade_types_uq_mnemonic; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14623,7 +14496,7 @@ ALTER TABLE ONLY grade_types
 
 
 --
--- TOC entry 3408 (class 2606 OID 18223)
+-- TOC entry 3406 (class 2606 OID 18202)
 -- Name: grades grades_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14632,7 +14505,7 @@ ALTER TABLE ONLY grades
 
 
 --
--- TOC entry 3410 (class 2606 OID 18225)
+-- TOC entry 3408 (class 2606 OID 18204)
 -- Name: grades grades_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14641,7 +14514,7 @@ ALTER TABLE ONLY grades
 
 
 --
--- TOC entry 3412 (class 2606 OID 18227)
+-- TOC entry 3410 (class 2606 OID 18206)
 -- Name: grades grades_uq_mnemonic; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14650,7 +14523,7 @@ ALTER TABLE ONLY grades
 
 
 --
--- TOC entry 3415 (class 2606 OID 18229)
+-- TOC entry 3413 (class 2606 OID 18208)
 -- Name: grading_meetings grading_meetings_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14659,7 +14532,7 @@ ALTER TABLE ONLY grading_meetings
 
 
 --
--- TOC entry 3417 (class 2606 OID 18231)
+-- TOC entry 3415 (class 2606 OID 18210)
 -- Name: grading_meetings grading_meetings_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14668,7 +14541,7 @@ ALTER TABLE ONLY grading_meetings
 
 
 --
--- TOC entry 3419 (class 2606 OID 18233)
+-- TOC entry 3417 (class 2606 OID 18212)
 -- Name: grading_meetings grading_meetings_uq_on_date; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14677,7 +14550,7 @@ ALTER TABLE ONLY grading_meetings
 
 
 --
--- TOC entry 3426 (class 2606 OID 18235)
+-- TOC entry 3424 (class 2606 OID 18214)
 -- Name: grading_meetings_valutations grading_meetings_valutations_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14686,7 +14559,7 @@ ALTER TABLE ONLY grading_meetings_valutations
 
 
 --
--- TOC entry 3434 (class 2606 OID 18237)
+-- TOC entry 3432 (class 2606 OID 18216)
 -- Name: grading_meetings_valutations_qua grading_meetings_valutations_qua_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14695,7 +14568,7 @@ ALTER TABLE ONLY grading_meetings_valutations_qua
 
 
 --
--- TOC entry 3436 (class 2606 OID 18239)
+-- TOC entry 3434 (class 2606 OID 18218)
 -- Name: grading_meetings_valutations_qua grading_meetings_valutations_qua_uq_qualification; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14704,7 +14577,7 @@ ALTER TABLE ONLY grading_meetings_valutations_qua
 
 
 --
--- TOC entry 3428 (class 2606 OID 18241)
+-- TOC entry 3426 (class 2606 OID 18220)
 -- Name: grading_meetings_valutations grading_meetings_valutations_uq_student; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14713,7 +14586,7 @@ ALTER TABLE ONLY grading_meetings_valutations
 
 
 --
--- TOC entry 3439 (class 2606 OID 18243)
+-- TOC entry 3437 (class 2606 OID 18222)
 -- Name: holydays holydays_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14722,7 +14595,7 @@ ALTER TABLE ONLY holydays
 
 
 --
--- TOC entry 3441 (class 2606 OID 18245)
+-- TOC entry 3439 (class 2606 OID 18224)
 -- Name: holydays holydays_uq_on_date; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14731,8 +14604,8 @@ ALTER TABLE ONLY holydays
 
 
 --
--- TOC entry 4311 (class 0 OID 0)
--- Dependencies: 3441
+-- TOC entry 4307 (class 0 OID 0)
+-- Dependencies: 3439
 -- Name: CONSTRAINT holydays_uq_on_date ON holydays; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -14740,7 +14613,7 @@ COMMENT ON CONSTRAINT holydays_uq_on_date ON holydays IS 'Nello stesso school og
 
 
 --
--- TOC entry 3286 (class 2606 OID 18247)
+-- TOC entry 3284 (class 2606 OID 18226)
 -- Name: leavings leavings_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14749,7 +14622,7 @@ ALTER TABLE ONLY leavings
 
 
 --
--- TOC entry 3288 (class 2606 OID 18249)
+-- TOC entry 3286 (class 2606 OID 18228)
 -- Name: leavings leavings_uq_classroom_student; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14758,16 +14631,16 @@ ALTER TABLE ONLY leavings
 
 
 --
--- TOC entry 4312 (class 0 OID 0)
--- Dependencies: 3288
+-- TOC entry 4308 (class 0 OID 0)
+-- Dependencies: 3286
 -- Name: CONSTRAINT leavings_uq_classroom_student ON leavings; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON CONSTRAINT leavings_uq_classroom_student ON leavings IS 'Per ub student di una classroom in un on_date Ã¨ possibile una sola leaving';
+COMMENT ON CONSTRAINT leavings_uq_classroom_student ON leavings IS 'Per ub student di una classroom in un on_date è possibile una sola leaving';
 
 
 --
--- TOC entry 3353 (class 2606 OID 18251)
+-- TOC entry 3351 (class 2606 OID 18230)
 -- Name: lessons lessons_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14776,7 +14649,7 @@ ALTER TABLE ONLY lessons
 
 
 --
--- TOC entry 3445 (class 2606 OID 18253)
+-- TOC entry 3443 (class 2606 OID 18232)
 -- Name: messages messages_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14785,7 +14658,7 @@ ALTER TABLE ONLY messages
 
 
 --
--- TOC entry 3451 (class 2606 OID 18255)
+-- TOC entry 3449 (class 2606 OID 18234)
 -- Name: messages_read messages_read_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14794,7 +14667,7 @@ ALTER TABLE ONLY messages_read
 
 
 --
--- TOC entry 3453 (class 2606 OID 18257)
+-- TOC entry 3451 (class 2606 OID 18236)
 -- Name: messages_read messages_read_uq_read_on; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14803,16 +14676,16 @@ ALTER TABLE ONLY messages_read
 
 
 --
--- TOC entry 4313 (class 0 OID 0)
--- Dependencies: 3453
+-- TOC entry 4309 (class 0 OID 0)
+-- Dependencies: 3451
 -- Name: CONSTRAINT messages_read_uq_read_on ON messages_read; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON CONSTRAINT messages_read_uq_read_on ON messages_read IS 'L''indicazione di quando Ã¨ stato letto un message Ã¨ univoco per ogni messagio e person (from_time) che lo ha letto';
+COMMENT ON CONSTRAINT messages_read_uq_read_on ON messages_read IS 'L''indicazione di quando è stato letto un message è univoco per ogni messagio e person (from_time) che lo ha letto';
 
 
 --
--- TOC entry 3447 (class 2606 OID 18259)
+-- TOC entry 3445 (class 2606 OID 18238)
 -- Name: messages messages_uq_from_time; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14821,7 +14694,7 @@ ALTER TABLE ONLY messages
 
 
 --
--- TOC entry 3456 (class 2606 OID 18261)
+-- TOC entry 3454 (class 2606 OID 18240)
 -- Name: metrics metrics_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14830,7 +14703,7 @@ ALTER TABLE ONLY metrics
 
 
 --
--- TOC entry 3458 (class 2606 OID 18263)
+-- TOC entry 3456 (class 2606 OID 18242)
 -- Name: metrics metrics_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14839,7 +14712,7 @@ ALTER TABLE ONLY metrics
 
 
 --
--- TOC entry 3370 (class 2606 OID 18265)
+-- TOC entry 3368 (class 2606 OID 18244)
 -- Name: communications_media mezzi_di_citiescazione_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14848,7 +14721,7 @@ ALTER TABLE ONLY communications_media
 
 
 --
--- TOC entry 3372 (class 2606 OID 18267)
+-- TOC entry 3370 (class 2606 OID 18246)
 -- Name: communications_media mezzi_di_citiescazione_uq_uri; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14857,7 +14730,7 @@ ALTER TABLE ONLY communications_media
 
 
 --
--- TOC entry 3293 (class 2606 OID 18269)
+-- TOC entry 3291 (class 2606 OID 18248)
 -- Name: notes notes_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14866,7 +14739,7 @@ ALTER TABLE ONLY notes
 
 
 --
--- TOC entry 3462 (class 2606 OID 18271)
+-- TOC entry 3460 (class 2606 OID 18250)
 -- Name: notes_signed notes_signed_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14875,7 +14748,7 @@ ALTER TABLE ONLY notes_signed
 
 
 --
--- TOC entry 3464 (class 2606 OID 18273)
+-- TOC entry 3462 (class 2606 OID 18252)
 -- Name: notes_signed notes_signed_uq_person; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14884,7 +14757,7 @@ ALTER TABLE ONLY notes_signed
 
 
 --
--- TOC entry 3295 (class 2606 OID 18275)
+-- TOC entry 3293 (class 2606 OID 18254)
 -- Name: notes notes_uq_on_date_at_time; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14893,7 +14766,7 @@ ALTER TABLE ONLY notes
 
 
 --
--- TOC entry 3299 (class 2606 OID 18277)
+-- TOC entry 3297 (class 2606 OID 18256)
 -- Name: out_of_classrooms out_of_classrooms_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14902,7 +14775,7 @@ ALTER TABLE ONLY out_of_classrooms
 
 
 --
--- TOC entry 3301 (class 2606 OID 18279)
+-- TOC entry 3299 (class 2606 OID 18258)
 -- Name: out_of_classrooms out_of_classrooms_uq_classroom_student_on_date; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14911,7 +14784,7 @@ ALTER TABLE ONLY out_of_classrooms
 
 
 --
--- TOC entry 3468 (class 2606 OID 18281)
+-- TOC entry 3466 (class 2606 OID 18260)
 -- Name: parents_meetings parents_meetings_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14920,7 +14793,7 @@ ALTER TABLE ONLY parents_meetings
 
 
 --
--- TOC entry 3470 (class 2606 OID 18283)
+-- TOC entry 3468 (class 2606 OID 18262)
 -- Name: parents_meetings parents_meetings_uq; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14929,16 +14802,16 @@ ALTER TABLE ONLY parents_meetings
 
 
 --
--- TOC entry 4314 (class 0 OID 0)
--- Dependencies: 3470
+-- TOC entry 4310 (class 0 OID 0)
+-- Dependencies: 3468
 -- Name: CONSTRAINT parents_meetings_uq ON parents_meetings; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON CONSTRAINT parents_meetings_uq ON parents_meetings IS 'Un teacher non puÃ² avere piÃ¹ di un interview in un determiborn momento';
+COMMENT ON CONSTRAINT parents_meetings_uq ON parents_meetings IS 'Un teacher non può avere più di un interview in un determiborn momento';
 
 
 --
--- TOC entry 3346 (class 2606 OID 18285)
+-- TOC entry 3344 (class 2606 OID 18264)
 -- Name: persons_addresses persons_addresses_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14947,7 +14820,7 @@ ALTER TABLE ONLY persons_addresses
 
 
 --
--- TOC entry 3348 (class 2606 OID 18287)
+-- TOC entry 3346 (class 2606 OID 18266)
 -- Name: persons_addresses persons_addresses_uq_indirizzo; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14956,7 +14829,7 @@ ALTER TABLE ONLY persons_addresses
 
 
 --
--- TOC entry 3307 (class 2606 OID 18289)
+-- TOC entry 3305 (class 2606 OID 18268)
 -- Name: persons persons_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14965,7 +14838,7 @@ ALTER TABLE ONLY persons
 
 
 --
--- TOC entry 3474 (class 2606 OID 18291)
+-- TOC entry 3472 (class 2606 OID 18270)
 -- Name: persons_relations persons_relations_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14974,7 +14847,7 @@ ALTER TABLE ONLY persons_relations
 
 
 --
--- TOC entry 3476 (class 2606 OID 18293)
+-- TOC entry 3474 (class 2606 OID 18272)
 -- Name: persons_relations persons_relations_uq_person; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14983,7 +14856,7 @@ ALTER TABLE ONLY persons_relations
 
 
 --
--- TOC entry 3479 (class 2606 OID 18295)
+-- TOC entry 3477 (class 2606 OID 18274)
 -- Name: persons_roles persons_roles_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -14992,7 +14865,7 @@ ALTER TABLE ONLY persons_roles
 
 
 --
--- TOC entry 3481 (class 2606 OID 18297)
+-- TOC entry 3479 (class 2606 OID 18276)
 -- Name: persons_roles persons_roles_uq_person; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15001,7 +14874,7 @@ ALTER TABLE ONLY persons_roles
 
 
 --
--- TOC entry 3309 (class 2606 OID 18299)
+-- TOC entry 3307 (class 2606 OID 18278)
 -- Name: persons persons_uq_school_tax_code; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15010,7 +14883,7 @@ ALTER TABLE ONLY persons
 
 
 --
--- TOC entry 3311 (class 2606 OID 18301)
+-- TOC entry 3309 (class 2606 OID 18280)
 -- Name: persons persons_uq_usename; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15019,8 +14892,8 @@ ALTER TABLE ONLY persons
 
 
 --
--- TOC entry 4315 (class 0 OID 0)
--- Dependencies: 3311
+-- TOC entry 4311 (class 0 OID 0)
+-- Dependencies: 3309
 -- Name: CONSTRAINT persons_uq_usename ON persons; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15028,7 +14901,7 @@ COMMENT ON CONSTRAINT persons_uq_usename ON persons IS 'for every school we cann
 
 
 --
--- TOC entry 3486 (class 2606 OID 18303)
+-- TOC entry 3484 (class 2606 OID 18282)
 -- Name: qualificationtions qualificationtions_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15037,7 +14910,7 @@ ALTER TABLE ONLY qualificationtions
 
 
 --
--- TOC entry 3493 (class 2606 OID 18305)
+-- TOC entry 3491 (class 2606 OID 18284)
 -- Name: qualificationtions_plan qualificationtions_plan_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15046,7 +14919,7 @@ ALTER TABLE ONLY qualificationtions_plan
 
 
 --
--- TOC entry 3495 (class 2606 OID 18307)
+-- TOC entry 3493 (class 2606 OID 18286)
 -- Name: qualificationtions_plan qualificationtions_plan_uq_qualification; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15055,7 +14928,7 @@ ALTER TABLE ONLY qualificationtions_plan
 
 
 --
--- TOC entry 3488 (class 2606 OID 18309)
+-- TOC entry 3486 (class 2606 OID 18288)
 -- Name: qualificationtions qualificationtions_uq_name; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15064,7 +14937,7 @@ ALTER TABLE ONLY qualificationtions
 
 
 --
--- TOC entry 3497 (class 2606 OID 18311)
+-- TOC entry 3495 (class 2606 OID 18290)
 -- Name: regions regions_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15073,7 +14946,7 @@ ALTER TABLE ONLY regions
 
 
 --
--- TOC entry 3499 (class 2606 OID 18313)
+-- TOC entry 3497 (class 2606 OID 18292)
 -- Name: regions regions_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15082,7 +14955,7 @@ ALTER TABLE ONLY regions
 
 
 --
--- TOC entry 3243 (class 2606 OID 18315)
+-- TOC entry 3241 (class 2606 OID 18294)
 -- Name: school_years school_years_ex_duration; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15091,8 +14964,8 @@ ALTER TABLE ONLY school_years
 
 
 --
--- TOC entry 4316 (class 0 OID 0)
--- Dependencies: 3243
+-- TOC entry 4312 (class 0 OID 0)
+-- Dependencies: 3241
 -- Name: CONSTRAINT school_years_ex_duration ON school_years; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15100,7 +14973,7 @@ COMMENT ON CONSTRAINT school_years_ex_duration ON school_years IS 'in the same s
 
 
 --
--- TOC entry 3246 (class 2606 OID 18317)
+-- TOC entry 3244 (class 2606 OID 18296)
 -- Name: school_years school_years_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15109,7 +14982,7 @@ ALTER TABLE ONLY school_years
 
 
 --
--- TOC entry 3248 (class 2606 OID 18319)
+-- TOC entry 3246 (class 2606 OID 18298)
 -- Name: school_years school_years_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15118,8 +14991,8 @@ ALTER TABLE ONLY school_years
 
 
 --
--- TOC entry 4317 (class 0 OID 0)
--- Dependencies: 3248
+-- TOC entry 4313 (class 0 OID 0)
+-- Dependencies: 3246
 -- Name: CONSTRAINT school_years_uq_description ON school_years; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15127,7 +15000,7 @@ COMMENT ON CONSTRAINT school_years_uq_description ON school_years IS 'La descrip
 
 
 --
--- TOC entry 3251 (class 2606 OID 18321)
+-- TOC entry 3249 (class 2606 OID 18300)
 -- Name: schools schools_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15136,7 +15009,7 @@ ALTER TABLE ONLY schools
 
 
 --
--- TOC entry 3253 (class 2606 OID 18323)
+-- TOC entry 3251 (class 2606 OID 18302)
 -- Name: schools schools_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15145,7 +15018,7 @@ ALTER TABLE ONLY schools
 
 
 --
--- TOC entry 3255 (class 2606 OID 18325)
+-- TOC entry 3253 (class 2606 OID 18304)
 -- Name: schools schools_uq_mnemonic; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15154,7 +15027,7 @@ ALTER TABLE ONLY schools
 
 
 --
--- TOC entry 3257 (class 2606 OID 18327)
+-- TOC entry 3255 (class 2606 OID 18306)
 -- Name: schools schools_uq_processing_code; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15163,7 +15036,7 @@ ALTER TABLE ONLY schools
 
 
 --
--- TOC entry 3357 (class 2606 OID 18329)
+-- TOC entry 3355 (class 2606 OID 18308)
 -- Name: signatures signatures_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15172,7 +15045,7 @@ ALTER TABLE ONLY signatures
 
 
 --
--- TOC entry 3359 (class 2606 OID 18331)
+-- TOC entry 3357 (class 2606 OID 18310)
 -- Name: signatures signatures_uq_classroom; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15181,16 +15054,16 @@ ALTER TABLE ONLY signatures
 
 
 --
--- TOC entry 4318 (class 0 OID 0)
--- Dependencies: 3359
+-- TOC entry 4314 (class 0 OID 0)
+-- Dependencies: 3357
 -- Name: CONSTRAINT signatures_uq_classroom ON signatures; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON CONSTRAINT signatures_uq_classroom ON signatures IS 'Un teacher non puÃ² signaturere piÃ¹ di una volta nello stesso on_date e  nella stessa at_time (indipendentemente from_timela classroom)';
+COMMENT ON CONSTRAINT signatures_uq_classroom ON signatures IS 'Un teacher non può signaturere più di una volta nello stesso on_date e  nella stessa at_time (indipendentemente from_timela classroom)';
 
 
 --
--- TOC entry 3314 (class 2606 OID 18333)
+-- TOC entry 3312 (class 2606 OID 18312)
 -- Name: subjects subjects_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15199,7 +15072,7 @@ ALTER TABLE ONLY subjects
 
 
 --
--- TOC entry 3316 (class 2606 OID 18335)
+-- TOC entry 3314 (class 2606 OID 18314)
 -- Name: subjects subjects_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15208,7 +15081,7 @@ ALTER TABLE ONLY subjects
 
 
 --
--- TOC entry 3501 (class 2606 OID 18337)
+-- TOC entry 3499 (class 2606 OID 18316)
 -- Name: system_messages system_messages_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15217,7 +15090,7 @@ ALTER TABLE ONLY system_messages
 
 
 --
--- TOC entry 3503 (class 2606 OID 18339)
+-- TOC entry 3501 (class 2606 OID 18318)
 -- Name: system_messages system_messages_uq_function_name; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15226,7 +15099,7 @@ ALTER TABLE ONLY system_messages
 
 
 --
--- TOC entry 3508 (class 2606 OID 18341)
+-- TOC entry 3506 (class 2606 OID 18320)
 -- Name: teachears_notes teachears_notes_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15235,7 +15108,7 @@ ALTER TABLE ONLY teachears_notes
 
 
 --
--- TOC entry 3510 (class 2606 OID 18343)
+-- TOC entry 3508 (class 2606 OID 18322)
 -- Name: teachears_notes teachears_notes_uq_on_date_at_time; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15244,7 +15117,7 @@ ALTER TABLE ONLY teachears_notes
 
 
 --
--- TOC entry 3405 (class 2606 OID 18345)
+-- TOC entry 3403 (class 2606 OID 18324)
 -- Name: grade_types tipi_grades_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15253,7 +15126,7 @@ ALTER TABLE ONLY grade_types
 
 
 --
--- TOC entry 3514 (class 2606 OID 18347)
+-- TOC entry 3512 (class 2606 OID 18326)
 -- Name: topics topics_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15262,7 +15135,7 @@ ALTER TABLE ONLY topics
 
 
 --
--- TOC entry 3516 (class 2606 OID 18349)
+-- TOC entry 3514 (class 2606 OID 18328)
 -- Name: topics topics_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15271,8 +15144,8 @@ ALTER TABLE ONLY topics
 
 
 --
--- TOC entry 4319 (class 0 OID 0)
--- Dependencies: 3516
+-- TOC entry 4315 (class 0 OID 0)
+-- Dependencies: 3514
 -- Name: CONSTRAINT topics_uq_description ON topics; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15280,7 +15153,7 @@ COMMENT ON CONSTRAINT topics_uq_description ON topics IS 'test';
 
 
 --
--- TOC entry 3518 (class 2606 OID 18351)
+-- TOC entry 3516 (class 2606 OID 18330)
 -- Name: usenames_ex usenames_ex_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15289,7 +15162,7 @@ ALTER TABLE ONLY usenames_ex
 
 
 --
--- TOC entry 3520 (class 2606 OID 18353)
+-- TOC entry 3518 (class 2606 OID 18332)
 -- Name: usenames_ex usenames_ex_uq_usename; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15298,8 +15171,8 @@ ALTER TABLE ONLY usenames_ex
 
 
 --
--- TOC entry 4320 (class 0 OID 0)
--- Dependencies: 3520
+-- TOC entry 4316 (class 0 OID 0)
+-- Dependencies: 3518
 -- Name: CONSTRAINT usenames_ex_uq_usename ON usenames_ex; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15307,7 +15180,7 @@ COMMENT ON CONSTRAINT usenames_ex_uq_usename ON usenames_ex IS 'ad ogni db_user 
 
 
 --
--- TOC entry 3325 (class 2606 OID 18355)
+-- TOC entry 3323 (class 2606 OID 18334)
 -- Name: valutations valutations_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15316,7 +15189,7 @@ ALTER TABLE ONLY valutations
 
 
 --
--- TOC entry 3525 (class 2606 OID 18357)
+-- TOC entry 3523 (class 2606 OID 18336)
 -- Name: valutations_qualificationtions valutations_qualificationtions_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15325,7 +15198,7 @@ ALTER TABLE ONLY valutations_qualificationtions
 
 
 --
--- TOC entry 3527 (class 2606 OID 18359)
+-- TOC entry 3525 (class 2606 OID 18338)
 -- Name: valutations_qualificationtions valutations_qualificationtions_uq_qualification; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15334,7 +15207,7 @@ ALTER TABLE ONLY valutations_qualificationtions
 
 
 --
--- TOC entry 3328 (class 2606 OID 18361)
+-- TOC entry 3326 (class 2606 OID 18340)
 -- Name: weekly_timetable weekly_timetable_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15343,7 +15216,7 @@ ALTER TABLE ONLY weekly_timetable
 
 
 --
--- TOC entry 3330 (class 2606 OID 18363)
+-- TOC entry 3328 (class 2606 OID 18342)
 -- Name: weekly_timetable weekly_timetable_uq_description; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15352,7 +15225,7 @@ ALTER TABLE ONLY weekly_timetable
 
 
 --
--- TOC entry 3335 (class 2606 OID 18365)
+-- TOC entry 3333 (class 2606 OID 18344)
 -- Name: weekly_timetables_days weekly_timetables_days_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15361,7 +15234,7 @@ ALTER TABLE ONLY weekly_timetables_days
 
 
 --
--- TOC entry 3337 (class 2606 OID 18367)
+-- TOC entry 3335 (class 2606 OID 18346)
 -- Name: weekly_timetables_days weekly_timetables_days_uq_weekly_timetable; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15370,7 +15243,7 @@ ALTER TABLE ONLY weekly_timetables_days
 
 
 --
--- TOC entry 3533 (class 2606 OID 18369)
+-- TOC entry 3531 (class 2606 OID 18348)
 -- Name: wikimedia_files_persons wikimedia_files_persons_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15379,7 +15252,7 @@ ALTER TABLE ONLY wikimedia_files_persons
 
 
 --
--- TOC entry 3535 (class 2606 OID 18371)
+-- TOC entry 3533 (class 2606 OID 18350)
 -- Name: wikimedia_files_persons wikimedia_files_persons_uq_wikimedia_file_person; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15388,7 +15261,7 @@ ALTER TABLE ONLY wikimedia_files_persons
 
 
 --
--- TOC entry 3529 (class 2606 OID 18373)
+-- TOC entry 3527 (class 2606 OID 18352)
 -- Name: wikimedia_files wikimedia_files_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -15399,7 +15272,7 @@ ALTER TABLE ONLY wikimedia_files
 SET search_path = translate, pg_catalog;
 
 --
--- TOC entry 3537 (class 2606 OID 18375)
+-- TOC entry 3535 (class 2606 OID 18354)
 -- Name: columns columns_pk; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15408,7 +15281,7 @@ ALTER TABLE ONLY columns
 
 
 --
--- TOC entry 3539 (class 2606 OID 18377)
+-- TOC entry 3537 (class 2606 OID 18356)
 -- Name: columns columns_uq_relation_language_translation; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15417,7 +15290,7 @@ ALTER TABLE ONLY columns
 
 
 --
--- TOC entry 3541 (class 2606 OID 18379)
+-- TOC entry 3539 (class 2606 OID 18358)
 -- Name: columns columns_uq_relation_name_language; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15426,7 +15299,7 @@ ALTER TABLE ONLY columns
 
 
 --
--- TOC entry 3545 (class 2606 OID 18381)
+-- TOC entry 3543 (class 2606 OID 18360)
 -- Name: languages languages_pk; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15435,7 +15308,7 @@ ALTER TABLE ONLY languages
 
 
 --
--- TOC entry 3547 (class 2606 OID 18383)
+-- TOC entry 3545 (class 2606 OID 18362)
 -- Name: languages languages_uq_description; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15444,7 +15317,7 @@ ALTER TABLE ONLY languages
 
 
 --
--- TOC entry 3549 (class 2606 OID 18385)
+-- TOC entry 3547 (class 2606 OID 18364)
 -- Name: languages languages_uq_schema; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15453,7 +15326,7 @@ ALTER TABLE ONLY languages
 
 
 --
--- TOC entry 3553 (class 2606 OID 18387)
+-- TOC entry 3551 (class 2606 OID 18366)
 -- Name: parameters parameters_pk; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15462,7 +15335,7 @@ ALTER TABLE ONLY parameters
 
 
 --
--- TOC entry 3555 (class 2606 OID 18389)
+-- TOC entry 3553 (class 2606 OID 18368)
 -- Name: parameters parameters_uq_procedure_signature_language_translation; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15471,7 +15344,7 @@ ALTER TABLE ONLY parameters
 
 
 --
--- TOC entry 3557 (class 2606 OID 18391)
+-- TOC entry 3555 (class 2606 OID 18370)
 -- Name: parameters parameters_uq_procedure_signature_name; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15480,7 +15353,7 @@ ALTER TABLE ONLY parameters
 
 
 --
--- TOC entry 3560 (class 2606 OID 18393)
+-- TOC entry 3558 (class 2606 OID 18372)
 -- Name: procedures procedures_pk; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15489,7 +15362,7 @@ ALTER TABLE ONLY procedures
 
 
 --
--- TOC entry 3562 (class 2606 OID 18395)
+-- TOC entry 3560 (class 2606 OID 18374)
 -- Name: procedures procedures_uq_language_translation; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15498,7 +15371,7 @@ ALTER TABLE ONLY procedures
 
 
 --
--- TOC entry 3564 (class 2606 OID 18397)
+-- TOC entry 3562 (class 2606 OID 18376)
 -- Name: procedures procedures_uq_name_language; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15507,7 +15380,7 @@ ALTER TABLE ONLY procedures
 
 
 --
--- TOC entry 3567 (class 2606 OID 18399)
+-- TOC entry 3565 (class 2606 OID 18378)
 -- Name: relations relations_pk; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15516,7 +15389,7 @@ ALTER TABLE ONLY relations
 
 
 --
--- TOC entry 3569 (class 2606 OID 18401)
+-- TOC entry 3567 (class 2606 OID 18380)
 -- Name: relations relations_uq_language_translation; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15525,7 +15398,7 @@ ALTER TABLE ONLY relations
 
 
 --
--- TOC entry 3571 (class 2606 OID 18403)
+-- TOC entry 3569 (class 2606 OID 18382)
 -- Name: relations relations_uq_name_language; Type: CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -15536,7 +15409,7 @@ ALTER TABLE ONLY relations
 SET search_path = unit_testing, pg_catalog;
 
 --
--- TOC entry 3576 (class 2606 OID 18405)
+-- TOC entry 3574 (class 2606 OID 18384)
 -- Name: dependencies dependencies_pk; Type: CONSTRAINT; Schema: unit_testing; Owner: postgres
 --
 
@@ -15545,7 +15418,7 @@ ALTER TABLE ONLY dependencies
 
 
 --
--- TOC entry 3578 (class 2606 OID 18407)
+-- TOC entry 3576 (class 2606 OID 18386)
 -- Name: dependencies dependencies_uq_all_but_dependency; Type: CONSTRAINT; Schema: unit_testing; Owner: postgres
 --
 
@@ -15554,7 +15427,7 @@ ALTER TABLE ONLY dependencies
 
 
 --
--- TOC entry 3580 (class 2606 OID 18409)
+-- TOC entry 3578 (class 2606 OID 18388)
 -- Name: system_messages system_messages_pk; Type: CONSTRAINT; Schema: unit_testing; Owner: postgres
 --
 
@@ -15563,7 +15436,7 @@ ALTER TABLE ONLY system_messages
 
 
 --
--- TOC entry 3582 (class 2606 OID 18411)
+-- TOC entry 3580 (class 2606 OID 18390)
 -- Name: system_messages system_messages_uq_function_name; Type: CONSTRAINT; Schema: unit_testing; Owner: postgres
 --
 
@@ -15572,7 +15445,7 @@ ALTER TABLE ONLY system_messages
 
 
 --
--- TOC entry 3586 (class 2606 OID 18413)
+-- TOC entry 3584 (class 2606 OID 18392)
 -- Name: tests_details test_details_pk; Type: CONSTRAINT; Schema: unit_testing; Owner: postgres
 --
 
@@ -15581,7 +15454,7 @@ ALTER TABLE ONLY tests_details
 
 
 --
--- TOC entry 3584 (class 2606 OID 18415)
+-- TOC entry 3582 (class 2606 OID 18394)
 -- Name: tests tests_pk; Type: CONSTRAINT; Schema: unit_testing; Owner: postgres
 --
 
@@ -15590,7 +15463,7 @@ ALTER TABLE ONLY tests
 
 
 --
--- TOC entry 3594 (class 2606 OID 18417)
+-- TOC entry 3592 (class 2606 OID 18396)
 -- Name: unit_test_sets_details unit_test_sets_details_pk; Type: CONSTRAINT; Schema: unit_testing; Owner: postgres
 --
 
@@ -15599,7 +15472,7 @@ ALTER TABLE ONLY unit_test_sets_details
 
 
 --
--- TOC entry 3597 (class 2606 OID 18419)
+-- TOC entry 3595 (class 2606 OID 18398)
 -- Name: unit_test_sets_details unit_test_sets_details_uq_all_but_unit_test_set_detail; Type: CONSTRAINT; Schema: unit_testing; Owner: postgres
 --
 
@@ -15608,7 +15481,7 @@ ALTER TABLE ONLY unit_test_sets_details
 
 
 --
--- TOC entry 3588 (class 2606 OID 18421)
+-- TOC entry 3586 (class 2606 OID 18400)
 -- Name: unit_test_sets unit_test_sets_pk; Type: CONSTRAINT; Schema: unit_testing; Owner: postgres
 --
 
@@ -15617,7 +15490,7 @@ ALTER TABLE ONLY unit_test_sets
 
 
 --
--- TOC entry 3590 (class 2606 OID 18423)
+-- TOC entry 3588 (class 2606 OID 18402)
 -- Name: unit_test_sets unit_test_sets_uq_description; Type: CONSTRAINT; Schema: unit_testing; Owner: postgres
 --
 
@@ -15628,7 +15501,7 @@ ALTER TABLE ONLY unit_test_sets
 SET search_path = utility, pg_catalog;
 
 --
--- TOC entry 3599 (class 2606 OID 18425)
+-- TOC entry 3597 (class 2606 OID 18404)
 -- Name: entity_coding2 character_entity_ch_key; Type: CONSTRAINT; Schema: utility; Owner: postgres
 --
 
@@ -15637,7 +15510,7 @@ ALTER TABLE ONLY entity_coding2
 
 
 --
--- TOC entry 3601 (class 2606 OID 18427)
+-- TOC entry 3599 (class 2606 OID 18406)
 -- Name: entity_coding2 character_entity_pkey; Type: CONSTRAINT; Schema: utility; Owner: postgres
 --
 
@@ -15646,7 +15519,7 @@ ALTER TABLE ONLY entity_coding2
 
 
 --
--- TOC entry 3603 (class 2606 OID 18429)
+-- TOC entry 3601 (class 2606 OID 18408)
 -- Name: test test_pk; Type: CONSTRAINT; Schema: utility; Owner: postgres
 --
 
@@ -15657,7 +15530,7 @@ ALTER TABLE ONLY test
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 3258 (class 1259 OID 18430)
+-- TOC entry 3256 (class 1259 OID 18409)
 -- Name: absences_fx_classroom_student; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15665,7 +15538,7 @@ CREATE INDEX absences_fx_classroom_student ON absences USING btree (classroom_st
 
 
 --
--- TOC entry 3259 (class 1259 OID 18431)
+-- TOC entry 3257 (class 1259 OID 18410)
 -- Name: absences_fx_explanation; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15673,8 +15546,8 @@ CREATE INDEX absences_fx_explanation ON absences USING btree (explanation);
 
 
 --
--- TOC entry 4321 (class 0 OID 0)
--- Dependencies: 3259
+-- TOC entry 4317 (class 0 OID 0)
+-- Dependencies: 3257
 -- Name: INDEX absences_fx_explanation; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15682,7 +15555,7 @@ COMMENT ON INDEX absences_fx_explanation IS 'Indice per l''acceso from_timela re
 
 
 --
--- TOC entry 3260 (class 1259 OID 18432)
+-- TOC entry 3258 (class 1259 OID 18411)
 -- Name: absences_fx_teacher; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15690,8 +15563,8 @@ CREATE INDEX absences_fx_teacher ON absences USING btree (teacher);
 
 
 --
--- TOC entry 4322 (class 0 OID 0)
--- Dependencies: 3260
+-- TOC entry 4318 (class 0 OID 0)
+-- Dependencies: 3258
 -- Name: INDEX absences_fx_teacher; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15699,7 +15572,7 @@ COMMENT ON INDEX absences_fx_teacher IS 'Indice per l''acceso from_timela relati
 
 
 --
--- TOC entry 3228 (class 1259 OID 18433)
+-- TOC entry 3226 (class 1259 OID 18412)
 -- Name: branches_fx_school; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15707,7 +15580,7 @@ CREATE INDEX branches_fx_school ON branches USING btree (school);
 
 
 --
--- TOC entry 3270 (class 1259 OID 18434)
+-- TOC entry 3268 (class 1259 OID 18413)
 -- Name: cities_fx_district; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15715,7 +15588,7 @@ CREATE INDEX cities_fx_district ON cities USING btree (district);
 
 
 --
--- TOC entry 3233 (class 1259 OID 18435)
+-- TOC entry 3231 (class 1259 OID 18414)
 -- Name: classrooms_fx_building; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15723,7 +15596,7 @@ CREATE INDEX classrooms_fx_building ON classrooms USING btree (building);
 
 
 --
--- TOC entry 3234 (class 1259 OID 18436)
+-- TOC entry 3232 (class 1259 OID 18415)
 -- Name: classrooms_fx_degree; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15731,8 +15604,8 @@ CREATE INDEX classrooms_fx_degree ON classrooms USING btree (degree);
 
 
 --
--- TOC entry 4323 (class 0 OID 0)
--- Dependencies: 3234
+-- TOC entry 4319 (class 0 OID 0)
+-- Dependencies: 3232
 -- Name: INDEX classrooms_fx_degree; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15740,7 +15613,7 @@ COMMENT ON INDEX classrooms_fx_degree IS 'Indice per l''acceso from_timela relat
 
 
 --
--- TOC entry 3235 (class 1259 OID 18437)
+-- TOC entry 3233 (class 1259 OID 18416)
 -- Name: classrooms_fx_school_year; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15748,8 +15621,8 @@ CREATE INDEX classrooms_fx_school_year ON classrooms USING btree (school_year);
 
 
 --
--- TOC entry 4324 (class 0 OID 0)
--- Dependencies: 3235
+-- TOC entry 4320 (class 0 OID 0)
+-- Dependencies: 3233
 -- Name: INDEX classrooms_fx_school_year; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15757,7 +15630,7 @@ COMMENT ON INDEX classrooms_fx_school_year IS 'Indice per l''acceso from_timela 
 
 
 --
--- TOC entry 3265 (class 1259 OID 18438)
+-- TOC entry 3263 (class 1259 OID 18417)
 -- Name: classrooms_students_fx_classroom; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15765,8 +15638,8 @@ CREATE INDEX classrooms_students_fx_classroom ON classrooms_students USING btree
 
 
 --
--- TOC entry 4325 (class 0 OID 0)
--- Dependencies: 3265
+-- TOC entry 4321 (class 0 OID 0)
+-- Dependencies: 3263
 -- Name: INDEX classrooms_students_fx_classroom; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15774,7 +15647,7 @@ COMMENT ON INDEX classrooms_students_fx_classroom IS 'Indice per l''acceso from_
 
 
 --
--- TOC entry 3360 (class 1259 OID 18439)
+-- TOC entry 3358 (class 1259 OID 18418)
 -- Name: communication_types_fx_school; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15782,7 +15655,7 @@ CREATE INDEX communication_types_fx_school ON communication_types USING btree (s
 
 
 --
--- TOC entry 3365 (class 1259 OID 18440)
+-- TOC entry 3363 (class 1259 OID 18419)
 -- Name: communications_media_ix_communication_type; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15790,8 +15663,8 @@ CREATE INDEX communications_media_ix_communication_type ON communications_media 
 
 
 --
--- TOC entry 4326 (class 0 OID 0)
--- Dependencies: 3365
+-- TOC entry 4322 (class 0 OID 0)
+-- Dependencies: 3363
 -- Name: INDEX communications_media_ix_communication_type; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15799,7 +15672,7 @@ COMMENT ON INDEX communications_media_ix_communication_type IS 'Indice per l''ac
 
 
 --
--- TOC entry 3366 (class 1259 OID 18441)
+-- TOC entry 3364 (class 1259 OID 18420)
 -- Name: communications_media_ix_person; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15807,8 +15680,8 @@ CREATE INDEX communications_media_ix_person ON communications_media USING btree 
 
 
 --
--- TOC entry 4327 (class 0 OID 0)
--- Dependencies: 3366
+-- TOC entry 4323 (class 0 OID 0)
+-- Dependencies: 3364
 -- Name: INDEX communications_media_ix_person; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15816,7 +15689,7 @@ COMMENT ON INDEX communications_media_ix_person IS 'Indice per l''acceso from_ti
 
 
 --
--- TOC entry 3373 (class 1259 OID 18442)
+-- TOC entry 3371 (class 1259 OID 18421)
 -- Name: conversations_fx_school_record; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15824,8 +15697,8 @@ CREATE INDEX conversations_fx_school_record ON conversations USING btree (school
 
 
 --
--- TOC entry 4328 (class 0 OID 0)
--- Dependencies: 3373
+-- TOC entry 4324 (class 0 OID 0)
+-- Dependencies: 3371
 -- Name: INDEX conversations_fx_school_record; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15833,7 +15706,7 @@ COMMENT ON INDEX conversations_fx_school_record IS 'Indice per l''acceso from_ti
 
 
 --
--- TOC entry 3380 (class 1259 OID 18443)
+-- TOC entry 3378 (class 1259 OID 18422)
 -- Name: conversations_partecipanti_fx_conversation; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15841,7 +15714,7 @@ CREATE INDEX conversations_partecipanti_fx_conversation ON conversations_invites
 
 
 --
--- TOC entry 3381 (class 1259 OID 18444)
+-- TOC entry 3379 (class 1259 OID 18423)
 -- Name: conversations_partecipanti_fx_partecipante; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15849,7 +15722,7 @@ CREATE INDEX conversations_partecipanti_fx_partecipante ON conversations_invites
 
 
 --
--- TOC entry 3386 (class 1259 OID 18445)
+-- TOC entry 3384 (class 1259 OID 18424)
 -- Name: degrees_fx_school; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15857,8 +15730,8 @@ CREATE INDEX degrees_fx_school ON degrees USING btree (school);
 
 
 --
--- TOC entry 4329 (class 0 OID 0)
--- Dependencies: 3386
+-- TOC entry 4325 (class 0 OID 0)
+-- Dependencies: 3384
 -- Name: INDEX degrees_fx_school; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15866,7 +15739,7 @@ COMMENT ON INDEX degrees_fx_school IS 'Indice per l''acceso from_timela relativa
 
 
 --
--- TOC entry 3275 (class 1259 OID 18446)
+-- TOC entry 3273 (class 1259 OID 18425)
 -- Name: delays_fx_classroom_student; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15874,7 +15747,7 @@ CREATE INDEX delays_fx_classroom_student ON delays USING btree (classroom_studen
 
 
 --
--- TOC entry 3276 (class 1259 OID 18447)
+-- TOC entry 3274 (class 1259 OID 18426)
 -- Name: delays_fx_explanation; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15882,8 +15755,8 @@ CREATE INDEX delays_fx_explanation ON delays USING btree (explanation);
 
 
 --
--- TOC entry 4330 (class 0 OID 0)
--- Dependencies: 3276
+-- TOC entry 4326 (class 0 OID 0)
+-- Dependencies: 3274
 -- Name: INDEX delays_fx_explanation; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15891,7 +15764,7 @@ COMMENT ON INDEX delays_fx_explanation IS 'Indice per l''acceso from_timela rela
 
 
 --
--- TOC entry 3277 (class 1259 OID 18448)
+-- TOC entry 3275 (class 1259 OID 18427)
 -- Name: delays_fx_teacher; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15899,8 +15772,8 @@ CREATE INDEX delays_fx_teacher ON delays USING btree (teacher);
 
 
 --
--- TOC entry 4331 (class 0 OID 0)
--- Dependencies: 3277
+-- TOC entry 4327 (class 0 OID 0)
+-- Dependencies: 3275
 -- Name: INDEX delays_fx_teacher; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15908,7 +15781,7 @@ COMMENT ON INDEX delays_fx_teacher IS 'Indice per l''acceso from_timela relativa
 
 
 --
--- TOC entry 3338 (class 1259 OID 18449)
+-- TOC entry 3336 (class 1259 OID 18428)
 -- Name: explanations_fx_created_by; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15916,7 +15789,7 @@ CREATE INDEX explanations_fx_created_by ON explanations USING btree (created_by)
 
 
 --
--- TOC entry 3339 (class 1259 OID 18450)
+-- TOC entry 3337 (class 1259 OID 18429)
 -- Name: explanations_fx_student; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15924,8 +15797,8 @@ CREATE INDEX explanations_fx_student ON explanations USING btree (student);
 
 
 --
--- TOC entry 4332 (class 0 OID 0)
--- Dependencies: 3339
+-- TOC entry 4328 (class 0 OID 0)
+-- Dependencies: 3337
 -- Name: INDEX explanations_fx_student; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15933,7 +15806,7 @@ COMMENT ON INDEX explanations_fx_student IS 'Indice per l''acceso from_timela re
 
 
 --
--- TOC entry 3340 (class 1259 OID 18451)
+-- TOC entry 3338 (class 1259 OID 18430)
 -- Name: explanations_fx_usata_from_time; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15941,7 +15814,7 @@ CREATE INDEX explanations_fx_usata_from_time ON explanations USING btree (regist
 
 
 --
--- TOC entry 3395 (class 1259 OID 18452)
+-- TOC entry 3393 (class 1259 OID 18431)
 -- Name: faults_fx_lesson; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15949,7 +15822,7 @@ CREATE INDEX faults_fx_lesson ON faults USING btree (lesson);
 
 
 --
--- TOC entry 3396 (class 1259 OID 18453)
+-- TOC entry 3394 (class 1259 OID 18432)
 -- Name: faults_fx_student; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15957,8 +15830,8 @@ CREATE INDEX faults_fx_student ON faults USING btree (student);
 
 
 --
--- TOC entry 4333 (class 0 OID 0)
--- Dependencies: 3396
+-- TOC entry 4329 (class 0 OID 0)
+-- Dependencies: 3394
 -- Name: INDEX faults_fx_student; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15966,7 +15839,7 @@ COMMENT ON INDEX faults_fx_student IS 'Indice per l''acceso from_timela relativa
 
 
 --
--- TOC entry 3399 (class 1259 OID 18454)
+-- TOC entry 3397 (class 1259 OID 18433)
 -- Name: grade_types_fx_subject; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15974,7 +15847,7 @@ CREATE INDEX grade_types_fx_subject ON grade_types USING btree (subject);
 
 
 --
--- TOC entry 3406 (class 1259 OID 18455)
+-- TOC entry 3404 (class 1259 OID 18434)
 -- Name: grades_fx_metric; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15982,8 +15855,8 @@ CREATE INDEX grades_fx_metric ON grades USING btree (metric);
 
 
 --
--- TOC entry 4334 (class 0 OID 0)
--- Dependencies: 3406
+-- TOC entry 4330 (class 0 OID 0)
+-- Dependencies: 3404
 -- Name: INDEX grades_fx_metric; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -15991,7 +15864,7 @@ COMMENT ON INDEX grades_fx_metric IS 'Indice per l''acceso from_timela relativa 
 
 
 --
--- TOC entry 3413 (class 1259 OID 18456)
+-- TOC entry 3411 (class 1259 OID 18435)
 -- Name: grading_meetings_fx_school; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -15999,7 +15872,7 @@ CREATE INDEX grading_meetings_fx_school ON grading_meetings USING btree (school_
 
 
 --
--- TOC entry 3420 (class 1259 OID 18457)
+-- TOC entry 3418 (class 1259 OID 18436)
 -- Name: grading_meetings_valutations_fx_classroom; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16007,7 +15880,7 @@ CREATE INDEX grading_meetings_valutations_fx_classroom ON grading_meetings_valut
 
 
 --
--- TOC entry 3421 (class 1259 OID 18458)
+-- TOC entry 3419 (class 1259 OID 18437)
 -- Name: grading_meetings_valutations_fx_grade; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16015,7 +15888,7 @@ CREATE INDEX grading_meetings_valutations_fx_grade ON grading_meetings_valutatio
 
 
 --
--- TOC entry 3422 (class 1259 OID 18459)
+-- TOC entry 3420 (class 1259 OID 18438)
 -- Name: grading_meetings_valutations_fx_grading_meeting; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16023,7 +15896,7 @@ CREATE INDEX grading_meetings_valutations_fx_grading_meeting ON grading_meetings
 
 
 --
--- TOC entry 3423 (class 1259 OID 18460)
+-- TOC entry 3421 (class 1259 OID 18439)
 -- Name: grading_meetings_valutations_fx_student; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16031,7 +15904,7 @@ CREATE INDEX grading_meetings_valutations_fx_student ON grading_meetings_valutat
 
 
 --
--- TOC entry 3424 (class 1259 OID 18461)
+-- TOC entry 3422 (class 1259 OID 18440)
 -- Name: grading_meetings_valutations_fx_subject; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16039,7 +15912,7 @@ CREATE INDEX grading_meetings_valutations_fx_subject ON grading_meetings_valutat
 
 
 --
--- TOC entry 3430 (class 1259 OID 18462)
+-- TOC entry 3428 (class 1259 OID 18441)
 -- Name: grading_meetings_valutations_qua_fx_grade; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16047,8 +15920,8 @@ CREATE INDEX grading_meetings_valutations_qua_fx_grade ON grading_meetings_valut
 
 
 --
--- TOC entry 4335 (class 0 OID 0)
--- Dependencies: 3430
+-- TOC entry 4331 (class 0 OID 0)
+-- Dependencies: 3428
 -- Name: INDEX grading_meetings_valutations_qua_fx_grade; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16056,7 +15929,7 @@ COMMENT ON INDEX grading_meetings_valutations_qua_fx_grade IS 'Indice per l''acc
 
 
 --
--- TOC entry 3431 (class 1259 OID 18463)
+-- TOC entry 3429 (class 1259 OID 18442)
 -- Name: grading_meetings_valutations_qua_fx_grading_meeting_valutation; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16064,8 +15937,8 @@ CREATE INDEX grading_meetings_valutations_qua_fx_grading_meeting_valutation ON g
 
 
 --
--- TOC entry 4336 (class 0 OID 0)
--- Dependencies: 3431
+-- TOC entry 4332 (class 0 OID 0)
+-- Dependencies: 3429
 -- Name: INDEX grading_meetings_valutations_qua_fx_grading_meeting_valutation; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16073,7 +15946,7 @@ COMMENT ON INDEX grading_meetings_valutations_qua_fx_grading_meeting_valutation 
 
 
 --
--- TOC entry 3432 (class 1259 OID 18464)
+-- TOC entry 3430 (class 1259 OID 18443)
 -- Name: grading_meetings_valutations_qua_fx_qualification; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16081,8 +15954,8 @@ CREATE INDEX grading_meetings_valutations_qua_fx_qualification ON grading_meetin
 
 
 --
--- TOC entry 4337 (class 0 OID 0)
--- Dependencies: 3432
+-- TOC entry 4333 (class 0 OID 0)
+-- Dependencies: 3430
 -- Name: INDEX grading_meetings_valutations_qua_fx_qualification; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16090,7 +15963,7 @@ COMMENT ON INDEX grading_meetings_valutations_qua_fx_qualification IS 'Indice pe
 
 
 --
--- TOC entry 3437 (class 1259 OID 18465)
+-- TOC entry 3435 (class 1259 OID 18444)
 -- Name: holydays_fx_school; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16098,8 +15971,8 @@ CREATE INDEX holydays_fx_school ON holydays USING btree (school);
 
 
 --
--- TOC entry 4338 (class 0 OID 0)
--- Dependencies: 3437
+-- TOC entry 4334 (class 0 OID 0)
+-- Dependencies: 3435
 -- Name: INDEX holydays_fx_school; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16107,7 +15980,7 @@ COMMENT ON INDEX holydays_fx_school IS 'Indice per l''acceso from_timela relativ
 
 
 --
--- TOC entry 3429 (class 1259 OID 18466)
+-- TOC entry 3427 (class 1259 OID 18445)
 -- Name: idx_grading_meetings_valutations; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16115,7 +15988,7 @@ CREATE INDEX idx_grading_meetings_valutations ON grading_meetings_valutations US
 
 
 --
--- TOC entry 3477 (class 1259 OID 18467)
+-- TOC entry 3475 (class 1259 OID 18446)
 -- Name: idx_persons_roles; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16123,7 +15996,7 @@ CREATE INDEX idx_persons_roles ON persons_roles USING btree (person);
 
 
 --
--- TOC entry 3282 (class 1259 OID 18468)
+-- TOC entry 3280 (class 1259 OID 18447)
 -- Name: leavings_fx_classroom_student; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16131,7 +16004,7 @@ CREATE INDEX leavings_fx_classroom_student ON leavings USING btree (classroom_st
 
 
 --
--- TOC entry 3283 (class 1259 OID 18469)
+-- TOC entry 3281 (class 1259 OID 18448)
 -- Name: leavings_fx_explanation; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16139,8 +16012,8 @@ CREATE INDEX leavings_fx_explanation ON leavings USING btree (explanation);
 
 
 --
--- TOC entry 4339 (class 0 OID 0)
--- Dependencies: 3283
+-- TOC entry 4335 (class 0 OID 0)
+-- Dependencies: 3281
 -- Name: INDEX leavings_fx_explanation; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16148,7 +16021,7 @@ COMMENT ON INDEX leavings_fx_explanation IS 'Indice per l''acceso from_timela re
 
 
 --
--- TOC entry 3284 (class 1259 OID 18470)
+-- TOC entry 3282 (class 1259 OID 18449)
 -- Name: leavings_fx_teacher; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16156,8 +16029,8 @@ CREATE INDEX leavings_fx_teacher ON leavings USING btree (teacher);
 
 
 --
--- TOC entry 4340 (class 0 OID 0)
--- Dependencies: 3284
+-- TOC entry 4336 (class 0 OID 0)
+-- Dependencies: 3282
 -- Name: INDEX leavings_fx_teacher; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16165,7 +16038,7 @@ COMMENT ON INDEX leavings_fx_teacher IS 'Indice per l''acceso from_timela relati
 
 
 --
--- TOC entry 3349 (class 1259 OID 18471)
+-- TOC entry 3347 (class 1259 OID 18450)
 -- Name: lessons_fx_classroom; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16173,8 +16046,8 @@ CREATE INDEX lessons_fx_classroom ON lessons USING btree (classroom);
 
 
 --
--- TOC entry 4341 (class 0 OID 0)
--- Dependencies: 3349
+-- TOC entry 4337 (class 0 OID 0)
+-- Dependencies: 3347
 -- Name: INDEX lessons_fx_classroom; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16182,7 +16055,7 @@ COMMENT ON INDEX lessons_fx_classroom IS 'Indice per l''acceso from_timela relat
 
 
 --
--- TOC entry 3350 (class 1259 OID 18472)
+-- TOC entry 3348 (class 1259 OID 18451)
 -- Name: lessons_fx_subject; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16190,8 +16063,8 @@ CREATE INDEX lessons_fx_subject ON lessons USING btree (subject);
 
 
 --
--- TOC entry 4342 (class 0 OID 0)
--- Dependencies: 3350
+-- TOC entry 4338 (class 0 OID 0)
+-- Dependencies: 3348
 -- Name: INDEX lessons_fx_subject; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16199,7 +16072,7 @@ COMMENT ON INDEX lessons_fx_subject IS 'Indice per l''acceso from_timela relativ
 
 
 --
--- TOC entry 3351 (class 1259 OID 18473)
+-- TOC entry 3349 (class 1259 OID 18452)
 -- Name: lessons_fx_teacher; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16207,8 +16080,8 @@ CREATE INDEX lessons_fx_teacher ON lessons USING btree (teacher);
 
 
 --
--- TOC entry 4343 (class 0 OID 0)
--- Dependencies: 3351
+-- TOC entry 4339 (class 0 OID 0)
+-- Dependencies: 3349
 -- Name: INDEX lessons_fx_teacher; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16216,7 +16089,7 @@ COMMENT ON INDEX lessons_fx_teacher IS 'Indice per l''acceso from_timela relativ
 
 
 --
--- TOC entry 3448 (class 1259 OID 18474)
+-- TOC entry 3446 (class 1259 OID 18453)
 -- Name: libretti_messages_read_fx_person; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16224,8 +16097,8 @@ CREATE INDEX libretti_messages_read_fx_person ON messages_read USING btree (pers
 
 
 --
--- TOC entry 4344 (class 0 OID 0)
--- Dependencies: 3448
+-- TOC entry 4340 (class 0 OID 0)
+-- Dependencies: 3446
 -- Name: INDEX libretti_messages_read_fx_person; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16233,7 +16106,7 @@ COMMENT ON INDEX libretti_messages_read_fx_person IS 'Indice per l''acceso from_
 
 
 --
--- TOC entry 3449 (class 1259 OID 18475)
+-- TOC entry 3447 (class 1259 OID 18454)
 -- Name: libretti_messages_read_fx_school_record_mess; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16241,8 +16114,8 @@ CREATE INDEX libretti_messages_read_fx_school_record_mess ON messages_read USING
 
 
 --
--- TOC entry 4345 (class 0 OID 0)
--- Dependencies: 3449
+-- TOC entry 4341 (class 0 OID 0)
+-- Dependencies: 3447
 -- Name: INDEX libretti_messages_read_fx_school_record_mess; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16250,7 +16123,7 @@ COMMENT ON INDEX libretti_messages_read_fx_school_record_mess IS 'Indice per l''
 
 
 --
--- TOC entry 3442 (class 1259 OID 18476)
+-- TOC entry 3440 (class 1259 OID 18455)
 -- Name: messages_fx_conversation; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16258,8 +16131,8 @@ CREATE INDEX messages_fx_conversation ON messages USING btree (conversation);
 
 
 --
--- TOC entry 4346 (class 0 OID 0)
--- Dependencies: 3442
+-- TOC entry 4342 (class 0 OID 0)
+-- Dependencies: 3440
 -- Name: INDEX messages_fx_conversation; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16267,7 +16140,7 @@ COMMENT ON INDEX messages_fx_conversation IS 'Indice per l''acceso from_timela r
 
 
 --
--- TOC entry 3443 (class 1259 OID 18477)
+-- TOC entry 3441 (class 1259 OID 18456)
 -- Name: messages_fx_from_time; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16275,8 +16148,8 @@ CREATE INDEX messages_fx_from_time ON messages USING btree (from_time);
 
 
 --
--- TOC entry 4347 (class 0 OID 0)
--- Dependencies: 3443
+-- TOC entry 4343 (class 0 OID 0)
+-- Dependencies: 3441
 -- Name: INDEX messages_fx_from_time; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16284,7 +16157,7 @@ COMMENT ON INDEX messages_fx_from_time IS 'Indice per l''acceso from_timela rela
 
 
 --
--- TOC entry 3454 (class 1259 OID 18478)
+-- TOC entry 3452 (class 1259 OID 18457)
 -- Name: metrics_fx_school; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16292,8 +16165,8 @@ CREATE INDEX metrics_fx_school ON metrics USING btree (school);
 
 
 --
--- TOC entry 4348 (class 0 OID 0)
--- Dependencies: 3454
+-- TOC entry 4344 (class 0 OID 0)
+-- Dependencies: 3452
 -- Name: INDEX metrics_fx_school; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16301,7 +16174,7 @@ COMMENT ON INDEX metrics_fx_school IS 'Indice per l''acceso from_timela relativa
 
 
 --
--- TOC entry 3289 (class 1259 OID 18479)
+-- TOC entry 3287 (class 1259 OID 18458)
 -- Name: notes_fx_classroom; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16309,7 +16182,7 @@ CREATE INDEX notes_fx_classroom ON notes USING btree (classroom);
 
 
 --
--- TOC entry 3290 (class 1259 OID 18480)
+-- TOC entry 3288 (class 1259 OID 18459)
 -- Name: notes_fx_classroom_student; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16317,7 +16190,7 @@ CREATE INDEX notes_fx_classroom_student ON notes USING btree (classroom, student
 
 
 --
--- TOC entry 3291 (class 1259 OID 18481)
+-- TOC entry 3289 (class 1259 OID 18460)
 -- Name: notes_fx_teacher; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16325,8 +16198,8 @@ CREATE INDEX notes_fx_teacher ON notes USING btree (teacher);
 
 
 --
--- TOC entry 4349 (class 0 OID 0)
--- Dependencies: 3291
+-- TOC entry 4345 (class 0 OID 0)
+-- Dependencies: 3289
 -- Name: INDEX notes_fx_teacher; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16334,7 +16207,7 @@ COMMENT ON INDEX notes_fx_teacher IS 'Indice per l''acceso from_timela relativa 
 
 
 --
--- TOC entry 3459 (class 1259 OID 18482)
+-- TOC entry 3457 (class 1259 OID 18461)
 -- Name: notes_signed_fx_note; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16342,7 +16215,7 @@ CREATE INDEX notes_signed_fx_note ON notes_signed USING btree (note);
 
 
 --
--- TOC entry 3460 (class 1259 OID 18483)
+-- TOC entry 3458 (class 1259 OID 18462)
 -- Name: notes_signed_fx_person; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16350,7 +16223,7 @@ CREATE INDEX notes_signed_fx_person ON notes_signed USING btree (person);
 
 
 --
--- TOC entry 3296 (class 1259 OID 18484)
+-- TOC entry 3294 (class 1259 OID 18463)
 -- Name: out_of_classrooms_fx_classroom_student; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16358,7 +16231,7 @@ CREATE INDEX out_of_classrooms_fx_classroom_student ON out_of_classrooms USING b
 
 
 --
--- TOC entry 3297 (class 1259 OID 18485)
+-- TOC entry 3295 (class 1259 OID 18464)
 -- Name: out_of_classrooms_fx_school_operator; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16366,8 +16239,8 @@ CREATE INDEX out_of_classrooms_fx_school_operator ON out_of_classrooms USING btr
 
 
 --
--- TOC entry 4350 (class 0 OID 0)
--- Dependencies: 3297
+-- TOC entry 4346 (class 0 OID 0)
+-- Dependencies: 3295
 -- Name: INDEX out_of_classrooms_fx_school_operator; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16375,7 +16248,7 @@ COMMENT ON INDEX out_of_classrooms_fx_school_operator IS 'Indice per l''acceso f
 
 
 --
--- TOC entry 3465 (class 1259 OID 18486)
+-- TOC entry 3463 (class 1259 OID 18465)
 -- Name: parents_meetings_fx_person; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16383,7 +16256,7 @@ CREATE INDEX parents_meetings_fx_person ON parents_meetings USING btree (person)
 
 
 --
--- TOC entry 3466 (class 1259 OID 18487)
+-- TOC entry 3464 (class 1259 OID 18466)
 -- Name: parents_meetings_fx_teacher; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16391,7 +16264,7 @@ CREATE INDEX parents_meetings_fx_teacher ON parents_meetings USING btree (teache
 
 
 --
--- TOC entry 3343 (class 1259 OID 18488)
+-- TOC entry 3341 (class 1259 OID 18467)
 -- Name: persons_addresses_fx_city; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16399,7 +16272,7 @@ CREATE INDEX persons_addresses_fx_city ON persons_addresses USING btree (city);
 
 
 --
--- TOC entry 3344 (class 1259 OID 18489)
+-- TOC entry 3342 (class 1259 OID 18468)
 -- Name: persons_addresses_fx_person; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16407,7 +16280,7 @@ CREATE INDEX persons_addresses_fx_person ON persons_addresses USING btree (perso
 
 
 --
--- TOC entry 3302 (class 1259 OID 18490)
+-- TOC entry 3300 (class 1259 OID 18469)
 -- Name: persons_fx_city_of_birth; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16415,7 +16288,7 @@ CREATE INDEX persons_fx_city_of_birth ON persons USING btree (city_of_birth);
 
 
 --
--- TOC entry 3303 (class 1259 OID 18491)
+-- TOC entry 3301 (class 1259 OID 18470)
 -- Name: persons_fx_country_of_birth; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16423,7 +16296,7 @@ CREATE INDEX persons_fx_country_of_birth ON persons USING btree (country_of_birt
 
 
 --
--- TOC entry 3304 (class 1259 OID 18492)
+-- TOC entry 3302 (class 1259 OID 18471)
 -- Name: persons_fx_school; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16431,7 +16304,7 @@ CREATE INDEX persons_fx_school ON persons USING btree (school);
 
 
 --
--- TOC entry 3305 (class 1259 OID 18493)
+-- TOC entry 3303 (class 1259 OID 18472)
 -- Name: persons_fx_usename; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16439,7 +16312,7 @@ CREATE INDEX persons_fx_usename ON persons USING btree (usename);
 
 
 --
--- TOC entry 3471 (class 1259 OID 18494)
+-- TOC entry 3469 (class 1259 OID 18473)
 -- Name: persons_relations_fx_person; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16447,8 +16320,8 @@ CREATE INDEX persons_relations_fx_person ON persons_relations USING btree (perso
 
 
 --
--- TOC entry 4351 (class 0 OID 0)
--- Dependencies: 3471
+-- TOC entry 4347 (class 0 OID 0)
+-- Dependencies: 3469
 -- Name: INDEX persons_relations_fx_person; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16456,7 +16329,7 @@ COMMENT ON INDEX persons_relations_fx_person IS 'Indice per l''acceso from_timel
 
 
 --
--- TOC entry 3472 (class 1259 OID 18495)
+-- TOC entry 3470 (class 1259 OID 18474)
 -- Name: persons_relations_fx_person_related_to; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16464,8 +16337,8 @@ CREATE INDEX persons_relations_fx_person_related_to ON persons_relations USING b
 
 
 --
--- TOC entry 4352 (class 0 OID 0)
--- Dependencies: 3472
+-- TOC entry 4348 (class 0 OID 0)
+-- Dependencies: 3470
 -- Name: INDEX persons_relations_fx_person_related_to; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16473,7 +16346,7 @@ COMMENT ON INDEX persons_relations_fx_person_related_to IS 'Indice per l''acceso
 
 
 --
--- TOC entry 3482 (class 1259 OID 18496)
+-- TOC entry 3480 (class 1259 OID 18475)
 -- Name: qualificationtions_fx_metric; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16481,8 +16354,8 @@ CREATE INDEX qualificationtions_fx_metric ON qualificationtions USING btree (met
 
 
 --
--- TOC entry 4353 (class 0 OID 0)
--- Dependencies: 3482
+-- TOC entry 4349 (class 0 OID 0)
+-- Dependencies: 3480
 -- Name: INDEX qualificationtions_fx_metric; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16490,7 +16363,7 @@ COMMENT ON INDEX qualificationtions_fx_metric IS 'Indice per l''acceso from_time
 
 
 --
--- TOC entry 3483 (class 1259 OID 18497)
+-- TOC entry 3481 (class 1259 OID 18476)
 -- Name: qualificationtions_fx_riferimento; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16498,7 +16371,7 @@ CREATE INDEX qualificationtions_fx_riferimento ON qualificationtions USING btree
 
 
 --
--- TOC entry 3484 (class 1259 OID 18498)
+-- TOC entry 3482 (class 1259 OID 18477)
 -- Name: qualificationtions_fx_school; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16506,8 +16379,8 @@ CREATE INDEX qualificationtions_fx_school ON qualificationtions USING btree (sch
 
 
 --
--- TOC entry 4354 (class 0 OID 0)
--- Dependencies: 3484
+-- TOC entry 4350 (class 0 OID 0)
+-- Dependencies: 3482
 -- Name: INDEX qualificationtions_fx_school; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16515,7 +16388,7 @@ COMMENT ON INDEX qualificationtions_fx_school IS 'Indice per l''acceso from_time
 
 
 --
--- TOC entry 3489 (class 1259 OID 18499)
+-- TOC entry 3487 (class 1259 OID 18478)
 -- Name: qualificationtions_plan_fx_degree; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16523,7 +16396,7 @@ CREATE INDEX qualificationtions_plan_fx_degree ON qualificationtions_plan USING 
 
 
 --
--- TOC entry 3490 (class 1259 OID 18500)
+-- TOC entry 3488 (class 1259 OID 18479)
 -- Name: qualificationtions_plan_fx_qualification; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16531,7 +16404,7 @@ CREATE INDEX qualificationtions_plan_fx_qualification ON qualificationtions_plan
 
 
 --
--- TOC entry 3491 (class 1259 OID 18501)
+-- TOC entry 3489 (class 1259 OID 18480)
 -- Name: qualificationtions_plan_fx_subject; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16539,7 +16412,7 @@ CREATE INDEX qualificationtions_plan_fx_subject ON qualificationtions_plan USING
 
 
 --
--- TOC entry 3244 (class 1259 OID 18502)
+-- TOC entry 3242 (class 1259 OID 18481)
 -- Name: school_years_fx_school; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16547,7 +16420,7 @@ CREATE INDEX school_years_fx_school ON school_years USING btree (school);
 
 
 --
--- TOC entry 3249 (class 1259 OID 18503)
+-- TOC entry 3247 (class 1259 OID 18482)
 -- Name: schools_fk_behavior; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16555,7 +16428,7 @@ CREATE INDEX schools_fk_behavior ON schools USING btree (behavior);
 
 
 --
--- TOC entry 3354 (class 1259 OID 18504)
+-- TOC entry 3352 (class 1259 OID 18483)
 -- Name: signatures_fx_classroom; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16563,8 +16436,8 @@ CREATE INDEX signatures_fx_classroom ON signatures USING btree (classroom);
 
 
 --
--- TOC entry 4355 (class 0 OID 0)
--- Dependencies: 3354
+-- TOC entry 4351 (class 0 OID 0)
+-- Dependencies: 3352
 -- Name: INDEX signatures_fx_classroom; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16572,7 +16445,7 @@ COMMENT ON INDEX signatures_fx_classroom IS 'Indice per l''acceso from_timela re
 
 
 --
--- TOC entry 3355 (class 1259 OID 18505)
+-- TOC entry 3353 (class 1259 OID 18484)
 -- Name: signatures_fx_teacher; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16580,8 +16453,8 @@ CREATE INDEX signatures_fx_teacher ON signatures USING btree (teacher);
 
 
 --
--- TOC entry 4356 (class 0 OID 0)
--- Dependencies: 3355
+-- TOC entry 4352 (class 0 OID 0)
+-- Dependencies: 3353
 -- Name: INDEX signatures_fx_teacher; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16589,7 +16462,7 @@ COMMENT ON INDEX signatures_fx_teacher IS 'Indice per l''acceso from_timela rela
 
 
 --
--- TOC entry 3312 (class 1259 OID 18506)
+-- TOC entry 3310 (class 1259 OID 18485)
 -- Name: subjects_fx_school; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16597,8 +16470,8 @@ CREATE INDEX subjects_fx_school ON subjects USING btree (school);
 
 
 --
--- TOC entry 4357 (class 0 OID 0)
--- Dependencies: 3312
+-- TOC entry 4353 (class 0 OID 0)
+-- Dependencies: 3310
 -- Name: INDEX subjects_fx_school; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16606,7 +16479,7 @@ COMMENT ON INDEX subjects_fx_school IS 'Indice per l''acceso from_timela relativ
 
 
 --
--- TOC entry 3504 (class 1259 OID 18507)
+-- TOC entry 3502 (class 1259 OID 18486)
 -- Name: teachears_notes_fx_classroom; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16614,7 +16487,7 @@ CREATE INDEX teachears_notes_fx_classroom ON teachears_notes USING btree (classr
 
 
 --
--- TOC entry 3505 (class 1259 OID 18508)
+-- TOC entry 3503 (class 1259 OID 18487)
 -- Name: teachears_notes_fx_student; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16622,8 +16495,8 @@ CREATE INDEX teachears_notes_fx_student ON teachears_notes USING btree (student)
 
 
 --
--- TOC entry 4358 (class 0 OID 0)
--- Dependencies: 3505
+-- TOC entry 4354 (class 0 OID 0)
+-- Dependencies: 3503
 -- Name: INDEX teachears_notes_fx_student; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16631,7 +16504,7 @@ COMMENT ON INDEX teachears_notes_fx_student IS 'Indice per l''acceso from_timela
 
 
 --
--- TOC entry 3506 (class 1259 OID 18509)
+-- TOC entry 3504 (class 1259 OID 18488)
 -- Name: teachears_notes_fx_teacher; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16639,8 +16512,8 @@ CREATE INDEX teachears_notes_fx_teacher ON teachears_notes USING btree (teacher)
 
 
 --
--- TOC entry 4359 (class 0 OID 0)
--- Dependencies: 3506
+-- TOC entry 4355 (class 0 OID 0)
+-- Dependencies: 3504
 -- Name: INDEX teachears_notes_fx_teacher; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16648,7 +16521,7 @@ COMMENT ON INDEX teachears_notes_fx_teacher IS 'Indice per l''acceso from_timela
 
 
 --
--- TOC entry 3511 (class 1259 OID 18510)
+-- TOC entry 3509 (class 1259 OID 18489)
 -- Name: topics_fx_degree; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16656,7 +16529,7 @@ CREATE INDEX topics_fx_degree ON topics USING btree (degree);
 
 
 --
--- TOC entry 3512 (class 1259 OID 18511)
+-- TOC entry 3510 (class 1259 OID 18490)
 -- Name: topics_fx_subject; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16664,8 +16537,8 @@ CREATE INDEX topics_fx_subject ON topics USING btree (subject);
 
 
 --
--- TOC entry 4360 (class 0 OID 0)
--- Dependencies: 3512
+-- TOC entry 4356 (class 0 OID 0)
+-- Dependencies: 3510
 -- Name: INDEX topics_fx_subject; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16673,7 +16546,7 @@ COMMENT ON INDEX topics_fx_subject IS 'Indice per l''acceso from_timela relativa
 
 
 --
--- TOC entry 3317 (class 1259 OID 18512)
+-- TOC entry 3315 (class 1259 OID 18491)
 -- Name: valutations_fx_classroom; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16681,7 +16554,7 @@ CREATE INDEX valutations_fx_classroom ON valutations USING btree (classroom);
 
 
 --
--- TOC entry 3318 (class 1259 OID 18513)
+-- TOC entry 3316 (class 1259 OID 18492)
 -- Name: valutations_fx_grade; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16689,7 +16562,7 @@ CREATE INDEX valutations_fx_grade ON valutations USING btree (grade);
 
 
 --
--- TOC entry 3319 (class 1259 OID 18514)
+-- TOC entry 3317 (class 1259 OID 18493)
 -- Name: valutations_fx_grade_type; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16697,8 +16570,8 @@ CREATE INDEX valutations_fx_grade_type ON valutations USING btree (grade_type);
 
 
 --
--- TOC entry 4361 (class 0 OID 0)
--- Dependencies: 3319
+-- TOC entry 4357 (class 0 OID 0)
+-- Dependencies: 3317
 -- Name: INDEX valutations_fx_grade_type; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16706,7 +16579,7 @@ COMMENT ON INDEX valutations_fx_grade_type IS 'Indice per l''acceso from_timela 
 
 
 --
--- TOC entry 3320 (class 1259 OID 18515)
+-- TOC entry 3318 (class 1259 OID 18494)
 -- Name: valutations_fx_note; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16714,7 +16587,7 @@ CREATE INDEX valutations_fx_note ON valutations USING btree (note);
 
 
 --
--- TOC entry 3321 (class 1259 OID 18516)
+-- TOC entry 3319 (class 1259 OID 18495)
 -- Name: valutations_fx_student; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16722,7 +16595,7 @@ CREATE INDEX valutations_fx_student ON valutations USING btree (student);
 
 
 --
--- TOC entry 3322 (class 1259 OID 18517)
+-- TOC entry 3320 (class 1259 OID 18496)
 -- Name: valutations_fx_teacher; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16730,8 +16603,8 @@ CREATE INDEX valutations_fx_teacher ON valutations USING btree (teacher);
 
 
 --
--- TOC entry 4362 (class 0 OID 0)
--- Dependencies: 3322
+-- TOC entry 4358 (class 0 OID 0)
+-- Dependencies: 3320
 -- Name: INDEX valutations_fx_teacher; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16739,7 +16612,7 @@ COMMENT ON INDEX valutations_fx_teacher IS 'Indice per l''acceso from_timela rel
 
 
 --
--- TOC entry 3323 (class 1259 OID 18518)
+-- TOC entry 3321 (class 1259 OID 18497)
 -- Name: valutations_fx_topic; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16747,8 +16620,8 @@ CREATE INDEX valutations_fx_topic ON valutations USING btree (topic);
 
 
 --
--- TOC entry 4363 (class 0 OID 0)
--- Dependencies: 3323
+-- TOC entry 4359 (class 0 OID 0)
+-- Dependencies: 3321
 -- Name: INDEX valutations_fx_topic; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16756,7 +16629,7 @@ COMMENT ON INDEX valutations_fx_topic IS 'Indice per l''acceso from_timela relat
 
 
 --
--- TOC entry 3521 (class 1259 OID 18519)
+-- TOC entry 3519 (class 1259 OID 18498)
 -- Name: valutations_qualificationtions_fx_grade; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16764,8 +16637,8 @@ CREATE INDEX valutations_qualificationtions_fx_grade ON valutations_qualificatio
 
 
 --
--- TOC entry 4364 (class 0 OID 0)
--- Dependencies: 3521
+-- TOC entry 4360 (class 0 OID 0)
+-- Dependencies: 3519
 -- Name: INDEX valutations_qualificationtions_fx_grade; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16773,7 +16646,7 @@ COMMENT ON INDEX valutations_qualificationtions_fx_grade IS 'Indice per l''acces
 
 
 --
--- TOC entry 3522 (class 1259 OID 18520)
+-- TOC entry 3520 (class 1259 OID 18499)
 -- Name: valutations_qualificationtions_fx_qualification; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16781,8 +16654,8 @@ CREATE INDEX valutations_qualificationtions_fx_qualification ON valutations_qual
 
 
 --
--- TOC entry 4365 (class 0 OID 0)
--- Dependencies: 3522
+-- TOC entry 4361 (class 0 OID 0)
+-- Dependencies: 3520
 -- Name: INDEX valutations_qualificationtions_fx_qualification; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16790,7 +16663,7 @@ COMMENT ON INDEX valutations_qualificationtions_fx_qualification IS 'Indice per 
 
 
 --
--- TOC entry 3523 (class 1259 OID 18521)
+-- TOC entry 3521 (class 1259 OID 18500)
 -- Name: valutations_qualificationtions_fx_valutation; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16798,8 +16671,8 @@ CREATE INDEX valutations_qualificationtions_fx_valutation ON valutations_qualifi
 
 
 --
--- TOC entry 4366 (class 0 OID 0)
--- Dependencies: 3523
+-- TOC entry 4362 (class 0 OID 0)
+-- Dependencies: 3521
 -- Name: INDEX valutations_qualificationtions_fx_valutation; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16807,7 +16680,7 @@ COMMENT ON INDEX valutations_qualificationtions_fx_valutation IS 'Indice per l''
 
 
 --
--- TOC entry 3326 (class 1259 OID 18522)
+-- TOC entry 3324 (class 1259 OID 18501)
 -- Name: weekly_timetable_fx_classroom; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16815,8 +16688,8 @@ CREATE INDEX weekly_timetable_fx_classroom ON weekly_timetable USING btree (clas
 
 
 --
--- TOC entry 4367 (class 0 OID 0)
--- Dependencies: 3326
+-- TOC entry 4363 (class 0 OID 0)
+-- Dependencies: 3324
 -- Name: INDEX weekly_timetable_fx_classroom; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16824,7 +16697,7 @@ COMMENT ON INDEX weekly_timetable_fx_classroom IS 'Indice per l''acceso from_tim
 
 
 --
--- TOC entry 3331 (class 1259 OID 18523)
+-- TOC entry 3329 (class 1259 OID 18502)
 -- Name: weekly_timetables_days_fx_subject; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16832,8 +16705,8 @@ CREATE INDEX weekly_timetables_days_fx_subject ON weekly_timetables_days USING b
 
 
 --
--- TOC entry 4368 (class 0 OID 0)
--- Dependencies: 3331
+-- TOC entry 4364 (class 0 OID 0)
+-- Dependencies: 3329
 -- Name: INDEX weekly_timetables_days_fx_subject; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16841,7 +16714,7 @@ COMMENT ON INDEX weekly_timetables_days_fx_subject IS 'Indice per l''acceso from
 
 
 --
--- TOC entry 3332 (class 1259 OID 18524)
+-- TOC entry 3330 (class 1259 OID 18503)
 -- Name: weekly_timetables_days_fx_teacher; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16849,8 +16722,8 @@ CREATE INDEX weekly_timetables_days_fx_teacher ON weekly_timetables_days USING b
 
 
 --
--- TOC entry 4369 (class 0 OID 0)
--- Dependencies: 3332
+-- TOC entry 4365 (class 0 OID 0)
+-- Dependencies: 3330
 -- Name: INDEX weekly_timetables_days_fx_teacher; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16858,7 +16731,7 @@ COMMENT ON INDEX weekly_timetables_days_fx_teacher IS 'Indice per l''acceso from
 
 
 --
--- TOC entry 3333 (class 1259 OID 18525)
+-- TOC entry 3331 (class 1259 OID 18504)
 -- Name: weekly_timetables_days_fx_weekly_timetable; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16866,8 +16739,8 @@ CREATE INDEX weekly_timetables_days_fx_weekly_timetable ON weekly_timetables_day
 
 
 --
--- TOC entry 4370 (class 0 OID 0)
--- Dependencies: 3333
+-- TOC entry 4366 (class 0 OID 0)
+-- Dependencies: 3331
 -- Name: INDEX weekly_timetables_days_fx_weekly_timetable; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -16875,7 +16748,7 @@ COMMENT ON INDEX weekly_timetables_days_fx_weekly_timetable IS 'Indice per l''ac
 
 
 --
--- TOC entry 3530 (class 1259 OID 18526)
+-- TOC entry 3528 (class 1259 OID 18505)
 -- Name: wikimedia_files_persons_fx_person; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16883,7 +16756,7 @@ CREATE INDEX wikimedia_files_persons_fx_person ON wikimedia_files_persons USING 
 
 
 --
--- TOC entry 3531 (class 1259 OID 18527)
+-- TOC entry 3529 (class 1259 OID 18506)
 -- Name: wikimedia_files_persons_fx_wikimedia_file; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -16893,7 +16766,7 @@ CREATE INDEX wikimedia_files_persons_fx_wikimedia_file ON wikimedia_files_person
 SET search_path = translate, pg_catalog;
 
 --
--- TOC entry 3550 (class 1259 OID 18528)
+-- TOC entry 3548 (class 1259 OID 18507)
 -- Name: parameters_fx_language; Type: INDEX; Schema: translate; Owner: postgres
 --
 
@@ -16901,7 +16774,7 @@ CREATE INDEX parameters_fx_language ON parameters USING btree (language);
 
 
 --
--- TOC entry 3551 (class 1259 OID 18529)
+-- TOC entry 3549 (class 1259 OID 18508)
 -- Name: parameters_fx_procedure; Type: INDEX; Schema: translate; Owner: postgres
 --
 
@@ -16909,7 +16782,7 @@ CREATE INDEX parameters_fx_procedure ON parameters USING btree (procedure);
 
 
 --
--- TOC entry 3558 (class 1259 OID 18530)
+-- TOC entry 3556 (class 1259 OID 18509)
 -- Name: procedures_fx_language; Type: INDEX; Schema: translate; Owner: postgres
 --
 
@@ -16917,7 +16790,7 @@ CREATE INDEX procedures_fx_language ON procedures USING btree (language);
 
 
 --
--- TOC entry 3542 (class 1259 OID 18531)
+-- TOC entry 3540 (class 1259 OID 18510)
 -- Name: relations_columns_fx_language; Type: INDEX; Schema: translate; Owner: postgres
 --
 
@@ -16925,7 +16798,7 @@ CREATE INDEX relations_columns_fx_language ON columns USING btree (language);
 
 
 --
--- TOC entry 3543 (class 1259 OID 18532)
+-- TOC entry 3541 (class 1259 OID 18511)
 -- Name: relations_columns_fx_relation; Type: INDEX; Schema: translate; Owner: postgres
 --
 
@@ -16933,7 +16806,7 @@ CREATE INDEX relations_columns_fx_relation ON columns USING btree (relation);
 
 
 --
--- TOC entry 3565 (class 1259 OID 18533)
+-- TOC entry 3563 (class 1259 OID 18512)
 -- Name: relations_fx_language; Type: INDEX; Schema: translate; Owner: postgres
 --
 
@@ -16943,7 +16816,7 @@ CREATE INDEX relations_fx_language ON relations USING btree (language);
 SET search_path = unit_testing, pg_catalog;
 
 --
--- TOC entry 3572 (class 1259 OID 18534)
+-- TOC entry 3570 (class 1259 OID 18513)
 -- Name: dependencies_ix_all_but_dependency; Type: INDEX; Schema: unit_testing; Owner: postgres
 --
 
@@ -16951,7 +16824,7 @@ CREATE INDEX dependencies_ix_all_but_dependency ON dependencies USING btree (dep
 
 
 --
--- TOC entry 3573 (class 1259 OID 18535)
+-- TOC entry 3571 (class 1259 OID 18514)
 -- Name: dependencies_ix_dependent; Type: INDEX; Schema: unit_testing; Owner: postgres
 --
 
@@ -16959,7 +16832,7 @@ CREATE INDEX dependencies_ix_dependent ON dependencies USING btree (dependent_sc
 
 
 --
--- TOC entry 3574 (class 1259 OID 18536)
+-- TOC entry 3572 (class 1259 OID 18515)
 -- Name: dependencies_ix_depends_on; Type: INDEX; Schema: unit_testing; Owner: postgres
 --
 
@@ -16967,7 +16840,7 @@ CREATE INDEX dependencies_ix_depends_on ON dependencies USING btree (depends_on_
 
 
 --
--- TOC entry 3591 (class 1259 OID 18537)
+-- TOC entry 3589 (class 1259 OID 18516)
 -- Name: unit_test_sets_details_fi_unit_test_set; Type: INDEX; Schema: unit_testing; Owner: postgres
 --
 
@@ -16975,7 +16848,7 @@ CREATE INDEX unit_test_sets_details_fi_unit_test_set ON unit_test_sets_details U
 
 
 --
--- TOC entry 3592 (class 1259 OID 18538)
+-- TOC entry 3590 (class 1259 OID 18517)
 -- Name: unit_test_sets_details_ix_name_space_function_name; Type: INDEX; Schema: unit_testing; Owner: postgres
 --
 
@@ -16983,7 +16856,7 @@ CREATE INDEX unit_test_sets_details_ix_name_space_function_name ON unit_test_set
 
 
 --
--- TOC entry 3595 (class 1259 OID 18539)
+-- TOC entry 3593 (class 1259 OID 18518)
 -- Name: unit_test_sets_details_ui_all_but_unit_test_set_detail; Type: INDEX; Schema: unit_testing; Owner: postgres
 --
 
@@ -16993,7 +16866,7 @@ CREATE INDEX unit_test_sets_details_ui_all_but_unit_test_set_detail ON unit_test
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 3928 (class 2618 OID 18540)
+-- TOC entry 3926 (class 2618 OID 18519)
 -- Name: residence_grp_city _RETURN; Type: RULE; Schema: public; Owner: postgres
 --
 
@@ -17009,7 +16882,7 @@ CREATE RULE "_RETURN" AS
 
 
 --
--- TOC entry 3715 (class 2620 OID 18542)
+-- TOC entry 3713 (class 2620 OID 18521)
 -- Name: absences absences_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17017,7 +16890,7 @@ CREATE TRIGGER absences_iu AFTER INSERT OR UPDATE ON absences FOR EACH ROW EXECU
 
 
 --
--- TOC entry 3713 (class 2620 OID 18543)
+-- TOC entry 3711 (class 2620 OID 18522)
 -- Name: classrooms classrooms_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17025,7 +16898,7 @@ CREATE TRIGGER classrooms_iu AFTER INSERT OR UPDATE ON classrooms FOR EACH ROW E
 
 
 --
--- TOC entry 3716 (class 2620 OID 18544)
+-- TOC entry 3714 (class 2620 OID 18523)
 -- Name: classrooms_students classrooms_students_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17033,7 +16906,7 @@ CREATE TRIGGER classrooms_students_iu AFTER INSERT OR UPDATE ON classrooms_stude
 
 
 --
--- TOC entry 3725 (class 2620 OID 18545)
+-- TOC entry 3723 (class 2620 OID 18524)
 -- Name: communications_media communications_media_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17041,7 +16914,7 @@ CREATE TRIGGER communications_media_iu AFTER INSERT OR UPDATE ON communications_
 
 
 --
--- TOC entry 3726 (class 2620 OID 18546)
+-- TOC entry 3724 (class 2620 OID 18525)
 -- Name: conversations_invites conversations_invites_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17049,7 +16922,7 @@ CREATE TRIGGER conversations_invites_iu AFTER INSERT OR UPDATE ON conversations_
 
 
 --
--- TOC entry 3739 (class 2620 OID 18547)
+-- TOC entry 3737 (class 2620 OID 18526)
 -- Name: usenames_ex db_users_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17057,7 +16930,7 @@ CREATE TRIGGER db_users_iu AFTER INSERT OR UPDATE ON usenames_ex FOR EACH ROW EX
 
 
 --
--- TOC entry 3717 (class 2620 OID 18548)
+-- TOC entry 3715 (class 2620 OID 18527)
 -- Name: delays delays_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17065,7 +16938,7 @@ CREATE TRIGGER delays_iu AFTER INSERT OR UPDATE ON delays FOR EACH ROW EXECUTE P
 
 
 --
--- TOC entry 3722 (class 2620 OID 18549)
+-- TOC entry 3720 (class 2620 OID 18528)
 -- Name: explanations explanations_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17073,7 +16946,7 @@ CREATE TRIGGER explanations_iu AFTER INSERT OR UPDATE ON explanations FOR EACH R
 
 
 --
--- TOC entry 3727 (class 2620 OID 18550)
+-- TOC entry 3725 (class 2620 OID 18529)
 -- Name: faults faults_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17081,7 +16954,7 @@ CREATE TRIGGER faults_iu AFTER INSERT OR UPDATE ON faults FOR EACH ROW EXECUTE P
 
 
 --
--- TOC entry 3728 (class 2620 OID 18551)
+-- TOC entry 3726 (class 2620 OID 18530)
 -- Name: grading_meetings grading_meetings_i; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17089,7 +16962,7 @@ CREATE TRIGGER grading_meetings_i AFTER INSERT ON grading_meetings FOR EACH ROW 
 
 
 --
--- TOC entry 3729 (class 2620 OID 18552)
+-- TOC entry 3727 (class 2620 OID 18531)
 -- Name: grading_meetings_valutations grading_meetings_valutations_d; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17097,7 +16970,7 @@ CREATE TRIGGER grading_meetings_valutations_d AFTER DELETE ON grading_meetings_v
 
 
 --
--- TOC entry 3730 (class 2620 OID 18553)
+-- TOC entry 3728 (class 2620 OID 18532)
 -- Name: grading_meetings_valutations grading_meetings_valutations_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17105,7 +16978,7 @@ CREATE TRIGGER grading_meetings_valutations_iu AFTER INSERT OR UPDATE ON grading
 
 
 --
--- TOC entry 3731 (class 2620 OID 18554)
+-- TOC entry 3729 (class 2620 OID 18533)
 -- Name: grading_meetings_valutations_qua grading_meetings_valutations_qua_d; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17113,7 +16986,7 @@ CREATE TRIGGER grading_meetings_valutations_qua_d AFTER DELETE ON grading_meetin
 
 
 --
--- TOC entry 3732 (class 2620 OID 18555)
+-- TOC entry 3730 (class 2620 OID 18534)
 -- Name: grading_meetings_valutations_qua grading_meetings_valutations_qua_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17121,7 +16994,7 @@ CREATE TRIGGER grading_meetings_valutations_qua_iu AFTER INSERT OR UPDATE ON gra
 
 
 --
--- TOC entry 3718 (class 2620 OID 18556)
+-- TOC entry 3716 (class 2620 OID 18535)
 -- Name: leavings leavings_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17129,7 +17002,7 @@ CREATE TRIGGER leavings_iu AFTER INSERT OR UPDATE ON leavings FOR EACH ROW EXECU
 
 
 --
--- TOC entry 3723 (class 2620 OID 18557)
+-- TOC entry 3721 (class 2620 OID 18536)
 -- Name: lessons lessons_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17137,7 +17010,7 @@ CREATE TRIGGER lessons_iu AFTER INSERT OR UPDATE ON lessons FOR EACH ROW EXECUTE
 
 
 --
--- TOC entry 3733 (class 2620 OID 18558)
+-- TOC entry 3731 (class 2620 OID 18537)
 -- Name: messages messages_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17145,7 +17018,7 @@ CREATE TRIGGER messages_iu AFTER INSERT OR UPDATE ON messages FOR EACH ROW EXECU
 
 
 --
--- TOC entry 3734 (class 2620 OID 18559)
+-- TOC entry 3732 (class 2620 OID 18538)
 -- Name: messages_read messages_read_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17153,7 +17026,7 @@ CREATE TRIGGER messages_read_iu AFTER INSERT OR UPDATE ON messages_read FOR EACH
 
 
 --
--- TOC entry 3719 (class 2620 OID 18560)
+-- TOC entry 3717 (class 2620 OID 18539)
 -- Name: notes notes_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17161,7 +17034,7 @@ CREATE TRIGGER notes_iu AFTER INSERT OR UPDATE ON notes FOR EACH ROW EXECUTE PRO
 
 
 --
--- TOC entry 3735 (class 2620 OID 18561)
+-- TOC entry 3733 (class 2620 OID 18540)
 -- Name: notes_signed notes_signed_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17169,7 +17042,7 @@ CREATE TRIGGER notes_signed_iu AFTER INSERT OR UPDATE ON notes_signed FOR EACH R
 
 
 --
--- TOC entry 3720 (class 2620 OID 18562)
+-- TOC entry 3718 (class 2620 OID 18541)
 -- Name: out_of_classrooms out_of_classrooms_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17177,7 +17050,7 @@ CREATE TRIGGER out_of_classrooms_iu AFTER INSERT OR UPDATE ON out_of_classrooms 
 
 
 --
--- TOC entry 3736 (class 2620 OID 18563)
+-- TOC entry 3734 (class 2620 OID 18542)
 -- Name: parents_meetings parents_meetings_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17185,7 +17058,7 @@ CREATE TRIGGER parents_meetings_iu AFTER INSERT OR UPDATE ON parents_meetings FO
 
 
 --
--- TOC entry 3714 (class 2620 OID 18564)
+-- TOC entry 3712 (class 2620 OID 18543)
 -- Name: schools schools_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17193,7 +17066,7 @@ CREATE TRIGGER schools_iu AFTER INSERT OR UPDATE ON schools FOR EACH ROW EXECUTE
 
 
 --
--- TOC entry 3724 (class 2620 OID 18565)
+-- TOC entry 3722 (class 2620 OID 18544)
 -- Name: signatures signatures_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17201,7 +17074,7 @@ CREATE TRIGGER signatures_iu AFTER INSERT OR UPDATE ON signatures FOR EACH ROW E
 
 
 --
--- TOC entry 3737 (class 2620 OID 18566)
+-- TOC entry 3735 (class 2620 OID 18545)
 -- Name: teachears_notes teachears_notes_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17209,7 +17082,7 @@ CREATE TRIGGER teachears_notes_iu AFTER INSERT OR UPDATE ON teachears_notes FOR 
 
 
 --
--- TOC entry 3738 (class 2620 OID 18567)
+-- TOC entry 3736 (class 2620 OID 18546)
 -- Name: topics topics_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17217,7 +17090,7 @@ CREATE TRIGGER topics_iu AFTER INSERT OR UPDATE ON topics FOR EACH ROW EXECUTE P
 
 
 --
--- TOC entry 3721 (class 2620 OID 18568)
+-- TOC entry 3719 (class 2620 OID 18547)
 -- Name: valutations valutations_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17225,7 +17098,7 @@ CREATE TRIGGER valutations_iu AFTER INSERT OR UPDATE ON valutations FOR EACH ROW
 
 
 --
--- TOC entry 3740 (class 2620 OID 18569)
+-- TOC entry 3738 (class 2620 OID 18548)
 -- Name: valutations_qualificationtions valutations_qualificationtions_iu; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -17235,7 +17108,7 @@ CREATE TRIGGER valutations_qualificationtions_iu AFTER INSERT OR UPDATE ON valut
 SET search_path = unit_testing, pg_catalog;
 
 --
--- TOC entry 3741 (class 2620 OID 18570)
+-- TOC entry 3739 (class 2620 OID 18549)
 -- Name: dependencies dependencies_iu; Type: TRIGGER; Schema: unit_testing; Owner: postgres
 --
 
@@ -17243,7 +17116,7 @@ CREATE TRIGGER dependencies_iu BEFORE INSERT OR UPDATE ON dependencies FOR EACH 
 
 
 --
--- TOC entry 3742 (class 2620 OID 18571)
+-- TOC entry 3740 (class 2620 OID 18550)
 -- Name: unit_test_sets_details unit_test_sets_details_iu; Type: TRIGGER; Schema: unit_testing; Owner: postgres
 --
 
@@ -17253,7 +17126,7 @@ CREATE TRIGGER unit_test_sets_details_iu BEFORE INSERT OR UPDATE ON unit_test_se
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 3610 (class 2606 OID 18572)
+-- TOC entry 3608 (class 2606 OID 18551)
 -- Name: absences absences_fk_classroom_student; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17262,7 +17135,7 @@ ALTER TABLE ONLY absences
 
 
 --
--- TOC entry 3611 (class 2606 OID 18577)
+-- TOC entry 3609 (class 2606 OID 18556)
 -- Name: absences absences_fk_explanation; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17271,7 +17144,7 @@ ALTER TABLE ONLY absences
 
 
 --
--- TOC entry 3612 (class 2606 OID 18582)
+-- TOC entry 3610 (class 2606 OID 18561)
 -- Name: absences absences_fk_teacher; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17280,7 +17153,7 @@ ALTER TABLE ONLY absences
 
 
 --
--- TOC entry 3604 (class 2606 OID 18587)
+-- TOC entry 3602 (class 2606 OID 18566)
 -- Name: branches branches_fk_schools; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17289,7 +17162,7 @@ ALTER TABLE ONLY branches
 
 
 --
--- TOC entry 3615 (class 2606 OID 18592)
+-- TOC entry 3613 (class 2606 OID 18571)
 -- Name: cities cities_fk_district; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17298,7 +17171,7 @@ ALTER TABLE ONLY cities
 
 
 --
--- TOC entry 3605 (class 2606 OID 18597)
+-- TOC entry 3603 (class 2606 OID 18576)
 -- Name: classrooms classrooms_fk_building; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17307,7 +17180,7 @@ ALTER TABLE ONLY classrooms
 
 
 --
--- TOC entry 3606 (class 2606 OID 18602)
+-- TOC entry 3604 (class 2606 OID 18581)
 -- Name: classrooms classrooms_fk_degree; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17316,7 +17189,7 @@ ALTER TABLE ONLY classrooms
 
 
 --
--- TOC entry 3607 (class 2606 OID 18607)
+-- TOC entry 3605 (class 2606 OID 18586)
 -- Name: classrooms classrooms_fk_school_year; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17325,7 +17198,7 @@ ALTER TABLE ONLY classrooms
 
 
 --
--- TOC entry 3613 (class 2606 OID 18612)
+-- TOC entry 3611 (class 2606 OID 18591)
 -- Name: classrooms_students classrooms_students_fk_classroom; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17334,7 +17207,7 @@ ALTER TABLE ONLY classrooms_students
 
 
 --
--- TOC entry 3614 (class 2606 OID 18617)
+-- TOC entry 3612 (class 2606 OID 18596)
 -- Name: classrooms_students classrooms_students_fk_student; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17343,7 +17216,7 @@ ALTER TABLE ONLY classrooms_students
 
 
 --
--- TOC entry 3653 (class 2606 OID 18622)
+-- TOC entry 3651 (class 2606 OID 18601)
 -- Name: communication_types communication_types_fk_school; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17352,7 +17225,7 @@ ALTER TABLE ONLY communication_types
 
 
 --
--- TOC entry 3654 (class 2606 OID 18627)
+-- TOC entry 3652 (class 2606 OID 18606)
 -- Name: communications_media communications_media_fk_communication_type; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17361,7 +17234,7 @@ ALTER TABLE ONLY communications_media
 
 
 --
--- TOC entry 3655 (class 2606 OID 18632)
+-- TOC entry 3653 (class 2606 OID 18611)
 -- Name: communications_media communications_media_fk_person; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17370,7 +17243,7 @@ ALTER TABLE ONLY communications_media
 
 
 --
--- TOC entry 3656 (class 2606 OID 18637)
+-- TOC entry 3654 (class 2606 OID 18616)
 -- Name: conversations conversations_fk_school_record; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17379,7 +17252,7 @@ ALTER TABLE ONLY conversations
 
 
 --
--- TOC entry 3657 (class 2606 OID 18642)
+-- TOC entry 3655 (class 2606 OID 18621)
 -- Name: conversations_invites conversations_invites_fk_conversation; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17388,7 +17261,7 @@ ALTER TABLE ONLY conversations_invites
 
 
 --
--- TOC entry 3658 (class 2606 OID 18647)
+-- TOC entry 3656 (class 2606 OID 18626)
 -- Name: conversations_invites conversations_invites_fk_person; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17397,7 +17270,7 @@ ALTER TABLE ONLY conversations_invites
 
 
 --
--- TOC entry 3659 (class 2606 OID 18652)
+-- TOC entry 3657 (class 2606 OID 18631)
 -- Name: degrees degrees_fk_school; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17406,7 +17279,7 @@ ALTER TABLE ONLY degrees
 
 
 --
--- TOC entry 3616 (class 2606 OID 18657)
+-- TOC entry 3614 (class 2606 OID 18636)
 -- Name: delays delays_fk_classroom_student; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17415,7 +17288,7 @@ ALTER TABLE ONLY delays
 
 
 --
--- TOC entry 3617 (class 2606 OID 18662)
+-- TOC entry 3615 (class 2606 OID 18641)
 -- Name: delays delays_fk_explanation; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17424,7 +17297,7 @@ ALTER TABLE ONLY delays
 
 
 --
--- TOC entry 3618 (class 2606 OID 18667)
+-- TOC entry 3616 (class 2606 OID 18646)
 -- Name: delays delays_fk_teacher; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17433,7 +17306,7 @@ ALTER TABLE ONLY delays
 
 
 --
--- TOC entry 3660 (class 2606 OID 18672)
+-- TOC entry 3658 (class 2606 OID 18651)
 -- Name: districts districts_fk_region; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17442,7 +17315,7 @@ ALTER TABLE ONLY districts
 
 
 --
--- TOC entry 3643 (class 2606 OID 18677)
+-- TOC entry 3641 (class 2606 OID 18656)
 -- Name: explanations explanations_fk_created_by; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17451,7 +17324,7 @@ ALTER TABLE ONLY explanations
 
 
 --
--- TOC entry 3644 (class 2606 OID 18682)
+-- TOC entry 3642 (class 2606 OID 18661)
 -- Name: explanations explanations_fk_registered_by; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17460,7 +17333,7 @@ ALTER TABLE ONLY explanations
 
 
 --
--- TOC entry 3645 (class 2606 OID 18687)
+-- TOC entry 3643 (class 2606 OID 18666)
 -- Name: explanations explanations_fk_student; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17469,7 +17342,7 @@ ALTER TABLE ONLY explanations
 
 
 --
--- TOC entry 3661 (class 2606 OID 18692)
+-- TOC entry 3659 (class 2606 OID 18671)
 -- Name: faults faults_fk_lesson; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17478,7 +17351,7 @@ ALTER TABLE ONLY faults
 
 
 --
--- TOC entry 3662 (class 2606 OID 18697)
+-- TOC entry 3660 (class 2606 OID 18676)
 -- Name: faults faults_fk_student; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17487,7 +17360,7 @@ ALTER TABLE ONLY faults
 
 
 --
--- TOC entry 3663 (class 2606 OID 18702)
+-- TOC entry 3661 (class 2606 OID 18681)
 -- Name: grade_types grade_types_fk_subject; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17496,7 +17369,7 @@ ALTER TABLE ONLY grade_types
 
 
 --
--- TOC entry 3664 (class 2606 OID 18707)
+-- TOC entry 3662 (class 2606 OID 18686)
 -- Name: grades grades_fk_metric; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17505,7 +17378,7 @@ ALTER TABLE ONLY grades
 
 
 --
--- TOC entry 3665 (class 2606 OID 18712)
+-- TOC entry 3663 (class 2606 OID 18691)
 -- Name: grading_meetings grading_meetings_fk_school_year; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17514,7 +17387,7 @@ ALTER TABLE ONLY grading_meetings
 
 
 --
--- TOC entry 3666 (class 2606 OID 18717)
+-- TOC entry 3664 (class 2606 OID 18696)
 -- Name: grading_meetings_valutations grading_meetings_valutations_fk_classroom; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17523,7 +17396,7 @@ ALTER TABLE ONLY grading_meetings_valutations
 
 
 --
--- TOC entry 3667 (class 2606 OID 18722)
+-- TOC entry 3665 (class 2606 OID 18701)
 -- Name: grading_meetings_valutations grading_meetings_valutations_fk_grade; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17532,7 +17405,7 @@ ALTER TABLE ONLY grading_meetings_valutations
 
 
 --
--- TOC entry 3668 (class 2606 OID 18727)
+-- TOC entry 3666 (class 2606 OID 18706)
 -- Name: grading_meetings_valutations grading_meetings_valutations_fk_grading_meeting; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17541,7 +17414,7 @@ ALTER TABLE ONLY grading_meetings_valutations
 
 
 --
--- TOC entry 3669 (class 2606 OID 18732)
+-- TOC entry 3667 (class 2606 OID 18711)
 -- Name: grading_meetings_valutations grading_meetings_valutations_fk_student; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17550,7 +17423,7 @@ ALTER TABLE ONLY grading_meetings_valutations
 
 
 --
--- TOC entry 3670 (class 2606 OID 18737)
+-- TOC entry 3668 (class 2606 OID 18716)
 -- Name: grading_meetings_valutations grading_meetings_valutations_fk_subject; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17559,7 +17432,7 @@ ALTER TABLE ONLY grading_meetings_valutations
 
 
 --
--- TOC entry 3671 (class 2606 OID 18742)
+-- TOC entry 3669 (class 2606 OID 18721)
 -- Name: grading_meetings_valutations grading_meetings_valutations_fk_teacher; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17568,7 +17441,7 @@ ALTER TABLE ONLY grading_meetings_valutations
 
 
 --
--- TOC entry 3672 (class 2606 OID 18747)
+-- TOC entry 3670 (class 2606 OID 18726)
 -- Name: grading_meetings_valutations_qua grading_meetings_valutations_qua_fk_grade; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17577,7 +17450,7 @@ ALTER TABLE ONLY grading_meetings_valutations_qua
 
 
 --
--- TOC entry 3673 (class 2606 OID 18752)
+-- TOC entry 3671 (class 2606 OID 18731)
 -- Name: grading_meetings_valutations_qua grading_meetings_valutations_qua_fk_grading_meeting_valutation; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17586,7 +17459,7 @@ ALTER TABLE ONLY grading_meetings_valutations_qua
 
 
 --
--- TOC entry 3674 (class 2606 OID 18757)
+-- TOC entry 3672 (class 2606 OID 18736)
 -- Name: grading_meetings_valutations_qua grading_meetings_valutations_qua_fk_qualification; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17595,7 +17468,7 @@ ALTER TABLE ONLY grading_meetings_valutations_qua
 
 
 --
--- TOC entry 3675 (class 2606 OID 18762)
+-- TOC entry 3673 (class 2606 OID 18741)
 -- Name: holydays holydays_fk_school; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17604,7 +17477,7 @@ ALTER TABLE ONLY holydays
 
 
 --
--- TOC entry 3619 (class 2606 OID 18767)
+-- TOC entry 3617 (class 2606 OID 18746)
 -- Name: leavings leavings_fk_classroom_student; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17613,7 +17486,7 @@ ALTER TABLE ONLY leavings
 
 
 --
--- TOC entry 3620 (class 2606 OID 18772)
+-- TOC entry 3618 (class 2606 OID 18751)
 -- Name: leavings leavings_fk_explanation; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17622,7 +17495,7 @@ ALTER TABLE ONLY leavings
 
 
 --
--- TOC entry 3621 (class 2606 OID 18777)
+-- TOC entry 3619 (class 2606 OID 18756)
 -- Name: leavings leavings_fk_teacher; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17631,7 +17504,7 @@ ALTER TABLE ONLY leavings
 
 
 --
--- TOC entry 3648 (class 2606 OID 18782)
+-- TOC entry 3646 (class 2606 OID 18761)
 -- Name: lessons lessons_fk_classroom; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17640,7 +17513,7 @@ ALTER TABLE ONLY lessons
 
 
 --
--- TOC entry 3649 (class 2606 OID 18787)
+-- TOC entry 3647 (class 2606 OID 18766)
 -- Name: lessons lessons_fk_subject; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17649,7 +17522,7 @@ ALTER TABLE ONLY lessons
 
 
 --
--- TOC entry 3650 (class 2606 OID 18792)
+-- TOC entry 3648 (class 2606 OID 18771)
 -- Name: lessons lessons_fk_teacher; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17658,7 +17531,7 @@ ALTER TABLE ONLY lessons
 
 
 --
--- TOC entry 3676 (class 2606 OID 18797)
+-- TOC entry 3674 (class 2606 OID 18776)
 -- Name: messages messages_fk_conversation; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17667,7 +17540,7 @@ ALTER TABLE ONLY messages
 
 
 --
--- TOC entry 3677 (class 2606 OID 18802)
+-- TOC entry 3675 (class 2606 OID 18781)
 -- Name: messages messages_fk_from_time; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17676,7 +17549,7 @@ ALTER TABLE ONLY messages
 
 
 --
--- TOC entry 3678 (class 2606 OID 18807)
+-- TOC entry 3676 (class 2606 OID 18786)
 -- Name: messages_read messages_read_fk_message; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17685,7 +17558,7 @@ ALTER TABLE ONLY messages_read
 
 
 --
--- TOC entry 3679 (class 2606 OID 18812)
+-- TOC entry 3677 (class 2606 OID 18791)
 -- Name: messages_read messages_read_fk_person; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17694,7 +17567,7 @@ ALTER TABLE ONLY messages_read
 
 
 --
--- TOC entry 3680 (class 2606 OID 18817)
+-- TOC entry 3678 (class 2606 OID 18796)
 -- Name: metrics metrics_fk_school; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17703,7 +17576,7 @@ ALTER TABLE ONLY metrics
 
 
 --
--- TOC entry 3622 (class 2606 OID 18822)
+-- TOC entry 3620 (class 2606 OID 18801)
 -- Name: notes notes_fk_classroom; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17712,7 +17585,7 @@ ALTER TABLE ONLY notes
 
 
 --
--- TOC entry 3623 (class 2606 OID 18827)
+-- TOC entry 3621 (class 2606 OID 18806)
 -- Name: notes notes_fk_classroom_student; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17721,7 +17594,7 @@ ALTER TABLE ONLY notes
 
 
 --
--- TOC entry 3624 (class 2606 OID 18832)
+-- TOC entry 3622 (class 2606 OID 18811)
 -- Name: notes notes_fk_teacher; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17730,7 +17603,7 @@ ALTER TABLE ONLY notes
 
 
 --
--- TOC entry 3681 (class 2606 OID 18837)
+-- TOC entry 3679 (class 2606 OID 18816)
 -- Name: notes_signed notes_signed_fk_note; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17739,7 +17612,7 @@ ALTER TABLE ONLY notes_signed
 
 
 --
--- TOC entry 3682 (class 2606 OID 18842)
+-- TOC entry 3680 (class 2606 OID 18821)
 -- Name: notes_signed notes_signed_fk_person; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17748,7 +17621,7 @@ ALTER TABLE ONLY notes_signed
 
 
 --
--- TOC entry 3625 (class 2606 OID 18847)
+-- TOC entry 3623 (class 2606 OID 18826)
 -- Name: out_of_classrooms out_of_classrooms_fk_classroom_student; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17757,7 +17630,7 @@ ALTER TABLE ONLY out_of_classrooms
 
 
 --
--- TOC entry 3626 (class 2606 OID 18852)
+-- TOC entry 3624 (class 2606 OID 18831)
 -- Name: out_of_classrooms out_of_classrooms_fk_school_operator; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17766,7 +17639,7 @@ ALTER TABLE ONLY out_of_classrooms
 
 
 --
--- TOC entry 3683 (class 2606 OID 18857)
+-- TOC entry 3681 (class 2606 OID 18836)
 -- Name: parents_meetings parents_meetings_fk_person; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17775,7 +17648,7 @@ ALTER TABLE ONLY parents_meetings
 
 
 --
--- TOC entry 3684 (class 2606 OID 18862)
+-- TOC entry 3682 (class 2606 OID 18841)
 -- Name: parents_meetings parents_meetings_fk_teacher; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17784,7 +17657,7 @@ ALTER TABLE ONLY parents_meetings
 
 
 --
--- TOC entry 3646 (class 2606 OID 18867)
+-- TOC entry 3644 (class 2606 OID 18846)
 -- Name: persons_addresses persons_addresses_fk_city; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17793,7 +17666,7 @@ ALTER TABLE ONLY persons_addresses
 
 
 --
--- TOC entry 3647 (class 2606 OID 18872)
+-- TOC entry 3645 (class 2606 OID 18851)
 -- Name: persons_addresses persons_addresses_fk_person; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17802,7 +17675,7 @@ ALTER TABLE ONLY persons_addresses
 
 
 --
--- TOC entry 3627 (class 2606 OID 18877)
+-- TOC entry 3625 (class 2606 OID 18856)
 -- Name: persons persons_fk_city_of_birth; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17811,7 +17684,7 @@ ALTER TABLE ONLY persons
 
 
 --
--- TOC entry 3628 (class 2606 OID 18882)
+-- TOC entry 3626 (class 2606 OID 18861)
 -- Name: persons persons_fk_country_of_birth; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17820,7 +17693,7 @@ ALTER TABLE ONLY persons
 
 
 --
--- TOC entry 3629 (class 2606 OID 18887)
+-- TOC entry 3627 (class 2606 OID 18866)
 -- Name: persons persons_fk_school; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17829,7 +17702,7 @@ ALTER TABLE ONLY persons
 
 
 --
--- TOC entry 3630 (class 2606 OID 18892)
+-- TOC entry 3628 (class 2606 OID 18871)
 -- Name: persons persons_fk_usename; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17838,7 +17711,7 @@ ALTER TABLE ONLY persons
 
 
 --
--- TOC entry 3685 (class 2606 OID 18897)
+-- TOC entry 3683 (class 2606 OID 18876)
 -- Name: persons_relations persons_relations_fk_person; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17847,7 +17720,7 @@ ALTER TABLE ONLY persons_relations
 
 
 --
--- TOC entry 3686 (class 2606 OID 18902)
+-- TOC entry 3684 (class 2606 OID 18881)
 -- Name: persons_relations persons_relations_fk_person_related_to; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17856,7 +17729,7 @@ ALTER TABLE ONLY persons_relations
 
 
 --
--- TOC entry 3687 (class 2606 OID 18907)
+-- TOC entry 3685 (class 2606 OID 18886)
 -- Name: persons_roles persons_roles_fk_person; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17865,7 +17738,7 @@ ALTER TABLE ONLY persons_roles
 
 
 --
--- TOC entry 3688 (class 2606 OID 18912)
+-- TOC entry 3686 (class 2606 OID 18891)
 -- Name: qualificationtions qualificationtions_fk_metric; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17874,7 +17747,7 @@ ALTER TABLE ONLY qualificationtions
 
 
 --
--- TOC entry 3689 (class 2606 OID 18917)
+-- TOC entry 3687 (class 2606 OID 18896)
 -- Name: qualificationtions qualificationtions_fk_qualificationtion_parent; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17883,7 +17756,7 @@ ALTER TABLE ONLY qualificationtions
 
 
 --
--- TOC entry 3690 (class 2606 OID 18922)
+-- TOC entry 3688 (class 2606 OID 18901)
 -- Name: qualificationtions qualificationtions_fk_school; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17892,7 +17765,7 @@ ALTER TABLE ONLY qualificationtions
 
 
 --
--- TOC entry 3691 (class 2606 OID 18927)
+-- TOC entry 3689 (class 2606 OID 18906)
 -- Name: qualificationtions_plan qualificationtions_plan_fk_degree; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17901,7 +17774,7 @@ ALTER TABLE ONLY qualificationtions_plan
 
 
 --
--- TOC entry 3692 (class 2606 OID 18932)
+-- TOC entry 3690 (class 2606 OID 18911)
 -- Name: qualificationtions_plan qualificationtions_plan_fk_qualification; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17910,7 +17783,7 @@ ALTER TABLE ONLY qualificationtions_plan
 
 
 --
--- TOC entry 3693 (class 2606 OID 18937)
+-- TOC entry 3691 (class 2606 OID 18916)
 -- Name: qualificationtions_plan qualificationtions_plan_fk_subjects; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17919,7 +17792,7 @@ ALTER TABLE ONLY qualificationtions_plan
 
 
 --
--- TOC entry 3608 (class 2606 OID 18942)
+-- TOC entry 3606 (class 2606 OID 18921)
 -- Name: school_years school_years_fk_school; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17928,7 +17801,7 @@ ALTER TABLE ONLY school_years
 
 
 --
--- TOC entry 3609 (class 2606 OID 18947)
+-- TOC entry 3607 (class 2606 OID 18926)
 -- Name: schools schools_fk_subject; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17937,7 +17810,7 @@ ALTER TABLE ONLY schools
 
 
 --
--- TOC entry 3651 (class 2606 OID 18952)
+-- TOC entry 3649 (class 2606 OID 18931)
 -- Name: signatures signatures_fk_classroom; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17946,7 +17819,7 @@ ALTER TABLE ONLY signatures
 
 
 --
--- TOC entry 3652 (class 2606 OID 18957)
+-- TOC entry 3650 (class 2606 OID 18936)
 -- Name: signatures signatures_fk_teacher; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17955,7 +17828,7 @@ ALTER TABLE ONLY signatures
 
 
 --
--- TOC entry 3631 (class 2606 OID 18962)
+-- TOC entry 3629 (class 2606 OID 18941)
 -- Name: subjects subjects_fk_school; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17964,7 +17837,7 @@ ALTER TABLE ONLY subjects
 
 
 --
--- TOC entry 3694 (class 2606 OID 18967)
+-- TOC entry 3692 (class 2606 OID 18946)
 -- Name: teachears_notes teachears_notes_fk_classroom; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17973,7 +17846,7 @@ ALTER TABLE ONLY teachears_notes
 
 
 --
--- TOC entry 3695 (class 2606 OID 18972)
+-- TOC entry 3693 (class 2606 OID 18951)
 -- Name: teachears_notes teachears_notes_fk_student; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17982,7 +17855,7 @@ ALTER TABLE ONLY teachears_notes
 
 
 --
--- TOC entry 3696 (class 2606 OID 18977)
+-- TOC entry 3694 (class 2606 OID 18956)
 -- Name: teachears_notes teachears_notes_fk_teacher; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -17991,7 +17864,7 @@ ALTER TABLE ONLY teachears_notes
 
 
 --
--- TOC entry 3697 (class 2606 OID 18982)
+-- TOC entry 3695 (class 2606 OID 18961)
 -- Name: topics topics_fk_degree; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18000,7 +17873,7 @@ ALTER TABLE ONLY topics
 
 
 --
--- TOC entry 3698 (class 2606 OID 18987)
+-- TOC entry 3696 (class 2606 OID 18966)
 -- Name: topics topics_fk_subject; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18009,7 +17882,7 @@ ALTER TABLE ONLY topics
 
 
 --
--- TOC entry 3632 (class 2606 OID 18992)
+-- TOC entry 3630 (class 2606 OID 18971)
 -- Name: valutations valutations_fk_classroom; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18018,7 +17891,7 @@ ALTER TABLE ONLY valutations
 
 
 --
--- TOC entry 3633 (class 2606 OID 18997)
+-- TOC entry 3631 (class 2606 OID 18976)
 -- Name: valutations valutations_fk_grade; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18027,7 +17900,7 @@ ALTER TABLE ONLY valutations
 
 
 --
--- TOC entry 3634 (class 2606 OID 19002)
+-- TOC entry 3632 (class 2606 OID 18981)
 -- Name: valutations valutations_fk_grade_type; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18036,7 +17909,7 @@ ALTER TABLE ONLY valutations
 
 
 --
--- TOC entry 3635 (class 2606 OID 19007)
+-- TOC entry 3633 (class 2606 OID 18986)
 -- Name: valutations valutations_fk_note; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18045,7 +17918,7 @@ ALTER TABLE ONLY valutations
 
 
 --
--- TOC entry 3636 (class 2606 OID 19012)
+-- TOC entry 3634 (class 2606 OID 18991)
 -- Name: valutations valutations_fk_student; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18054,7 +17927,7 @@ ALTER TABLE ONLY valutations
 
 
 --
--- TOC entry 3637 (class 2606 OID 19017)
+-- TOC entry 3635 (class 2606 OID 18996)
 -- Name: valutations valutations_fk_teacher; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18063,7 +17936,7 @@ ALTER TABLE ONLY valutations
 
 
 --
--- TOC entry 3638 (class 2606 OID 19022)
+-- TOC entry 3636 (class 2606 OID 19001)
 -- Name: valutations valutations_fk_topic; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18072,7 +17945,7 @@ ALTER TABLE ONLY valutations
 
 
 --
--- TOC entry 3699 (class 2606 OID 19027)
+-- TOC entry 3697 (class 2606 OID 19006)
 -- Name: valutations_qualificationtions valutations_qualificationtions_fk_grade; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18081,7 +17954,7 @@ ALTER TABLE ONLY valutations_qualificationtions
 
 
 --
--- TOC entry 3700 (class 2606 OID 19032)
+-- TOC entry 3698 (class 2606 OID 19011)
 -- Name: valutations_qualificationtions valutations_qualificationtions_fk_qualification; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18090,7 +17963,7 @@ ALTER TABLE ONLY valutations_qualificationtions
 
 
 --
--- TOC entry 3701 (class 2606 OID 19037)
+-- TOC entry 3699 (class 2606 OID 19016)
 -- Name: valutations_qualificationtions valutations_qualificationtions_fk_valutation; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18099,7 +17972,7 @@ ALTER TABLE ONLY valutations_qualificationtions
 
 
 --
--- TOC entry 3639 (class 2606 OID 19042)
+-- TOC entry 3637 (class 2606 OID 19021)
 -- Name: weekly_timetable weekly_timetable_fk_classroom; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18108,7 +17981,7 @@ ALTER TABLE ONLY weekly_timetable
 
 
 --
--- TOC entry 3640 (class 2606 OID 19047)
+-- TOC entry 3638 (class 2606 OID 19026)
 -- Name: weekly_timetables_days weekly_timetables_days_fk_subject; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18117,7 +17990,7 @@ ALTER TABLE ONLY weekly_timetables_days
 
 
 --
--- TOC entry 3641 (class 2606 OID 19052)
+-- TOC entry 3639 (class 2606 OID 19031)
 -- Name: weekly_timetables_days weekly_timetables_days_fk_teacher; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18126,7 +17999,7 @@ ALTER TABLE ONLY weekly_timetables_days
 
 
 --
--- TOC entry 3642 (class 2606 OID 19057)
+-- TOC entry 3640 (class 2606 OID 19036)
 -- Name: weekly_timetables_days weekly_timetables_days_fk_weekly_timetable; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18135,7 +18008,7 @@ ALTER TABLE ONLY weekly_timetables_days
 
 
 --
--- TOC entry 3702 (class 2606 OID 19062)
+-- TOC entry 3700 (class 2606 OID 19041)
 -- Name: wikimedia_files_persons wikimedia_files_persons_fk_person; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18144,7 +18017,7 @@ ALTER TABLE ONLY wikimedia_files_persons
 
 
 --
--- TOC entry 3703 (class 2606 OID 19067)
+-- TOC entry 3701 (class 2606 OID 19046)
 -- Name: wikimedia_files_persons wikimedia_files_persons_fk_wikimedia_file; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -18155,7 +18028,7 @@ ALTER TABLE ONLY wikimedia_files_persons
 SET search_path = translate, pg_catalog;
 
 --
--- TOC entry 3704 (class 2606 OID 19072)
+-- TOC entry 3702 (class 2606 OID 19051)
 -- Name: columns columns_fk_language; Type: FK CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -18164,7 +18037,7 @@ ALTER TABLE ONLY columns
 
 
 --
--- TOC entry 3705 (class 2606 OID 19077)
+-- TOC entry 3703 (class 2606 OID 19056)
 -- Name: columns columns_fk_relation; Type: FK CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -18173,7 +18046,7 @@ ALTER TABLE ONLY columns
 
 
 --
--- TOC entry 3706 (class 2606 OID 19082)
+-- TOC entry 3704 (class 2606 OID 19061)
 -- Name: parameters parameters_fk_language; Type: FK CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -18182,7 +18055,7 @@ ALTER TABLE ONLY parameters
 
 
 --
--- TOC entry 3707 (class 2606 OID 19087)
+-- TOC entry 3705 (class 2606 OID 19066)
 -- Name: parameters parameters_fk_procedure; Type: FK CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -18191,7 +18064,7 @@ ALTER TABLE ONLY parameters
 
 
 --
--- TOC entry 3708 (class 2606 OID 19092)
+-- TOC entry 3706 (class 2606 OID 19071)
 -- Name: procedures procedures_fk_language; Type: FK CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -18200,7 +18073,7 @@ ALTER TABLE ONLY procedures
 
 
 --
--- TOC entry 3709 (class 2606 OID 19097)
+-- TOC entry 3707 (class 2606 OID 19076)
 -- Name: relations relations_fk_language; Type: FK CONSTRAINT; Schema: translate; Owner: postgres
 --
 
@@ -18211,7 +18084,7 @@ ALTER TABLE ONLY relations
 SET search_path = unit_testing, pg_catalog;
 
 --
--- TOC entry 3710 (class 2606 OID 19102)
+-- TOC entry 3708 (class 2606 OID 19081)
 -- Name: tests_details test_detals_fk_tests; Type: FK CONSTRAINT; Schema: unit_testing; Owner: postgres
 --
 
@@ -18220,7 +18093,7 @@ ALTER TABLE ONLY tests_details
 
 
 --
--- TOC entry 3711 (class 2606 OID 19107)
+-- TOC entry 3709 (class 2606 OID 19086)
 -- Name: unit_test_sets_details test_fk_unit_test_set; Type: FK CONSTRAINT; Schema: unit_testing; Owner: postgres
 --
 
@@ -18229,7 +18102,7 @@ ALTER TABLE ONLY unit_test_sets_details
 
 
 --
--- TOC entry 3712 (class 2606 OID 19112)
+-- TOC entry 3710 (class 2606 OID 19091)
 -- Name: unit_test_sets_details unit_test_sets_details_fk_unit_test_set; Type: FK CONSTRAINT; Schema: unit_testing; Owner: postgres
 --
 
@@ -18238,7 +18111,7 @@ ALTER TABLE ONLY unit_test_sets_details
 
 
 --
--- TOC entry 3132 (class 3466 OID 19117)
+-- TOC entry 3130 (class 3466 OID 19096)
 -- Name: continuous_integration; Type: EVENT TRIGGER; Schema: -; Owner: postgres
 --
 
@@ -18250,7 +18123,7 @@ CREATE EVENT TRIGGER continuous_integration ON ddl_command_end
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 3930 (class 3256 OID 19118)
+-- TOC entry 3928 (class 3256 OID 19097)
 -- Name: schools check_all; Type: POLICY; Schema: public; Owner: postgres
 --
 
@@ -18258,14 +18131,14 @@ CREATE POLICY check_all ON schools FOR ALL TO PUBLIC USING ((school = ANY (schoo
 
 
 --
--- TOC entry 3929 (class 0 OID 17430)
+-- TOC entry 3927 (class 0 OID 17409)
 -- Name: schools; Type: ROW SECURITY; Schema: public; Owner: postgres
 --
 
 ALTER TABLE schools ENABLE ROW LEVEL SECURITY;
 
 --
--- TOC entry 3938 (class 0 OID 0)
+-- TOC entry 3936 (class 0 OID 0)
 -- Dependencies: 9
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
@@ -18275,8 +18148,8 @@ GRANT ALL ON SCHEMA public TO scuola247_manager;
 
 
 --
--- TOC entry 3950 (class 0 OID 0)
--- Dependencies: 1586
+-- TOC entry 3948 (class 0 OID 0)
+-- Dependencies: 1610
 -- Name: address_type; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18285,8 +18158,8 @@ GRANT ALL ON TYPE address_type TO scuola247_manager;
 
 
 --
--- TOC entry 3951 (class 0 OID 0)
--- Dependencies: 1587
+-- TOC entry 3949 (class 0 OID 0)
+-- Dependencies: 1611
 -- Name: course_year; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18295,8 +18168,8 @@ GRANT ALL ON TYPE course_year TO scuola247_manager;
 
 
 --
--- TOC entry 3952 (class 0 OID 0)
--- Dependencies: 1589
+-- TOC entry 3950 (class 0 OID 0)
+-- Dependencies: 1613
 -- Name: explanation_type; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18305,8 +18178,8 @@ GRANT ALL ON TYPE explanation_type TO scuola247_manager;
 
 
 --
--- TOC entry 3953 (class 0 OID 0)
--- Dependencies: 1590
+-- TOC entry 3951 (class 0 OID 0)
+-- Dependencies: 1614
 -- Name: geographical_area; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18315,8 +18188,8 @@ GRANT ALL ON TYPE geographical_area TO scuola247_manager;
 
 
 --
--- TOC entry 3954 (class 0 OID 0)
--- Dependencies: 1591
+-- TOC entry 3952 (class 0 OID 0)
+-- Dependencies: 1615
 -- Name: language; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18325,8 +18198,8 @@ GRANT ALL ON TYPE language TO scuola247_manager;
 
 
 --
--- TOC entry 3955 (class 0 OID 0)
--- Dependencies: 1592
+-- TOC entry 3953 (class 0 OID 0)
+-- Dependencies: 1616
 -- Name: marital_status; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18335,8 +18208,8 @@ GRANT ALL ON TYPE marital_status TO scuola247_manager;
 
 
 --
--- TOC entry 3956 (class 0 OID 0)
--- Dependencies: 1593
+-- TOC entry 3954 (class 0 OID 0)
+-- Dependencies: 1617
 -- Name: period_lesson; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18345,8 +18218,8 @@ GRANT ALL ON TYPE period_lesson TO scuola247_manager;
 
 
 --
--- TOC entry 3957 (class 0 OID 0)
--- Dependencies: 1595
+-- TOC entry 3955 (class 0 OID 0)
+-- Dependencies: 1619
 -- Name: qualificationtion_types; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18355,8 +18228,8 @@ GRANT ALL ON TYPE qualificationtion_types TO scuola247_manager;
 
 
 --
--- TOC entry 3958 (class 0 OID 0)
--- Dependencies: 1596
+-- TOC entry 3956 (class 0 OID 0)
+-- Dependencies: 1620
 -- Name: relationships; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18365,8 +18238,8 @@ GRANT ALL ON TYPE relationships TO scuola247_manager;
 
 
 --
--- TOC entry 3959 (class 0 OID 0)
--- Dependencies: 1597
+-- TOC entry 3957 (class 0 OID 0)
+-- Dependencies: 1621
 -- Name: role; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18375,8 +18248,8 @@ GRANT ALL ON TYPE role TO scuola247_manager;
 
 
 --
--- TOC entry 3960 (class 0 OID 0)
--- Dependencies: 1598
+-- TOC entry 3958 (class 0 OID 0)
+-- Dependencies: 1622
 -- Name: sex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18385,8 +18258,8 @@ GRANT ALL ON TYPE sex TO scuola247_manager;
 
 
 --
--- TOC entry 3961 (class 0 OID 0)
--- Dependencies: 1599
+-- TOC entry 3959 (class 0 OID 0)
+-- Dependencies: 1623
 -- Name: week; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18395,8 +18268,8 @@ GRANT ALL ON TYPE week TO scuola247_manager;
 
 
 --
--- TOC entry 3962 (class 0 OID 0)
--- Dependencies: 1601
+-- TOC entry 3960 (class 0 OID 0)
+-- Dependencies: 1625
 -- Name: week_day; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18405,8 +18278,8 @@ GRANT ALL ON TYPE week_day TO scuola247_manager;
 
 
 --
--- TOC entry 3965 (class 0 OID 0)
--- Dependencies: 587
+-- TOC entry 3963 (class 0 OID 0)
+-- Dependencies: 616
 -- Name: classroom_students_ex(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18415,8 +18288,8 @@ GRANT ALL ON FUNCTION classroom_students_ex(p_classroom bigint) TO scuola247_use
 
 
 --
--- TOC entry 3966 (class 0 OID 0)
--- Dependencies: 589
+-- TOC entry 3964 (class 0 OID 0)
+-- Dependencies: 617
 -- Name: classrooms_list(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18425,8 +18298,8 @@ GRANT ALL ON FUNCTION classrooms_list(p_school_year bigint) TO scuola247_user;
 
 
 --
--- TOC entry 3967 (class 0 OID 0)
--- Dependencies: 590
+-- TOC entry 3965 (class 0 OID 0)
+-- Dependencies: 618
 -- Name: classrooms_students_addresses_ex_by_classroom(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18435,8 +18308,8 @@ GRANT ALL ON FUNCTION classrooms_students_addresses_ex_by_classroom(p_classroom 
 
 
 --
--- TOC entry 3968 (class 0 OID 0)
--- Dependencies: 588
+-- TOC entry 3966 (class 0 OID 0)
+-- Dependencies: 619
 -- Name: grade_types_by_subject(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18445,8 +18318,8 @@ GRANT ALL ON FUNCTION grade_types_by_subject(p_subject bigint) TO scuola247_user
 
 
 --
--- TOC entry 3969 (class 0 OID 0)
--- Dependencies: 591
+-- TOC entry 3967 (class 0 OID 0)
+-- Dependencies: 620
 -- Name: grades_by_metric(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18455,8 +18328,8 @@ GRANT ALL ON FUNCTION grades_by_metric(p_metric bigint) TO scuola247_user;
 
 
 --
--- TOC entry 3970 (class 0 OID 0)
--- Dependencies: 592
+-- TOC entry 3968 (class 0 OID 0)
+-- Dependencies: 621
 -- Name: grid_valutations_columns_by_classroom_teacher_subject(bigint, bigint, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18465,8 +18338,8 @@ GRANT ALL ON FUNCTION grid_valutations_columns_by_classroom_teacher_subject(p_cl
 
 
 --
--- TOC entry 3971 (class 0 OID 0)
--- Dependencies: 593
+-- TOC entry 3969 (class 0 OID 0)
+-- Dependencies: 622
 -- Name: grid_valutations_rows_by_classroom_teacher_subject(bigint, bigint, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18475,8 +18348,8 @@ GRANT ALL ON FUNCTION grid_valutations_rows_by_classroom_teacher_subject(p_class
 
 
 --
--- TOC entry 3973 (class 0 OID 0)
--- Dependencies: 594
+-- TOC entry 3971 (class 0 OID 0)
+-- Dependencies: 623
 -- Name: in_rule(character varying); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18485,8 +18358,8 @@ GRANT ALL ON FUNCTION in_rule(p_rule character varying) TO scuola247_user;
 
 
 --
--- TOC entry 3975 (class 0 OID 0)
--- Dependencies: 595
+-- TOC entry 3973 (class 0 OID 0)
+-- Dependencies: 585
 -- Name: in_rule(character varying, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18495,8 +18368,8 @@ GRANT ALL ON FUNCTION in_rule(p_rule character varying, p_person bigint) TO scuo
 
 
 --
--- TOC entry 3977 (class 0 OID 0)
--- Dependencies: 596
+-- TOC entry 3975 (class 0 OID 0)
+-- Dependencies: 624
 -- Name: in_rule(character varying, character varying); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18505,8 +18378,8 @@ GRANT ALL ON FUNCTION in_rule(p_rule character varying, p_usename character vary
 
 
 --
--- TOC entry 3978 (class 0 OID 0)
--- Dependencies: 597
+-- TOC entry 3976 (class 0 OID 0)
+-- Dependencies: 625
 -- Name: is_person_enable_to_any(character varying[], bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18515,8 +18388,8 @@ GRANT ALL ON FUNCTION is_person_enable_to_any(p_ruoli character varying[], p_per
 
 
 --
--- TOC entry 3979 (class 0 OID 0)
--- Dependencies: 598
+-- TOC entry 3977 (class 0 OID 0)
+-- Dependencies: 626
 -- Name: is_session_user_enable_to_any(character varying[]); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18525,8 +18398,8 @@ GRANT ALL ON FUNCTION is_session_user_enable_to_any(p_ruoli character varying[])
 
 
 --
--- TOC entry 3981 (class 0 OID 0)
--- Dependencies: 599
+-- TOC entry 3979 (class 0 OID 0)
+-- Dependencies: 627
 -- Name: lessons_by_teacher_classroom_subject(bigint, bigint, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18535,8 +18408,8 @@ GRANT ALL ON FUNCTION lessons_by_teacher_classroom_subject(p_teacher bigint, p_c
 
 
 --
--- TOC entry 3982 (class 0 OID 0)
--- Dependencies: 600
+-- TOC entry 3980 (class 0 OID 0)
+-- Dependencies: 628
 -- Name: metrics_by_school(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18545,8 +18418,8 @@ GRANT ALL ON FUNCTION metrics_by_school(p_school bigint) TO scuola247_user;
 
 
 --
--- TOC entry 3983 (class 0 OID 0)
--- Dependencies: 601
+-- TOC entry 3981 (class 0 OID 0)
+-- Dependencies: 629
 -- Name: persons_sel_thumbnail(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18555,8 +18428,8 @@ GRANT ALL ON FUNCTION persons_sel_thumbnail(p_person bigint) TO scuola247_user;
 
 
 --
--- TOC entry 3984 (class 0 OID 0)
--- Dependencies: 602
+-- TOC entry 3982 (class 0 OID 0)
+-- Dependencies: 631
 -- Name: persons_surname_name(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18565,8 +18438,8 @@ GRANT ALL ON FUNCTION persons_surname_name(p_person bigint) TO scuola247_user;
 
 
 --
--- TOC entry 3986 (class 0 OID 0)
--- Dependencies: 603
+-- TOC entry 3984 (class 0 OID 0)
+-- Dependencies: 632
 -- Name: photo_default(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18576,8 +18449,8 @@ GRANT ALL ON FUNCTION photo_default() TO scuola247_manager;
 
 
 --
--- TOC entry 3987 (class 0 OID 0)
--- Dependencies: 604
+-- TOC entry 3985 (class 0 OID 0)
+-- Dependencies: 633
 -- Name: qualificationtions_tree(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18586,8 +18459,8 @@ GRANT ALL ON FUNCTION qualificationtions_tree() TO scuola247_user;
 
 
 --
--- TOC entry 3988 (class 0 OID 0)
--- Dependencies: 605
+-- TOC entry 3986 (class 0 OID 0)
+-- Dependencies: 634
 -- Name: relatives_by_classroom(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18596,8 +18469,8 @@ GRANT ALL ON FUNCTION relatives_by_classroom(p_classroom bigint) TO scuola247_us
 
 
 --
--- TOC entry 3989 (class 0 OID 0)
--- Dependencies: 606
+-- TOC entry 3987 (class 0 OID 0)
+-- Dependencies: 635
 -- Name: rs_columns_list(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18606,8 +18479,8 @@ GRANT ALL ON FUNCTION rs_columns_list() TO scuola247_user;
 
 
 --
--- TOC entry 3990 (class 0 OID 0)
--- Dependencies: 607
+-- TOC entry 3988 (class 0 OID 0)
+-- Dependencies: 630
 -- Name: rs_rows_list(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18616,8 +18489,8 @@ GRANT ALL ON FUNCTION rs_rows_list() TO scuola247_user;
 
 
 --
--- TOC entry 3991 (class 0 OID 0)
--- Dependencies: 608
+-- TOC entry 3989 (class 0 OID 0)
+-- Dependencies: 636
 -- Name: ruoli_by_session_user(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18626,8 +18499,8 @@ GRANT ALL ON FUNCTION ruoli_by_session_user() TO scuola247_user;
 
 
 --
--- TOC entry 3992 (class 0 OID 0)
--- Dependencies: 609
+-- TOC entry 3990 (class 0 OID 0)
+-- Dependencies: 637
 -- Name: school_years_list(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18636,8 +18509,8 @@ GRANT ALL ON FUNCTION school_years_list(p_school bigint) TO scuola247_user;
 
 
 --
--- TOC entry 3993 (class 0 OID 0)
--- Dependencies: 611
+-- TOC entry 3991 (class 0 OID 0)
+-- Dependencies: 638
 -- Name: schools_by_description(character varying); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18646,8 +18519,8 @@ GRANT ALL ON FUNCTION schools_by_description(p_description character varying) TO
 
 
 --
--- TOC entry 3994 (class 0 OID 0)
--- Dependencies: 612
+-- TOC entry 3992 (class 0 OID 0)
+-- Dependencies: 640
 -- Name: schools_del(bigint, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18656,8 +18529,8 @@ GRANT ALL ON FUNCTION schools_del(p_rv bigint, p_school bigint) TO scuola247_use
 
 
 --
--- TOC entry 3996 (class 0 OID 0)
--- Dependencies: 610
+-- TOC entry 3994 (class 0 OID 0)
+-- Dependencies: 641
 -- Name: schools_del_cascade(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18666,8 +18539,8 @@ GRANT ALL ON FUNCTION schools_del_cascade(school_da_cancellare bigint) TO scuola
 
 
 --
--- TOC entry 3997 (class 0 OID 0)
--- Dependencies: 613
+-- TOC entry 3995 (class 0 OID 0)
+-- Dependencies: 642
 -- Name: schools_enabled(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18675,8 +18548,8 @@ GRANT ALL ON FUNCTION schools_enabled() TO scuola247_user;
 
 
 --
--- TOC entry 3998 (class 0 OID 0)
--- Dependencies: 614
+-- TOC entry 3996 (class 0 OID 0)
+-- Dependencies: 643
 -- Name: schools_ins(character varying, character varying, character varying, boolean); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18685,8 +18558,8 @@ GRANT ALL ON FUNCTION schools_ins(OUT p_rv bigint, OUT p_school bigint, p_descri
 
 
 --
--- TOC entry 3999 (class 0 OID 0)
--- Dependencies: 616
+-- TOC entry 3997 (class 0 OID 0)
+-- Dependencies: 645
 -- Name: schools_ins(character varying, character varying, character varying, boolean, bytea); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18695,8 +18568,8 @@ GRANT ALL ON FUNCTION schools_ins(OUT p_rv bigint, OUT p_school bigint, p_descri
 
 
 --
--- TOC entry 4000 (class 0 OID 0)
--- Dependencies: 615
+-- TOC entry 3998 (class 0 OID 0)
+-- Dependencies: 646
 -- Name: schools_list(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18705,8 +18578,8 @@ GRANT ALL ON FUNCTION schools_list() TO scuola247_user;
 
 
 --
--- TOC entry 4001 (class 0 OID 0)
--- Dependencies: 617
+-- TOC entry 3999 (class 0 OID 0)
+-- Dependencies: 647
 -- Name: schools_sel(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18715,8 +18588,8 @@ GRANT ALL ON FUNCTION schools_sel(OUT p_rv bigint, p_school bigint, OUT p_descri
 
 
 --
--- TOC entry 4002 (class 0 OID 0)
--- Dependencies: 618
+-- TOC entry 4000 (class 0 OID 0)
+-- Dependencies: 639
 -- Name: schools_sel_logo(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18725,8 +18598,8 @@ GRANT ALL ON FUNCTION schools_sel_logo(p_school bigint) TO scuola247_user;
 
 
 --
--- TOC entry 4003 (class 0 OID 0)
--- Dependencies: 619
+-- TOC entry 4001 (class 0 OID 0)
+-- Dependencies: 649
 -- Name: schools_upd(bigint, bigint, character varying, character varying, character varying, boolean); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18735,8 +18608,8 @@ GRANT ALL ON FUNCTION schools_upd(p_rv bigint, p_school bigint, p_description ch
 
 
 --
--- TOC entry 4004 (class 0 OID 0)
--- Dependencies: 621
+-- TOC entry 4002 (class 0 OID 0)
+-- Dependencies: 650
 -- Name: schools_upd(bigint, bigint, character varying, character varying, character varying, boolean, bytea); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18745,8 +18618,8 @@ GRANT ALL ON FUNCTION schools_upd(p_rv bigint, p_school bigint, p_description ch
 
 
 --
--- TOC entry 4005 (class 0 OID 0)
--- Dependencies: 622
+-- TOC entry 4003 (class 0 OID 0)
+-- Dependencies: 644
 -- Name: schools_upd_logo(bigint, bigint, bytea); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18755,8 +18628,8 @@ GRANT ALL ON FUNCTION schools_upd_logo(p_rv bigint, p_school bigint, p_logo byte
 
 
 --
--- TOC entry 4007 (class 0 OID 0)
--- Dependencies: 623
+-- TOC entry 4005 (class 0 OID 0)
+-- Dependencies: 648
 -- Name: session_db_user(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18765,8 +18638,8 @@ GRANT ALL ON FUNCTION session_db_user() TO scuola247_user;
 
 
 --
--- TOC entry 4009 (class 0 OID 0)
--- Dependencies: 620
+-- TOC entry 4007 (class 0 OID 0)
+-- Dependencies: 651
 -- Name: session_person(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18775,8 +18648,8 @@ GRANT ALL ON FUNCTION session_person(p_school bigint) TO scuola247_user;
 
 
 --
--- TOC entry 4010 (class 0 OID 0)
--- Dependencies: 624
+-- TOC entry 4008 (class 0 OID 0)
+-- Dependencies: 652
 -- Name: set_work_space_default(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18785,8 +18658,8 @@ GRANT ALL ON FUNCTION set_work_space_default(p_work_space bigint) TO scuola247_u
 
 
 --
--- TOC entry 4011 (class 0 OID 0)
--- Dependencies: 625
+-- TOC entry 4009 (class 0 OID 0)
+-- Dependencies: 653
 -- Name: signatures_by_teacher_classroom(bigint, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18795,8 +18668,8 @@ GRANT ALL ON FUNCTION signatures_by_teacher_classroom(p_teacher bigint, p_classr
 
 
 --
--- TOC entry 4012 (class 0 OID 0)
--- Dependencies: 626
+-- TOC entry 4010 (class 0 OID 0)
+-- Dependencies: 654
 -- Name: students_by_classroom(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18805,8 +18678,8 @@ GRANT ALL ON FUNCTION students_by_classroom(p_classroom bigint) TO scuola247_use
 
 
 --
--- TOC entry 4013 (class 0 OID 0)
--- Dependencies: 627
+-- TOC entry 4011 (class 0 OID 0)
+-- Dependencies: 656
 -- Name: subjects_del(bigint, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18815,8 +18688,8 @@ GRANT ALL ON FUNCTION subjects_del(p_rv bigint, p_subject bigint) TO scuola247_u
 
 
 --
--- TOC entry 4014 (class 0 OID 0)
--- Dependencies: 628
+-- TOC entry 4012 (class 0 OID 0)
+-- Dependencies: 657
 -- Name: subjects_ins(bigint, character varying); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18825,8 +18698,8 @@ GRANT ALL ON FUNCTION subjects_ins(OUT p_rv bigint, OUT p_subject bigint, p_scho
 
 
 --
--- TOC entry 4015 (class 0 OID 0)
--- Dependencies: 630
+-- TOC entry 4013 (class 0 OID 0)
+-- Dependencies: 658
 -- Name: subjects_ins(bigint, character varying, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18835,8 +18708,8 @@ GRANT ALL ON FUNCTION subjects_ins(OUT p_rv bigint, OUT p_subject bigint, p_scho
 
 
 --
--- TOC entry 4016 (class 0 OID 0)
--- Dependencies: 629
+-- TOC entry 4014 (class 0 OID 0)
+-- Dependencies: 659
 -- Name: subjects_list(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18845,8 +18718,8 @@ GRANT ALL ON FUNCTION subjects_list(p_school bigint) TO scuola247_user;
 
 
 --
--- TOC entry 4017 (class 0 OID 0)
--- Dependencies: 631
+-- TOC entry 4015 (class 0 OID 0)
+-- Dependencies: 660
 -- Name: subjects_sel(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18855,8 +18728,8 @@ GRANT ALL ON FUNCTION subjects_sel(OUT p_rv bigint, p_subject bigint, OUT p_scho
 
 
 --
--- TOC entry 4018 (class 0 OID 0)
--- Dependencies: 632
+-- TOC entry 4016 (class 0 OID 0)
+-- Dependencies: 662
 -- Name: subjects_upd(bigint, bigint, bigint, character varying, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18865,8 +18738,8 @@ GRANT ALL ON FUNCTION subjects_upd(p_rv bigint, p_subject bigint, p_school bigin
 
 
 --
--- TOC entry 4019 (class 0 OID 0)
--- Dependencies: 633
+-- TOC entry 4017 (class 0 OID 0)
+-- Dependencies: 663
 -- Name: teachers_by_school(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18875,8 +18748,8 @@ GRANT ALL ON FUNCTION teachers_by_school(p_school bigint) TO scuola247_user;
 
 
 --
--- TOC entry 4021 (class 0 OID 0)
--- Dependencies: 634
+-- TOC entry 4019 (class 0 OID 0)
+-- Dependencies: 664
 -- Name: thumbnail_default(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18886,8 +18759,8 @@ GRANT ALL ON FUNCTION thumbnail_default() TO scuola247_manager;
 
 
 --
--- TOC entry 4022 (class 0 OID 0)
--- Dependencies: 635
+-- TOC entry 4020 (class 0 OID 0)
+-- Dependencies: 665
 -- Name: topics_by_subject_classroom(bigint, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18896,8 +18769,8 @@ GRANT ALL ON FUNCTION topics_by_subject_classroom(p_subject bigint, p_classroom 
 
 
 --
--- TOC entry 4023 (class 0 OID 0)
--- Dependencies: 636
+-- TOC entry 4021 (class 0 OID 0)
+-- Dependencies: 666
 -- Name: topics_del(bigint, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18906,8 +18779,8 @@ GRANT ALL ON FUNCTION topics_del(p_rv bigint, p_topic bigint) TO scuola247_user;
 
 
 --
--- TOC entry 4024 (class 0 OID 0)
--- Dependencies: 637
+-- TOC entry 4022 (class 0 OID 0)
+-- Dependencies: 667
 -- Name: topics_ins_rid(bigint, character varying, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18916,8 +18789,8 @@ GRANT ALL ON FUNCTION topics_ins_rid(OUT p_rv bigint, OUT p_topic bigint, p_subj
 
 
 --
--- TOC entry 4025 (class 0 OID 0)
--- Dependencies: 638
+-- TOC entry 4023 (class 0 OID 0)
+-- Dependencies: 668
 -- Name: topics_upd_rid(bigint, bigint, character varying); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18926,8 +18799,8 @@ GRANT ALL ON FUNCTION topics_upd_rid(p_rv bigint, p_topic bigint, p_description 
 
 
 --
--- TOC entry 4026 (class 0 OID 0)
--- Dependencies: 639
+-- TOC entry 4024 (class 0 OID 0)
+-- Dependencies: 669
 -- Name: tr_absences_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18937,8 +18810,8 @@ GRANT ALL ON FUNCTION tr_absences_iu() TO scuola247_manager;
 
 
 --
--- TOC entry 4027 (class 0 OID 0)
--- Dependencies: 640
+-- TOC entry 4025 (class 0 OID 0)
+-- Dependencies: 670
 -- Name: tr_classrooms_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18947,8 +18820,8 @@ GRANT ALL ON FUNCTION tr_classrooms_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4028 (class 0 OID 0)
--- Dependencies: 641
+-- TOC entry 4026 (class 0 OID 0)
+-- Dependencies: 671
 -- Name: tr_classrooms_students_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18957,8 +18830,8 @@ GRANT ALL ON FUNCTION tr_classrooms_students_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4029 (class 0 OID 0)
--- Dependencies: 642
+-- TOC entry 4027 (class 0 OID 0)
+-- Dependencies: 672
 -- Name: tr_communications_media_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18967,8 +18840,8 @@ GRANT ALL ON FUNCTION tr_communications_media_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4030 (class 0 OID 0)
--- Dependencies: 643
+-- TOC entry 4028 (class 0 OID 0)
+-- Dependencies: 673
 -- Name: tr_conversations_invites_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18977,8 +18850,8 @@ GRANT ALL ON FUNCTION tr_conversations_invites_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4031 (class 0 OID 0)
--- Dependencies: 644
+-- TOC entry 4029 (class 0 OID 0)
+-- Dependencies: 655
 -- Name: tr_db_users_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18987,8 +18860,8 @@ GRANT ALL ON FUNCTION tr_db_users_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4032 (class 0 OID 0)
--- Dependencies: 646
+-- TOC entry 4030 (class 0 OID 0)
+-- Dependencies: 674
 -- Name: tr_delays_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -18997,8 +18870,8 @@ GRANT ALL ON FUNCTION tr_delays_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4033 (class 0 OID 0)
--- Dependencies: 647
+-- TOC entry 4031 (class 0 OID 0)
+-- Dependencies: 675
 -- Name: tr_explanations_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19008,8 +18881,8 @@ GRANT ALL ON FUNCTION tr_explanations_iu() TO scuola247_manager;
 
 
 --
--- TOC entry 4034 (class 0 OID 0)
--- Dependencies: 645
+-- TOC entry 4032 (class 0 OID 0)
+-- Dependencies: 676
 -- Name: tr_faults_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19019,8 +18892,8 @@ GRANT ALL ON FUNCTION tr_faults_iu() TO scuola247_manager;
 
 
 --
--- TOC entry 4035 (class 0 OID 0)
--- Dependencies: 648
+-- TOC entry 4033 (class 0 OID 0)
+-- Dependencies: 677
 -- Name: tr_grading_meetings_i(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19029,8 +18902,8 @@ GRANT ALL ON FUNCTION tr_grading_meetings_i() TO scuola247_user;
 
 
 --
--- TOC entry 4036 (class 0 OID 0)
--- Dependencies: 649
+-- TOC entry 4034 (class 0 OID 0)
+-- Dependencies: 678
 -- Name: tr_grading_meetings_valutations_d(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19039,8 +18912,8 @@ GRANT ALL ON FUNCTION tr_grading_meetings_valutations_d() TO scuola247_user;
 
 
 --
--- TOC entry 4037 (class 0 OID 0)
--- Dependencies: 650
+-- TOC entry 4035 (class 0 OID 0)
+-- Dependencies: 679
 -- Name: tr_grading_meetings_valutations_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19049,8 +18922,8 @@ GRANT ALL ON FUNCTION tr_grading_meetings_valutations_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4038 (class 0 OID 0)
--- Dependencies: 651
+-- TOC entry 4036 (class 0 OID 0)
+-- Dependencies: 680
 -- Name: tr_grading_meetings_valutations_qua_d(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19059,8 +18932,8 @@ GRANT ALL ON FUNCTION tr_grading_meetings_valutations_qua_d() TO scuola247_user;
 
 
 --
--- TOC entry 4039 (class 0 OID 0)
--- Dependencies: 652
+-- TOC entry 4037 (class 0 OID 0)
+-- Dependencies: 681
 -- Name: tr_grading_meetings_valutations_qua_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19069,8 +18942,8 @@ GRANT ALL ON FUNCTION tr_grading_meetings_valutations_qua_iu() TO scuola247_user
 
 
 --
--- TOC entry 4040 (class 0 OID 0)
--- Dependencies: 653
+-- TOC entry 4038 (class 0 OID 0)
+-- Dependencies: 682
 -- Name: tr_leavings_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19079,8 +18952,8 @@ GRANT ALL ON FUNCTION tr_leavings_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4041 (class 0 OID 0)
--- Dependencies: 654
+-- TOC entry 4039 (class 0 OID 0)
+-- Dependencies: 683
 -- Name: tr_lessons_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19090,8 +18963,8 @@ GRANT ALL ON FUNCTION tr_lessons_iu() TO scuola247_manager;
 
 
 --
--- TOC entry 4042 (class 0 OID 0)
--- Dependencies: 655
+-- TOC entry 4040 (class 0 OID 0)
+-- Dependencies: 684
 -- Name: tr_messages_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19100,8 +18973,8 @@ GRANT ALL ON FUNCTION tr_messages_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4043 (class 0 OID 0)
--- Dependencies: 656
+-- TOC entry 4041 (class 0 OID 0)
+-- Dependencies: 685
 -- Name: tr_messages_read_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19110,8 +18983,8 @@ GRANT ALL ON FUNCTION tr_messages_read_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4044 (class 0 OID 0)
--- Dependencies: 658
+-- TOC entry 4042 (class 0 OID 0)
+-- Dependencies: 686
 -- Name: tr_notes_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19120,8 +18993,8 @@ GRANT ALL ON FUNCTION tr_notes_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4045 (class 0 OID 0)
--- Dependencies: 660
+-- TOC entry 4043 (class 0 OID 0)
+-- Dependencies: 687
 -- Name: tr_notes_signed_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19130,8 +19003,8 @@ GRANT ALL ON FUNCTION tr_notes_signed_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4046 (class 0 OID 0)
--- Dependencies: 657
+-- TOC entry 4044 (class 0 OID 0)
+-- Dependencies: 688
 -- Name: tr_out_of_classrooms_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19140,8 +19013,8 @@ GRANT ALL ON FUNCTION tr_out_of_classrooms_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4047 (class 0 OID 0)
--- Dependencies: 661
+-- TOC entry 4045 (class 0 OID 0)
+-- Dependencies: 689
 -- Name: tr_parents_meetings_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19150,8 +19023,8 @@ GRANT ALL ON FUNCTION tr_parents_meetings_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4048 (class 0 OID 0)
--- Dependencies: 662
+-- TOC entry 4046 (class 0 OID 0)
+-- Dependencies: 690
 -- Name: tr_schools_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19160,8 +19033,8 @@ GRANT ALL ON FUNCTION tr_schools_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4049 (class 0 OID 0)
--- Dependencies: 663
+-- TOC entry 4047 (class 0 OID 0)
+-- Dependencies: 691
 -- Name: tr_signatures_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19171,8 +19044,8 @@ GRANT ALL ON FUNCTION tr_signatures_iu() TO scuola247_manager;
 
 
 --
--- TOC entry 4050 (class 0 OID 0)
--- Dependencies: 664
+-- TOC entry 4048 (class 0 OID 0)
+-- Dependencies: 692
 -- Name: tr_teachears_notes_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19181,8 +19054,8 @@ GRANT ALL ON FUNCTION tr_teachears_notes_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4051 (class 0 OID 0)
--- Dependencies: 665
+-- TOC entry 4049 (class 0 OID 0)
+-- Dependencies: 693
 -- Name: tr_topics_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19191,8 +19064,8 @@ GRANT ALL ON FUNCTION tr_topics_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4052 (class 0 OID 0)
--- Dependencies: 666
+-- TOC entry 4050 (class 0 OID 0)
+-- Dependencies: 661
 -- Name: tr_valutations_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19201,8 +19074,8 @@ GRANT ALL ON FUNCTION tr_valutations_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4053 (class 0 OID 0)
--- Dependencies: 659
+-- TOC entry 4051 (class 0 OID 0)
+-- Dependencies: 694
 -- Name: tr_valutations_qualificationtions_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19211,8 +19084,8 @@ GRANT ALL ON FUNCTION tr_valutations_qualificationtions_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4054 (class 0 OID 0)
--- Dependencies: 667
+-- TOC entry 4052 (class 0 OID 0)
+-- Dependencies: 695
 -- Name: tr_weekly_timetables_days_iu(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19221,8 +19094,8 @@ GRANT ALL ON FUNCTION tr_weekly_timetables_days_iu() TO scuola247_user;
 
 
 --
--- TOC entry 4055 (class 0 OID 0)
--- Dependencies: 668
+-- TOC entry 4053 (class 0 OID 0)
+-- Dependencies: 696
 -- Name: uno_nei_ruoli(character varying[]); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19231,8 +19104,8 @@ GRANT ALL ON FUNCTION uno_nei_ruoli(p_ruoli character varying[]) TO scuola247_us
 
 
 --
--- TOC entry 4056 (class 0 OID 0)
--- Dependencies: 669
+-- TOC entry 4054 (class 0 OID 0)
+-- Dependencies: 697
 -- Name: update_person_photo_and_thumbnail(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19241,8 +19114,8 @@ GRANT ALL ON FUNCTION update_person_photo_and_thumbnail() TO scuola247_user;
 
 
 --
--- TOC entry 4057 (class 0 OID 0)
--- Dependencies: 670
+-- TOC entry 4055 (class 0 OID 0)
+-- Dependencies: 698
 -- Name: valutations_del(bigint, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19251,8 +19124,8 @@ GRANT ALL ON FUNCTION valutations_del(p_rv bigint, p_valutation bigint) TO scuol
 
 
 --
--- TOC entry 4058 (class 0 OID 0)
--- Dependencies: 671
+-- TOC entry 4056 (class 0 OID 0)
+-- Dependencies: 699
 -- Name: valutations_ex_by_classroom_teacher_subject(bigint, bigint, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19261,8 +19134,8 @@ GRANT ALL ON FUNCTION valutations_ex_by_classroom_teacher_subject(p_classroom bi
 
 
 --
--- TOC entry 4059 (class 0 OID 0)
--- Dependencies: 672
+-- TOC entry 4057 (class 0 OID 0)
+-- Dependencies: 700
 -- Name: valutations_ins(bigint, bigint, bigint, bigint, bigint, bigint, character varying, boolean, bigint, date); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19271,8 +19144,8 @@ GRANT ALL ON FUNCTION valutations_ins(OUT p_rv bigint, OUT p_valutation bigint, 
 
 
 --
--- TOC entry 4060 (class 0 OID 0)
--- Dependencies: 674
+-- TOC entry 4058 (class 0 OID 0)
+-- Dependencies: 701
 -- Name: valutations_ins_note(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19281,8 +19154,8 @@ GRANT ALL ON FUNCTION valutations_ins_note(OUT p_rv bigint, OUT p_note bigint, p
 
 
 --
--- TOC entry 4061 (class 0 OID 0)
--- Dependencies: 675
+-- TOC entry 4059 (class 0 OID 0)
+-- Dependencies: 702
 -- Name: valutations_sel(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19291,8 +19164,8 @@ GRANT ALL ON FUNCTION valutations_sel(OUT p_rv bigint, p_valutation bigint, OUT 
 
 
 --
--- TOC entry 4062 (class 0 OID 0)
--- Dependencies: 676
+-- TOC entry 4060 (class 0 OID 0)
+-- Dependencies: 703
 -- Name: valutations_upd(bigint, bigint, character varying, boolean, boolean); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19301,8 +19174,8 @@ GRANT ALL ON FUNCTION valutations_upd(p_rv bigint, p_valutation bigint, p_evalua
 
 
 --
--- TOC entry 4063 (class 0 OID 0)
--- Dependencies: 678
+-- TOC entry 4061 (class 0 OID 0)
+-- Dependencies: 704
 -- Name: valutations_upd_grade(bigint, bigint, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19311,8 +19184,8 @@ GRANT ALL ON FUNCTION valutations_upd_grade(p_rv bigint, p_valutation bigint, p_
 
 
 --
--- TOC entry 4065 (class 0 OID 0)
--- Dependencies: 204
+-- TOC entry 4063 (class 0 OID 0)
+-- Dependencies: 212
 -- Name: pk_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19320,8 +19193,8 @@ GRANT ALL ON SEQUENCE pk_seq TO scuola247_manager;
 
 
 --
--- TOC entry 4066 (class 0 OID 0)
--- Dependencies: 205
+-- TOC entry 4064 (class 0 OID 0)
+-- Dependencies: 213
 -- Name: branches; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19329,8 +19202,8 @@ GRANT ALL ON TABLE branches TO scuola247_manager;
 
 
 --
--- TOC entry 4067 (class 0 OID 0)
--- Dependencies: 206
+-- TOC entry 4065 (class 0 OID 0)
+-- Dependencies: 214
 -- Name: classrooms; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19338,8 +19211,8 @@ GRANT ALL ON TABLE classrooms TO scuola247_manager;
 
 
 --
--- TOC entry 4069 (class 0 OID 0)
--- Dependencies: 207
+-- TOC entry 4067 (class 0 OID 0)
+-- Dependencies: 215
 -- Name: school_years; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19347,8 +19220,8 @@ GRANT ALL ON TABLE school_years TO scuola247_manager;
 
 
 --
--- TOC entry 4077 (class 0 OID 0)
--- Dependencies: 208
+-- TOC entry 4075 (class 0 OID 0)
+-- Dependencies: 216
 -- Name: schools; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19358,8 +19231,8 @@ GRANT ALL ON TABLE schools TO scuola247_user;
 
 
 --
--- TOC entry 4078 (class 0 OID 0)
--- Dependencies: 209
+-- TOC entry 4076 (class 0 OID 0)
+-- Dependencies: 217
 -- Name: classrooms_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19368,8 +19241,8 @@ GRANT ALL ON TABLE classrooms_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4079 (class 0 OID 0)
--- Dependencies: 679
+-- TOC entry 4077 (class 0 OID 0)
+-- Dependencies: 705
 -- Name: w_classrooms_ex(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19378,8 +19251,8 @@ GRANT ALL ON FUNCTION w_classrooms_ex() TO scuola247_user;
 
 
 --
--- TOC entry 4082 (class 0 OID 0)
--- Dependencies: 210
+-- TOC entry 4080 (class 0 OID 0)
+-- Dependencies: 218
 -- Name: absences; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19387,8 +19260,8 @@ GRANT ALL ON TABLE absences TO scuola247_manager;
 
 
 --
--- TOC entry 4085 (class 0 OID 0)
--- Dependencies: 211
+-- TOC entry 4083 (class 0 OID 0)
+-- Dependencies: 219
 -- Name: classrooms_students; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19396,8 +19269,8 @@ GRANT ALL ON TABLE classrooms_students TO scuola247_manager;
 
 
 --
--- TOC entry 4087 (class 0 OID 0)
--- Dependencies: 212
+-- TOC entry 4085 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: absences_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19405,8 +19278,8 @@ GRANT ALL ON TABLE absences_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4089 (class 0 OID 0)
--- Dependencies: 213
+-- TOC entry 4087 (class 0 OID 0)
+-- Dependencies: 221
 -- Name: absences_not_explanated_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19414,8 +19287,8 @@ GRANT ALL ON TABLE absences_not_explanated_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4090 (class 0 OID 0)
--- Dependencies: 214
+-- TOC entry 4088 (class 0 OID 0)
+-- Dependencies: 222
 -- Name: cities; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19423,8 +19296,8 @@ GRANT ALL ON TABLE cities TO scuola247_manager;
 
 
 --
--- TOC entry 4092 (class 0 OID 0)
--- Dependencies: 215
+-- TOC entry 4090 (class 0 OID 0)
+-- Dependencies: 223
 -- Name: delays; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19432,8 +19305,8 @@ GRANT ALL ON TABLE delays TO scuola247_manager;
 
 
 --
--- TOC entry 4094 (class 0 OID 0)
--- Dependencies: 216
+-- TOC entry 4092 (class 0 OID 0)
+-- Dependencies: 224
 -- Name: delays_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19441,8 +19314,8 @@ GRANT ALL ON TABLE delays_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4096 (class 0 OID 0)
--- Dependencies: 217
+-- TOC entry 4094 (class 0 OID 0)
+-- Dependencies: 225
 -- Name: delays_not_explained_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19450,8 +19323,8 @@ GRANT ALL ON TABLE delays_not_explained_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4098 (class 0 OID 0)
--- Dependencies: 218
+-- TOC entry 4096 (class 0 OID 0)
+-- Dependencies: 226
 -- Name: leavings; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19459,8 +19332,8 @@ GRANT ALL ON TABLE leavings TO scuola247_manager;
 
 
 --
--- TOC entry 4100 (class 0 OID 0)
--- Dependencies: 219
+-- TOC entry 4098 (class 0 OID 0)
+-- Dependencies: 227
 -- Name: leavings_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19468,8 +19341,8 @@ GRANT ALL ON TABLE leavings_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4102 (class 0 OID 0)
--- Dependencies: 220
+-- TOC entry 4100 (class 0 OID 0)
+-- Dependencies: 228
 -- Name: leavings_not_explained_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19477,8 +19350,8 @@ GRANT ALL ON TABLE leavings_not_explained_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4107 (class 0 OID 0)
--- Dependencies: 221
+-- TOC entry 4105 (class 0 OID 0)
+-- Dependencies: 229
 -- Name: notes; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19486,8 +19359,8 @@ GRANT ALL ON TABLE notes TO scuola247_manager;
 
 
 --
--- TOC entry 4109 (class 0 OID 0)
--- Dependencies: 222
+-- TOC entry 4107 (class 0 OID 0)
+-- Dependencies: 230
 -- Name: notes_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19495,8 +19368,8 @@ GRANT ALL ON TABLE notes_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4113 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 4111 (class 0 OID 0)
+-- Dependencies: 231
 -- Name: out_of_classrooms; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19504,8 +19377,8 @@ GRANT ALL ON TABLE out_of_classrooms TO scuola247_manager;
 
 
 --
--- TOC entry 4115 (class 0 OID 0)
--- Dependencies: 224
+-- TOC entry 4113 (class 0 OID 0)
+-- Dependencies: 232
 -- Name: out_of_classrooms_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19513,8 +19386,8 @@ GRANT ALL ON TABLE out_of_classrooms_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4117 (class 0 OID 0)
--- Dependencies: 225
+-- TOC entry 4115 (class 0 OID 0)
+-- Dependencies: 233
 -- Name: persons; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19522,8 +19395,8 @@ GRANT ALL ON TABLE persons TO scuola247_manager;
 
 
 --
--- TOC entry 4118 (class 0 OID 0)
--- Dependencies: 226
+-- TOC entry 4116 (class 0 OID 0)
+-- Dependencies: 234
 -- Name: classrooms_students_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19531,8 +19404,8 @@ GRANT ALL ON TABLE classrooms_students_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4119 (class 0 OID 0)
--- Dependencies: 680
+-- TOC entry 4117 (class 0 OID 0)
+-- Dependencies: 706
 -- Name: w_classrooms_students_ex(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19541,8 +19414,8 @@ GRANT ALL ON FUNCTION w_classrooms_students_ex() TO scuola247_user;
 
 
 --
--- TOC entry 4120 (class 0 OID 0)
--- Dependencies: 227
+-- TOC entry 4118 (class 0 OID 0)
+-- Dependencies: 235
 -- Name: subjects; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19550,8 +19423,8 @@ GRANT ALL ON TABLE subjects TO scuola247_manager;
 
 
 --
--- TOC entry 4124 (class 0 OID 0)
--- Dependencies: 228
+-- TOC entry 4122 (class 0 OID 0)
+-- Dependencies: 236
 -- Name: valutations; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19559,8 +19432,8 @@ GRANT ALL ON TABLE valutations TO scuola247_manager;
 
 
 --
--- TOC entry 4125 (class 0 OID 0)
--- Dependencies: 229
+-- TOC entry 4123 (class 0 OID 0)
+-- Dependencies: 237
 -- Name: classrooms_teachers_subjects_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19568,8 +19441,8 @@ GRANT ALL ON TABLE classrooms_teachers_subjects_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4126 (class 0 OID 0)
--- Dependencies: 230
+-- TOC entry 4124 (class 0 OID 0)
+-- Dependencies: 238
 -- Name: weekly_timetable; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19577,8 +19450,8 @@ GRANT ALL ON TABLE weekly_timetable TO scuola247_manager;
 
 
 --
--- TOC entry 4127 (class 0 OID 0)
--- Dependencies: 231
+-- TOC entry 4125 (class 0 OID 0)
+-- Dependencies: 239
 -- Name: weekly_timetable_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19586,8 +19459,8 @@ GRANT ALL ON TABLE weekly_timetable_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4128 (class 0 OID 0)
--- Dependencies: 673
+-- TOC entry 4126 (class 0 OID 0)
+-- Dependencies: 707
 -- Name: w_weekly_timetable_ex(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19596,8 +19469,8 @@ GRANT ALL ON FUNCTION w_weekly_timetable_ex() TO scuola247_user;
 
 
 --
--- TOC entry 4131 (class 0 OID 0)
--- Dependencies: 232
+-- TOC entry 4129 (class 0 OID 0)
+-- Dependencies: 240
 -- Name: weekly_timetables_days; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19605,8 +19478,8 @@ GRANT ALL ON TABLE weekly_timetables_days TO scuola247_manager;
 
 
 --
--- TOC entry 4132 (class 0 OID 0)
--- Dependencies: 233
+-- TOC entry 4130 (class 0 OID 0)
+-- Dependencies: 241
 -- Name: weekly_timetables_days_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19614,8 +19487,8 @@ GRANT ALL ON TABLE weekly_timetables_days_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4133 (class 0 OID 0)
--- Dependencies: 677
+-- TOC entry 4131 (class 0 OID 0)
+-- Dependencies: 708
 -- Name: w_weekly_timetables_days_ex(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19624,8 +19497,8 @@ GRANT ALL ON FUNCTION w_weekly_timetables_days_ex() TO scuola247_user;
 
 
 --
--- TOC entry 4134 (class 0 OID 0)
--- Dependencies: 681
+-- TOC entry 4132 (class 0 OID 0)
+-- Dependencies: 709
 -- Name: weekly_timetable_xt_subject(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19634,8 +19507,8 @@ GRANT ALL ON FUNCTION weekly_timetable_xt_subject(p_weekly_timetable bigint) TO 
 
 
 --
--- TOC entry 4135 (class 0 OID 0)
--- Dependencies: 682
+-- TOC entry 4133 (class 0 OID 0)
+-- Dependencies: 710
 -- Name: weekly_timetable_xt_teacher(bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19644,8 +19517,8 @@ GRANT ALL ON FUNCTION weekly_timetable_xt_teacher(p_weekly_timetable bigint) TO 
 
 
 --
--- TOC entry 4137 (class 0 OID 0)
--- Dependencies: 683
+-- TOC entry 4135 (class 0 OID 0)
+-- Dependencies: 711
 -- Name: where_sequence(text, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19654,8 +19527,8 @@ GRANT ALL ON FUNCTION where_sequence(name text, search_value bigint) TO scuola24
 
 
 --
--- TOC entry 4146 (class 0 OID 0)
--- Dependencies: 704
+-- TOC entry 4142 (class 0 OID 0)
+-- Dependencies: 712
 -- Name: work_spaces_del(bigint, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19664,8 +19537,8 @@ GRANT ALL ON FUNCTION work_spaces_del(p_rv bigint, p_work_space bigint) TO scuol
 
 
 --
--- TOC entry 4147 (class 0 OID 0)
--- Dependencies: 705
+-- TOC entry 4143 (class 0 OID 0)
+-- Dependencies: 713
 -- Name: work_spaces_ins(character varying, bigint, bigint, bigint, bigint, bigint, bigint, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19674,8 +19547,8 @@ GRANT ALL ON FUNCTION work_spaces_ins(OUT p_rv bigint, OUT p_work_space bigint, 
 
 
 --
--- TOC entry 4148 (class 0 OID 0)
--- Dependencies: 706
+-- TOC entry 4144 (class 0 OID 0)
+-- Dependencies: 714
 -- Name: work_spaces_list(); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19684,8 +19557,8 @@ GRANT ALL ON FUNCTION work_spaces_list() TO scuola247_user;
 
 
 --
--- TOC entry 4149 (class 0 OID 0)
--- Dependencies: 707
+-- TOC entry 4145 (class 0 OID 0)
+-- Dependencies: 715
 -- Name: work_spaces_upd(bigint, bigint, character varying, bigint, bigint, bigint, bigint, bigint, bigint, bigint); Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19696,8 +19569,8 @@ GRANT ALL ON FUNCTION work_spaces_upd(p_rv bigint, p_work_space bigint, p_descri
 SET search_path = unit_testing, pg_catalog;
 
 --
--- TOC entry 4151 (class 0 OID 0)
--- Dependencies: 708
+-- TOC entry 4147 (class 0 OID 0)
+-- Dependencies: 716
 -- Name: tr_dependencies_iu(); Type: ACL; Schema: unit_testing; Owner: postgres
 --
 
@@ -19709,8 +19582,8 @@ GRANT ALL ON FUNCTION tr_dependencies_iu() TO scuola247_manager;
 SET search_path = utility, pg_catalog;
 
 --
--- TOC entry 4154 (class 0 OID 0)
--- Dependencies: 709
+-- TOC entry 4150 (class 0 OID 0)
+-- Dependencies: 717
 -- Name: count_value(text, text, text); Type: ACL; Schema: utility; Owner: postgres
 --
 
@@ -19721,8 +19594,8 @@ GRANT ALL ON FUNCTION count_value(search_db text, search_schema text, search_tab
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 4163 (class 0 OID 0)
--- Dependencies: 237
+-- TOC entry 4159 (class 0 OID 0)
+-- Dependencies: 245
 -- Name: absences_certified_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19730,8 +19603,8 @@ GRANT ALL ON TABLE absences_certified_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4172 (class 0 OID 0)
--- Dependencies: 239
+-- TOC entry 4168 (class 0 OID 0)
+-- Dependencies: 247
 -- Name: explanations; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19739,8 +19612,8 @@ GRANT ALL ON TABLE explanations TO scuola247_manager;
 
 
 --
--- TOC entry 4173 (class 0 OID 0)
--- Dependencies: 240
+-- TOC entry 4169 (class 0 OID 0)
+-- Dependencies: 248
 -- Name: absences_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19748,8 +19621,8 @@ GRANT ALL ON TABLE absences_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4175 (class 0 OID 0)
--- Dependencies: 241
+-- TOC entry 4171 (class 0 OID 0)
+-- Dependencies: 249
 -- Name: absences_month_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19757,8 +19630,8 @@ GRANT ALL ON TABLE absences_month_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4177 (class 0 OID 0)
--- Dependencies: 242
+-- TOC entry 4173 (class 0 OID 0)
+-- Dependencies: 250
 -- Name: delays_month_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19766,8 +19639,8 @@ GRANT ALL ON TABLE delays_month_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4178 (class 0 OID 0)
--- Dependencies: 243
+-- TOC entry 4174 (class 0 OID 0)
+-- Dependencies: 251
 -- Name: leavings_month_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19775,8 +19648,8 @@ GRANT ALL ON TABLE leavings_month_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4179 (class 0 OID 0)
--- Dependencies: 244
+-- TOC entry 4175 (class 0 OID 0)
+-- Dependencies: 252
 -- Name: notes_month_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19784,8 +19657,8 @@ GRANT ALL ON TABLE notes_month_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4180 (class 0 OID 0)
--- Dependencies: 245
+-- TOC entry 4176 (class 0 OID 0)
+-- Dependencies: 253
 -- Name: out_of_classrooms_month_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19793,8 +19666,8 @@ GRANT ALL ON TABLE out_of_classrooms_month_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4181 (class 0 OID 0)
--- Dependencies: 246
+-- TOC entry 4177 (class 0 OID 0)
+-- Dependencies: 254
 -- Name: classbooks_month_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19802,8 +19675,8 @@ GRANT ALL ON TABLE classbooks_month_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4182 (class 0 OID 0)
--- Dependencies: 247
+-- TOC entry 4178 (class 0 OID 0)
+-- Dependencies: 255
 -- Name: persons_addresses; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19811,8 +19684,8 @@ GRANT ALL ON TABLE persons_addresses TO scuola247_manager;
 
 
 --
--- TOC entry 4183 (class 0 OID 0)
--- Dependencies: 248
+-- TOC entry 4179 (class 0 OID 0)
+-- Dependencies: 256
 -- Name: classrooms_students_addresses_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19820,8 +19693,8 @@ GRANT ALL ON TABLE classrooms_students_addresses_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4188 (class 0 OID 0)
--- Dependencies: 249
+-- TOC entry 4184 (class 0 OID 0)
+-- Dependencies: 257
 -- Name: lessons; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19829,8 +19702,8 @@ GRANT ALL ON TABLE lessons TO scuola247_manager;
 
 
 --
--- TOC entry 4189 (class 0 OID 0)
--- Dependencies: 250
+-- TOC entry 4185 (class 0 OID 0)
+-- Dependencies: 258
 -- Name: classrooms_teachers; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19838,8 +19711,8 @@ GRANT ALL ON TABLE classrooms_teachers TO scuola247_manager;
 
 
 --
--- TOC entry 4191 (class 0 OID 0)
--- Dependencies: 251
+-- TOC entry 4187 (class 0 OID 0)
+-- Dependencies: 259
 -- Name: delays_certified_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19847,8 +19720,8 @@ GRANT ALL ON TABLE delays_certified_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4193 (class 0 OID 0)
--- Dependencies: 252
+-- TOC entry 4189 (class 0 OID 0)
+-- Dependencies: 260
 -- Name: leavings_certified_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19856,8 +19729,8 @@ GRANT ALL ON TABLE leavings_certified_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4195 (class 0 OID 0)
--- Dependencies: 253
+-- TOC entry 4191 (class 0 OID 0)
+-- Dependencies: 261
 -- Name: lessons_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19865,8 +19738,8 @@ GRANT ALL ON TABLE lessons_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4196 (class 0 OID 0)
--- Dependencies: 254
+-- TOC entry 4192 (class 0 OID 0)
+-- Dependencies: 262
 -- Name: notes_iussed_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19874,8 +19747,8 @@ GRANT ALL ON TABLE notes_iussed_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4198 (class 0 OID 0)
--- Dependencies: 255
+-- TOC entry 4194 (class 0 OID 0)
+-- Dependencies: 263
 -- Name: out_of_classrooms_certified_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19883,8 +19756,8 @@ GRANT ALL ON TABLE out_of_classrooms_certified_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4199 (class 0 OID 0)
--- Dependencies: 256
+-- TOC entry 4195 (class 0 OID 0)
+-- Dependencies: 264
 -- Name: signatures; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19892,8 +19765,8 @@ GRANT ALL ON TABLE signatures TO scuola247_manager;
 
 
 --
--- TOC entry 4201 (class 0 OID 0)
--- Dependencies: 257
+-- TOC entry 4197 (class 0 OID 0)
+-- Dependencies: 265
 -- Name: signatures_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19901,8 +19774,8 @@ GRANT ALL ON TABLE signatures_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4202 (class 0 OID 0)
--- Dependencies: 258
+-- TOC entry 4198 (class 0 OID 0)
+-- Dependencies: 266
 -- Name: classrooms_teachers_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19910,8 +19783,8 @@ GRANT ALL ON TABLE classrooms_teachers_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4203 (class 0 OID 0)
--- Dependencies: 259
+-- TOC entry 4199 (class 0 OID 0)
+-- Dependencies: 267
 -- Name: classrooms_teachers_subject; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19919,8 +19792,8 @@ GRANT ALL ON TABLE classrooms_teachers_subject TO scuola247_manager;
 
 
 --
--- TOC entry 4206 (class 0 OID 0)
--- Dependencies: 260
+-- TOC entry 4202 (class 0 OID 0)
+-- Dependencies: 268
 -- Name: communication_types; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19928,8 +19801,8 @@ GRANT ALL ON TABLE communication_types TO scuola247_manager;
 
 
 --
--- TOC entry 4208 (class 0 OID 0)
--- Dependencies: 261
+-- TOC entry 4204 (class 0 OID 0)
+-- Dependencies: 269
 -- Name: communications_media; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19937,8 +19810,8 @@ GRANT ALL ON TABLE communications_media TO scuola247_manager;
 
 
 --
--- TOC entry 4212 (class 0 OID 0)
--- Dependencies: 262
+-- TOC entry 4208 (class 0 OID 0)
+-- Dependencies: 270
 -- Name: conversations; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19946,8 +19819,8 @@ GRANT ALL ON TABLE conversations TO scuola247_manager;
 
 
 --
--- TOC entry 4214 (class 0 OID 0)
--- Dependencies: 263
+-- TOC entry 4210 (class 0 OID 0)
+-- Dependencies: 271
 -- Name: conversations_invites; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19955,8 +19828,8 @@ GRANT ALL ON TABLE conversations_invites TO scuola247_manager;
 
 
 --
--- TOC entry 4215 (class 0 OID 0)
--- Dependencies: 264
+-- TOC entry 4211 (class 0 OID 0)
+-- Dependencies: 272
 -- Name: countries; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19964,8 +19837,8 @@ GRANT ALL ON TABLE countries TO scuola247_manager;
 
 
 --
--- TOC entry 4217 (class 0 OID 0)
--- Dependencies: 265
+-- TOC entry 4213 (class 0 OID 0)
+-- Dependencies: 273
 -- Name: degrees; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19973,8 +19846,8 @@ GRANT ALL ON TABLE degrees TO scuola247_manager;
 
 
 --
--- TOC entry 4218 (class 0 OID 0)
--- Dependencies: 266
+-- TOC entry 4214 (class 0 OID 0)
+-- Dependencies: 274
 -- Name: delays_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19982,8 +19855,8 @@ GRANT ALL ON TABLE delays_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4219 (class 0 OID 0)
--- Dependencies: 267
+-- TOC entry 4215 (class 0 OID 0)
+-- Dependencies: 275
 -- Name: districts; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -19991,8 +19864,8 @@ GRANT ALL ON TABLE districts TO scuola247_manager;
 
 
 --
--- TOC entry 4221 (class 0 OID 0)
--- Dependencies: 268
+-- TOC entry 4217 (class 0 OID 0)
+-- Dependencies: 276
 -- Name: faults; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20000,8 +19873,8 @@ GRANT ALL ON TABLE faults TO scuola247_manager;
 
 
 --
--- TOC entry 4223 (class 0 OID 0)
--- Dependencies: 269
+-- TOC entry 4219 (class 0 OID 0)
+-- Dependencies: 277
 -- Name: faults_grp; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20009,8 +19882,8 @@ GRANT ALL ON TABLE faults_grp TO scuola247_manager;
 
 
 --
--- TOC entry 4225 (class 0 OID 0)
--- Dependencies: 270
+-- TOC entry 4221 (class 0 OID 0)
+-- Dependencies: 278
 -- Name: grade_types; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20018,8 +19891,8 @@ GRANT ALL ON TABLE grade_types TO scuola247_manager;
 
 
 --
--- TOC entry 4227 (class 0 OID 0)
--- Dependencies: 271
+-- TOC entry 4223 (class 0 OID 0)
+-- Dependencies: 279
 -- Name: grades; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20027,8 +19900,8 @@ GRANT ALL ON TABLE grades TO scuola247_manager;
 
 
 --
--- TOC entry 4230 (class 0 OID 0)
--- Dependencies: 272
+-- TOC entry 4226 (class 0 OID 0)
+-- Dependencies: 280
 -- Name: grading_meetings; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20036,8 +19909,8 @@ GRANT ALL ON TABLE grading_meetings TO scuola247_manager;
 
 
 --
--- TOC entry 4236 (class 0 OID 0)
--- Dependencies: 273
+-- TOC entry 4232 (class 0 OID 0)
+-- Dependencies: 281
 -- Name: grading_meetings_valutations; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20045,8 +19918,8 @@ GRANT ALL ON TABLE grading_meetings_valutations TO scuola247_manager;
 
 
 --
--- TOC entry 4237 (class 0 OID 0)
--- Dependencies: 274
+-- TOC entry 4233 (class 0 OID 0)
+-- Dependencies: 282
 -- Name: grading_meetings_valutations_qua; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20054,8 +19927,8 @@ GRANT ALL ON TABLE grading_meetings_valutations_qua TO scuola247_manager;
 
 
 --
--- TOC entry 4238 (class 0 OID 0)
--- Dependencies: 275
+-- TOC entry 4234 (class 0 OID 0)
+-- Dependencies: 283
 -- Name: holydays; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20063,8 +19936,8 @@ GRANT ALL ON TABLE holydays TO scuola247_manager;
 
 
 --
--- TOC entry 4239 (class 0 OID 0)
--- Dependencies: 276
+-- TOC entry 4235 (class 0 OID 0)
+-- Dependencies: 284
 -- Name: leavings_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20072,8 +19945,8 @@ GRANT ALL ON TABLE leavings_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4240 (class 0 OID 0)
--- Dependencies: 277
+-- TOC entry 4236 (class 0 OID 0)
+-- Dependencies: 285
 -- Name: lessons_days; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20081,8 +19954,8 @@ GRANT ALL ON TABLE lessons_days TO scuola247_manager;
 
 
 --
--- TOC entry 4241 (class 0 OID 0)
--- Dependencies: 278
+-- TOC entry 4237 (class 0 OID 0)
+-- Dependencies: 286
 -- Name: lessons_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20090,8 +19963,8 @@ GRANT ALL ON TABLE lessons_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4243 (class 0 OID 0)
--- Dependencies: 279
+-- TOC entry 4239 (class 0 OID 0)
+-- Dependencies: 287
 -- Name: messages; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20099,8 +19972,8 @@ GRANT ALL ON TABLE messages TO scuola247_manager;
 
 
 --
--- TOC entry 4245 (class 0 OID 0)
--- Dependencies: 280
+-- TOC entry 4241 (class 0 OID 0)
+-- Dependencies: 288
 -- Name: messages_read; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20108,8 +19981,8 @@ GRANT ALL ON TABLE messages_read TO scuola247_manager;
 
 
 --
--- TOC entry 4247 (class 0 OID 0)
--- Dependencies: 281
+-- TOC entry 4243 (class 0 OID 0)
+-- Dependencies: 289
 -- Name: metrics; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20117,8 +19990,8 @@ GRANT ALL ON TABLE metrics TO scuola247_manager;
 
 
 --
--- TOC entry 4248 (class 0 OID 0)
--- Dependencies: 282
+-- TOC entry 4244 (class 0 OID 0)
+-- Dependencies: 290
 -- Name: notes_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20126,8 +19999,8 @@ GRANT ALL ON TABLE notes_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4251 (class 0 OID 0)
--- Dependencies: 283
+-- TOC entry 4247 (class 0 OID 0)
+-- Dependencies: 291
 -- Name: notes_signed; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20135,8 +20008,8 @@ GRANT ALL ON TABLE notes_signed TO scuola247_manager;
 
 
 --
--- TOC entry 4252 (class 0 OID 0)
--- Dependencies: 284
+-- TOC entry 4248 (class 0 OID 0)
+-- Dependencies: 292
 -- Name: notes_signed_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20144,8 +20017,8 @@ GRANT ALL ON TABLE notes_signed_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4253 (class 0 OID 0)
--- Dependencies: 285
+-- TOC entry 4249 (class 0 OID 0)
+-- Dependencies: 293
 -- Name: out_of_classrooms_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20153,8 +20026,8 @@ GRANT ALL ON TABLE out_of_classrooms_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4258 (class 0 OID 0)
--- Dependencies: 286
+-- TOC entry 4254 (class 0 OID 0)
+-- Dependencies: 294
 -- Name: parents_meetings; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20162,8 +20035,8 @@ GRANT ALL ON TABLE parents_meetings TO scuola247_manager;
 
 
 --
--- TOC entry 4262 (class 0 OID 0)
--- Dependencies: 287
+-- TOC entry 4258 (class 0 OID 0)
+-- Dependencies: 295
 -- Name: persons_relations; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20171,8 +20044,8 @@ GRANT ALL ON TABLE persons_relations TO scuola247_manager;
 
 
 --
--- TOC entry 4265 (class 0 OID 0)
--- Dependencies: 289
+-- TOC entry 4261 (class 0 OID 0)
+-- Dependencies: 297
 -- Name: qualificationtions; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20180,8 +20053,8 @@ GRANT ALL ON TABLE qualificationtions TO scuola247_manager;
 
 
 --
--- TOC entry 4267 (class 0 OID 0)
--- Dependencies: 290
+-- TOC entry 4263 (class 0 OID 0)
+-- Dependencies: 298
 -- Name: qualificationtions_plan; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20189,8 +20062,8 @@ GRANT ALL ON TABLE qualificationtions_plan TO scuola247_manager;
 
 
 --
--- TOC entry 4268 (class 0 OID 0)
--- Dependencies: 291
+-- TOC entry 4264 (class 0 OID 0)
+-- Dependencies: 299
 -- Name: regions; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20198,8 +20071,8 @@ GRANT ALL ON TABLE regions TO scuola247_manager;
 
 
 --
--- TOC entry 4269 (class 0 OID 0)
--- Dependencies: 292
+-- TOC entry 4265 (class 0 OID 0)
+-- Dependencies: 300
 -- Name: residence_grp_city; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20207,8 +20080,8 @@ GRANT ALL ON TABLE residence_grp_city TO scuola247_manager;
 
 
 --
--- TOC entry 4270 (class 0 OID 0)
--- Dependencies: 293
+-- TOC entry 4266 (class 0 OID 0)
+-- Dependencies: 301
 -- Name: schools_school_years_classrooms_weekly_timetable; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20216,8 +20089,8 @@ GRANT ALL ON TABLE schools_school_years_classrooms_weekly_timetable TO scuola247
 
 
 --
--- TOC entry 4271 (class 0 OID 0)
--- Dependencies: 294
+-- TOC entry 4267 (class 0 OID 0)
+-- Dependencies: 302
 -- Name: signatures_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20225,8 +20098,8 @@ GRANT ALL ON TABLE signatures_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4272 (class 0 OID 0)
--- Dependencies: 295
+-- TOC entry 4268 (class 0 OID 0)
+-- Dependencies: 303
 -- Name: system_messages; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20234,8 +20107,8 @@ GRANT ALL ON TABLE system_messages TO scuola247_manager;
 
 
 --
--- TOC entry 4274 (class 0 OID 0)
--- Dependencies: 296
+-- TOC entry 4270 (class 0 OID 0)
+-- Dependencies: 304
 -- Name: teachears_notes; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20243,8 +20116,8 @@ GRANT ALL ON TABLE teachears_notes TO scuola247_manager;
 
 
 --
--- TOC entry 4275 (class 0 OID 0)
--- Dependencies: 297
+-- TOC entry 4271 (class 0 OID 0)
+-- Dependencies: 305
 -- Name: teachers_classbooks_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20252,8 +20125,8 @@ GRANT ALL ON TABLE teachers_classbooks_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4276 (class 0 OID 0)
--- Dependencies: 298
+-- TOC entry 4272 (class 0 OID 0)
+-- Dependencies: 306
 -- Name: teachers_lessons_signatures_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20261,8 +20134,8 @@ GRANT ALL ON TABLE teachers_lessons_signatures_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4278 (class 0 OID 0)
--- Dependencies: 299
+-- TOC entry 4274 (class 0 OID 0)
+-- Dependencies: 307
 -- Name: topics; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20270,8 +20143,8 @@ GRANT ALL ON TABLE topics TO scuola247_manager;
 
 
 --
--- TOC entry 4281 (class 0 OID 0)
--- Dependencies: 300
+-- TOC entry 4277 (class 0 OID 0)
+-- Dependencies: 308
 -- Name: usenames_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20279,8 +20152,8 @@ GRANT ALL ON TABLE usenames_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4282 (class 0 OID 0)
--- Dependencies: 301
+-- TOC entry 4278 (class 0 OID 0)
+-- Dependencies: 309
 -- Name: usenames_rolnames; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20288,8 +20161,8 @@ GRANT ALL ON TABLE usenames_rolnames TO scuola247_manager;
 
 
 --
--- TOC entry 4283 (class 0 OID 0)
--- Dependencies: 302
+-- TOC entry 4279 (class 0 OID 0)
+-- Dependencies: 310
 -- Name: valutations_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20297,8 +20170,8 @@ GRANT ALL ON TABLE valutations_ex TO scuola247_manager;
 
 
 --
--- TOC entry 4284 (class 0 OID 0)
--- Dependencies: 303
+-- TOC entry 4280 (class 0 OID 0)
+-- Dependencies: 311
 -- Name: valutations_references; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20306,8 +20179,8 @@ GRANT ALL ON TABLE valutations_references TO scuola247_manager;
 
 
 --
--- TOC entry 4285 (class 0 OID 0)
--- Dependencies: 304
+-- TOC entry 4281 (class 0 OID 0)
+-- Dependencies: 312
 -- Name: valutations_ex_references; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20315,8 +20188,8 @@ GRANT ALL ON TABLE valutations_ex_references TO scuola247_manager;
 
 
 --
--- TOC entry 4287 (class 0 OID 0)
--- Dependencies: 305
+-- TOC entry 4283 (class 0 OID 0)
+-- Dependencies: 313
 -- Name: valutations_qualificationtions; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20324,8 +20197,8 @@ GRANT ALL ON TABLE valutations_qualificationtions TO scuola247_manager;
 
 
 --
--- TOC entry 4289 (class 0 OID 0)
--- Dependencies: 306
+-- TOC entry 4285 (class 0 OID 0)
+-- Dependencies: 314
 -- Name: valutations_stats_classrooms_students_subjects; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20333,8 +20206,8 @@ GRANT ALL ON TABLE valutations_stats_classrooms_students_subjects TO scuola247_m
 
 
 --
--- TOC entry 4290 (class 0 OID 0)
--- Dependencies: 307
+-- TOC entry 4286 (class 0 OID 0)
+-- Dependencies: 315
 -- Name: valutations_stats_classrooms_students_subjects_on_date; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20342,8 +20215,8 @@ GRANT ALL ON TABLE valutations_stats_classrooms_students_subjects_on_date TO scu
 
 
 --
--- TOC entry 4291 (class 0 OID 0)
--- Dependencies: 308
+-- TOC entry 4287 (class 0 OID 0)
+-- Dependencies: 316
 -- Name: valutations_stats_classrooms_students_subjects_on_date_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20351,8 +20224,8 @@ GRANT ALL ON TABLE valutations_stats_classrooms_students_subjects_on_date_ex TO 
 
 
 --
--- TOC entry 4292 (class 0 OID 0)
--- Dependencies: 310
+-- TOC entry 4288 (class 0 OID 0)
+-- Dependencies: 318
 -- Name: valutations_stats_classrooms_subjects; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20360,8 +20233,8 @@ GRANT ALL ON TABLE valutations_stats_classrooms_subjects TO scuola247_manager;
 
 
 --
--- TOC entry 4294 (class 0 OID 0)
--- Dependencies: 311
+-- TOC entry 4290 (class 0 OID 0)
+-- Dependencies: 319
 -- Name: valutations_stats_classrooms_subjects_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20369,8 +20242,8 @@ GRANT ALL ON TABLE valutations_stats_classrooms_subjects_ex TO scuola247_manager
 
 
 --
--- TOC entry 4295 (class 0 OID 0)
--- Dependencies: 312
+-- TOC entry 4291 (class 0 OID 0)
+-- Dependencies: 320
 -- Name: weekly_timetable_teachers_ex; Type: ACL; Schema: public; Owner: postgres
 --
 
@@ -20380,15 +20253,15 @@ GRANT ALL ON TABLE weekly_timetable_teachers_ex TO scuola247_manager;
 SET search_path = unit_testing, pg_catalog;
 
 --
--- TOC entry 4301 (class 0 OID 0)
--- Dependencies: 324
+-- TOC entry 4297 (class 0 OID 0)
+-- Dependencies: 332
 -- Name: system_messages; Type: ACL; Schema: unit_testing; Owner: postgres
 --
 
 GRANT ALL ON TABLE system_messages TO scuola247_manager;
 
 
--- Completed on 2016-12-20 13:00:30 CET
+-- Completed on 2016-12-27 19:38:29 CET
 
 --
 -- PostgreSQL database dump complete
