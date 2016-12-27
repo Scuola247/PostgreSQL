@@ -127,7 +127,7 @@ idrato poi le colonne info, thumbnail e photo della tabella wikimedia_files
 prendendo i dati dal sito di wikimedia (dalle url ricavate dal nome file)
 il comando è il seguente
 
-SELECT public.wikimedia_2_wikimedia_files_hydration(<numero di righe da popolare>);
+SELECT public.wikimedia_2_wikimedia_files_hydration('numero di righe da popolare');
 
 Lanciate il comando tenendo presente che:
 1) e' soggetto alle condizione del sito di wikimedia e della velocità della vostra
@@ -136,8 +136,8 @@ connessione internet e quindi può non andare a buon fine.
 3) nel momento in cui scrivo queste raccomandazioni il numero di righe della tabella
 wikimedia_files è di 4099 righe
 
-personalmente ho visto che con un <numero di righe da popolare> maggiore di 500
-gli errori sono molto frequenti con <numero di righe da popolare> inferiore a 100
+personalmente ho visto che con un 'numero di righe da popolare' maggiore di 500
+gli errori sono molto frequenti con 'numero di righe da popolare' inferiore a 100
 si deve impartire il comado troppe volte.
 
 quindi personalmenteimpartisco il comando:
