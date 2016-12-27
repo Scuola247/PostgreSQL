@@ -114,31 +114,41 @@ file sistem da alcune funzioni progettate ad hoc.
 Nella prima funzione imposto a null le colonne info, photo e thumbnail 
 della tabella wikimedia_files e imposto a null le colonne photo e thumbnail 
 della tabella persons poi rimuovo, ricorsivamente, tutti i file 
-a partire dalla directory '/var/lib/scuola247/' per fare tutto questo basta eseguire:
+a partire dalla directory '/var/lib/scuola247/' 
+inoltre rimuovo tutte le righe della tabella wikimedia_files_persons.
+Per fare tutto questo basta eseguire:
 
 SELECT public.wikimedia_0_reset();
+
+riattribuisco quindi, casualmente, con il comando:
+
+SELECT public.wikimedia_1_recreate_wikimedia_files_persons();
+
+le foto dei file della tabella wikimedia_files alla tabella persons eventualmente
+riutilizzando dall'inizio le righe di wikimedia_files se non sono sufficenti a coprire
+tutte le righe della tabella persons.
 
 idrato poi le colonne info, thumbnail e photo della tabella wikimedia_files 
 prendendo i dati dal sito di wikimedia (dalle url ricavate dal nome file)
 con il comando:
 
-SELECT public.wikimedia_1_hydration(10000);
+SELECT public.wikimedia_2_hydration(10000);
 
 quindi popolo le directory a partire da '/var/lib/scuola247/wikimedia_files' 
 con il comando:
 
-SELECT public.wikimedia_2_popolate_files();
+SELECT public.wikimedia_3_popolate_files();
 
 aggiorno quindi le colonne photo e thumbnail della tabella persons 
 prendondo i dati dalla tabella wikimedia_files facendomi guidare
 dall'assegnazione fatta con la tabella wikimedia_files_persons
 eseguendo il comando:
 
-SELECT public.wikimedia_3_hydration_persons();
+SELECT public.wikimedia_4_hydration_persons();
 
 infine popolo le directory a partire da '/var/lib/scuola247/persons' 
 con il comando:
 
-SELECT public.wikimedia_4_popolate_files_persons();
+SELECT public.wikimedia_5_popolate_files_persons();
 
 Bene avete appena completato l'installazione del database di scuola247 !
