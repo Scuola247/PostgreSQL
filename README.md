@@ -132,7 +132,7 @@ idrato poi le colonne info, thumbnail e photo della tabella wikimedia_files
 prendendo i dati dal sito di wikimedia (dalle url ricavate dal nome file)
 il comando è il seguente
 
-SELECT public.wikimedia_2_hydration(<numero di righe da popolare>);
+SELECT public.wikimedia_2_wikimedia_files_hydration(<numero di righe da popolare>);
 
 Lanciate il comando tenendo presente che:
 1) e' soggetto alle condizione del sito di wikimedia e della velocità della vostra
@@ -147,25 +147,25 @@ si deve impartire il comado troppe volte.
 
 quindi personalmenteimpartisco il comando:
 
-SELECT public.wikimedia_2_hydration(100);
+SELECT piblic.wikimedia_2_wikimedia_files_hydration(100);
 
 facendo copia e incolla altre quaranta volte 
 
 quindi popolo le directory a partire da '/var/lib/scuola247/wikimedia_files' 
 con il comando:
 
-SELECT public.wikimedia_3_popolate_files();
+SELECT public.wikimedia_3_wikimedia_files_popolate_files();
 
 aggiorno quindi le colonne photo e thumbnail della tabella persons 
 prendondo i dati dalla tabella wikimedia_files facendomi guidare
 dall'assegnazione fatta con la tabella wikimedia_files_persons
 eseguendo il comando:
 
-SELECT public.wikimedia_4_hydration_persons();
+SELECT public.wikimedia_4_persons_hydration();
 
 infine popolo le directory a partire da '/var/lib/scuola247/persons' 
 con il comando:
 
-SELECT public.wikimedia_5_popolate_files_persons();
+SELECT public.wikimedia_5_persons_popolate_files();
 
 Bene avete appena completato l'installazione del database di scuola247 !
