@@ -66,20 +66,15 @@ global.sql
 
 poi creiamo il database vero e proprio con:
 
-scuola247_database-sql
+database.sql
 
 a questo punto carichiamo lo schema dati con:
 
-scuola247_schema.sql
+schema.sql
 
 infine carichiamo i dati (escluse le immagini)
 
-scuola247_data.sql
-
-a questo punto eseguite il comando per registrare 
-l'estensione HTPP (che non viene riportata nel backup):
-
-CREATE EXTENSION http;
+data.sql
 
 Poi dobbiamo sistemare le sequenze con il comando:
 
