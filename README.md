@@ -9,7 +9,7 @@ su cui poi installare PostgreSQL e quindi il database di Scuola247.
 
 per chi invece volesse qualche comodità in più ecco dove scaricare la macchina 
 virtuale già pronta: 
-https://sourceforge.net/projects/scuola247/files/ubuntu-server-1604-scuola247-noimages.zip/download
+https://sourceforge.net/projects/scuola247/files/ubuntu-server-1604-scuola247-without-images.zip/download
 l'utente del s.o. è: 'fol' con password: 'password' (le virgolette sono escluse)
 l'utente postgres è: 'postgres' con password: 'postgres' (le virgolette sono escluse)
 
