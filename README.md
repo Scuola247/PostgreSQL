@@ -7,11 +7,17 @@ Qui di seguito le istruzioni per ricreare un server ubuntu
 all'interno di una macchina virtuale VirtualBox
 su cui poi installare PostgreSQL e quindi il database di Scuola247.
 
-per chi invece volesse qualche comodità in più ecco dove scaricare la macchina 
-virtuale già pronta: 
+per chi invece volesse qualche comodità in più ecco dove scaricare una macchina 
+virtuale già pronta con il database e il filesystem senza le immagini:
+
 https://sourceforge.net/projects/scuola247/files/ubuntu-server-1604-scuola247-without-images.zip/download
+
 l'utente del s.o. è: 'fol' con password: 'password' (le virgolette sono escluse)
 l'utente postgres è: 'postgres' con password: 'postgres' (le virgolette sono escluse)
+
+questa macchina virtuale invece, ha lo stesso utente sia per il sistema operativo che per postgre ma il database è già popolato con le immagini da wikimedia:
+
+https://sourceforge.net/projects/scuola247/files/ubuntu-server-1604-scuola247-with-images.zip/download
 
 L'ambiente su cui ho fatto personalmente le prove è il seguente:
 Windows 10.1607,
