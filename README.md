@@ -161,6 +161,6 @@ SELECT public.wikimedia_4_persons_hydration();
 infine popolo le directory a partire da '/var/lib/scuola247/persons' 
 con il comando:
 
-SELECT public.wikimedia_5_persons_popolate_files();
+SELECT public.wikimedia_5_persons_popolate_files(); 
 
 Bene avete appena completato l'installazione del database di scuola247 !
