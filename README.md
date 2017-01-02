@@ -15,7 +15,8 @@ https://sourceforge.net/projects/scuola247/files/ubuntu-server-1604-scuola247-wi
 l'utente del s.o. è: 'fol' con password: 'password' (le virgolette sono escluse)
 l'utente postgres è: 'postgres' con password: 'postgres' (le virgolette sono escluse)
 
-questa macchina virtuale invece, ha lo stesso utente sia per il sistema operativo che per postgre ma il database è già popolato con le immagini da wikimedia:
+per chi non ha problemi sulle dimensini del download ho preparata anche una macchina virtuale con il database 
+già popolato con le immagini prese da da wikimedia la potete trovare qui:
 
 https://sourceforge.net/projects/scuola247/files/ubuntu-server-1604-scuola247-with-images.zip/download
 
