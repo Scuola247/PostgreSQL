@@ -110,7 +110,7 @@ a questo punto siamo pronti per caricare le immagini.
 Siccome le immagini occupano molto spazio sul db ed, ovviamente,
 anche nel backup ho deciso di svutare la tabella persons dalle immagini
 prima di fare il backup in modo che questo possa essere gestito 
-con più facilità, ad esempio caricandolo ed eseguendolo conme un qualsiasi 
+con più facilità, ad esempio caricandolo ed eseguendolo con un qualsiasi 
 altro script su pgadmin III.
 Le immagini invece vengono scaricate ed memorizzate sia sul db che sul
 file sistem da alcune funzioni progettate ad hoc.
