@@ -32,7 +32,6 @@ SET row_security = off;
 
 CREATE SCHEMA utility;
 
-
 ALTER SCHEMA utility OWNER TO postgres;
 
 --
