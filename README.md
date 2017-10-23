@@ -1,6 +1,11 @@
 PostgreSQL for Scuola247
 ========================
 
+NOTA BENE: le macchine virtuali fanno ancora riferimento alla versione precedente
+=================================================================================
+appena possibile saranno aggiornate !
+=====================================
+
 Database DCL, DDL e DML for Scuola247 on PostgreSQL
 
 Qui di seguito le istruzioni per ricreare un server ubuntu 
