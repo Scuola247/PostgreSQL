@@ -14,7 +14,7 @@ Il comando "run" può eseguire anche una verifica degli errori presenti nelle fu
 per evitare che ritornino dei dati.
 Concettualmente il comando "run" ha le seguenti fasi:
 
-1- controllo dei parametri di input
+1* controllo dei parametri di input
 2- controllo degli errori di compilazione delle functions (se richiesto)
 3- controllo delle query (se richiesto)
 4- creazione/aggiornamento albero delle dipendenze (se necessario)
