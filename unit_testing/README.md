@@ -31,7 +31,8 @@ in un apposito schema che noi abbiamo chiamato (con grande fantasia) unit_tests.
 
 Una funzione di unit test, tipicamente si scrive così:
 
-'''CREATE OR REPLACE FUNCTION unit_tests.<nome_function>(
+```
+CREATE OR REPLACE FUNCTION unit_tests.<nome_function>(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -96,4 +97,4 @@ $BODY$
   COST 100;
 ALTER FUNCTION unit_tests.schools(boolean)
   OWNER TO postgres;
-'''
+```
