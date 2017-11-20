@@ -14,17 +14,17 @@ Il comando "run" può eseguire anche una verifica degli errori presenti nelle fu
 per evitare che ritornino dei dati.
 Concettualmente il comando "run" ha le seguenti fasi:
 
-1* controllo dei parametri di input
-2- controllo degli errori di compilazione delle functions (se richiesto)
-3- controllo delle query (se richiesto)
-4- creazione/aggiornamento albero delle dipendenze (se necessario)
-5- controllo riferimenti circolari
-6- selezione delle funzioni da richiamare e l'ordine in cui farlo
-7- inizio della transazione in cui richiudere tutti i test
-8- richiamo delle funzioni di test
-9- interruzzione della transazione (abort)
-10-  memorizzazione dei risultati dei tests 
-11- visualizzazione del numero di test assegnato
+* controllo dei parametri di input
+- controllo degli errori di compilazione delle functions (se richiesto)
+- controllo delle query (se richiesto)
+- creazione/aggiornamento albero delle dipendenze (se necessario)
+- controllo riferimenti circolari
+- selezione delle funzioni da richiamare e l'ordine in cui farlo
+- inizio della transazione in cui richiudere tutti i test
+- richiamo delle funzioni di test
+- interruzzione della transazione (abort)
+-  memorizzazione dei risultati dei tests 
+- visualizzazione del numero di test assegnato
 
 Nonostante le funzioni di unti test si possano scrivere dove si vuole consigliamo di raggrupparle, come abbiamo fatto in scuola247,
 in un apposito schema che noi abbiamo chiamato (con grande fantasia) unit_tests.
