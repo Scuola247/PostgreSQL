@@ -33,6 +33,17 @@ ALTER SCHEMA datasets OWNER TO postgres;
 
 SET search_path = datasets, pg_catalog;
 
+CREATE SEQUENCE datasets.pk_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE datasets.pk_seq
+  OWNER TO postgres;
+COMMENT ON SEQUENCE datasets.pk_seq
+  IS 'a sequence for all datasets schema''s primary key';
+
 --
 -- Name: entity2char(text); Type: FUNCTION; Schema: datasets; Owner: postgres
 --
@@ -364,7 +375,7 @@ SET default_with_oids = false;
 --
 
 CREATE TABLE ip_addresses (
-    ip_address bigint DEFAULT nextval('public.pk_seq'::regclass) NOT NULL,
+    ip_address bigint DEFAULT nextval('datasets.pk_seq'::regclass) NOT NULL,
     from_ip inet NOT NULL,
     to_ip inet NOT NULL,
     country character varying(2) NOT NULL
