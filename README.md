@@ -72,7 +72,9 @@ http://www.folstuff.eu/2016/12/postgresql-check-function
 Le altre estensioni da creare nel db sono:
 
 CREATE EXTENSION adminpack;
+
 CREATE EXTENSION btree_gist;
+
 CREATE EXTENSION tablefunc;
 
 Una volta preparato l'ambiente possiamo passare al popolamento del db
@@ -87,15 +89,25 @@ global.sql
 poi creiamo il database vero e proprio eseguendo gli scipt:
 
 utility/schema.sql
+
 datasets/schema.sql
+
 datasets/data.sl
+
 translate/schema.sql
+
 translate/data.sql
+
 diagnostic/schema.sql
+
 unit_testing/schema.sql
+
 assert/schema.sql
+
 unit_tests/schema.sql
+
 public/schema.sql
+
 public/datas.sql
 
 Poi dobbiamo sistemare le sequenze con il comando:
