@@ -69,6 +69,12 @@ infine abbiamo un'estensione per il controllo sintattico delle funzioni
 come al solito qui un articolo per aiutarvi: 
 http://www.folstuff.eu/2016/12/postgresql-check-function
 
+Le altre estensioni da creare nel db sono:
+
+CREATE EXTENSION adminpack;
+CREATE EXTENSION btree_gist;
+CREATE EXTENSION tablefunc;
+
 Una volta preparato l'ambiente possiamo passare al popolamento del db
 Questo avviene con degli script che posso usare anche interattivamente
 caricandoli ed eseguendoli direttamente da pgadmin III o pgadmin4
@@ -78,17 +84,19 @@ lo script da lanciare è il seguente:
 
 global.sql
 
-poi creiamo il database vero e proprio con:
+poi creiamo il database vero e proprio eseguendo gli scipt:
 
-database.sql
-
-a questo punto carichiamo lo schema dati con:
-
-schema.sql
-
-infine carichiamo i dati (escluse le immagini)
-
-data.sql
+utility/schema.sql
+datasets/schema.sql
+datasets/data.sl
+translate/schema.sql
+translate/data.sql
+diagnostic/schema.sql
+unit_testing/schema.sql
+assert/schema.sql
+unit_tests/schema.sql
+public/schema.sql
+public/datas.sql
 
 Poi dobbiamo sistemare le sequenze con il comando:
 
