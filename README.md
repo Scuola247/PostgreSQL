@@ -39,35 +39,35 @@ Ecco quindi le istruzioni
 
 Innanzitutto bisogna installare VirtualBox
 se proprio non lo avete mai fatto qui ci sono due righe per aiutarvi
-http://www.folstuff.eu/2016/12/installazione-virtualbox/
+http://www.folstuff.eu/installazione-virtualbox/
 
 Installato VirtualBoX bisogna fare la macchina
 virtuale con sopra ubuntu server
 qui spiego nel dettaglio tutti i passaggi 
-http://www.folstuff.eu/2016/12/installazione-di-ubuntu-server-su-una-macchina-virtuale-di-virtualbox/
+http://www.folstuff.eu/installazione-di-ubuntu-server-su-una-macchina-virtuale-di-virtualbox/
 
 Poi è la volta dell'installazione di postgres
 anche per questo ho preparato una piccola guida
-http://www.folstuff.eu/2016/12/ubuntu-come-installare-postgresql
+http://www.folstuff.eu/ubuntu-come-installare-postgresql
 
 Una volta installato postgres bisogna abilitarlo ai collegamenti 
 esterni, anche qui sul mio blog ho preparato un piccolo articolo
-http://www.folstuff.eu/2014/03/postgresql-la-prima-connessione
+http://www.folstuff.eu/postgresql-la-prima-connessione
 
 Le funzioni di scuola247 utilizzano diverse Extension di Postgres.
 Alcune di queste hanno bisogno di installazione...
 
 La prima serve per fare il debug delle funzioni a livello di sorgente
 qui trovate tutte le istruzioni per l'installazione: 
-http://www.folstuff.eu/2016/04/come-fare-il-debug-di-una-funzione-postgresql
+http://www.folstuff.eu/come-fare-il-debug-di-una-funzione-postgresql
 
 la seconda serve per la comunicazione via HTTP
 anche qui ho ecco una piccola guida: 
-http://www.folstuff.eu/2016/03/postgresql-come-fare-richieste-http-da-plpgsql
+http://www.folstuff.eu/postgresql-come-fare-richieste-http-da-plpgsql
 
 infine abbiamo un'estensione per il controllo sintattico delle funzioni
 come al solito qui un articolo per aiutarvi: 
-http://www.folstuff.eu/2016/12/postgresql-check-function
+http://www.folstuff.eu/postgresql-check-function
 
 Le altre estensioni da creare nel db sono:
 
