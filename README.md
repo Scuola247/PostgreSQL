@@ -44,7 +44,7 @@ http://www.folstuff.eu/installazione-virtualbox/
 Installato VirtualBoX bisogna fare la macchina
 virtuale con sopra ubuntu server
 qui spiego nel dettaglio tutti i passaggi 
-http://www.folstuff.eu/installazione-di-ubuntu-server-su-una-macchina-virtuale-di-virtualbox/
+http://www.folstuff.eu/installazione-ubuntu-macchina-virtuale-virtualbox
 
 Poi è la volta dell'installazione di postgres
 anche per questo ho preparato una piccola guida
@@ -67,7 +67,7 @@ http://www.folstuff.eu/postgresql-come-fare-richieste-http-da-plpgsql
 
 infine abbiamo un'estensione per il controllo sintattico delle funzioni
 come al solito qui un articolo per aiutarvi: 
-http://www.folstuff.eu/postgresql-check-function
+http://www.folstuff.eu/postgresql-plpgsql-check-function
 
 Le altre estensioni da creare nel db sono:
 
