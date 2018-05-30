@@ -2534,9 +2534,11 @@ BEGIN
     INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('48828000000000','6632000000000','Esempio di un testo di una giustificazione','2014-06-02 08:10:31','8594000000000','2014-06-03 08:10:31','32930000000000','2014-06-02','2014-06-02','08:10:31',NULL,'Late');
     INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('48840000000000','6743000000000','Esempio di un testo di una giustificazione','2014-06-02 08:09:33','8705000000000','2014-06-03 08:09:33','32930000000000','2014-06-02','2014-06-02','08:09:33',NULL,'Late');
 
+	/* Per U04L9 e U04LA */
+    INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('157481000000000','6800000000000','uscita in anticipo per motivi personali','2014-01-21 08:07:28','8762000000000','2014-01-22 08:07:28','32933000000000','2014-01-21','2014-01-21',NULL,'11:37:37','Late');
+	/* Per U04L8 */
+    INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('158348000000000','1451000000000','uscita in anticipo per motivi familiari','2014-02-07 10:10:31','3749000000000','2014-02-08 10:10:31','32937000000000','2014-02-07','2014-02-07',NULL,'11:12:12','Late');
 
-    -- explanation for the student without a delay
-    INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('10058369000000000','1214000000000','uscita in anticipo per motivi personali','2014-06-06 10:27:03','3512000000000','2014-06-06 10:27:03','32933000000000','2014-06-06','2014-06-06',NULL,'11:29:29','Leave');
 
     _results = _results || assert.pass(full_function_name, test_name);
 

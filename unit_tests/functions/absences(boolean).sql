@@ -176,6 +176,9 @@ BEGIN
     INSERT INTO public.absences(absence,on_date,teacher,explanation,classroom_student) VALUES ('33431000000000','2013-12-10','32929000000000',NULL,'10704000000000');
     INSERT INTO public.absences(absence,on_date,teacher,explanation,classroom_student) VALUES ('33430000000000','2014-01-21','32928000000000',NULL,'10705000000000');
 
+	/*Prova*/
+    INSERT INTO public.absences(absence,on_date,teacher,explanation,classroom_student) VALUES ('1133430000000000','2014-05-24','32928000000000',NULL,'10685000000000');
+
     _results = _results || assert.pass(full_function_name, test_name);
 
     EXCEPTION
@@ -191,3 +194,4 @@ $BODY$
   COST 100;
 ALTER FUNCTION unit_tests.absences(boolean)
   OWNER TO postgres;
+COMMENT ON FUNCTION unit_tests.absences(boolean) IS 'prova';
