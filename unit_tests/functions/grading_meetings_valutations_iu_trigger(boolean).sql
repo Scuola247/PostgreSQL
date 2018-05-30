@@ -38,7 +38,7 @@ BEGIN
   END;
 
   --------------------------------------------------------------
-  test_name = 'INSERT grading_meetings_valutations with student outside classroom';
+  test_name = 'UPDATE grading_meetings_valutations with different classroom';
   --------------------------------------------------------------
   BEGIN
     INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('11130752000000000','119533000000000','29052000000000','1325000000000','32919000000000','11463000000000',NULL,'f','f',NULL);
