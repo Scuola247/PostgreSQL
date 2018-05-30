@@ -36,6 +36,7 @@ BEGIN
   test_name = 'INSERT absences';
   ------------------------------
   BEGIN
+    INSERT INTO public.absences(absence,on_date,teacher,explanation,classroom_student) VALUES ('33312000000000','2013-10-05','32936000000000',NULL,'10372000000000');
     INSERT INTO public.absences(absence,on_date,teacher,explanation,classroom_student) VALUES ('33311000000000','2014-02-22','32935000000000',NULL,'10373000000000');
     INSERT INTO public.absences(absence,on_date,teacher,explanation,classroom_student) VALUES ('33310000000000','2014-02-21','32925000000000',NULL,'10374000000000');
     INSERT INTO public.absences(absence,on_date,teacher,explanation,classroom_student) VALUES ('33309000000000','2014-02-20','32933000000000',NULL,'10375000000000');
