@@ -228,6 +228,9 @@ BEGIN
     INSERT INTO public.qualifications(qualification,school,"name",description,metric,"type") VALUES ('96198000000000','1000000000','Principali soggetti del sistema economico','Principali soggetti del sistema economico del proprio territorio ','11435000000000','Knowledge');
     INSERT INTO public.qualifications(qualification,school,"name",description,metric,"type") VALUES ('96203000000000','1000000000','Sistema delle competenze, conosenze ed abilità raggruppate per assi','Inizio struttura','11435000000000','Root');
 
+	/* U04T1 e U04T2 */
+    INSERT INTO public.qualifications(qualification,school,"name",description,metric,"type") VALUES ('195977000000000','2000000000','Sistema delle competenze, conosenze ed abilità raggruppate per assi','Inizio struttura','11435000000000','Root');
+
     _results = _results || assert.pass(full_function_name, test_name);
     EXCEPTION WHEN OTHERS THEN 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
