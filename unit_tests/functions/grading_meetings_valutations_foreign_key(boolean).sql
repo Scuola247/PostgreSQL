@@ -1,4 +1,4 @@
-﻿-- Function: unit_tests.grading_meetings_valutations_iu_foreign_key(boolean)
+﻿-- Function: unit_tests.grading_meetings_valutations_foreign_key(boolean)
 
 -- DROP FUNCTION unit_tests.grading_meetings_valutations_foreign_key(boolean);
 
@@ -64,7 +64,7 @@ BEGIN
   END; 
 
   ---------------------------------------------------------------------
-   test_name = 'update grading_meetings_valutations set grading_meetings_valutations_fk_grading_meeting with a non existing one';
+   test_name = 'update grading_meetings_valutations set grading_meeting with a non existing one';
   ---------------------------------------------------------------------
   BEGIN
     UPDATE public.grading_meetings_valutations SET grading_meeting = '9999999999999' WHERE grading_meeting_valutation= '130752000000000'; 
