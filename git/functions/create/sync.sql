@@ -19,6 +19,7 @@ DECLARE
   ctr_casts_comm_osupd		int = 0;
   
   context 		text;
+  myvar                 text;
   full_function_name	text;
 BEGIN 
   --
