@@ -61,7 +61,7 @@ BEGIN
   
 --
 -- controllo che l'school della subject sia lo stesso di quello della classroom del calendario settimanale
---
+-- Exeption Code modificati 
   PERFORM 1 FROM subjects
     WHERE subject = new.subject
       AND school = v_school;
@@ -69,13 +69,13 @@ BEGIN
   IF NOT FOUND THEN
     IF (TG_OP = 'UPDATE') THEN
       RAISE EXCEPTION USING
-        ERRCODE = diagnostic.my_sqlcode(me.full_function_name,'1'),
+        ERRCODE = diagnostic.my_sqlcode(me.full_function_name,'3'), -- cambiato valore da 1 a 3
         MESSAGE = utility.system_messages_locale(system_messages,1),
         DETAIL = format(utility.system_messages_locale(system_messages,2), new.at_timerio_weekli_on_date, new.person, v_school, new.note),
         HINT = utility.system_messages_locale(system_messages,3);
     ELSE
       RAISE EXCEPTION USING
-        ERRCODE = diagnostic.my_sqlcode(me.full_function_name,'2'),
+        ERRCODE = diagnostic.my_sqlcode(me.full_function_name,'4'), -- cambiato valore da 2 a 4
         MESSAGE = utility.system_messages_locale(system_messages,1),
         DETAIL = format(utility.system_messages_locale(system_messages,4), new.person, v_school, new.note),
         HINT = utility.system_messages_locale(system_messages,3);
