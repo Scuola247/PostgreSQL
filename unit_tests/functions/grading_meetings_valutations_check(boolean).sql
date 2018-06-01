@@ -1,4 +1,4 @@
-﻿-- Function: unit_tests.schools_check(boolean)
+﻿-- Function: unit_tests.grading_meetings_valutations_check(boolean)
 
 -- DROP FUNCTION unit_tests.grading_meetings_valutations_check(boolean);
 
@@ -135,7 +135,26 @@ BEGIN
 	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
         RETURN; 
   END;
-
+  ----------------------------------------
+  test_name = 'notes''s min lenght';
+  ----------------------------------------
+  BEGIN
+    UPDATE public.grading_meetings_valutations SET notes = '' WHERE grading_meeting_valutation = '132146000000000';
+    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but notes min lenght was expected', NULL::diagnostic.error);    
+    RETURN;   
+    EXCEPTION WHEN SQLSTATE '23514' THEN 
+      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+      IF error.constraint_name = 'grading_meetings_valutations_ck_notes' THEN
+        _results = _results || assert.pass(full_function_name, test_name);
+     ELSE
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
+        RETURN;
+      END IF;    
+      WHEN OTHERS THEN 
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        RETURN;
+  END; 
   RETURN; 
 END
 $BODY$
