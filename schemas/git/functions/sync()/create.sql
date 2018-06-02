@@ -154,6 +154,5 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100
   ROWS 1000;
-ALTER FUNCTION git.sync()
-  OWNER TO postgres;
+
 

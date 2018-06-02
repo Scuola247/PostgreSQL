@@ -23,6 +23,3 @@ CREATE OR REPLACE VIEW git.casts_list AS
      LEFT JOIN pg_description des ON des.objoid = ca.oid AND des.objsubid = 0 AND des.classoid = 'pg_cast'::regclass::oid
   WHERE ns.nspname <> 'pg_catalog'::name OR nt.nspname <> 'pg_catalog'::name;
 
-ALTER TABLE git.casts_list
-  OWNER TO postgres;
-

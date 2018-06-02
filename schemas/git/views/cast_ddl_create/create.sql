@@ -16,7 +16,3 @@ CREATE OR REPLACE VIEW git.casts_ddl_create AS
             ELSE NULL::text
         END AS cast_ddl_create
    FROM git.casts_list;
-
-ALTER TABLE git.casts_ddl_create
-  OWNER TO postgres;
-

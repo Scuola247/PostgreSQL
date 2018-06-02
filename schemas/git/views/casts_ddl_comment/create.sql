@@ -8,6 +8,4 @@ CREATE OR REPLACE VIEW git.casts_ddl_comment AS
    FROM git.casts_list
   WHERE casts_list.description IS NOT NULL;
 
-ALTER TABLE git.casts_ddl_comment
-  OWNER TO postgres;
 
