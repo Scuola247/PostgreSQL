@@ -62,7 +62,7 @@ CREATE FUNCTION build_my_sqlcode() RETURNS void
     AS $$
 <<me>>
 DECLARE
-  result 			record;  
+  result 			record;
   max_my_sqlcode		TEXT;
   ctr_code			utility.number_base34 =0;
   sql_prefix			TEXT;
@@ -71,7 +71,7 @@ DECLARE
   sql_nl			char = E'\n';
   context 			text;
   full_function_name		text;
-BEGIN 
+BEGIN
 --
 -- Recupero il nome della funzione
 --
@@ -93,7 +93,7 @@ BEGIN
     '-- questi codici sono stati generati da: diagnostic.build_my_sqlcode',sql_nl,
     '--',sql_nl);
 
-  sql_suffix = concat(  
+  sql_suffix = concat(
     '--',sql_nl,
     '-- se la functionsignature non è stata gestita si imposta un errore generico',sql_nl,
     '--',sql_nl,
@@ -101,7 +101,7 @@ BEGIN
     'END;',sql_nl,
     sql_nl);
 --
--- prendo il valore più alto assgnato ad una funzione e imposto il contatore 
+-- prendo il valore più alto assgnato ad una funzione e imposto il contatore
 --
   SELECT (MAX(substring(my_sqlcode from 2 for 3)))
     INTO me.max_my_sqlcode
@@ -124,18 +124,18 @@ BEGIN
     sql_code = concat(sql_code, format('  IF _function = %L THEN RETURN %L || _id; END IF;',result.function_signature, left(result.my_sqlcode,4)) ,sql_nl);
   END LOOP;
 --
--- recupero i buchi 
+-- recupero i buchi
 --
   IF me.max_my_sqlcode IS NULL THEN
   ELSE
     FOR result IN WITH my_sqlcode_available AS ( SELECT RIGHT('00' || utility.number_base34(generate_series(0::bigint, int8(me.max_my_sqlcode::utility.number_base34))),3) AS my_sqlcode),
                        my_sqlcode_existing  AS ( SELECT SUBSTRING(my_sqlcode FROM 2 FOR 3) AS my_sqlcode FROM diagnostic.functions_list WHERE my_sqlcode <> 'UZZZ0'),
-                       my_sqlcode_to_reuse  AS ( SELECT a.my_sqlcode, row_number() 
-                                                   OVER (ORDER BY a.my_sqlcode ) as id 
+                       my_sqlcode_to_reuse  AS ( SELECT a.my_sqlcode, row_number()
+                                                   OVER (ORDER BY a.my_sqlcode ) as id
                                                    FROM my_sqlcode_available a
                                                    LEFT JOIN my_sqlcode_existing e ON e.my_sqlcode = a.my_sqlcode
                                                   WHERE e.my_sqlcode IS NULL),
-                       my_sqlcode_new       AS ( SELECT function_signature, row_number() 
+                       my_sqlcode_new       AS ( SELECT function_signature, row_number()
                                                    OVER (ORDER BY function_signature ) AS id
                                                    FROM diagnostic.functions_list
                                                   WHERE my_sqlcode = 'UZZZ0')
@@ -143,13 +143,13 @@ BEGIN
                          from my_sqlcode_to_reuse r
                          JOIN my_sqlcode_new n ON n.id = r.id
     LOOP
-      sql_code = concat(sql_code, format('  IF _function = %L THEN RETURN %L || _id; END IF;', result.function_signature, 'U' || result.my_sqlcode), sql_nl);  
+      sql_code = concat(sql_code, format('  IF _function = %L THEN RETURN %L || _id; END IF;', result.function_signature, 'U' || result.my_sqlcode), sql_nl);
     END LOOP;
    --
-   -- aggiorno la funzione altrimenti i buchi appena recuperati non vengono inclusi nella prossima query 
+   -- aggiorno la funzione altrimenti i buchi appena recuperati non vengono inclusi nella prossima query
    -- e ripeto l'operazione di recuero dei codici già usati
    --
-    UPDATE pg_catalog.pg_proc 
+    UPDATE pg_catalog.pg_proc
        set prosrc = concat(sql_prefix, sql_code, sql_suffix)
      WHERE proname = 'my_sqlcode'
        AND pronamespace = 'diagnostic'::regnamespace::oid;
@@ -165,10 +165,10 @@ BEGIN
     LOOP
       sql_code = concat(sql_code, format('  IF _function = %L THEN RETURN %L || _id; END IF;',result.function_signature, left(result.my_sqlcode,4)) ,sql_nl);
     END LOOP;
-    
+
   END IF;
 --
--- Assegno i nuovi codici 
+-- Assegno i nuovi codici
 --
   FOR result IN SELECT function_signature, my_sqlcode
                   FROM diagnostic.functions_list
@@ -182,12 +182,12 @@ BEGIN
  -- aggiorno il codice della funzione
  --
  RAISE INFO '%', concat(sql_prefix, sql_code, sql_suffix);
- 
-   UPDATE pg_catalog.pg_proc 
+
+   UPDATE pg_catalog.pg_proc
       set prosrc = concat(sql_prefix, sql_code, sql_suffix)
     WHERE proname = 'my_sqlcode'
       AND pronamespace = 'diagnostic'::regnamespace::oid;
-      
+
   RETURN;
 END;
 $$;
@@ -205,14 +205,14 @@ CREATE FUNCTION full_function_name(_context text, OUT _function_name text) RETUR
 <<me>>
 DECLARE
   -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-  -- >>>>> the full_function_name is the only function that cannot call full_function_name  :) >>>>> 
+  -- >>>>> the full_function_name is the only function that cannot call full_function_name  :) >>>>>
   -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-BEGIN                                                                                                 
+BEGIN
   _function_name = (regexp_matches(_context, 'funzione PL\/pgSQL (.*?\))'))[1];
   IF _function_name IS NULL THEN -- tento in inglese
       _function_name = (regexp_matches(_context, 'PL\/pgSQL function (.*?\))'))[1];
   END IF;
-  IF _function_name IS NULL THEN 
+  IF _function_name IS NULL THEN
   ELSE
     IF position('.' IN _function_name) = 0 THEN
       _function_name = 'public.' || _function_name;
@@ -242,7 +242,7 @@ BEGIN
   RETURN utility.full_function_name(me.context);
 END
 $BODY$
-I would prefer something like: 
+I would prefer something like:
 me.full_function_name = function_name();
 But you have to manage the different ways you function will called (from another function, from pgadmin)';
 
@@ -258,13 +258,13 @@ CREATE FUNCTION function_exists(_function_signature regprocedure, OUT _found boo
 DECLARE
   context 		text;
   full_function_name	text;
-BEGIN 
+BEGIN
 --
 -- Recupero il nome della funzione
 --
   GET DIAGNOSTICS me.context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
-  
+
   PERFORM 1 FROM diagnostic.functions_list WHERE function_signature = _function_signature::text;
   _found = FOUND;
 END
@@ -291,13 +291,13 @@ CREATE FUNCTION function_name(_context text, OUT _function_name text) RETURNS te
 DECLARE
   context 		text;
   full_function_name	text;
-BEGIN 
+BEGIN
 --
 -- Recupero il nome della funzione
 --
   GET DIAGNOSTICS me.context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
-  
+
   _function_name = (regexp_matches(_context, 'funzione PL\/pgSQL (.*?)\('))[1];
   IF _function_name IS NULL THEN -- tento in inglese
       _function_name = (regexp_matches(_context, 'PL\/pgSQL function (.*?)\('))[1];
@@ -326,7 +326,7 @@ BEGIN
   RETURN utility.function_name(me.context);
 END
 $BODY$
-I would prefer something like: 
+I would prefer something like:
 me.function_name = function_name();
 But you have to manage the different ways you function will called (from another function, from pgadmin)';
 
@@ -344,20 +344,20 @@ DECLARE
   function_description   text;
   context 		 text;
   full_function_name	 text;
-BEGIN 
+BEGIN
 --
 -- Recupero il nome della funzione
 --
   GET DIAGNOSTICS me.context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
-  
+
   SELECT p.proname || '(' || pg_get_function_arguments(oid) || ')', obj_description(oid,'pg_proc') INTO function_signature_ex, function_description FROM pg_proc p WHERE oid = _function_name::regprocedure::oid;
   IF function_description IS NULL THEN
     function_description = 'N/A';
   ELSE
-    RAISE invalid_parameter_value USING 
-      MESSAGE = 'FUNCTION SYNTAX: ' || _message_text, 
-      DETAIL = 'FUNCTION SYNTAX: ' || function_signature_ex, 
+    RAISE invalid_parameter_value USING
+      MESSAGE = 'FUNCTION SYNTAX: ' || _message_text,
+      DETAIL = 'FUNCTION SYNTAX: ' || function_signature_ex,
       HINT = 'Check the parameters and rerun the command, FUNCTION DESCRIPTION: ' || function_description;
   END IF;
 END
@@ -384,17 +384,17 @@ CREATE FUNCTION if_function_compile(_functionid text, OUT _compile boolean) RETU
 DECLARE
   context 		text;
   full_function_name	text;
-BEGIN 
+BEGIN
 --
 -- Recupero il nome della funzione
 --
   GET DIAGNOSTICS me.context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
-  
+
   PERFORM 1 FROM diagnostic.functions_check WHERE functionid::text = _functionid AND level = 'error';
   IF FOUND THEN
     _compile = FALSE;
-  ELSE 
+  ELSE
     _compile =  TRUE;
   END IF;
 END;
@@ -423,13 +423,13 @@ DECLARE
   error			diagnostic.error;
   context 		text;
   full_function_name	text;
-BEGIN 
+BEGIN
 --
 -- Recupero il nome della funzione
 --
   GET DIAGNOSTICS me.context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
-  
+
   _works = TRUE;
   BEGIN
     sql_command := 'SELECT * FROM ' || _view_name || ' WHERE FALSE;';
@@ -464,7 +464,7 @@ CREATE FUNCTION my_sqlcode(_function character varying, _id character) RETURNS c
 DECLARE
   context 		text;
   full_function_name	text;
-BEGIN 
+BEGIN
 --
 -- Recupero il nome della funzione
 --
@@ -651,7 +651,7 @@ BEGIN
   IF _function = 'public.tr_topics_iu()' THEN RETURN 'U055' || _id; END IF;
   IF _function = 'public.tr_usename_iu()' THEN RETURN 'U056' || _id; END IF;
   IF _function = 'public.tr_valutations_iu()' THEN RETURN 'U057' || _id; END IF;
-  IF _function = 'public.tr_valutations_qualificationtions_iu()' THEN RETURN 'U058' || _id; END IF;
+  IF _function = 'public.tr_valutations_qualifications_iu()' THEN RETURN 'U058' || _id; END IF;
   IF _function = 'public.tr_weekly_timetables_days_iu()' THEN RETURN 'U059' || _id; END IF;
   IF _function = 'public.update_person_photo_and_thumbnail()' THEN RETURN 'U05A' || _id; END IF;
   IF _function = 'public.valutations_del(bigint,bigint)' THEN RETURN 'U05B' || _id; END IF;
@@ -787,13 +787,13 @@ CREATE FUNCTION show(_error error) RETURNS void
 DECLARE
   context 		text;
   full_function_name	text;
-BEGIN 
+BEGIN
 --
 -- Recupero il nome della funzione
 --
   GET DIAGNOSTICS me.context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
-  
+
   RAISE WARNING '=====================';
   RAISE WARNING '>>>>>>> ERROR <<<<<<<';
   RAISE WARNING '=====================';
@@ -826,16 +826,16 @@ CREATE FUNCTION show(VARIADIC _messages text[]) RETURNS void
 DECLARE
   context 		text;
   full_function_name	text;
-  
+
   message		text;
   max_length		int;
-BEGIN 
+BEGIN
 --
 -- Recupero il nome della funzione
 --
   GET DIAGNOSTICS me.context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
-  
+
   SELECT max(length(unnest)) FROM unnest(_messages) INTO me.max_length;
 
   RAISE WARNING '%',repeat('=', me.max_length);
@@ -844,7 +844,7 @@ BEGIN
   LOOP
     RAISE WARNING '%',me.message;
   END LOOP;
-  
+
   RAISE WARNING '%',repeat('=', me.max_length)
   RETURN;
 END
@@ -861,13 +861,13 @@ CREATE FUNCTION show_current_error() RETURNS error
     LANGUAGE plpgsql COST 1
     AS $$
 <<me>>
-DECLARE 
+DECLARE
   error			diagnostic.error;
 BEGIN
   BEGIN
     RAISE EXCEPTION SQLSTATE 'ZZZZZ';
-  EXCEPTION 
-    WHEN OTHERS THEN 
+  EXCEPTION
+    WHEN OTHERS THEN
      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
      PERFORM diagnostic.show(error);
   END;
@@ -889,13 +889,13 @@ CREATE FUNCTION test_full_function_name() RETURNS text
 DECLARE
   context 		text;
   full_function_name	text;
-BEGIN 
+BEGIN
 --
 -- Recupero il nome della funzione
 --
   GET DIAGNOSTICS me.context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
-  
+
   RETURN full_function_name;
 END
 $$;
@@ -914,7 +914,7 @@ CREATE FUNCTION test_function_name() RETURNS text
 DECLARE
   context 		text;
   full_function_name	text;
-BEGIN 
+BEGIN
 --
 -- Recupero il nome della funzione
 --
@@ -1039,4 +1039,3 @@ ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA diagnostic GRANT ALL ON TAB
 --
 -- PostgreSQL database dump complete
 --
-
