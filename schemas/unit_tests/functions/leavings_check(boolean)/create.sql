@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests.delays_check(boolean)
+﻿-- Function: unit_tests.leavings_check(boolean)
 
--- DROP FUNCTION unit_tests.delays_check(boolean);
+-- DROP FUNCTION unit_tests.leavings_check(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests.delays_check(
+CREATE OR REPLACE FUNCTION unit_tests.leavings_check(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -18,20 +18,26 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
-      PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'_after_data_insert');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'explanations',
+                                                                                       'persons',
+                                                                                       'classrooms_students',
+                                                                                       'classrooms',
+                                                                                       'school_years',
+                                                                                       'absences',
+                                                                                       'lessons');
     RETURN;
-  END IF;
-  ----------------------------------------
-  test_name = 'duplicate on_date';
-  ----------------------------------------
+ END IF;  
+  ---------------------------------
+  test_name = 'duplicate classroom_student';
+  ---------------------------------
   BEGIN
-      INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1048855000000000','32926000000000','47595000000000','2013-09-19','08:42:35','10368000000000');
-    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate on_date was expected', NULL::diagnostic.error);   
-    RETURN;       
+     INSERT INTO public.leavings(leaving,teacher,explanation,on_date,at_time,classroom_student) VALUES ('10658393000000000','32932000000000','1057135000000000','2013-09-19','11:52:54','10685000000000');
+    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate classroom_student was expected', NULL::diagnostic.error);   
+    RETURN;        
     EXCEPTION WHEN SQLSTATE '23505' THEN 
-      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;	
-      IF error.constraint_name = 'delays_uq_classroom_student_on_date' THEN
-        _results = _results || assert.pass(full_function_name, test_name);
+      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+      IF error.constraint_name = 'leavings_uq_classroom_student' THEN
+        _results = _results || assert.pass(full_function_name, test_name); 
       ELSE
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
         RETURN;
@@ -39,43 +45,14 @@ BEGIN
       WHEN OTHERS THEN 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
-        RETURN; 
-  END;  
-  ------------------------------------
-  test_name = 'on_date mandatory';
-  ------------------------------------
-  BEGIN
-    UPDATE delays SET on_date = NULL WHERE delay = '48854000000000';
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but on_date required was expected', NULL::diagnostic.error);     
-    RETURN;    
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-	_results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN 
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);         
         RETURN;
-  END; 
-  ---------------------------------
-  test_name = 'at_time mandatory';
-  ---------------------------------
+        END;
+        
+  ---------------------------------------
+  test_name = 'teacher''s mandatory';
+  ---------------------------------------
   BEGIN
-    UPDATE delays SET at_time = NULL WHERE delay = '48854000000000';
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but at_time required was expected', NULL::diagnostic.error);     
-    RETURN;    
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-	_results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN 
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);         
-        RETURN;
-  END; 
-    ---------------------------------
-  test_name = 'teacher mandatory';
-  ---------------------------------
-  BEGIN
-    UPDATE delays SET teacher = NULL WHERE delay = '48854000000000';
+    UPDATE leavings SET teacher = NULL WHERE leaving = '58393000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher required was expected', NULL::diagnostic.error);     
     RETURN;    
     EXCEPTION WHEN SQLSTATE '23502' THEN 
@@ -86,10 +63,60 @@ BEGIN
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);         
         RETURN;
   END; 
-  RETURN; 
+  
+  ---------------------------------------
+  test_name = 'explanation''s mandatory';
+  ---------------------------------------
+  BEGIN
+    UPDATE leavings SET explanation = NULL WHERE leaving = '58393000000000';
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but explanation required was expected', NULL::diagnostic.error);     
+    RETURN;    
+    EXCEPTION WHEN SQLSTATE '23502' THEN 
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+	_results = _results || assert.pass(full_function_name, test_name);
+      WHEN OTHERS THEN 
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);         
+        RETURN;
+  END; 
+  
+  ---------------------------------------
+  test_name = 'on_date''s mandatory';
+  ---------------------------------------
+  BEGIN
+    UPDATE leavings SET on_date = NULL WHERE leaving = '58393000000000';
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but on_date required was expected', NULL::diagnostic.error);     
+    RETURN;    
+    EXCEPTION WHEN SQLSTATE '23502' THEN 
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+	_results = _results || assert.pass(full_function_name, test_name);
+      WHEN OTHERS THEN 
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);         
+        RETURN;
+  END; 
+    ---------------------------------------
+  test_name = 'at_time''s mandatory';
+  ---------------------------------------
+  BEGIN
+    UPDATE leavings SET at_time = NULL WHERE leaving = '58393000000000';
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but at_time required was expected', NULL::diagnostic.error);     
+    RETURN;    
+    EXCEPTION WHEN SQLSTATE '23502' THEN 
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+	_results = _results || assert.pass(full_function_name, test_name);
+      WHEN OTHERS THEN 
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);         
+        RETURN;
+  END; 
+  
+
+ RETURN;
+   
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.delays_check(boolean)
+ALTER FUNCTION unit_tests.leavings_check(boolean)
   OWNER TO postgres;
