@@ -27,7 +27,7 @@ BEGIN
   ------------------------------------
   BEGIN
   UPDATE public.communications_media SET person = NULL WHERE communication_media = '112027000000000';
-   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but grading_meeting was expected', NULL::diagnostic.error);      
+   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but person was expected', NULL::diagnostic.error);      
     RETURN;      
     EXCEPTION WHEN SQLSTATE '23502' THEN 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;	 
@@ -43,7 +43,7 @@ BEGIN
   ------------------------------------
   BEGIN
   UPDATE public.communications_media SET person = NULL WHERE communication_media = '112027000000000';
-   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but grading_meeting was expected', NULL::diagnostic.error);      
+   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but communication type was expected', NULL::diagnostic.error);      
     RETURN;      
     EXCEPTION WHEN SQLSTATE '23502' THEN 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;	 
@@ -54,35 +54,20 @@ BEGIN
   END;
 
   ------------------------------------
-  test_name = 'description not empty';
+  test_name = 'uri mandatory';
   ------------------------------------
   BEGIN
-  UPDATE public.communications_media SET description = ' ' WHERE communication_media = '112027000000000';
-   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but the description was empty', NULL::diagnostic.error);      
+  UPDATE public.communications_media SET uri = NULL WHERE communication_media = '112027000000000';
+   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but uri was expected', NULL::diagnostic.error);      
     RETURN;      
-    EXCEPTION WHEN SQLSTATE '23514' THEN 
+    EXCEPTION WHEN SQLSTATE '23502' THEN 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;	 
       WHEN OTHERS THEN 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
         RETURN; 
   END;
-
-  ------------------------------------
-  test_name = 'uri not empty';
-  ------------------------------------
-  BEGIN
-  UPDATE public.communications_media SET uri = ' ' WHERE communication_media = '112027000000000';
-   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but the uri was empty', NULL::diagnostic.error);      
-    RETURN;      
-    EXCEPTION WHEN SQLSTATE '23514' THEN 
-      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;	 
-      WHEN OTHERS THEN 
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
-        RETURN; 
-  END;
-
+  
   ------------------------------------
   test_name = 'Duplicate description';
   ------------------------------------
@@ -125,6 +110,48 @@ BEGIN
         RETURN; 
   END;
 
+  ----------------------------------------
+  test_name = 'description''s min lenght';
+  ----------------------------------------
+  BEGIN
+    UPDATE communications_media SET description = '' WHERE communication_media = '112027000000000';
+    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);    
+    RETURN;   
+    EXCEPTION WHEN SQLSTATE '23514' THEN 
+      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+      IF error.constraint_name = 'communications_media_ck_description' THEN
+        _results = _results || assert.pass(full_function_name, test_name);
+     ELSE
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
+        RETURN;
+      END IF;    
+      WHEN OTHERS THEN 
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        RETURN;
+  END;
+
+  ----------------------------------------
+  test_name = 'uri''s min lenght';
+  ----------------------------------------
+  BEGIN
+    UPDATE communications_media SET uri = '' WHERE communication_media = '112027000000000';
+    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but uri min lenght was expected', NULL::diagnostic.error);    
+    RETURN;   
+    EXCEPTION WHEN SQLSTATE '23514' THEN 
+      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+      IF error.constraint_name = 'communications_media_ck_uri' THEN
+        _results = _results || assert.pass(full_function_name, test_name);
+     ELSE
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
+        RETURN;
+      END IF;    
+      WHEN OTHERS THEN 
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        RETURN;
+  END;
+  
   RETURN; 
 END
 $BODY$
