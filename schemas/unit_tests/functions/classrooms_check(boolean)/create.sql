@@ -10,7 +10,7 @@ $BODY$
 
 <<me>>
 
-DECLARE 
+DECLARE
 
   context               text;
 
@@ -40,43 +40,43 @@ BEGIN
 
   END IF;
 
-  
 
-  ---------------------------------
 
-  test_name = 'duplicate classrooms_uq_classroom (school_year, branch, degree, section, course_year)';
+  ----------------------------------
 
-  ---------------------------------
+  test_name = 'duplicate classroom';
+
+  ----------------------------------
 
   BEGIN
 
      INSERT INTO public.classrooms(classroom,school_year,degree,section,course_year,description,branch) VALUES ('10410062000000000','243000000000','9942000000000','C','1','Infanzia 6C','9952000000000');
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate classrooms_uq_classroom was expected', NULL::diagnostic.error);   
+    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate classrooms_uq_classroom was expected', NULL::diagnostic.error);
 
-    RETURN;        
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23505' THEN 
+    EXCEPTION WHEN SQLSTATE '23505' THEN
 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
       IF error.constraint_name = 'classrooms_uq_classroom' THEN
 
-        _results = _results || assert.pass(full_function_name, test_name); 
+        _results = _results || assert.pass(full_function_name, test_name);
 
       ELSE
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-      END IF; 
+      END IF;
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
@@ -86,47 +86,47 @@ BEGIN
 
 
 
-  ---------------------------------
+  ------------------------------------
 
-  test_name = 'duplicate classrooms_uq_description (school_year, description)';
+  test_name = 'duplicate description';
 
-  ---------------------------------
+  ------------------------------------
 
   BEGIN
 
      INSERT INTO public.classrooms(classroom,school_year,degree,section,course_year,description,branch) VALUES ('10510062000000000','243000000000','28970000000000','C','2','Infanzia 1C','9952000000000');
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate classrooms_uq_classroom was expected', NULL::diagnostic.error);   
+    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate classrooms_uq_classroom was expected', NULL::diagnostic.error);
 
-    RETURN;        
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23505' THEN 
+    EXCEPTION WHEN SQLSTATE '23505' THEN
 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
       IF error.constraint_name = 'classrooms_uq_description' THEN
 
-        _results = _results || assert.pass(full_function_name, test_name); 
+        _results = _results || assert.pass(full_function_name, test_name);
 
       ELSE
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-      END IF; 
+      END IF;
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
         END;
 
-        
+
 
   ---------------------------------------
 
@@ -138,25 +138,25 @@ BEGIN
 
     UPDATE classrooms SET school_year = NULL WHERE classroom = '10062000000000';
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school_year required was expected', NULL::diagnostic.error);     
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school_year required was expected', NULL::diagnostic.error);
 
-    RETURN;    
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
+    EXCEPTION WHEN SQLSTATE '23502' THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
 	_results = _results || assert.pass(full_function_name, test_name);
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);         
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END;   
+  END;
 
 
 
@@ -170,25 +170,25 @@ BEGIN
 
     UPDATE classrooms SET degree = NULL WHERE classroom = '10062000000000';
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but degree required was expected', NULL::diagnostic.error);     
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but degree required was expected', NULL::diagnostic.error);
 
-    RETURN;    
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
+    EXCEPTION WHEN SQLSTATE '23502' THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
 	_results = _results || assert.pass(full_function_name, test_name);
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);         
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END; 
+  END;
 
 
 
@@ -202,25 +202,25 @@ BEGIN
 
     UPDATE classrooms SET course_year = NULL WHERE classroom = '10062000000000';
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but course_year required was expected', NULL::diagnostic.error);     
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but course_year required was expected', NULL::diagnostic.error);
 
-    RETURN;    
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
+    EXCEPTION WHEN SQLSTATE '23502' THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
 	_results = _results || assert.pass(full_function_name, test_name);
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);         
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END;   
+  END;
 
 
 
@@ -234,25 +234,25 @@ BEGIN
 
     UPDATE classrooms SET description = NULL WHERE classroom = '10062000000000';
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);     
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
 
-    RETURN;    
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
+    EXCEPTION WHEN SQLSTATE '23502' THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
 	_results = _results || assert.pass(full_function_name, test_name);
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);         
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END;  
+  END;
 
   ---------------------------------------
 
@@ -264,25 +264,25 @@ BEGIN
 
     UPDATE classrooms SET description = ' ' WHERE classroom = '10062000000000';
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description was empty', NULL::diagnostic.error);     
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description was empty', NULL::diagnostic.error);
 
-    RETURN;    
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23514' THEN 
+    EXCEPTION WHEN SQLSTATE '23514' THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
 	_results = _results || assert.pass(full_function_name, test_name);
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);         
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END;   
+  END;
 
 
 
@@ -296,27 +296,27 @@ BEGIN
 
     UPDATE classrooms SET section = ' ' WHERE classroom = '10062000000000';
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but section was empty', NULL::diagnostic.error);     
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but section was empty', NULL::diagnostic.error);
 
-    RETURN;    
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23514' THEN 
+    EXCEPTION WHEN SQLSTATE '23514' THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
 	_results = _results || assert.pass(full_function_name, test_name);
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);         
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END;  
+  END;
 
-  
+
 
   ---------------------------------------
 
@@ -328,31 +328,31 @@ BEGIN
 
     UPDATE classrooms SET branch = NULL WHERE classroom = '10062000000000';
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but branch required was expected', NULL::diagnostic.error);     
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but branch required was expected', NULL::diagnostic.error);
 
-    RETURN;    
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
+    EXCEPTION WHEN SQLSTATE '23502' THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
 	_results = _results || assert.pass(full_function_name, test_name);
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);         
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END;  
+  END;
 
-  
 
-     
 
-  RETURN; 
+
+
+  RETURN;
 
 END
 
