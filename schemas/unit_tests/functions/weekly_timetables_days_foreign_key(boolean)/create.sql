@@ -21,12 +21,12 @@ BEGIN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'_after_data_insert');
     RETURN;
   END IF;  
-  ---------------------------------------------------------------------
-  test_name = 'update schools set weekly_timetable_day with non existence subject';
-  ---------------------------------------------------------------------
+  ---------------------------------------------------------------------------
+  test_name = 'update weekly_timetables_days set subject with a non existing one';
+  ---------------------------------------------------------------------------
   BEGIN
-    UPDATE weekly_timetables_days SET subject = '999999999' WHERE weekly_timetable_day = '33008000000000'; 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but behavior set with non existence subject', NULL::diagnostic.error);   
+    UPDATE weekly_timetables_days SET subject = 999999999 WHERE weekly_timetable_day = '33008000000000'; 
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but subject set with a non existing one', NULL::diagnostic.error);   
     RETURN;
     EXCEPTION WHEN SQLSTATE '23503' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -41,12 +41,12 @@ BEGIN
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);   
         RETURN;
   END; 
-    ---------------------------------------------------------------------
-  test_name = 'update schools set weekly_timetable_day with non existence teacher';
-  ---------------------------------------------------------------------
+  ---------------------------------------------------------------------------
+  test_name = 'update delays set teacher with a non existing one';
+  ---------------------------------------------------------------------------
   BEGIN
-    UPDATE weekly_timetables_days SET teacher = '999999999' WHERE weekly_timetable_day = '33008000000000'; 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but behavior set with non existence subject', NULL::diagnostic.error);   
+    UPDATE weekly_timetables_days SET teacher = 999999999 WHERE weekly_timetable_day = '33008000000000'; 
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher set with a non existing one', NULL::diagnostic.error);   
     RETURN;
     EXCEPTION WHEN SQLSTATE '23503' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -61,12 +61,12 @@ BEGIN
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);   
         RETURN;
   END; 
-      ---------------------------------------------------------------------
-  test_name = 'update schools set weekly_timetable_day with non existence weekly_timetables ';
-  ---------------------------------------------------------------------
+  ---------------------------------------------------------------------------
+  test_name = 'update delays set weekly_timetable with a non existing one';
+  ---------------------------------------------------------------------------
   BEGIN
-    UPDATE weekly_timetables_days SET weekly_timetable = '999999999' WHERE weekly_timetable_day = '33008000000000'; 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but behavior set with non existence subject', NULL::diagnostic.error);   
+    UPDATE weekly_timetables_days SET weekly_timetable = 999999999 WHERE weekly_timetable_day = '33008000000000'; 
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but weekly_timetable set with a non existing one', NULL::diagnostic.error);   
     RETURN;
     EXCEPTION WHEN SQLSTATE '23503' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -81,7 +81,6 @@ BEGIN
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);   
         RETURN;
   END; 
-
   RETURN; 
 END
 $BODY$
