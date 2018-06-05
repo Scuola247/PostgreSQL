@@ -8,7 +8,7 @@ CREATE OR REPLACE FUNCTION unit_tests.explanations(
   RETURNS unit_testing.unit_test_result[] AS
 $BODY$
 <<me>>
-DECLARE 
+DECLARE
   context               text;
   full_function_name 	text;
   test_name		text = '';
@@ -22,7 +22,7 @@ BEGIN
 										       'persons',
 										       'persons_roles');
     RETURN;
-  END IF;  
+  END IF;
   ----------------------------------
   test_name = 'INSERT explanations';
   ----------------------------------
@@ -2549,17 +2549,20 @@ BEGIN
 	/* Per U04L8 */
     INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('158348000000000','1451000000000','uscita in anticipo per motivi familiari','2014-02-07 10:10:31','3749000000000','2014-02-08 10:10:31','32937000000000','2014-02-07','2014-02-07',NULL,'11:12:12','Late');
 
+    -- explanation for the student without a delay
+    INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('10058369000000000','1214000000000','uscita in anticipo per motivi personali','2014-06-06 10:27:03','3512000000000','2014-06-06 10:27:03','32933000000000','2014-06-06','2014-06-06',NULL,'11:29:29','Leave'); 
+
 
 
     _results = _results || assert.pass(full_function_name, test_name);
 
     EXCEPTION
-       WHEN OTHERS THEN 
+       WHEN OTHERS THEN
          GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-         _results = _results || assert.fail(full_function_name, test_name, 'INSERT public.explanations FAILED'::text, error);   
-       RETURN; 
+         _results = _results || assert.fail(full_function_name, test_name, 'INSERT public.explanations FAILED'::text, error);
+       RETURN;
   END;
-  RETURN; 
+  RETURN;
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE
