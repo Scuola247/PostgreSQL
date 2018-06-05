@@ -1,6 +1,6 @@
-﻿-- Function: unit_tests.persons_check(boolean)
+﻿-- Function: unit_tests.persons_roles_check(boolean)
 
--- DROP FUNCTION unit_tests.persons_check(boolean);
+-- DROP FUNCTION unit_tests.persons_roles_check(boolean);
 
 CREATE OR REPLACE FUNCTION unit_tests.persons_roles_check(
     IN _build_dependencies boolean DEFAULT false,
@@ -22,6 +22,10 @@ BEGIN
     RETURN;
   END IF;  
 
+  -----------------------------------
+  test_name = 'duplicated person';
+  -----------------------------------
+  
  BEGIN
     INSERT INTO public.persons_roles(person_role,person,role) VALUES ('100156239000000000','4008000000000','Relative');
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate person_role was expected', NULL::diagnostic.error);      
@@ -69,7 +73,7 @@ BEGIN
         RETURN;
   END; 
   -----------------------------------
-  test_name = 'person_role''s mandatory';
+  test_name = 'role''s mandatory';
   -----------------------------------
   BEGIN
     UPDATE persons_roles SET role = NULL WHERE person_role ='156239000000000' ;
@@ -83,10 +87,10 @@ BEGIN
         RETURN;
   END; 
 
-  RETURN; 
+
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.schools_check(boolean)
+ALTER FUNCTION unit_tests.persons_roles_check(boolean)
   OWNER TO postgres;
