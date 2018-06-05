@@ -1,14 +1,14 @@
-﻿-- Function: unit_tests.grading_meetings_valutations_foreign_key(boolean)
+﻿-- Function: unit_tests.signatures_foreign_key(boolean)
 
--- DROP FUNCTION unit_tests.communications_media_foreign_key(boolean);
+-- DROP FUNCTION unit_tests.signatures_foreign_key(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests.communications_media_foreign_key(
+CREATE OR REPLACE FUNCTION unit_tests.signatures_foreign_key(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
 $BODY$
 <<me>>
-DECLARE
+DECLARE 
   context               text;
   full_function_name 	text;
   test_name		text = '';
@@ -20,53 +20,51 @@ BEGIN
   IF _build_dependencies THEN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'_after_data_insert');
     RETURN;
-  END IF;
-  --------------------------------------------------------------------------------------
-  test_name = 'update communication_media set communication_type to a non existing one';
-  --------------------------------------------------------------------------------------
+  END IF;  
+  ---------------------------------------------------------------------------
+  test_name = 'update signatures set teacher with a non existing one';
+  ---------------------------------------------------------------------------
   BEGIN
-    UPDATE public.communications_media SET communication_type = '9999999999999' WHERE communication_media = '112027000000000';
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but communication_type does not exist', NULL::diagnostic.error);
+    UPDATE signatures SET teacher = 999999999 WHERE signature = '33773000000000'; 
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher set with a non existing one', NULL::diagnostic.error);   
     RETURN;
     EXCEPTION WHEN SQLSTATE '23503' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-      IF error.constraint_name = 'communications_media_fk_communication_type' THEN
+      IF error.constraint_name = 'signatures_fk_teacher' THEN
         _results = _results || assert.pass(full_function_name, test_name);
       ELSE
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 1', error);
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 1', error);   
         RETURN;
       END IF;
-      WHEN OTHERS THEN
+      WHEN OTHERS THEN 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);   
         RETURN;
-  END;
-
-  ----------------------------------------------------------------------------
-  test_name = 'update communication_media set person with a non existing one';
-  ----------------------------------------------------------------------------
+  END; 
+  ---------------------------------------------------------------------------
+  test_name = 'update signatures set classroom with a non existing one';
+  ---------------------------------------------------------------------------
   BEGIN
-    UPDATE public.communications_media SET person = '9999999999999' WHERE communication_media = '112027000000000';
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person does not exist', NULL::diagnostic.error);
+    UPDATE signatures SET classroom = 999999999 WHERE signature = '33773000000000'; 
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom set with a non existing one', NULL::diagnostic.error);   
     RETURN;
     EXCEPTION WHEN SQLSTATE '23503' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-      IF error.constraint_name = 'communications_media_fk_person' THEN
+      IF error.constraint_name = 'signatures_fk_classroom' THEN
         _results = _results || assert.pass(full_function_name, test_name);
       ELSE
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 1', error);
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 1', error);   
         RETURN;
       END IF;
-      WHEN OTHERS THEN
+      WHEN OTHERS THEN 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);   
         RETURN;
-  END;
-
-  RETURN;
+  END; 
+  RETURN; 
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.communications_media_foreign_key(boolean)
+ALTER FUNCTION unit_tests.signatures_foreign_key(boolean)
   OWNER TO postgres;
