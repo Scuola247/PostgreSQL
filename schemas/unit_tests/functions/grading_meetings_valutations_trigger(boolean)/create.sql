@@ -41,7 +41,7 @@ BEGIN
   test_name = 'INSERT grading_meetings_valutations with student outside classroom';
   --------------------------------------------------------------
   BEGIN
-    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('11130752000000000','119533000000000','29052000000000','1325000000000','32919000000000','11463000000000',NULL,'f','f',NULL);
+    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1001130752000000000','119533000000000','29052000000000','1325000000000','32919000000000','11463000000000',NULL,'f','f',NULL);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the classroom doesnt have the same_year of the grading meeting ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE 'U04R2' THEN
@@ -71,7 +71,7 @@ BEGIN
   test_name = 'INSERT grading_meetings_valutations with student outside classroom';
   --------------------------------------------------------------
   BEGIN
-    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1130752000000000','119533000000000','10034000000000','6603000000000','32919000000000','11463000000000',NULL,'f','f',NULL);
+    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1011130752000000000','119533000000000','10034000000000','6603000000000','32919000000000','11463000000000',NULL,'f','f',NULL);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student is from a different classroom', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE 'U04R4' THEN
@@ -103,7 +103,7 @@ BEGIN
   --------------------------------------------------------------
   
 BEGIN
-    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1130752000000000','119533000000000','10034000000000','1325000000000','166675000000000','11463000000000',NULL,'f','f',NULL);
+    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1021130752000000000','119533000000000','10034000000000','1325000000000','166675000000000','11463000000000',NULL,'f','f',NULL);
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but but with subject outside the school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE 'U04R6' THEN
@@ -134,7 +134,7 @@ BEGIN
   test_name = 'INSERT grading_meetings_valutations with different school beetween grade and gradient_meetings_valutations';
   --------------------------------------------------------------
    BEGIN
-        INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1130752000000000','119533000000000','10034000000000','1325000000000','32919000000000','29067000000000',NULL,'f','f',NULL);
+        INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1031130752000000000','119533000000000','10034000000000','1325000000000','32919000000000','29067000000000',NULL,'f','f',NULL);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but with different school beetween grade and gradient_meetings_valutations', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE 'U04R8' THEN
@@ -166,7 +166,7 @@ BEGIN
   test_name = 'INSERT grading_meetings_valutation with closed gradient';
   --------------------------------------------------------------
      BEGIN
-    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1130752000000000','119533000000000','10034000000000','1325000000000','32919000000000','11463000000000',NULL,'f','f',NULL);
+    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1041130752000000000', '119533000000000', '10034000000000', '1325000000000', '32919000000000', '11463000000000', NULL, 'f', 'f', NULL);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the grading_meeting is closed', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE 'U04RA' THEN

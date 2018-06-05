@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests.teachears_notes_foreign_key(boolean)
+﻿-- Function: unit_tests.persons_foreign_key(boolean)
 
--- DROP FUNCTION unit_tests.teachears_notes_foreign_key(boolean);
+-- DROP FUNCTION unit_tests.persons_foreign_key(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests.teachears_notes_foreign_key(
+CREATE OR REPLACE FUNCTION unit_tests.persons_foreign_key(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -21,16 +21,16 @@ BEGIN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'_after_data_insert');
     RETURN;
   END IF;  
-  ---------------------------------------------------------------------------
-  test_name = 'update teachears_notes set classroom with a non existing one';
-  ---------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------------
+  test_name = 'update persons set city of birth with a non existing one';
+  ----------------------------------------------------------------------------------------
   BEGIN
-    UPDATE teachears_notes SET classroom = 999999999 WHERE teacher_notes = '61764000000000'; 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom set with a non existing one', NULL::diagnostic.error);   
+    UPDATE persons SET city_of_birth = 'AAAA' WHERE person = '30962000000000'; 
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but city of birth set with a non existing one', NULL::diagnostic.error);   
     RETURN;
     EXCEPTION WHEN SQLSTATE '23503' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-      IF error.constraint_name = 'teachears_notes_fk_classroom' THEN
+      IF error.constraint_name = 'persons_fk_city_of_birth' THEN
         _results = _results || assert.pass(full_function_name, test_name);
       ELSE
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 1', error);   
@@ -41,16 +41,17 @@ BEGIN
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);   
         RETURN;
   END; 
-  ---------------------------------------------------------------------------
-  test_name = 'update teachears_notes set student with a non existing one';
-  ---------------------------------------------------------------------------
+
+  ----------------------------------------------------------------------------------------
+  test_name = 'update persons set country of birth with a non existing one';
+  ----------------------------------------------------------------------------------------
   BEGIN
-    UPDATE teachears_notes SET student = 999999999 WHERE teacher_notes = '61764000000000'; 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but student set with a non existing one', NULL::diagnostic.error);   
+    UPDATE persons SET country_of_birth = 'AAAA' WHERE person = '30962000000000'; 
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but country of birth set with a non existing one', NULL::diagnostic.error);   
     RETURN;
     EXCEPTION WHEN SQLSTATE '23503' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-      IF error.constraint_name = 'teachears_notes_fk_student' THEN
+      IF error.constraint_name = 'persons_fk_country_of_birth' THEN
         _results = _results || assert.pass(full_function_name, test_name);
       ELSE
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 1', error);   
@@ -60,17 +61,18 @@ BEGIN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);   
         RETURN;
-  END; 
-  ---------------------------------------------------------------------------
-  test_name = 'update teachears_notes set teacher with a non existing one';
-  ---------------------------------------------------------------------------
+  END;
+
+  ----------------------------------------------------------------------------------------
+  test_name = 'update persons set school of birth with a non existing one';
+  ----------------------------------------------------------------------------------------
   BEGIN
-    UPDATE teachears_notes SET teacher = 999999999 WHERE teacher_notes = '61764000000000'; 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher set with a non existing one', NULL::diagnostic.error);   
+    UPDATE persons SET school = '9999999999' WHERE person = '30962000000000'; 
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school set with a non existing one', NULL::diagnostic.error);   
     RETURN;
     EXCEPTION WHEN SQLSTATE '23503' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-      IF error.constraint_name = 'teachears_notes_fk_teacher' THEN
+      IF error.constraint_name = 'persons_fk_school' THEN
         _results = _results || assert.pass(full_function_name, test_name);
       ELSE
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 1', error);   
@@ -80,11 +82,32 @@ BEGIN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);   
         RETURN;
-  END;  
+  END;
+
+  ----------------------------------------------------------------------------------------
+  test_name = 'update persons set school of birth with a non existing one';
+  ----------------------------------------------------------------------------------------
+  BEGIN
+    UPDATE persons SET usename = 'non_esiste@scuola-1.it' WHERE person = '30962000000000'; 
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but usename set with a non existing one', NULL::diagnostic.error);   
+    RETURN;
+    EXCEPTION WHEN SQLSTATE '23503' THEN
+      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+      IF error.constraint_name = 'persons_fk_usename' THEN
+        _results = _results || assert.pass(full_function_name, test_name);
+      ELSE
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 1', error);   
+        RETURN;
+      END IF;
+      WHEN OTHERS THEN 
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);   
+        RETURN;
+  END;
   RETURN; 
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.teachears_notes_foreign_key(boolean)
+ALTER FUNCTION unit_tests.persons_foreign_key(boolean)
   OWNER TO postgres;
