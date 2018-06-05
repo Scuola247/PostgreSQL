@@ -135,11 +135,11 @@ BEGIN
 	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
         RETURN; 
   END;
-  ----------------------------------------
+ ----------------------------------------
   test_name = 'notes''s min lenght';
-  ----------------------------------------
+ ----------------------------------------
   BEGIN
-    UPDATE public.grading_meetings_valutations SET notes = '' WHERE grading_meeting_valutation = '132146000000000';
+    UPDATE grading_meetings_valutations SET notes = '  ' WHERE grading_meeting_valutation = '132146000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but notes min lenght was expected', NULL::diagnostic.error);    
     RETURN;   
     EXCEPTION WHEN SQLSTATE '23514' THEN 
