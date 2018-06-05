@@ -21,7 +21,7 @@ BEGIN
   IF _build_dependencies THEN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'_after_data_insert');
     RETURN;
-  END IF; /* IN QUESTO TRIGGER NON SI HA UN my_sqlcode()
+  END IF; 
   ------------------------------------------------------------------------------------------------------
   test_name = 'UPDATE valutations_qualifications with qualification in a different school from student';
   ------------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ BEGIN
     UPDATE public.valutations_qualifications set qualification = '195977000000000' WHERE valutation_qualificationtion = '107038000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student is in a different school', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE 'U057P' THEN
+    EXCEPTION WHEN SQLSTATE 'U0581' THEN
       _results = _results || assert.pass(full_function_name, test_name);
       WHEN OTHERS THEN 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -44,7 +44,7 @@ BEGIN
     
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student is in a different school', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE 'UZZZ2' THEN
+    EXCEPTION WHEN SQLSTATE 'U0582' THEN
       _results = _results || assert.pass(full_function_name, test_name);
       WHEN OTHERS THEN 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -54,16 +54,16 @@ BEGIN
 
   
 
-	NON SI RIESCE A SCATTARE QUESTO TRIGGER Risultato : <NULL> in tutto;
+	 --NON SI RIESCE A SCATTARE QUESTO TRIGGER Risultato : <NULL> in tutto;
   
   ----------------------------------------------------------------------------------------------------
   test_name = 'UPDATE valutations_qualifications with grade in a different school from qualification';
   ----------------------------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.valutations_qualifications set grade = '30420000000000' WHERE valutation_qualificationtion = '107038000000000';
+    UPDATE public.valutations_qualifications set grade = '30420000000000' WHERE valutation_qualificationtion = '107137000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the grade is in a different school', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE 'U04L3' THEN
+    EXCEPTION WHEN SQLSTATE 'U0583' THEN
       _results = _results || assert.pass(full_function_name, test_name);
       WHEN OTHERS THEN 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -78,72 +78,14 @@ BEGIN
     
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the grade is in a different school', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE 'U04L4' THEN
+    EXCEPTION WHEN SQLSTATE 'U0584' THEN
       _results = _results || assert.pass(full_function_name, test_name);
       WHEN OTHERS THEN 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error); 
         RETURN;
   END;
-  ---------------------------------------------------------------------------
-  test_name = 'UPDATE teachers out of the classroom';
-  ---------------------------------------------------------------------------
-  BEGIN
-    UPDATE public.delays set teacher = '4112000000000' WHERE delay = '48854000000000';
-    
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the teacher is not from the same school', NULL::diagnostic.error);
-    RETURN;
-    EXCEPTION WHEN SQLSTATE 'U04L7' THEN
-      _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN 
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error); 
-        RETURN;
-  END; 
-  --------------------------------------------------------------
-  test_name = 'INSERT teachers out of the classroom';
-  --------------------------------------------------------------
-  BEGIN
-    INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1048854000000000','29144000000000','158348000000000','2014-02-07','10:10:31','10404000000000');
-    _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the teacher is not from the same school', NULL::diagnostic.error);
-    RETURN;
-    EXCEPTION WHEN SQLSTATE 'U04L8' THEN
-      _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN 
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error); 
-        RETURN;
-  END; 
-  ---------------------------------------------------------------------------
-  test_name = 'UPDATE delays date in an absent date';
-  ---------------------------------------------------------------------------
-  BEGIN
-    UPDATE public.delays set classroom_student = '10705000000000' , explanation = '157481000000000', on_date = '2014-01-21'  WHERE delay = '49176000000000';
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student is late even when he is absent', NULL::diagnostic.error);
-    RETURN;
-    EXCEPTION WHEN SQLSTATE 'U04L9' THEN
-      _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN 
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error); 
-        RETURN;
-  END;
-  --------------------------------------------------------------
-  test_name = 'INSERT delays date in an absent date';
-  --------------------------------------------------------------
-  BEGIN
-    INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('10049176000000000','32933000000000','157481000000000','2014-01-21','08:07:28','10705000000000');
-    
-    _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student is late even when he is absent', NULL::diagnostic.error);
-    RETURN;
-    EXCEPTION WHEN SQLSTATE 'U04LA' THEN
-      _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN 
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error); 
-        RETURN;
-  END; 
- */
+
   RETURN; 
 END
 $BODY$

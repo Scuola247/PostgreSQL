@@ -3465,6 +3465,10 @@ BEGIN
     INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('126101000000000','119538000000000','10038000000000','6870000000000','32923000000000','11474000000000','Esempio di una nota associata ad un voto di scrutinio','f','f',NULL);
     INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('126102000000000','119538000000000','10038000000000','6884000000000','32923000000000','11475000000000','Esempio di una nota associata ad un voto di scrutinio','f','f',NULL);
 
+/*For grading_meetings_valutations_qua_trigger */
+    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1130752000000000','119533000000000','10034000000000','1325000000000','32919000000000','11463000000000',NULL,'f','f',NULL);
+    
+
     _results = _results || assert.pass(full_function_name, test_name);
 
     EXCEPTION

@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests.communications_media_check(boolean)
+﻿-- Function: unit_tests.degrees_check(boolean)
 
--- DROP FUNCTION unit_tests.communications_media_check(boolean);
+-- DROP FUNCTION unit_tests.degrees_check(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests.communications_media_check(
+CREATE OR REPLACE FUNCTION unit_tests.degrees_check(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -23,11 +23,11 @@ BEGIN
   END IF; 
 
   ------------------------------------
-  test_name = 'person mandatory';
+  test_name = 'school mandatory';
   ------------------------------------
   BEGIN
-  UPDATE public.communications_media SET person = NULL WHERE communication_media = '112027000000000';
-   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but person was expected', NULL::diagnostic.error);      
+  UPDATE public.degrees SET school = NULL WHERE degree = '9942000000000';
+   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but school was expected', NULL::diagnostic.error);      
     RETURN;      
     EXCEPTION WHEN SQLSTATE '23502' THEN 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;	 
@@ -37,13 +37,27 @@ BEGIN
         RETURN; 
   END;
 
-
-  ------------------------------------
-  test_name = 'communication type mandatory';
+   ------------------------------------
+  test_name = 'description mandatory';
   ------------------------------------
   BEGIN
-  UPDATE public.communications_media SET person = NULL WHERE communication_media = '112027000000000';
-   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but communication type was expected', NULL::diagnostic.error);      
+  UPDATE public.degrees SET description = NULL WHERE degree = '9942000000000';
+   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but description was expected', NULL::diagnostic.error);      
+    RETURN;      
+    EXCEPTION WHEN SQLSTATE '23502' THEN 
+      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;	 
+      WHEN OTHERS THEN 
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
+        RETURN; 
+  END;
+
+   ------------------------------------
+  test_name = 'course_years mandatory';
+  ------------------------------------
+  BEGIN
+  UPDATE public.degrees SET course_years = NULL WHERE degree = '9942000000000';
+   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but course_years was expected', NULL::diagnostic.error);      
     RETURN;      
     EXCEPTION WHEN SQLSTATE '23502' THEN 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;	 
@@ -54,30 +68,15 @@ BEGIN
   END;
 
   ------------------------------------
-  test_name = 'uri mandatory';
+  test_name = 'duplicate school';
   ------------------------------------
   BEGIN
-  UPDATE public.communications_media SET uri = NULL WHERE communication_media = '112027000000000';
-   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but uri was expected', NULL::diagnostic.error);      
-    RETURN;      
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
-      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;	 
-      WHEN OTHERS THEN 
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
-        RETURN; 
-  END;
-  
-  ------------------------------------
-  test_name = 'Duplicate description';
-  ------------------------------------
-  BEGIN
-    INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','3959000000000','138027000000000','casa','Lara.Lupini@example.org','t');
-   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but description is duplicated', NULL::diagnostic.error);      
+    INSERT INTO degrees (degree, school, description, course_years) VALUES (99420000000000, 1000000000, 'Scuola dell''infanzia', 3);
+   _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but this (school, description) already exist', NULL::diagnostic.error);      
     RETURN;      
     EXCEPTION WHEN SQLSTATE '23505' THEN 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;	
-      IF error.constraint_name = 'communications_media_uq_description' THEN
+      IF error.constraint_name = 'degrees_uq_description' THEN
         _results =  _results || assert.pass(full_function_name, test_name);
       ELSE
 	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);      
@@ -89,37 +88,16 @@ BEGIN
         RETURN; 
   END;
 
-  ------------------------------------
-  test_name = 'Duplicate uri';
-  ------------------------------------
-  BEGIN
-    INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','3959000000000','138027000000000','lavoro','Lara.Lupini@example.org','t');
-   _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but uri is duplicated', NULL::diagnostic.error);      
-    RETURN;      
-    EXCEPTION WHEN SQLSTATE '23505' THEN 
-      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;	
-      IF error.constraint_name = 'communications_media_uq_uri' THEN
-        _results =  _results || assert.pass(full_function_name, test_name);
-      ELSE
-	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);      
-	RETURN; 
-      END IF; 
-      WHEN OTHERS THEN 
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
-        RETURN; 
-  END;
-
-  ----------------------------------------
+   ----------------------------------------
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE communications_media SET description = '' WHERE communication_media = '112027000000000';
+    UPDATE degrees SET description = '' WHERE degree = '9942000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);    
     RETURN;   
     EXCEPTION WHEN SQLSTATE '23514' THEN 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-      IF error.constraint_name = 'communications_media_ck_description' THEN
+      IF error.constraint_name = 'degrees_ck_description' THEN
         _results = _results || assert.pass(full_function_name, test_name);
      ELSE
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
@@ -130,32 +108,10 @@ BEGIN
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
         RETURN;
   END;
-
-  ----------------------------------------
-  test_name = 'uri''s min lenght';
-  ----------------------------------------
-  BEGIN
-    UPDATE communications_media SET uri = '' WHERE communication_media = '112027000000000';
-    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but uri min lenght was expected', NULL::diagnostic.error);    
-    RETURN;   
-    EXCEPTION WHEN SQLSTATE '23514' THEN 
-      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-      IF error.constraint_name = 'communications_media_ck_uri' THEN
-        _results = _results || assert.pass(full_function_name, test_name);
-     ELSE
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
-        RETURN;
-      END IF;    
-      WHEN OTHERS THEN 
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
-        RETURN;
-  END;
-  
-  RETURN; 
+    RETURN;
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.communications_media_check(boolean)
+ALTER FUNCTION unit_tests.degrees_check(boolean)
   OWNER TO postgres;
