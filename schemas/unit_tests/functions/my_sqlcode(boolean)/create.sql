@@ -245,7 +245,7 @@ BEGIN
     _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: unit_tests.holidays(boolean)',diagnostic.my_sqlcode('unit_tests.holidays(boolean)','0'),'U07J0');
     _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: public.tr_topics_iu()',diagnostic.my_sqlcode('public.tr_topics_iu()','0'),'U0550');
     _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: unit_tests.mime_type(boolean)',diagnostic.my_sqlcode('unit_tests.mime_type(boolean)','0'),'U07R0');
-    _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: public.tr_valutations_qualifications_iu()',diagnostic.my_sqlcode('public.tr_valutations_qualificationtions_iu()','0'),'U0580');
+    _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: public.tr_valutations_qualifications_iu()',diagnostic.my_sqlcode('public.tr_valutations_qualifications_iu()','0'),'U0580');
     _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: unit_tests.my_sqlcode(boolean)',diagnostic.my_sqlcode('unit_tests.my_sqlcode(boolean)','0'),'U07S0');
     _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: public.tr_weekly_timetables_days_iu()',diagnostic.my_sqlcode('public.tr_weekly_timetables_days_iu()','0'),'U0590');
     _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: public.tr_classrooms_students_iu()',diagnostic.my_sqlcode('public.tr_classrooms_students_iu()','0'),'U04H0');
