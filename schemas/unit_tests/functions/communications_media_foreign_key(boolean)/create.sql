@@ -1,4 +1,4 @@
-﻿-- Function: unit_tests.grading_meetings_valutations_foreign_key(boolean)
+﻿-- Function: unit_tests.communications_media_foreign_key(boolean)
 
 -- DROP FUNCTION unit_tests.communications_media_foreign_key(boolean);
 
