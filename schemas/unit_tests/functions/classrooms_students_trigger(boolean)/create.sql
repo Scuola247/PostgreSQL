@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests.classrooms_students_trigger(boolean)
+﻿-- Function: unit_tests_public.classrooms_students_trigger(boolean)
 
--- DROP FUNCTION unit_tests.classrooms_students_trigger(boolean);
+-- DROP FUNCTION unit_tests_public.classrooms_students_trigger(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests.classrooms_students_trigger(
+CREATE OR REPLACE FUNCTION unit_tests_public.classrooms_students_trigger(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -19,7 +19,7 @@ BEGIN
 
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'_after_data_insert');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;  
   --------------------------------------------------------------------------------------
@@ -56,5 +56,5 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.classrooms_students_trigger(boolean)
+ALTER FUNCTION unit_tests_public.classrooms_students_trigger(boolean)
   OWNER TO postgres;
