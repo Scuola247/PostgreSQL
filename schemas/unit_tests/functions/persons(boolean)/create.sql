@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests.persons(boolean)
+﻿-- Function: unit_tests_public.persons(boolean)
 
--- DROP FUNCTION unit_tests.persons(boolean);
+-- DROP FUNCTION unit_tests_public.persons(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests.persons(
+CREATE OR REPLACE FUNCTION unit_tests_public.persons(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -18,17 +18,17 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'schools',
-										       'cities',
-										       'countries',
-										       'usenames_ex');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.full_function_name(context),'unit_tests_public.schools',
+										         'unit_tests_public.cities',
+										         'unit_tests_public.countries',
+											 'unit_tests_public.usenames_ex');
     RETURN;
   END IF;  
   -----------------------------
   test_name = 'INSERT persons';
   -----------------------------
   BEGIN
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth,thumbnail,note,usename,photo) VALUES ('30962000000000','Barbara','Licci','2004-11-07',NULL,NULL,'LCCBBR04S47L781Z','F','28961000000000','3590457000000000','L781',NULL,NULL,'student-f@scuola-28961.it',NULL);
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth,thumbnail,note,usename,photo) VALUES ('30962000000000','Barbara','Licci','2004-11-07',NULL,NULL,'LCCBBR04S47L781Z','F','28961000000000','3590457000000000','L781',NULL,NULL,NULL,NULL);
     INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth,thumbnail,note,usename,photo) VALUES ('30921000000000','Antonella','Licci','2005-12-23',NULL,NULL,'LCCNNL05T63L781U','F','28961000000000','3590553000000000','L781',NULL,NULL,NULL,NULL);
     INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth,thumbnail,note,usename,photo) VALUES ('30744000000000','Alvise','Licci','2006-07-11',NULL,NULL,'LCCLVS06L11F861O','M','28961000000000','10585041000000000','F861',NULL,NULL,NULL,NULL);
     INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth,thumbnail,note,usename,photo) VALUES ('30804000000000','Guglielmo','Lightfoot','2004-12-26',NULL,NULL,'LGHGLL04T26L781Q','M','28961000000000','3612572000000000','L781',NULL,NULL,NULL,NULL);
@@ -9647,5 +9647,5 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.persons(boolean)
+ALTER FUNCTION unit_tests_public.persons(boolean)
   OWNER TO postgres;

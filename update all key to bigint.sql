@@ -5,7 +5,7 @@ COMMENT ON COLUMN public.countries.processing_code IS 'A code that identify the 
 UPDATE public.countries SET processing_code = country;
 ALTER TABLE public.countries ALTER country SET NOT NULL;
 ALTER TABLE public.countries ADD CONSTRAINT countries_uq_processing_code UNIQUE(processing_code);
-
+alter table countries ALTER country TYPE bigint;
 
 alter table regions ALTER region TYPE bigint;
 alter table regions ALTER region SET DEFAULT nextval('pk_seq'::regclass);
@@ -43,7 +43,7 @@ ALTER TABLE public.cities
 
 -- DROP VIEW public.classrooms_students_addresses_ex;
 
-CREATE OR REPLACE VIEW public.classrooms_students_addresses_ex AS 
+CREATE OR REPLACE VIEW public.classrooms_students_addresses_ex AS
  SELECT ca.classroom,
     ca.student,
     p.name,
@@ -138,7 +138,7 @@ ALTER TABLE public.cities DROP CONSTRAINT cities_pk;
 ALTER TABLE public.cities
   ADD CONSTRAINT cities_pk PRIMARY KEY(city);
 
-CREATE OR REPLACE VIEW public.residence_grp_city AS 
+CREATE OR REPLACE VIEW public.residence_grp_city AS
  SELECT p.school,
     c.description,
     count(p.person) AS count
@@ -167,4 +167,3 @@ ALTER TABLE public.persons_addresses
   ADD CONSTRAINT persons_addresses_fk_city FOREIGN KEY (city)
       REFERENCES public.cities (city) MATCH SIMPLE
       ON UPDATE CASCADE ON DELETE RESTRICT;
-
