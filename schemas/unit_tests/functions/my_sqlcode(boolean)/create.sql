@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests.my_sqlcode(boolean)
+﻿-- Function: unit_tests_public.my_sqlcode(boolean)
 
--- DROP FUNCTION unit_tests.my_sqlcode(boolean);
+-- DROP FUNCTION unit_tests_public.my_sqlcode(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests.my_sqlcode(
+CREATE OR REPLACE FUNCTION unit_tests_public.my_sqlcode(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -18,7 +18,7 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context));
+    PERFORM unit_testing.build_function_dependencies(diagnostic.full_function_name(context));
     RETURN;
   END IF;
   -------------------------------
@@ -334,5 +334,5 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.my_sqlcode(boolean)
+ALTER FUNCTION unit_tests_public.my_sqlcode(boolean)
   OWNER TO postgres;
