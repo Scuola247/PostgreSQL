@@ -1,3 +1,5 @@
+﻿DROP SCHEMA it CASCADE;
+DROP VIEW nic_test;
 ALTER TABLE public.countries ADD COLUMN processing_code smallint;
 COMMENT ON COLUMN public.countries.processing_code IS 'A code that identify the country on the government information system';
 UPDATE public.countries SET processing_code = country;
@@ -6,7 +8,7 @@ ALTER TABLE public.countries ADD CONSTRAINT countries_uq_processing_code UNIQUE(
 
 
 alter table regions ALTER region TYPE bigint;
-alter table regions ALTER region DEFAULT nextval('pk_seq'::regclass);
+alter table regions ALTER region SET DEFAULT nextval('pk_seq'::regclass);
 
 alter table districts ALTER region TYPE bigint;
 alter table districts ALTER region SET NOT NULL;
@@ -15,7 +17,6 @@ COMMENT ON COLUMN public.districts.mnemonic IS 'mnemonic identification for dist
 
 ALTER TABLE public.districts ADD COLUMN district bigint;
 alter table public.districts ALTER district SET DEFAULT nextval('pk_seq'::regclass);
-alter table public.districts ALTER district SET NOT NULL;
 update public.districts set district = nextval('pk_seq'::regclass);
 alter table public.districts ALTER district SET NOT NULL;
 
