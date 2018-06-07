@@ -1,4 +1,3 @@
-format
 INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('A109','Airasca (test)','758321000000000','758438000000000');
 INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('A117','Ala di Stura (test)','758321000000000','758439000000000');
 INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('A157','Albiano d''Ivrea (test)','758321000000000','758440000000000');
