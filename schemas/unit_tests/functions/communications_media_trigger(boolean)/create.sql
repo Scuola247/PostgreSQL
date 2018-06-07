@@ -51,9 +51,9 @@ BEGIN
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
   END;
-  --------------------------------------------------------------------------------
-  test_name = 'UPDATE communications_media with a different school of the person';
-  --------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------
+  test_name = 'UPDATE communications_type with a different school of the person';
+  -------------------------------------------------------------------------------
   BEGIN
     UPDATE public.communications_media SET communication_type = '138017000000000' WHERE communication_media = '112027000000000';
     INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','3959000000000','138029000000000','casa','Lara.Lupini@example.org','t');
@@ -80,6 +80,11 @@ BEGIN
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
   END;
+
+/*
+mancano tests per i codici  U04J3 U04J4 quando la person non è della scuola
+*/
+
 
   RETURN;
 END

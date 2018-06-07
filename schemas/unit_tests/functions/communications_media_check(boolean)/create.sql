@@ -131,9 +131,9 @@ BEGIN
         RETURN;
   END;
 
-  ----------------------------------------
+  --------------------------------
   test_name = 'uri''s min lenght';
-  ----------------------------------------
+  --------------------------------
   BEGIN
     UPDATE communications_media SET uri = '  ' WHERE communication_media = '112027000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but uri min lenght was expected', NULL::diagnostic.error);
