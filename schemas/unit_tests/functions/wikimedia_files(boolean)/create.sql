@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests.wikimedia_files(boolean)
+﻿-- Function: unit_tests_public.wikimedia_files(boolean)
 
--- DROP FUNCTION unit_tests.wikimedia_files(boolean);
+-- DROP FUNCTION unit_tests_public.wikimedia_files(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests.wikimedia_files(
+CREATE OR REPLACE FUNCTION unit_tests_public.wikimedia_files(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -4138,5 +4138,5 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.wikimedia_files(boolean)
+ALTER FUNCTION unit_tests_public.wikimedia_files(boolean)
   OWNER TO postgres;

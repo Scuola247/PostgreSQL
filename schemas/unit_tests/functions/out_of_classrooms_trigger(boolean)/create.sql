@@ -1,4 +1,4 @@
-﻿-- Function: unit_tests_public.grading_meetings_trigger(boolean)
+﻿-- Function: unit_tests_public.out_of_classrooms_trigger(boolean)
 
 -- DROP FUNCTION unit_tests_public.out_of_classrooms_trigger(boolean);
 
@@ -19,7 +19,7 @@ BEGIN
 
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.full_function_name(context),'unit_tests_public._after_data_insert');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;  
   --------------------------------------------------------------
