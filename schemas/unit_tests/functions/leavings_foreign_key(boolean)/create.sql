@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests.lessons_check(boolean)
+﻿-- Function: unit_tests_public.lessons_check(boolean)
 
--- DROP FUNCTION unit_tests.lessons_check(boolean);
+-- DROP FUNCTION unit_tests_public.lessons_check(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests.lessons_foreign_key(
+CREATE OR REPLACE FUNCTION unit_tests_public.lessons_foreign_key(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -18,10 +18,10 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'classrooms',
-                                                                                       'subjects',
-                                                                                       'persons',
-                                                                                       'school_years');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public.classrooms',
+                                                                                       'unit_tests_public.subjects',
+                                                                                       'unit_tests_public.persons',
+                                                                                       'unit_tests_public.school_years');
     RETURN;
   END IF;  
   ---------------------------------------------------------------------
@@ -91,5 +91,5 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.lessons_check(boolean)
+ALTER FUNCTION unit_tests_public.lessons_check(boolean)
   OWNER TO postgres;

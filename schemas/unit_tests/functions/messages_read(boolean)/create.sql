@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests.messages_read(boolean)
+﻿-- Function: unit_tests_public.messages_read(boolean)
 
--- DROP FUNCTION unit_tests.messages_read(boolean);
+-- DROP FUNCTION unit_tests_public.messages_read(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests.messages_read(
+CREATE OR REPLACE FUNCTION unit_tests_public.messages_read(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -18,12 +18,12 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'persons',
-                                                                                       'messages',
-                                                                                       'conversations',
-                                                                                       'classrooms_students',
-                                                                                       'classrooms',
-                                                                                       'school_years');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public.persons',
+                                                                                       'unit_tests_public.messages',
+                                                                                       'unit_tests_public.conversations',
+                                                                                       'unit_tests_public.classrooms_students',
+                                                                                       'unit_tests_public.classrooms',
+                                                                                       'unit_tests_public.school_years');
     RETURN;
   END IF;  
   -----------------------------------
@@ -1304,5 +1304,5 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.messages_read(boolean)
+ALTER FUNCTION unit_tests_public.messages_read(boolean)
   OWNER TO postgres;
