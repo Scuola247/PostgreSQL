@@ -1,34 +1,4 @@
-﻿-- Function: unit_tests_public.persons(boolean)
-
--- DROP FUNCTION unit_tests_public.persons(boolean);
-
-CREATE OR REPLACE FUNCTION unit_tests_public.persons(
-    IN _build_dependencies boolean DEFAULT false,
-    OUT _results unit_testing.unit_test_result[])
-  RETURNS unit_testing.unit_test_result[] AS
-$BODY$
-<<me>>
-DECLARE 
-  context               text;
-  full_function_name 	text;
-  test_name		text = '';
-  error			diagnostic.error;
-BEGIN
-  GET DIAGNOSTICS context = PG_CONTEXT;
-  full_function_name = diagnostic.full_function_name(context);
-  -- check to build dependencies
-  IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public.schools',
-										         'unit_tests_public.cities',
-										         'unit_tests_public.countries',
-											 'unit_tests_public.usenames_ex');
-    RETURN;
-  END IF;  
-  -----------------------------
-  test_name = 'INSERT persons';
-  -----------------------------
-  BEGIN
-  INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('29164000000000','Eleonora','Brunelli','1957-02-23',NULL,NULL,'BRNLNR57B63H783B','F','28961000000000',NULL,'H783',NULL,NULL,NULL,NULL,'833217000000000');
+﻿  INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('29164000000000','Eleonora','Brunelli','1957-02-23',NULL,NULL,'BRNLNR57B63H783B','F','28961000000000',NULL,'H783',NULL,NULL,NULL,NULL,'833217000000000');
   INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('29134000000000','Alessia','Brunelli','1952-08-29',NULL,NULL,'BRNLSS52M69L781S','F','28961000000000',NULL,'L781',NULL,NULL,NULL,NULL,'833239000000000');
   INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('29165000000000','Caterina Erika','Caiani','1961-12-08',NULL,NULL,'CNACRN61T48H783E','F','28961000000000',NULL,'H783',NULL,NULL,NULL,NULL,'833217000000000');
   INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('29135000000000','Angela','Calchera','1967-11-05',NULL,NULL,'CLCNGL67S45L781R','F','28961000000000',NULL,'L781',NULL,NULL,NULL,NULL,'833239000000000');
@@ -9633,19 +9603,3 @@ BEGIN
   INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('165840000000000','Postgres','Istituto 1','1986-01-01',NULL,NULL,'POSTGRESQL999999','M','1000000000',NULL,'L781',NULL,NULL,'manager-b@scuola-1.it',NULL,'833239000000000');
   INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('724750000000000','Postgres','Istituto 2','1986-01-01',NULL,NULL,'POSTGRESQL999999','M','2000000000',NULL,'L781',NULL,NULL,'manager-d@scuola-2.it',NULL,'833239000000000');
   INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('165842000000000','Postgres','Istituto 28961','1986-01-01',NULL,NULL,'POSTGRESQL999999','M','28961000000000',NULL,'L781',NULL,NULL,'manager-f@scuola-28961.it',NULL,'833239000000000');
-
-    _results = _results || assert.pass(full_function_name, test_name);
-
-    EXCEPTION
-       WHEN OTHERS THEN 
-         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-         _results = _results || assert.fail(full_function_name, test_name, 'INSERT public.persons FAILED'::text, error);   
-       RETURN; 
-  END;
-  RETURN; 
-END
-$BODY$
-  LANGUAGE plpgsql VOLATILE
-  COST 100;
-ALTER FUNCTION unit_tests_public.persons(boolean)
-  OWNER TO postgres;
