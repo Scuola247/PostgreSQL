@@ -30,7 +30,7 @@ BEGIN
 
   IF _build_dependencies THEN
 
-    PERFORM unit_testing.build_function_dependencies(diagnostic.full_function_name(context),'unit_tests_public.school_years',
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public.school_years',
 
 										       'unit_tests_public.degrees',
 

@@ -1,6 +1,6 @@
-﻿-- Function: unit_tests_public.._after_data_insert(boolean)
+﻿-- Function: unit_tests_public._after_data_insert(boolean)
 
--- DROP FUNCTION unit_tests_public.._after_data_insert(boolean);
+-- DROP FUNCTION unit_tests_public._after_data_insert(boolean);
 
 CREATE OR REPLACE FUNCTION unit_tests_public._after_data_insert(
     IN _build_dependencies boolean DEFAULT false,
@@ -20,7 +20,7 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.full_function_name(context),'unit_tests_public.absences',
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public.absences',
 										       'unit_tests_public.branches',
 										       'unit_tests_public.cities',
 										       'unit_tests_public.classrooms',
