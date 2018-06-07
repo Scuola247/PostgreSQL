@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests.classrooms_trigger(boolean)
+﻿-- Function: unit_tests_public.classrooms_trigger(boolean)
 
--- DROP FUNCTION unit_tests.classrooms_trigger(boolean);
+-- DROP FUNCTION unit_tests_public.classrooms_trigger(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests.classrooms_trigger(
+CREATE OR REPLACE FUNCTION unit_tests_public.classrooms_trigger(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -18,9 +18,9 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'school_years',
-										       'degrees',
-										       'branches');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.full_function_name(context),'unit_tests_public.school_years',
+										       'unit_tests_public.degrees',
+										       'unit_tests_public.branches');
     RETURN;
   END IF;
   ---------------------------------------------------------------------
@@ -91,5 +91,5 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.classrooms_trigger(boolean)
+ALTER FUNCTION unit_tests_public.classrooms_trigger(boolean)
   OWNER TO postgres;
