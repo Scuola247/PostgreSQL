@@ -1,4 +1,3 @@
-format
 INSERT INTO public.countries(country,description,existing,processing_code) VALUES ('201000000000','BELGIO (test)','t','1201');
 INSERT INTO public.countries(country,description,existing,processing_code) VALUES ('202000000000','DANIMARCA (test)','t','1202');
 INSERT INTO public.countries(country,description,existing,processing_code) VALUES ('203000000000','FRANCIA (test)','t','1203');
