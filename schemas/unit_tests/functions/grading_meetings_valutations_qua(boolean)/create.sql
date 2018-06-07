@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests.grading_meetings_valutations_qua(boolean)
+﻿-- Function: unit_tests_public.grading_meetings_valutations_qua(boolean)
 
--- DROP FUNCTION unit_tests.grading_meetings_valutations_qua(boolean);
+-- DROP FUNCTION unit_tests_public.grading_meetings_valutations_qua(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests.grading_meetings_valutations_qua(
+CREATE OR REPLACE FUNCTION unit_tests_public.grading_meetings_valutations_qua(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -18,12 +18,12 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'qualifications',
-                                                                                       'grading_meetings_valutations',
-                                                                                       'grading_meetings',
-                                                                                       'persons',
-                                                                                       'metrics',
-                                                                                       'grades');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public.qualifications',
+                                                                                       'unit_tests_public.grading_meetings_valutations',
+                                                                                       'unit_tests_public.grading_meetings',
+                                                                                       'unit_tests_public.persons',
+                                                                                       'unit_tests_public.metrics',
+                                                                                       'unit_tests_public.grades');
     RETURN;
   END IF;  
   ------------------------------------------------------
@@ -5287,5 +5287,5 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.grading_meetings_valutations_qua(boolean)
+ALTER FUNCTION unit_tests_public.grading_meetings_valutations_qua(boolean)
   OWNER TO postgres;

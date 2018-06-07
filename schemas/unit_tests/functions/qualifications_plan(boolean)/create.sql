@@ -19,7 +19,7 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.full_function_name(context),'unit_tests_public.degrees',
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public.degrees',
 										              'unit_tests_public.qualifications',
 										              'unit_tests_public.subjects');
     RETURN;

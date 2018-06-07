@@ -19,7 +19,7 @@ BEGIN
 
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.full_function_name(context),'unit_tests_public._after_data_insert');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;  
   --------------------------------------------------------------
