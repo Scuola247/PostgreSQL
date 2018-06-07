@@ -46,7 +46,7 @@ BEGIN
 										       'unit_tests_public.lessons',
 										       'unit_tests_public.messages',
 										       'unit_tests_public.messages_read',
-										       'metrics','notes',
+										       'unit_tests_public.metrics','unit_tests_public.notes',
 										       'unit_tests_public.notes_signed',
 										       'unit_tests_public.out_of_classrooms',
 										       'unit_tests_public.parents_meetings',
