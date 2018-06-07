@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests.schools_years_check(boolean)
+﻿-- Function: unit_tests_public.schools_years_check(boolean)
 
--- DROP FUNCTION unit_tests.schools_years_check(boolean);
+-- DROP FUNCTION unit_tests_public.schools_years_check(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests.schools_years_check(
+CREATE OR REPLACE FUNCTION unit_tests_public.schools_years_check(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -18,7 +18,7 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
-      PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'_after_data_insert');
+      PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
   ---------------------------------------
@@ -148,5 +148,5 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.schools_years_check(boolean)
+ALTER FUNCTION unit_tests_public.schools_years_check(boolean)
   OWNER TO postgres;
