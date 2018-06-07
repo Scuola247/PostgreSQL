@@ -1,4 +1,5 @@
-﻿-- Function: unit_tests_public.grading_meetings_valutations_trigger(boolean)
+﻿
+-- Function: unit_tests_public.grading_meetings_valutations_trigger(boolean)
 
 -- DROP FUNCTION unit_tests_public.valutations_trigger(boolean);
 

@@ -1,4 +1,6 @@
-﻿-- Function: unit_tests_public.persons_roles(boolean)
+﻿
+
+-- Function: unit_tests_public.persons_roles(boolean)
 
 -- DROP FUNCTION unit_tests_public.persons_roles(boolean);
 
