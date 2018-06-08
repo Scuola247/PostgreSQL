@@ -10,17 +10,17 @@ $BODY$
 <<me>>
 DECLARE
   context               text;
-  full_function_name 	text;
-  test_name		text = '';
-  error			diagnostic.error;
+  full_function_name 	  text;
+  test_name		          text = '';
+  error		             	diagnostic.error;
 BEGIN
   GET DIAGNOSTICS context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public.persons_relations',
-										       'unit_tests_public.persons',
-										       'unit_tests_public.persons_roles');
+										       										              										       'unit_tests_public.persons',
+													       										              							       'unit_tests_public.persons_roles');
     RETURN;
   END IF;
   ----------------------------------
@@ -2534,24 +2534,23 @@ BEGIN
     INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('48828000000000','6632000000000','Esempio di un testo di una giustificazione','2014-06-02 08:10:31','8594000000000','2014-06-03 08:10:31','32930000000000','2014-06-02','2014-06-02','08:10:31',NULL,'Late');
     INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('48840000000000','6743000000000','Esempio di un testo di una giustificazione','2014-06-02 08:09:33','8705000000000','2014-06-03 08:09:33','32930000000000','2014-06-02','2014-06-02','08:09:33',NULL,'Late');
 
---I create a modified explanation for testing that an absent student want to leave U04U9,U04UA
+
+    --I create a modified explanation for testing that an absent student want to leave U04U9,U04UA
     INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('157189000000000','1269000000000','uscita in anticipo per motivi personali','2013-10-05 10:50:51','3567000000000','2013-10-07 10:50:51','32927000000000','2013-10-05','2013-10-05',NULL,'11:38:38','Leave');
-
---I create a modified explanation for testing that a student can't giustify an explanation U04UC
+    --I create a modified explanation for testing that a student can't giustify an explanation U04UC
     INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('1057133000000000','6674000000000','uscita in anticipo per motivi personali','2013-09-16 10:37:02','8636000000000','2013-09-17 10:37:02','32933000000000','2013-09-16','2013-09-16',NULL,'11:52:52','Leave');
-
---I create a modified explanatio for testing that a teacher from another school can't giustify U048
+    --I create a modified explanatio for testing that a teacher from another school can't giustify U048
     INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('1057134000000000','6674000000000','uscita in anticipo per motivi personali','2013-09-17 10:37:02','8636000000000','2013-09-18 10:38:02','32933000000000','2013-09-17','2013-09-17',NULL,'11:52:52','Leave');
---I create a modified explanatio for leaving_check, i test the duplicate classroom_student 23505
+    --I create a modified explanatio for leaving_check, i test the duplicate classroom_student 23505
     INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('1057135000000000','6674000000000','uscita in anticipo per motivi personali','2013-09-19 10:38:02','8636000000000','2013-09-20 10:39:02','32933000000000','2013-09-19','2013-09-19',NULL,'11:52:54','Leave');
-/* Per U04L9 e U04LA */
+
+    -- Per U04L9 e U04LA
     INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('157481000000000','6800000000000','uscita in anticipo per motivi personali','2014-01-21 08:07:28','8762000000000','2014-01-22 08:07:28','32933000000000','2014-01-21','2014-01-21',NULL,'11:37:37','Late');
-	/* Per U04L8 */
+   	-- Per U04L8
     INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('158348000000000','1451000000000','uscita in anticipo per motivi familiari','2014-02-07 10:10:31','3749000000000','2014-02-08 10:10:31','32937000000000','2014-02-07','2014-02-07',NULL,'11:12:12','Late');
 
     -- explanation for the student without a delay
-    INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('10058369000000000','1214000000000','uscita in anticipo per motivi personali','2014-06-06 10:27:03','3512000000000','2014-06-06 10:27:03','32933000000000','2014-06-06','2014-06-06',NULL,'11:29:29','Leave'); 
-
+    INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('10058369000000000','1214000000000','uscita in anticipo per motivi personali','2014-06-06 10:27:03','3512000000000','2014-06-06 10:27:03','32933000000000','2014-06-06','2014-06-06',NULL,'11:29:29','Leave');
 
 
     _results = _results || assert.pass(full_function_name, test_name);
