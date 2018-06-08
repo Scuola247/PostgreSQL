@@ -10,7 +10,7 @@ $BODY$
 
 <<me>>
 
-DECLARE 
+DECLARE
 
   context               text;
 
@@ -30,11 +30,11 @@ BEGIN
 
   IF _build_dependencies THEN
 
-      PERFORM unit_testing.build_function_dependencies(diagnostic.full_function_name(context));
+      PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context));
 
     RETURN;
 
-  END IF;  
+  END IF;
 
   --------------------------------
 
@@ -6351,17 +6351,17 @@ BEGIN
 
     EXCEPTION
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'INSERT public.signatures FAILED'::text, error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'INSERT public.signatures FAILED'::text, error);
 
-        RETURN; 
+        RETURN;
 
   END;
 
-  RETURN; 
+  RETURN;
 
 END
 
