@@ -83,39 +83,47 @@ BEGIN
 manca il controllo sul nome del constraint una volta che è partita l'EXCEPTION
 */
 
-  /*
-
-  ------------------------------------
-  test_name = 'mnemonic not empty';
-  ------------------------------------
-  BEGIN
-    UPDATE districts SET mnemonic = ' ' WHERE district = '758322000000000';
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but mnemonic was empty', NULL::diagnostic.error);
-    RETURN;
-    EXCEPTION WHEN SQLSTATE '23514' THEN
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-  _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
-  END;
-  ------------------------------------
-  test_name = 'description not empty';
-  ------------------------------------
+  
+  ----------------------------------------
+  test_name = 'description''s min lenght';
+  ----------------------------------------
   BEGIN
     UPDATE districts SET description = ' ' WHERE district = '758322000000000';
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description was empty', NULL::diagnostic.error);
+    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE '23514' THEN
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-  _results = _results || assert.pass(full_function_name, test_name);
+      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+      IF error.constraint_name = 'districs_ck_description' THEN
+        _results = _results || assert.pass(full_function_name, test_name);
+     ELSE
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RETURN;
+      END IF;
       WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
   END;
-  */
+  ----------------------------------------
+  test_name = 'mnemonic''s min lenght';
+  ----------------------------------------
+  BEGIN
+    UPDATE districts SET  mnemonic = ' ' WHERE district = '758322000000000';
+    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but mnemonic min lenght was expected', NULL::diagnostic.error);
+    RETURN;
+    EXCEPTION WHEN SQLSTATE '23514' THEN
+      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+      IF error.constraint_name = 'districts_ck_district' THEN
+        _results = _results || assert.pass(full_function_name, test_name);
+     ELSE
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RETURN;
+      END IF;
+      WHEN OTHERS THEN
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RETURN;
+  END; 
   
   ------------------------------------
   test_name = 'mnemonic mandatory';
