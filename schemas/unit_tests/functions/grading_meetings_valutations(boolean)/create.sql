@@ -8,7 +8,7 @@ CREATE OR REPLACE FUNCTION unit_tests_public.grading_meetings_valutations(
   RETURNS unit_testing.unit_test_result[] AS
 $BODY$
 <<me>>
-DECLARE 
+DECLARE
   context               text;
   full_function_name 	text;
   test_name		text = '';
@@ -27,7 +27,7 @@ BEGIN
                                                                                        'unit_tests_public.persons',
                                                                                        'unit_tests_public.subjects');
     RETURN;
-  END IF;  
+  END IF;
   --------------------------------------------------
   test_name = 'INSERT grading_meetings_valutations';
   --------------------------------------------------
@@ -3467,17 +3467,17 @@ BEGIN
 
 /*For grading_meetings_valutations_qua_trigger */
     INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1130752000000000','119533000000000','10034000000000','1325000000000','32919000000000','11463000000000',NULL,'f','f',NULL);
-    
+
 
     _results = _results || assert.pass(full_function_name, test_name);
 
     EXCEPTION
-       WHEN OTHERS THEN 
+       WHEN OTHERS THEN
          GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-         _results = _results || assert.fail(full_function_name, test_name, 'INSERT public.grading_meetings_valutations FAILED'::text, error);   
-       RETURN; 
+         _results = _results || assert.fail(full_function_name, test_name, 'INSERT public.grading_meetings_valutations FAILED'::text, error);
+       RETURN;
   END;
-  RETURN; 
+  RETURN;
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE
