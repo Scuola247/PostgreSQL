@@ -26,7 +26,7 @@ BEGIN
   test_name = 'INSERT persons_addresses';
   ---------------------------------------
   BEGIN
-  INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('16765000000000','3326000000000','Residence','Via G. Segantini 91','37069','L949','833244000000000');
+   INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('16765000000000','3326000000000','Residence','Via G. Segantini 91','37069','L949','833244000000000');
   INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('52292000000000','2106000000000','Residence','Loc. Lener 51','37132','L781','833239000000000');
   INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('53205000000000','2176000000000','Residence','P.Za Lodron 70','37135','L781','833239000000000');
   INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('54382000000000','773000000000','Residence','Via Fratelli 73','37060','L396','833236000000000');

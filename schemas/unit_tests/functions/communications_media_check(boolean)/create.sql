@@ -18,7 +18,7 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
-      PERFORM unit_testing.build_function_dependencies(diagnostic.full_function_name(context),'unit_tests_public._after_data_insert');
+      PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
 
@@ -131,9 +131,9 @@ BEGIN
         RETURN;
   END;
 
-  ----------------------------------------
+  --------------------------------
   test_name = 'uri''s min lenght';
-  ----------------------------------------
+  --------------------------------
   BEGIN
     UPDATE communications_media SET uri = '  ' WHERE communication_media = '112027000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but uri min lenght was expected', NULL::diagnostic.error);

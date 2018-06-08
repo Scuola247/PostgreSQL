@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests.communication_media_trigger(boolean)
+﻿-- Function: unit_tests_public.communication_media_trigger(boolean)
 
--- DROP FUNCTION unit_tests.communication_media_trigger(boolean);
+-- DROP FUNCTION unit_tests_public.communication_media_trigger(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests.communication_media_trigger(
+CREATE OR REPLACE FUNCTION unit_tests_public.communication_media_trigger(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -19,7 +19,7 @@ BEGIN
 
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'_after_data_insert');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
   -----------------------------------------------------------------------------------
@@ -51,9 +51,9 @@ BEGIN
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
   END;
-  --------------------------------------------------------------------------------
-  test_name = 'UPDATE communications_media with a different school of the person';
-  --------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------
+  test_name = 'UPDATE communications_type with a different school of the person';
+  -------------------------------------------------------------------------------
   BEGIN
     UPDATE public.communications_media SET communication_type = '138017000000000' WHERE communication_media = '112027000000000';
     INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','3959000000000','138029000000000','casa','Lara.Lupini@example.org','t');
@@ -81,10 +81,15 @@ BEGIN
         RETURN;
   END;
 
+/*
+mancano tests per i codici  U04J3 U04J4 quando la person non è della scuola
+*/
+
+
   RETURN;
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests.communication_media_trigger(boolean)
+ALTER FUNCTION unit_tests_public.communication_media_trigger(boolean)
   OWNER TO postgres;

@@ -18,7 +18,7 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.full_function_name(context),'unit_tests_public._after_data_insert');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
 
@@ -26,7 +26,7 @@ BEGIN
   test_name = 'UPDATE cities with a non existing district';
   --------------------------------------------------------------
   BEGIN
-    UPDATE public.cities set district = '99' WHERE city = 'N999';
+    UPDATE public.cities set district = '999999999999999' WHERE city = '758438000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the district does not exist ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE '23503' THEN
