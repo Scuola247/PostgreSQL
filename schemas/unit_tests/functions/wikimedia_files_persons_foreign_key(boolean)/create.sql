@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests_public.valutations_foreign_key(boolean)
+﻿-- Function: unit_tests_public.wikimedia_files_persons_foreign_key(boolean)
 
--- DROP FUNCTION unit_tests_public.valutations_foreign_key(boolean);
+-- DROP FUNCTION unit_tests_public.wikimedia_files_persons_foreign_key(boolean)
 
-CREATE OR REPLACE FUNCTION unit_tests_public.valutations_foreign_key(
+CREATE OR REPLACE FUNCTION unit_tests_public.wikimedia_files_persons_foreign_key(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -70,5 +70,5 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests_public.valutations_foreign_key(boolean)
+ALTER FUNCTION unit_tests_public.wikimedia_files_persons_foreign_key(boolean)
   OWNER TO postgres;
