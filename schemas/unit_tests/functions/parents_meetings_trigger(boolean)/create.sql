@@ -8,11 +8,11 @@ CREATE OR REPLACE FUNCTION unit_tests_public.parents_meetings_trigger(
   RETURNS unit_testing.unit_test_result[] AS
 $BODY$
 <<me>>
-DECLARE 
+DECLARE
   context               text;
-  full_function_name 	text;
-  test_name		text = '';
-  error			diagnostic.error;
+  full_function_name 	  text;
+  test_name		          text = '';
+  error			            diagnostic.error;
 BEGIN
   GET DIAGNOSTICS context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
@@ -20,36 +20,36 @@ BEGIN
   IF _build_dependencies THEN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
-  END IF;  
-  -----------------------------------------------------------------------------
-  test_name = 'UPDATE parents_meetings with teacher from different school ';
-  -----------------------------------------------------------------------------
+  END IF;
+  -------------------------------------------------------------------------
+  test_name = 'UPDATE parents_meetings with teacher from different school';
+  -------------------------------------------------------------------------
   BEGIN
-    UPDATE parents_meetings SET teacher = '29122000000000' WHERE  parents_meeting= '33433000000000';  
-    _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the teacher and the person who fixed the meeting is not from the same school', NULL::diagnostic.error);
+    UPDATE parents_meetings SET teacher = '29122000000000' WHERE  parents_meeting = '33433000000000';
+    _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the teacher is not from the same school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE 'U0511' THEN
       _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error); 
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
-  END;  
-    -----------------------------------------------------------------------------
-  test_name = 'INSERT parents_meetings with teacher from different school ';
-  -----------------------------------------------------------------------------
+  END;
+  -------------------------------------------------------------------------
+  test_name = 'INSERT parents_meetings with teacher from different school';
+  -------------------------------------------------------------------------
   BEGIN
     INSERT INTO public.parents_meetings(parents_meeting,teacher,person,on_date) VALUES ('10033433000000000','29122000000000','6603000000000','2013-10-01 00:00:00');
-    _results = _results || assert.fail(full_function_name, test_name,'The teacher and the person who fixed the meeting is not from the same school', NULL::diagnostic.error);
+    _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but the teacher is not from the same school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE 'U0512' THEN
       _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error); 
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
-  END;  
-  RETURN; 
+  END;
+  RETURN;
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE

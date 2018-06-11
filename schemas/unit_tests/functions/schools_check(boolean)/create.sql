@@ -10,15 +10,15 @@ $BODY$
 
 <<me>>
 
-DECLARE 
+DECLARE
 
   context               text;
 
-  full_function_name 	text;
+  full_function_name 	  text;
 
-  test_name		text = '';
+  test_name		          text = '';
 
-  error			diagnostic.error;
+  error			            diagnostic.error;
 
 BEGIN
 
@@ -34,7 +34,7 @@ BEGIN
 
     RETURN;
 
-  END IF;  
+  END IF;
 
   ------------------------------------
 
@@ -46,15 +46,15 @@ BEGIN
 
     INSERT INTO schools (school, description, processing_code, mnemonic, example, logo, behavior) VALUES (28961000000001, 'Istituto comprensivo "Voyager2"', 'BZIC00001Z', 'IC VOYAGER3', false, NULL, NULL);
 
-   _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);      
+   _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
 
-    RETURN;      
+    RETURN;
 
 
 
-    EXCEPTION WHEN SQLSTATE '23505' THEN 
+    EXCEPTION WHEN SQLSTATE '23505' THEN
 
-      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;	
+      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
       IF error.constraint_name = 'schools_uq_description' THEN
 
@@ -62,19 +62,19 @@ BEGIN
 
       ELSE
 
-	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);      
+	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
-	RETURN; 
+	RETURN;
 
-      END IF; 
+      END IF;
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
+	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
-        RETURN; 
+        RETURN;
 
   END;
 
@@ -88,33 +88,33 @@ BEGIN
 
     INSERT INTO schools (school, description, processing_code, mnemonic, example, logo, behavior) VALUES (28961000000001, 'Istituto comprensivo "Voyager3"', 'BZIC00001Z', 'IC VOYAGER2', false, NULL, NULL);
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate mnemonic was expected', NULL::diagnostic.error);   
+    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate mnemonic was expected', NULL::diagnostic.error);
 
-    RETURN;        
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23505' THEN 
+    EXCEPTION WHEN SQLSTATE '23505' THEN
 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
       IF error.constraint_name = 'schools_uq_mnemonic' THEN
 
-        _results = _results || assert.pass(full_function_name, test_name); 
+        _results = _results || assert.pass(full_function_name, test_name);
 
       ELSE
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-      END IF; 
+      END IF;
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
-        RETURN; 
+        RETURN;
 
   END;
 
@@ -128,13 +128,13 @@ BEGIN
 
     INSERT INTO schools (school, description, processing_code, mnemonic, example, logo, behavior) VALUES (28961000000001, 'Istituto comprensivo "Voyager3"', 'AZIC00001Z', 'IC VOYAGER3', false, NULL, NULL);
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate processing code was expected', NULL::diagnostic.error);   
+    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate processing code was expected', NULL::diagnostic.error);
 
-    RETURN;       
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23505' THEN 
+    EXCEPTION WHEN SQLSTATE '23505' THEN
 
-      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;	
+      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
       IF error.constraint_name = 'schools_uq_processing_code' THEN
 
@@ -142,19 +142,19 @@ BEGIN
 
       ELSE
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-      END IF; 
+      END IF;
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
-        RETURN; 
+        RETURN;
 
   END;
 
@@ -168,25 +168,25 @@ BEGIN
 
     UPDATE schools SET description = NULL WHERE school = 28961000000000;
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);     
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
 
-    RETURN;    
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
+    EXCEPTION WHEN SQLSTATE '23502' THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
 	_results = _results || assert.pass(full_function_name, test_name);
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);         
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END; 
+  END;
 
   ----------------------------------------
 
@@ -196,13 +196,13 @@ BEGIN
 
   BEGIN
 
-    UPDATE schools SET description = '' WHERE school = 28961000000000;
+    UPDATE schools SET description = '  ' WHERE school = 28961000000000;
 
-    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);    
+    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty description was expected', NULL::diagnostic.error);
 
-    RETURN;   
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23514' THEN 
+    EXCEPTION WHEN SQLSTATE '23514' THEN
 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
@@ -212,21 +212,21 @@ BEGIN
 
      ELSE
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-      END IF;    
+      END IF;
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END; 
+  END;
 
   -------------------------------------------
 
@@ -238,23 +238,23 @@ BEGIN
 
     UPDATE schools SET processing_code = NULL WHERE school = 28961000000000;
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but processing_code mandatory was expected', NULL::diagnostic.error);    
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but processing_code mandatory was expected', NULL::diagnostic.error);
 
     RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
+    EXCEPTION WHEN SQLSTATE '23502' THEN
 
-      _results = _results || assert.pass(full_function_name, test_name); 
+      _results = _results || assert.pass(full_function_name, test_name);
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);      
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END; 
+  END;
 
   --------------------------------------------
 
@@ -264,13 +264,13 @@ BEGIN
 
   BEGIN
 
-    UPDATE schools SET processing_code = '' WHERE school = 28961000000000;
+    UPDATE schools SET processing_code = '  ' WHERE school = 28961000000000;
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but processing_code min lenght was expected', NULL::diagnostic.error);   
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but empty processing_code was expected', NULL::diagnostic.error);
 
-    RETURN;   
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23514' THEN 
+    EXCEPTION WHEN SQLSTATE '23514' THEN
 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
@@ -280,21 +280,21 @@ BEGIN
 
      ELSE
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);     
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-      END IF;    
+      END IF;
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);      
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END;  
+  END;
 
   ------------------------------------
 
@@ -306,23 +306,23 @@ BEGIN
 
     UPDATE schools SET mnemonic = NULL WHERE school = 28961000000000;
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but mnemonic mandatory was expected', NULL::diagnostic.error);   
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but mnemonic mandatory was expected', NULL::diagnostic.error);
 
     RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
+    EXCEPTION WHEN SQLSTATE '23502' THEN
 
-      _results = _results || assert.pass(full_function_name, test_name);  
+      _results = _results || assert.pass(full_function_name, test_name);
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error); 
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END; 
+  END;
 
   -------------------------------------
 
@@ -332,13 +332,13 @@ BEGIN
 
   BEGIN
 
-    UPDATE schools SET mnemonic = '' WHERE school = 28961000000000;
+    UPDATE schools SET mnemonic = '  ' WHERE school = 28961000000000;
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but mnemonic min lenght was expected', NULL::diagnostic.error);   
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but empty mnemonic was expected', NULL::diagnostic.error);
 
-    RETURN;   
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23514' THEN 
+    EXCEPTION WHEN SQLSTATE '23514' THEN
 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
@@ -348,53 +348,23 @@ BEGIN
 
      ELSE
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-      END IF;    
+      END IF;
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END; 
+  END;
 
-  -----------------------------------
-
-  test_name = 'example''s mandatory';
-
-  -----------------------------------
-
-  BEGIN
-
-    UPDATE schools SET example = NULL WHERE school = 28961000000000;
-
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but example mandatory was expected', NULL::diagnostic.error);      
-
-    RETURN;
-
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
-
-      _results = _results || assert.pass(full_function_name, test_name);
-
-      WHEN OTHERS THEN 
-
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);    
-
-        RETURN;
-
-  END; 
-
-
-
-  RETURN; 
+  RETURN;
 
 END
 

@@ -8,11 +8,11 @@ CREATE OR REPLACE FUNCTION unit_tests_public.persons_addresses(
   RETURNS unit_testing.unit_test_result[] AS
 $BODY$
 <<me>>
-DECLARE 
+DECLARE
   context               text;
-  full_function_name 	text;
-  test_name		text = '';
-  error			diagnostic.error;
+  full_function_name 	  text;
+  test_name		          text = '';
+  error			            diagnostic.error;
 BEGIN
 
   GET DIAGNOSTICS context = PG_CONTEXT;
@@ -21,12 +21,12 @@ BEGIN
   IF _build_dependencies THEN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public.persons','unit_tests_public.cities');
     RETURN;
-  END IF;  
+  END IF;
   ---------------------------------------
   test_name = 'INSERT persons_addresses';
   ---------------------------------------
   BEGIN
-   INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('16765000000000','3326000000000','Residence','Via G. Segantini 91','37069','L949','833244000000000');
+  INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('16765000000000','3326000000000','Residence','Via G. Segantini 91','37069','L949','833244000000000');
   INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('52292000000000','2106000000000','Residence','Loc. Lener 51','37132','L781','833239000000000');
   INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('53205000000000','2176000000000','Residence','P.Za Lodron 70','37135','L781','833239000000000');
   INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('54382000000000','773000000000','Residence','Via Fratelli 73','37060','L396','833236000000000');
@@ -11448,12 +11448,12 @@ BEGIN
     _results = _results || assert.pass(full_function_name, test_name);
 
     EXCEPTION
-       WHEN OTHERS THEN 
+       WHEN OTHERS THEN
          GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-         _results = _results || assert.fail(full_function_name, test_name, 'INSERT public.person_addresses FAILED'::text, error);   
-       RETURN; 
+         _results = _results || assert.fail(full_function_name, test_name, 'INSERT public.person_addresses FAILED'::text, error);
+       RETURN;
   END;
-  RETURN; 
+  RETURN;
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE

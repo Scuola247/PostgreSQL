@@ -8,11 +8,11 @@ CREATE OR REPLACE FUNCTION unit_tests_public.qualifications_plan(
   RETURNS unit_testing.unit_test_result[] AS
 $BODY$
 <<me>>
-DECLARE 
+DECLARE
   context               text;
-  full_function_name 	text;
-  test_name		text = '';
-  error			diagnostic.error;
+  full_function_name 	  text;
+  test_name		          text = '';
+  error			            diagnostic.error;
 BEGIN
 
   GET DIAGNOSTICS context = PG_CONTEXT;
@@ -20,10 +20,10 @@ BEGIN
   -- check to build dependencies
   IF _build_dependencies THEN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public.degrees',
-										              'unit_tests_public.qualifications',
-										              'unit_tests_public.subjects');
+                                                                                       'unit_tests_public.qualifications',
+                                                                                       'unit_tests_public.subjects');
     RETURN;
-  END IF;  
+  END IF;
   -----------------------------------------
   test_name = 'INSERT qualifications_plan';
   -----------------------------------------
@@ -56,12 +56,12 @@ BEGIN
     _results = _results || assert.pass(full_function_name, test_name);
 
     EXCEPTION
-       WHEN OTHERS THEN 
+       WHEN OTHERS THEN
          GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-         _results = _results || assert.fail(full_function_name, test_name, 'INSERT public.qualifications_plan FAILED'::text, error);   
-       RETURN; 
+         _results = _results || assert.fail(full_function_name, test_name, 'INSERT public.qualifications_plan FAILED'::text, error);
+       RETURN;
   END;
-  RETURN; 
+  RETURN;
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE

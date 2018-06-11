@@ -127,70 +127,62 @@ BEGIN
   ----------------------------------------
   BEGIN
     UPDATE lessons SET assignment = ' ' WHERE lesson = '98581000000000';
-    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but assignment min lenght was expected', NULL::diagnostic.error);    
-    RETURN;   
-    EXCEPTION WHEN SQLSTATE '23514' THEN 
+    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty assignment was expected', NULL::diagnostic.error);
+    RETURN;
+    EXCEPTION WHEN SQLSTATE '23514' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
       IF error.constraint_name = 'lessons_ck_assignment' THEN
         _results = _results || assert.pass(full_function_name, test_name);
      ELSE
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
-      END IF;    
-      WHEN OTHERS THEN 
+      END IF;
+      WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
-  END; 
+  END;
   ----------------------------------------
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
     UPDATE lessons SET description = ' ' WHERE lesson = '98581000000000';
-    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);    
-    RETURN;   
-    EXCEPTION WHEN SQLSTATE '23514' THEN 
+    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty description was expected', NULL::diagnostic.error);
+    RETURN;
+    EXCEPTION WHEN SQLSTATE '23514' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
       IF error.constraint_name = 'lessons_ck_description' THEN
         _results = _results || assert.pass(full_function_name, test_name);
      ELSE
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
-      END IF;    
-      WHEN OTHERS THEN 
+      END IF;
+      WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
-  END; 
+  END;
   ----------------------------------------
   test_name = 'to_time > from_time';
   ----------------------------------------
   BEGIN
     UPDATE lessons SET to_time = '07:00:00' WHERE lesson = '98581000000000';
-    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but from_time > to_time was expected', NULL::diagnostic.error);    
-    RETURN;   
-    EXCEPTION WHEN SQLSTATE '23514' THEN 
+    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but to_time > from_time was expected', NULL::diagnostic.error);
+    RETURN;
+    EXCEPTION WHEN SQLSTATE '23514' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
       IF error.constraint_name = 'lessons_ck_to_time' THEN
         _results = _results || assert.pass(full_function_name, test_name);
      ELSE
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);       
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
-      END IF;    
-      WHEN OTHERS THEN 
+      END IF;
+      WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
-  END; 
+  END;
   
-/*
-mancano checks:
-- assignment min length
-- description min length
-- lessons_ck_to_time 
-*/
-
-
   RETURN;
 END
 $BODY$
