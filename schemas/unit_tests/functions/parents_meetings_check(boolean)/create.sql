@@ -45,7 +45,7 @@ BEGIN
 
   BEGIN
 
-    UPDATE parents_meetings SET on_date = '2013-10-03 00:00:00' WHERE parents_meeting = '33433000000000';
+    UPDATE parents_meetings SET on_date = '2013-10-29 00:00:00' WHERE parents_meeting = '33433000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate on_date was expected', NULL::diagnostic.error);      
 
     RETURN;      
