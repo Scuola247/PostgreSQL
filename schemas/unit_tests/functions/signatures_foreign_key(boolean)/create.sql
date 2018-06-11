@@ -42,7 +42,7 @@ BEGIN
         RETURN;
   END;
   -------------------------------------------------------
-  test_name = 'update classroom with a non existing one';
+  test_name = 'UPDATE classroom with a non existing one';
   -------------------------------------------------------
   BEGIN
     UPDATE signatures SET classroom = 999999999 WHERE signature = '33773000000000';

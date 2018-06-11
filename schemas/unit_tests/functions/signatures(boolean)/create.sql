@@ -14,11 +14,11 @@ DECLARE
 
   context               text;
 
-  full_function_name 	text;
+  full_function_name 	  text;
 
-  test_name		text = '';
+  test_name		          text = '';
 
-  error			diagnostic.error;
+  error			            diagnostic.error;
 
 BEGIN
 
