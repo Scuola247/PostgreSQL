@@ -8,11 +8,11 @@ CREATE OR REPLACE FUNCTION unit_tests_public.valutations_qualifications_trigger(
   RETURNS unit_testing.unit_test_result[] AS
 $BODY$
 <<me>>
-DECLARE 
+DECLARE
   context               text;
-  full_function_name 	text;
-  test_name		text = '';
-  error			diagnostic.error;
+  full_function_name 	  text;
+  test_name		          text = '';
+  error			            diagnostic.error;
 BEGIN
   GET DIAGNOSTICS context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
@@ -21,7 +21,7 @@ BEGIN
   IF _build_dependencies THEN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
-  END IF; 
+  END IF;
   ------------------------------------------------------------------------------------------------------
   test_name = 'UPDATE valutations_qualifications with qualification in a different school from student';
   ------------------------------------------------------------------------------------------------------
@@ -31,31 +31,30 @@ BEGIN
     RETURN;
     EXCEPTION WHEN SQLSTATE 'U0581' THEN
       _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error); 
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
-  END; 
+  END;
   ------------------------------------------------------------------------------------------------------
   test_name = 'INSERT valutations_qualifications with qualification in a different school from student';
   ------------------------------------------------------------------------------------------------------
   BEGIN
     INSERT INTO public.valutations_qualifications(valutation_qualificationtion,valutation,qualification,grade,note) VALUES ('1107038000000000','105226000000000','195977000000000','11478000000000','Esempio di nota associata ad una qualifica');
-    
+
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student is in a different school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE 'U0582' THEN
       _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error); 
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
-  END; 
+  END;
 
-  
 
-	 --NON SI RIESCE A SCATTARE QUESTO TRIGGER Risultato : <NULL> in tutto;
-  
+	 --NON SI RIESCE A SCATTARE QUESTO TRIGGER Risultato : <NULL> in tutto; Forse trovato errore nel trigger Sottoporre ad Andrea
+
   ----------------------------------------------------------------------------------------------------
   test_name = 'UPDATE valutations_qualifications with grade in a different school from qualification';
   ----------------------------------------------------------------------------------------------------
@@ -65,28 +64,27 @@ BEGIN
     RETURN;
     EXCEPTION WHEN SQLSTATE 'U0583' THEN
       _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error); 
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
-  END; 
-  ---------------------------------------------------------------------------------
-  test_name = 'INSERT valutations_qualifications with grade in a different school';
-  ---------------------------------------------------------------------------------
+  END;
+  ---------------------------------------------------------------------------------------------
+  test_name = 'INSERT valutations_qualifications with grade in a different from qualification';
+  ---------------------------------------------------------------------------------------------
   BEGIN
     INSERT INTO public.valutations_qualifications(valutation_qualificationtion,valutation,qualification,grade,note) VALUES ('1107038000000000','105226000000000','95985000000000','30421000000000','Esempio di nota associata ad una qualifica');
-    
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the grade is in a different school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE 'U0584' THEN
       _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error); 
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
   END;
 
-  RETURN; 
+  RETURN;
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE
