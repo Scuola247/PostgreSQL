@@ -18,13 +18,13 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'explanations',
-                                                                                       'persons',
-                                                                                       'classrooms_students',
-                                                                                       'classrooms',
-                                                                                       'school_years',
-                                                                                       'absences',
-                                                                                       'lessons');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public.explanations',
+                                                                                       'unit_tests_public.persons',
+                                                                                       'unit_tests_public.classrooms_students',
+                                                                                       'unit_tests_public.classrooms',
+                                                                                       'unit_tests_public.school_years',
+                                                                                       'unit_tests_public.absences',
+                                                                                       'unit_tests_public.lessons');
     RETURN;
  END IF;
   --------------------------------------------------------------------------
