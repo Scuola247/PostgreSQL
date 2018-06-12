@@ -27,8 +27,9 @@ REVOKE ALL ON TABLE public.nome_table FROM public;
 -- absences
 GRANT ALL ON TABLE public.absences TO scuola247_supervisor;
 GRANT ALL ON TABLE public.absences TO scuola247_executive;
-GRANT SELECT ON TABLE public.absences TO scuola247_employee;
 GRANT ALL ON TABLE public.absences TO scuola247_teacher;
+
+GRANT SELECT ON TABLE public.absences TO scuola247_employee;
 GRANT SELECT ON TABLE public.absences TO scuola247_student;
 GRANT SELECT ON TABLE public.absences TO scuola247_relative;
 
@@ -40,9 +41,10 @@ REVOKE ALL ON TABLE public.absences FROM public;
 GRANT ALL ON TABLE public.branches TO scuola247_supervisor;
 GRANT ALL ON TABLE public.branches TO scuola247_executive;
 GRANT ALL ON TABLE public.branches TO scuola247_employee;
---GRANT ALL ON TABLE public.branches TO scuola247_teacher;
---GRANT ALL ON TABLE public.branches TO scuola247_student;
---GRANT ALL ON TABLE public.branches TO scuola247_relative;
+
+GRANT SELECT ON TABLE public.branches TO scuola247_teacher;
+GRANT SELECT ON TABLE public.branches TO scuola247_student;
+GRANT SELECT ON TABLE public.branches TO scuola247_relative;
 
 REVOKE ALL ON TABLE public.branches FROM public;
 -------------------------------------------------------------
@@ -50,6 +52,7 @@ REVOKE ALL ON TABLE public.branches FROM public;
 
 -- cities
 GRANT ALL ON TABLE public.cities TO scuola247_supervisor;
+
 GRANT SELECT ON TABLE public.cities TO scuola247_executive;
 GRANT SELECT ON TABLE public.cities TO scuola247_employee;
 GRANT SELECT ON TABLE public.cities TO scuola247_teacher;
@@ -64,6 +67,7 @@ REVOKE ALL ON TABLE public.cities FROM public;
 GRANT ALL ON TABLE public.classrooms TO scuola247_supervisor;
 GRANT ALL ON TABLE public.classrooms TO scuola247_executive;
 GRANT ALL ON TABLE public.classrooms TO scuola247_employee;
+
 GRANT SELECT ON TABLE public.classrooms TO scuola247_teacher;
 GRANT SELECT ON TABLE public.classrooms TO scuola247_student;
 GRANT SELECT ON TABLE public.classrooms TO scuola247_relative;
@@ -76,6 +80,7 @@ REVOKE ALL ON TABLE public.classrooms FROM public;
 GRANT ALL ON TABLE public.classrooms_students TO scuola247_supervisor;
 GRANT ALL ON TABLE public.classrooms_students TO scuola247_executive;
 GRANT ALL ON TABLE public.classrooms_students TO scuola247_employee;
+
 GRANT SELECT ON TABLE public.classrooms_students TO scuola247_teacher;
 GRANT SELECT ON TABLE public.classrooms_students TO scuola247_student;
 GRANT SELECT ON TABLE public.classrooms_students TO scuola247_relative;
@@ -88,6 +93,7 @@ REVOKE ALL ON TABLE public.classrooms_students FROM public;
 GRANT ALL ON TABLE public.communication_types TO scuola247_supervisor;
 GRANT ALL ON TABLE public.communication_types TO scuola247_executive;
 GRANT ALL ON TABLE public.communication_types TO scuola247_employee;
+
 GRANT SELECT ON TABLE public.communication_types TO scuola247_teacher;
 GRANT SELECT ON TABLE public.communication_types TO scuola247_student;
 GRANT SELECT ON TABLE public.communication_types TO scuola247_relative;
@@ -134,6 +140,7 @@ REVOKE ALL ON TABLE public.conversations_invites FROM public;
 
 -- countries
 GRANT ALL ON TABLE public.countries TO scuola247_supervisor;
+
 GRANT SELECT ON TABLE public.countries TO scuola247_executive;
 GRANT SELECT ON TABLE public.countries TO scuola247_employee;
 GRANT SELECT ON TABLE public.countries TO scuola247_teacher;
@@ -146,8 +153,9 @@ REVOKE ALL ON TABLE public.countries FROM public;
 
 -- degrees
 GRANT ALL ON TABLE public.degrees TO scuola247_supervisor;
-GRANT SELECT ON TABLE public.degrees TO scuola247_executive;
-GRANT SELECT ON TABLE public.degrees TO scuola247_employee;
+GRANT ALL ON TABLE public.degrees TO scuola247_executive;
+GRANT ALL ON TABLE public.degrees TO scuola247_employee;
+
 GRANT SELECT ON TABLE public.degrees TO scuola247_teacher;
 GRANT SELECT ON TABLE public.degrees TO scuola247_student;
 GRANT SELECT ON TABLE public.degrees TO scuola247_relative;
@@ -161,6 +169,7 @@ GRANT ALL ON TABLE public.delays TO scuola247_supervisor;
 GRANT ALL ON TABLE public.delays TO scuola247_executive;
 GRANT ALL ON TABLE public.delays TO scuola247_employee;
 GRANT ALL ON TABLE public.delays TO scuola247_teacher;
+
 GRANT SELECT ON TABLE public.delays TO scuola247_student;
 GRANT SELECT ON TABLE public.delays TO scuola247_relative;
 
@@ -170,6 +179,7 @@ REVOKE ALL ON TABLE public.delays FROM public;
 
 -- districts
 GRANT ALL ON TABLE public.districts TO scuola247_supervisor;
+
 GRANT SELECT ON TABLE public.districts TO scuola247_executive;
 GRANT SELECT ON TABLE public.districts TO scuola247_employee;
 GRANT SELECT ON TABLE public.districts TO scuola247_teacher;

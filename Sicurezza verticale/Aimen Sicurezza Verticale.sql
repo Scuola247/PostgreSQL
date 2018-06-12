@@ -131,9 +131,9 @@ REVOKE ALL ON TABLE public.messages_read FROM public;
 ------------------------------------------------------
 ------------------------------------------------------
 GRANT ALL ON TABLE public.metrics TO scuola247_supervisor;
+GRANT ALL ON TABLE public.metrics TO scuola247_executive;
+GRANT ALL ON TABLE public.metrics TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.metrics TO scuola247_executive;
-GRANT SELECT ON TABLE public.metrics TO scuola247_employee;
 GRANT SELECT ON TABLE public.metrics TO scuola247_teacher;
 GRANT SELECT ON TABLE public.metrics TO scuola247_student;
 GRANT SELECT ON TABLE public.metrics TO scuola247_relative;
