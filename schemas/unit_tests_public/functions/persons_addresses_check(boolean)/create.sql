@@ -26,7 +26,7 @@ BEGIN
   test_name = 'duplicate address';
   --------------------------------
   BEGIN
-     INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city) VALUES ('116765000000000','3326000000000','Residence','Via G. Segantini 91','37069','L949');
+     INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('116765000000000','3326000000000','Residence','Via G. Segantini 91','37069','L949','761559000000000');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate address was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE '23505' THEN

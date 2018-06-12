@@ -25,7 +25,7 @@ BEGIN
   test_name = 'duplicate school tax_code';
   ----------------------------------------
   BEGIN
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth,thumbnail,note,usename,photo) VALUES ('130962000000000','Barbara','Licci','2004-11-07',NULL,NULL,'LCCBBR04S47L781Z','F','28961000000000','3590457000000000','L781',NULL,NULL,NULL,NULL);
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('130962000000000','Barbara','Licci','2004-11-07',NULL,NULL,'LCCBBR04S47L781Z','F','28961000000000','3590457000000000','L781',NULL,NULL,NULL,NULL,'761554000000000');
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate tax_code was expected', NULL::diagnostic.error);
     RETURN;
 
@@ -44,9 +44,10 @@ BEGIN
   END;
 
   --------------------------------
-  test_name = 'duplicate usename';
+  test_name = 'duplicate usename'; -- constrollare se il primo update viene annullato
   --------------------------------
   BEGIN
+    UPDATE persons SET usename = 'student-f@scuola-28961.it' WHERE person = '31185000000000';
     UPDATE persons SET usename = 'student-f@scuola-28961.it' WHERE person = '29130000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate usename was expected', NULL::diagnostic.error);
     RETURN;
@@ -110,16 +111,16 @@ BEGIN
         RETURN;
   END;
 
-  ------------------------------------------
-  test_name = 'city_of_birth''s min length';
-  ------------------------------------------
+  ------------------------------------------------------
+  test_name = 'city_of_birth_fiscal_code''s min length';
+  ------------------------------------------------------
   BEGIN
-    UPDATE persons SET city_of_birth = '  ' WHERE person = '30962000000000';
+    UPDATE persons SET city_of_birth_fiscal_code = '  ' WHERE person = '30962000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty city of birth was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE '23514' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-      IF error.constraint_name = 'persons_ck_city_of_birth' THEN
+      IF error.constraint_name = 'persons_ck_city_of_birth_fiscal_code' THEN
         _results = _results || assert.pass(full_function_name, test_name);
      ELSE
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);

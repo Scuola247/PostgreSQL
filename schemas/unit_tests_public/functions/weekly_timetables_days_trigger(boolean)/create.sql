@@ -23,14 +23,14 @@ BEGIN
   END IF;
 
 /*
-mancano le due insert 
+mancano le due insert
 */
 
   -----------------------------------------------------------------------------
   test_name = 'UPDATE weekly_timetables_days set teacher with different school';
   -----------------------------------------------------------------------------
   BEGIN
-    UPDATE weekly_timetables_days SET  teacher='287713000000000'  WHERE weekly_timetable_day = '33008000000000';
+    UPDATE weekly_timetables_days SET  teacher='29122000000000'  WHERE weekly_timetable_day = '33008000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the teacher is from different school', NULL::diagnostic.error);
     RETURN;
  /*

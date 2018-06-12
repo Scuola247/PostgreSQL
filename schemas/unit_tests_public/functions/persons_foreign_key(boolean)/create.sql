@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE city of birth with a non existing one';
   -----------------------------------------------------------
   BEGIN
-    UPDATE persons SET city_of_birth = 'AAAA' WHERE person = '30962000000000';
+    UPDATE persons SET city_of_birth = '999999999999999' WHERE person = '30962000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but city of birth does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE '23503' THEN
@@ -46,7 +46,7 @@ BEGIN
   test_name = 'UPDATE country of birth with a non existing one';
   --------------------------------------------------------------
   BEGIN
-    UPDATE persons SET country_of_birth = 'AAAA' WHERE person = '30962000000000';
+    UPDATE persons SET country_of_birth = '999999999999999' WHERE person = '30962000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but country of birth does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE '23503' THEN

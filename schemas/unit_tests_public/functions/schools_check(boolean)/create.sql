@@ -206,7 +206,7 @@ BEGIN
 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-      IF error.constraint_name = 'schools_min_description' THEN
+      IF error.constraint_name = 'schools_ck_description' THEN
 
         _results = _results || assert.pass(full_function_name, test_name);
 
@@ -274,7 +274,7 @@ BEGIN
 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-      IF error.constraint_name = 'schools_min_processing_code' THEN
+      IF error.constraint_name = 'schools_ck_processing_code' THEN
 
         _results = _results || assert.pass(full_function_name, test_name);
 
@@ -342,7 +342,7 @@ BEGIN
 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-      IF error.constraint_name = 'schools_min_mnemonic' THEN
+      IF error.constraint_name = 'schools_ck_mnemonic' THEN
 
         _results = _results || assert.pass(full_function_name, test_name);
 

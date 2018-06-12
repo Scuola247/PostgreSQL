@@ -1117,6 +1117,10 @@ BEGIN
     INSERT INTO public.leavings(leaving,teacher,explanation,on_date,at_time,classroom_student) VALUES ('59628000000000','32931000000000','58368000000000','2014-06-04','11:43:43','10671000000000');
     INSERT INTO public.leavings(leaving,teacher,explanation,on_date,at_time,classroom_student) VALUES ('59629000000000','32936000000000','58369000000000','2014-06-05','11:29:29','10666000000000');
 
+    -- leavings without a delay
+    INSERT INTO public.leavings(leaving,teacher,explanation,on_date,at_time,classroom_student) VALUES ('10059629000000000','32936000000000','10058369000000000','2014-06-06','11:29:29','10666000000000');
+
+
     _results = _results || assert.pass(full_function_name, test_name);
 
     EXCEPTION

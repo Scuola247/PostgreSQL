@@ -10,8 +10,8 @@ $BODY$
 <<me>>
 DECLARE
   context               text;
-  full_function_name 	text;
-  test_name		text = '';
+  full_function_name 	  text;
+  test_name		          text = '';
   error			diagnostic.error;
 BEGIN
   GET DIAGNOSTICS context = PG_CONTEXT;
@@ -25,7 +25,7 @@ BEGIN
   test_name = 'INSERT cities';
   ----------------------------
   BEGIN
-  
+
   INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('1','Airasca (test)','758321000000000','758438000000000');
   INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('2','Ala di Stura (test)','758321000000000','758439000000000');
   INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('3','Albiano d''Ivrea (test)','758321000000000','758440000000000');

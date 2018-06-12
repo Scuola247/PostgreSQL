@@ -10,9 +10,9 @@ $BODY$
 <<me>>
 DECLARE
   context               text;
-  full_function_name 	text;
-  test_name		text = '';
-  error			diagnostic.error;
+  full_function_name 	  text;
+  test_name		          text = '';
+  error			            diagnostic.error;
 BEGIN
   GET DIAGNOSTICS context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
@@ -23,10 +23,10 @@ BEGIN
   END IF;
 
   ---------------------------------------------------------------------
-  test_name = 'update districts set region with non existence code';
+  test_name = 'UPDATE districts set region with non existence code';
   ---------------------------------------------------------------------
   BEGIN
-    UPDATE districts SET region = '22' WHERE district = '758321000000000';
+    UPDATE districts SET region = '999999999999999' WHERE district = '758321000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but region set with non existence code', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE '23503' THEN
