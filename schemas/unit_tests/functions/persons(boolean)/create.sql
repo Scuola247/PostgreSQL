@@ -11,8 +11,8 @@ $BODY$
 DECLARE
   context               text;
   full_function_name  	text;
-  test_name		          text = '';
-  error			            diagnostic.error;
+  test_name             text = '';
+  error                 diagnostic.error;
 BEGIN
   GET DIAGNOSTICS context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
