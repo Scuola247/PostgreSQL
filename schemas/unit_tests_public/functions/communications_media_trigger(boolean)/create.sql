@@ -101,7 +101,7 @@ BEGIN
   test_name = 'INSERT communication_type with a different school of the person';
   ------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','2995000000000','138017000000000','casa','Lara.Lupini@example.org','t');
+    INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','2995000000000','138028000000000','casa','Lara.Lupini@example.org','t');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the communication_type has a different school from the person ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE 'U04J4' THEN
