@@ -49,13 +49,10 @@ REVOKE ALL ON TABLE public.parents_meetings FROM public;
 GRANT ALL ON TABLE public.persons TO scuola247_supervisor;
 GRANT ALL ON TABLE public.persons TO scuola247_executive;
 GRANT ALL ON TABLE public.persons TO scuola247_employee;
+GRANT ALL ON TABLE public.persons TO scuola247_teacher;
 
-
-/* possono variare solo: photo, thumbnail */
-
---GRANT SELECT ON TABLE public.persons TO scuola247_teacher;
---GRANT SELECT ON TABLE public.persons TO scuola247_student;
---GRANT SELECT ON TABLE public.persons TO scuola247_relative;
+GRANT SELECT ON TABLE public.persons TO scuola247_student;
+GRANT SELECT ON TABLE public.persons TO scuola247_relative;
 
 REVOKE ALL ON TABLE public.persons FROM public;
 ----------------------------------------------------------------
@@ -63,6 +60,8 @@ REVOKE ALL ON TABLE public.persons FROM public;
 GRANT ALL ON TABLE public.persons_addresses TO scuola247_supervisor;
 GRANT ALL ON TABLE public.persons_addresses TO scuola247_executive;
 GRANT ALL ON TABLE public.persons_addresses TO scuola247_employee;
+GRANT SELECT,UPDATE,INSERT ON TABLE public.persons_addresses TO scuola247_relative;
+GRANT ALL ON TABLE public.persons_addresses TO scuola247_student;
 
 GRANT ALL ON TABLE public.persons_addresses TO scuola247_relative;
 GRANT ALL ON TABLE public.persons_addresses TO scuola247_student;

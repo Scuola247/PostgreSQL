@@ -121,11 +121,11 @@ REVOKE ALL ON TABLE public.messages FROM public;
 ------------------------------------------------------
 GRANT ALL ON TABLE public.messages_read TO scuola247_supervisor;
 
-GRANT SELECT, CREATE ON TABLE public.messages_read TO scuola247_executive;
-GRANT SELECT, CREATE ON TABLE public.messages_read TO scuola247_employee;
-GRANT SELECT, CREATE ON TABLE public.messages_read TO scuola247_teacher;
-GRANT SELECT, CREATE ON TABLE public.messages_read TO scuola247_student;
-GRANT SELECT, CREATE ON TABLE public.messages_read TO scuola247_relative;
+GRANT SELECT, INSERT ON TABLE public.messages_read TO scuola247_executive;
+GRANT SELECT, INSERT ON TABLE public.messages_read TO scuola247_employee;
+GRANT SELECT, INSERT ON TABLE public.messages_read TO scuola247_teacher;
+GRANT SELECT, INSERT ON TABLE public.messages_read TO scuola247_student;
+GRANT SELECT, INSERT ON TABLE public.messages_read TO scuola247_relative;
 
 REVOKE ALL ON TABLE public.messages_read FROM public;
 ------------------------------------------------------

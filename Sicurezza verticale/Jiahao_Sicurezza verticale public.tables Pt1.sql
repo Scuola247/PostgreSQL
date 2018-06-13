@@ -154,8 +154,8 @@ REVOKE ALL ON TABLE public.countries FROM public;
 -- degrees
 GRANT ALL ON TABLE public.degrees TO scuola247_supervisor;
 GRANT ALL ON TABLE public.degrees TO scuola247_executive;
+GRANT ALL ON TABLE public.degrees TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.degrees TO scuola247_employee;
 GRANT SELECT ON TABLE public.degrees TO scuola247_teacher;
 GRANT SELECT ON TABLE public.degrees TO scuola247_student;
 GRANT SELECT ON TABLE public.degrees TO scuola247_relative;
