@@ -1,4 +1,4 @@
-﻿-- Function: unit_tests_public.notes_signed_foreign_key(boolean)
+-- Function: unit_tests_public.notes_signed_foreign_key(boolean)
 
 -- DROP FUNCTION unit_tests_public.notes_signed_foreign_key(boolean);
 
@@ -26,10 +26,10 @@ BEGIN
   END IF;
 
   --------------------------------------------------------------------
-  test_name = 'UPDATE notes_signed set note with a non existence one'; -- da controllare se si possono usare i codici moltiplicati per un miliardo
+  test_name = 'UPDATE notes_signed set note with a non existence one';
   --------------------------------------------------------------------
   BEGIN
-    UPDATE notes_signed SET note = '99999' WHERE note = '104925';
+    UPDATE notes_signed SET note = '99999' WHERE note = '104925000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but note set with non existence code', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE '23503' THEN
@@ -47,10 +47,10 @@ BEGIN
   END;
 
   --------------------------------------------------------------------------------
-  test_name = 'UPDATE notes_signed_fk_person set person with a non existence one'; -- da controllare se si possono usare i codici moltiplicati per un miliardo
+  test_name = 'UPDATE notes_signed_fk_person set person with a non existence one';
   --------------------------------------------------------------------------------
   BEGIN
-    UPDATE notes_signed SET person = '99999' WHERE note = '104925';
+    UPDATE notes_signed SET person = '99999' WHERE note = '104925000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person set with non existence code', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE '23503' THEN

@@ -1,4 +1,4 @@
-﻿-- Function: unit_tests_public.notes_signed_trigger(boolean)
+-- Function: unit_tests_public.notes_signed_trigger(boolean)
 
 -- DROP FUNCTION unit_tests_public.notes_signed_trigger(boolean);
 
@@ -26,10 +26,10 @@ BEGIN
   END IF;
 
   ------------------------------------------------------------------------
-  test_name = 'UPDATE notes_signed with a person from a different school'; -- da controllare se si possono usare i codici moltiplicati per 1000000000
+  test_name = 'UPDATE notes_signed with a person from a different school';
   ------------------------------------------------------------------------
   BEGIN
-    UPDATE public.notes_signed SET person = '9589' WHERE note = '104925';
+    UPDATE public.notes_signed SET person = '9589' WHERE note = '104925000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the person is from another school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE 'U04Z1' THEN
@@ -40,7 +40,7 @@ BEGIN
         RETURN;
   END;
   ------------------------------------------------------------------------
-  test_name = 'INSERT notes_signed with a person from a different school'; -- da controllare se si possono usare i codici moltiplicati per 1000000000
+  test_name = 'INSERT notes_signed with a person from a different school';
   ------------------------------------------------------------------------
   BEGIN
     INSERT INTO public.notes_signed(note_signed,person,on_date,note) VALUES ('100113134000000000','31226000000000','2014-06-09 10:39:00','104925000000000');

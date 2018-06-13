@@ -1,4 +1,4 @@
-﻿-- Function: unit_tests_public.notes_foreign_key(boolean)
+-- Function: unit_tests_public.notes_foreign_key(boolean)
 
 -- DROP FUNCTION unit_tests_public.notes_foreign_key(boolean);
 
@@ -41,9 +41,9 @@ BEGIN
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);
         RETURN;
   END;
-/*
+
   ---------------------------------------------------------------
-  test_name = 'UPDATE notes set student with a non existing one'; -- DA VERIFICARE
+  test_name = 'UPDATE notes set student with a non existing one';
   ---------------------------------------------------------------
   BEGIN
     UPDATE notes SET student = 999999999 WHERE note = '104925000000000';
@@ -62,7 +62,7 @@ BEGIN
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);
         RETURN;
   END;
-*/
+
   ---------------------------------------------------------------------------
   test_name = 'UPDATE notes set teacher with a non existing one';
   ---------------------------------------------------------------------------
