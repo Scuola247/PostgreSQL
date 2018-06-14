@@ -1,4 +1,4 @@
-﻿-- Function: unit_tests_public.notes_trigger(boolean)
+-- Function: unit_tests_public.notes_trigger(boolean)
 
 -- DROP FUNCTION unit_tests_public.notes_trigger(boolean);
 
@@ -51,12 +51,12 @@ BEGIN
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
   END;
-  /* Già controllato nel trigger di classrooms_students -- DA VERIFICARE
-  ---------------------------------------------------------------------------
-  test_name = 'UPDATE notes student in a different school';
-  ---------------------------------------------------------------------------
+/*
+  ---------------------------------------------------------
+  test_name = 'UPDATE notes student in a different school'; -- Già controllato nel trigger di classrooms_students -- DA VERIFICARE
+  ---------------------------------------------------------
   BEGIN
-    UPDATE public.notes set student = '1971000000000' WHERE note = '119289000000000';
+    UPDATE public.notes set student = 31184000000000, classroom = 29059000000000 WHERE note = 119214000000000;
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student is in a different school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE 'U04Y3' THEN
@@ -66,11 +66,11 @@ BEGIN
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
   END;
-  --------------------------------------------------------------
-  test_name = 'INSERT notes student in a different school';
-  --------------------------------------------------------------
+  ---------------------------------------------------------
+  test_name = 'INSERT notes student in a different school'; -- Già controllato nel trigger di classrooms_students -- DA VERIFICARE
+  ---------------------------------------------------------
   BEGIN
-    INSERT INTO public.notes(note,student,description,teacher,disciplinary,on_date,at_time,to_approve,classroom) VALUES ('1104925000000000','6617000000000','Esempio di una nota disciplinare.','32927000000000','t','2013-09-22','09:00:00','t','10033000000000');
+    INSERT INTO public.notes(note,student,description,teacher,disciplinary,on_date,at_time,to_approve,classroom) VALUES ('1104925000000000',7599000000000,'Esempio di una nota disciplinare.','32927000000000','t','2013-09-22','09:00:00','t',10061000000000);
 
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student is in a different school', NULL::diagnostic.error);
     RETURN;
@@ -81,7 +81,7 @@ BEGIN
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
   END;
-  */
+*/
   ------------------------------------
   test_name = 'UPDATE student absent';
   ------------------------------------
