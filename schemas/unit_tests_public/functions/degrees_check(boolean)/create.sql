@@ -29,12 +29,16 @@ BEGIN
   UPDATE public.degrees SET school = NULL WHERE degree = '9942000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but school was expected', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE '23502' THEN
+    /*EXCEPTION WHEN SQLSTATE '23502' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
       WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
+        RETURN;*/
+    EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
 
   ------------------------------------
@@ -44,12 +48,16 @@ BEGIN
   UPDATE public.degrees SET description = NULL WHERE degree = '9942000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but description was expected', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE '23502' THEN
+    /*EXCEPTION WHEN SQLSTATE '23502' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
       WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
+        RETURN;*/
+   EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
 
   ------------------------------------
@@ -59,12 +67,16 @@ BEGIN
   UPDATE public.degrees SET course_years = NULL WHERE degree = '9942000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but course_years was expected', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE '23502' THEN
+    /*EXCEPTION WHEN SQLSTATE '23502' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
       WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
+        RETURN;*/
+    EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
 
   -------------------------------
@@ -74,7 +86,7 @@ BEGIN
     INSERT INTO degrees (degree, school, description, course_years) VALUES (99420000000000, 1000000000, 'Scuola dell''infanzia', 3);
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but this (school, description) already exist', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE '23505' THEN
+    /*EXCEPTION WHEN SQLSTATE '23505' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
       IF error.constraint_name = 'degrees_uq_description' THEN
         _results =  _results || assert.pass(full_function_name, test_name);
@@ -85,7 +97,11 @@ BEGIN
       WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 	_results =  _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
+        RETURN;*/
+   EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23505','degrees_uq_description');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
 
    ----------------------------------------
@@ -95,7 +111,7 @@ BEGIN
     UPDATE degrees SET description = '   ' WHERE degree = '9942000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE '23514' THEN
+    /*EXCEPTION WHEN SQLSTATE '23514' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
       IF error.constraint_name = 'degrees_ck_description' THEN
         _results = _results || assert.pass(full_function_name, test_name);
@@ -106,7 +122,11 @@ BEGIN
       WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
+        RETURN;*/
+    EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23514','degrees_ck_description');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
     RETURN;
 END
