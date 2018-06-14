@@ -29,12 +29,16 @@ BEGIN
     UPDATE public.communications_media set communication_type = '138029000000000' WHERE communication_media = '112027000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the communication_type is different from the notification ', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE 'U04J1' THEN
+    /*EXCEPTION WHEN SQLSTATE 'U04J1' THEN
       _results = _results || assert.pass(full_function_name, test_name);
       WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
+        RETURN;*/
+    EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04J1');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
 
   -----------------------------------------------------------------------------------
@@ -44,12 +48,16 @@ BEGIN
     INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','3959000000000','138029000000000','casa','Lara.Lupini@example.org','t');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the communication_type is different from the notification ', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE 'U04J2' THEN
+    /*EXCEPTION WHEN SQLSTATE 'U04J2' THEN
       _results = _results || assert.pass(full_function_name, test_name);
       WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
+        RETURN;*/
+    EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04J2');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
 
   -------------------------------------------------------------------------------
@@ -60,12 +68,16 @@ BEGIN
     INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','3959000000000','138029000000000','casa','Lara.Lupini@example.org','t');
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the communication_type has a different school from the person', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE 'U04J3' THEN
+    /*EXCEPTION WHEN SQLSTATE 'U04J3' THEN
       _results = _results || assert.pass(full_function_name, test_name);
       WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
+        RETURN;*/
+    EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04J3');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
   ------------------------------------------------------------------------------
   test_name = 'INSERT communication_type with a different school of the person';
@@ -74,12 +86,16 @@ BEGIN
     INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','3959000000000','138017000000000','casa','Lara.Lupini@example.org','t');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the communication_type has a different school from the person ', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE 'U04J4' THEN
+    /*EXCEPTION WHEN SQLSTATE 'U04J4' THEN
       _results = _results || assert.pass(full_function_name, test_name);
       WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
+        RETURN;*/
+    EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04J4');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
 
   -------------------------------------------------------------------------------
@@ -90,26 +106,34 @@ BEGIN
     INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','3959000000000','138029000000000','casa','Lara.Lupini@example.org','t');
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the communication_type has a different school from the person', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE 'U04J3' THEN
+    /*EXCEPTION WHEN SQLSTATE 'U04J3' THEN
       _results = _results || assert.pass(full_function_name, test_name);
       WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
+        RETURN;*/
+    EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04J3');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
   ------------------------------------------------------------------------------
   test_name = 'INSERT communication_type with a different school of the person';
   ------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','2995000000000','138028000000000','casa','Lara.Lupini@example.org','t');
+    INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','2995000000000','138017000000000','casa','Lara.Lupini@example.org','t');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the communication_type has a different school from the person ', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE 'U04J4' THEN
+    /*EXCEPTION WHEN SQLSTATE 'U04J4' THEN
       _results = _results || assert.pass(full_function_name, test_name);
       WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
+        RETURN;*/
+    EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04J4');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
 
 
