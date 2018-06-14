@@ -1,4 +1,4 @@
-/*
+﻿/*
 scuola247_employee      = SEGRETARI AMMINISTRATIVI
 scuola247_executive     = PRESIDE
 scuola247_relative      = GENITORE

@@ -1,4 +1,4 @@
---Vertical security
+﻿--Vertical security
 GRANT ALL ON TABLE public.explanations TO scuola247_supervisor;
 GRANT ALL ON TABLE public.explanations TO scuola247_executive;
 GRANT ALL ON TABLE public.explanations TO scuola247_employee;
@@ -24,8 +24,8 @@ REVOKE ALL ON TABLE public.faults FROM public;
 GRANT ALL ON TABLE public.grade_types TO scuola247_supervisor;
 GRANT ALL ON TABLE public.grade_types TO scuola247_executive;
 GRANT ALL ON TABLE public.grade_types TO scuola247_teacher;
+GRANT ALL ON TABLE public.grade_types TO scuola247_employee;
 
---GRANT SELECT ON TABLE public.grade_types TO scuola247_employee;
 GRANT SELECT ON TABLE public.grade_types TO scuola247_relative;
 GRANT SELECT ON TABLE public.grade_types TO scuola247_student;
 

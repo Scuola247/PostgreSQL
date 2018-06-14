@@ -17,7 +17,7 @@ DECLARE
     ('en', 5, 'The Institute of the ''qualification'' is not the same as that of the ''metric'' of ''grade''')::utility.system_message,
     ('en', 6, 'The ''valutation_qualification'': ''%s'' specifies a ''qualification'': ''%s'' with an institute which is different from that of the ''metric'' of ''grade'': ''%s''')::utility.system_message,
     ('en', 7, 'Correct values of: the ''qualification'' and ''grade'' and repeat the operation')::utility.system_message,
-    ('en', 8, 'The ''valutation_qualification'' that you are inserting specifies a ''qualification'': ''%s'' with an institute which is different from that of the ''metric'' of ''grade'': ''%s''')::utility.system_message,    
+    ('en', 8, 'The ''valutation_qualification'' that you are inserting specifies a ''qualification'': ''%s'' with an institute which is different from that of the ''metric'' of ''grade'': ''%s''')::utility.system_message,
     ('it', 1, 'L''istituto della ''qualifica'' non è lo stesso di quello dell'' ''alunno'' della ''valutazione''')::utility.system_message,
     ('it', 2, 'La ''valutazione_qualifica'': ''%s'' specifica una ''qualifica'': ''%s'' con un istituto diverso da quello dell'' ''alunno'' della ''valutazione'': ''%s''')::utility.system_message,
     ('it', 3, 'Correggere i valori di: ''qualifica'' e ''valutazione'' e riproporre l''operazione')::utility.system_message,
@@ -26,20 +26,20 @@ DECLARE
     ('it', 6, 'La ''valutazione_qualifica'': ''%s'' specifica una ''qualifica'': ''%s'' con un istituto diverso da quello della ''metrica'' del ''voto'': ''%s''')::utility.system_message,
     ('it', 7, 'Correggere i valori di: ''qualifica'' e ''voto'' e riproporre l''operazione')::utility.system_message,
     ('it', 8, 'La ''valutazione_qualifica'' che si sta inserendo specifica una ''qualifica'': ''%s'' con un istituto diverso da quello della ''metrica'' del ''voto'': ''%s''')::utility.system_message];
-BEGIN 
+BEGIN
 --
 -- Retrieve the name of the function
 --
   GET DIAGNOSTICS me.context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
-  
+
 --
 -- check that the school of the qualification both the same of that of the student of the valutation
 --
-  PERFORM 1 
+  PERFORM 1
      FROM valutations v
      JOIN classrooms_students cs ON cs.classroom_student = v.classroom_student
-     JOIN persons p ON p.person = cs.student  
+     JOIN persons p ON p.person = cs.student
      JOIN qualifications q ON p.school = q.school
     WHERE v.valutation = new.valutation
       AND q.qualification = new.qualification;
@@ -56,13 +56,13 @@ BEGIN
         MESSAGE = utility.system_messages_locale(system_messages,1),
         DETAIL = format(utility.system_messages_locale(system_messages,4), new.qualification,  new.valutation),
         HINT = utility.system_messages_locale(system_messages,3);
-    END IF;    
+    END IF;
   END IF;
 --
 -- check that the school of the qualification both the same of that of the metric of the grade
 --
 PERFORM 1 FROM grades v
-   JOIN metrics m ON m.metric = v.metric -- precendente versione v.metric = v.metric
+   JOIN metrics m ON m.metric = v.metric 
    JOIN qualifications q ON m.school = q.school
   WHERE v.grade = new.grade
     AND q.qualification = new.qualification;
@@ -79,7 +79,7 @@ PERFORM 1 FROM grades v
         MESSAGE = utility.system_messages_locale(system_messages,5),
         DETAIL = format(utility.system_messages_locale(system_messages,8), new.qualification,  new.grade),
         HINT = utility.system_messages_locale(system_messages,7);
-    END IF;    
+    END IF;
   END IF;
   RETURN NEW;
 END;
