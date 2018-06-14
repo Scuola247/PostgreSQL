@@ -22,18 +22,74 @@ BEGIN
     RETURN;
   END IF;
 
-  /*
-mancano 3 combinazioni di signature_uq_classroom
-- duplicate teacher
-- duplicate classroom
-- duplicate at_time
-  */
-
+  --------------------------------
+  test_name = 'duplicate at_time';
+  --------------------------------
+  BEGIN
+    UPDATE public.signatures SET at_time = '09:47:57' WHERE signature = '11233773000000000';
+	--INSERT INTO public.signatures(signature,classroom,teacher,on_date,at_time) VALUES ('1133773000000000','10035000000000','32934000000000','2013-09-19','09:47:57');
+    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate at_time was expected', NULL::diagnostic.error);
+    RETURN;
+    EXCEPTION WHEN SQLSTATE '23505' THEN
+      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+      IF error.constraint_name = 'signatures_uq_classroom' THEN
+        _results = _results || assert.pass(full_function_name, test_name);
+      ELSE
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RETURN;
+      END IF;
+      WHEN OTHERS THEN
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RETURN;
+  END;
+  --------------------------------
+  test_name = 'duplicate classroom';
+  --------------------------------
+  BEGIN
+    UPDATE public.signatures SET classroom = '10035000000000' WHERE signature = '11133773000000000';
+	--INSERT INTO public.signatures(signature,classroom,teacher,on_date,at_time) VALUES ('1133773000000000','10035000000000','32934000000000','2013-09-19','09:47:57');
+    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate classroom was expected', NULL::diagnostic.error);
+    RETURN;
+    EXCEPTION WHEN SQLSTATE '23505' THEN
+      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+      IF error.constraint_name = 'signatures_uq_classroom' THEN
+        _results = _results || assert.pass(full_function_name, test_name);
+      ELSE
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RETURN;
+      END IF;
+      WHEN OTHERS THEN
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RETURN;
+  END;
+  --------------------------------
+  test_name = 'duplicate teacher';
+  --------------------------------
+  BEGIN
+    UPDATE public.signatures SET teacher = '32931000000000' WHERE signature = '11033773000000000';
+	--INSERT INTO public.signatures(signature,classroom,teacher,on_date,at_time) VALUES ('1133773000000000','10035000000000','32934000000000','2013-09-19','09:47:57');
+    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate teacher was expected', NULL::diagnostic.error);
+    RETURN;
+    EXCEPTION WHEN SQLSTATE '23505' THEN
+      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+      IF error.constraint_name = 'signatures_uq_classroom' THEN
+        _results = _results || assert.pass(full_function_name, test_name);
+      ELSE
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RETURN;
+      END IF;
+      WHEN OTHERS THEN
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RETURN;
+  END;
   --------------------------------
   test_name = 'duplicate on_date';
   --------------------------------
   BEGIN
-	INSERT INTO public.signatures(signature,classroom,teacher,on_date,at_time) VALUES ('133773000000000','10035000000000','32931000000000','2013-09-19','09:47:57');
+	INSERT INTO public.signatures(signature,classroom,teacher,on_date,at_time) VALUES ('1133773000000000','10035000000000','32932000000000','2013-09-19','10:10:12');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate on_date was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN SQLSTATE '23505' THEN

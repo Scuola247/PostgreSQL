@@ -6345,6 +6345,14 @@ BEGIN
 	INSERT INTO public.signatures(signature,classroom,teacher,on_date,at_time) VALUES ('39995000000000','10038000000000','32925000000000','2014-06-07','11:57:23');
 	INSERT INTO public.signatures(signature,classroom,teacher,on_date,at_time) VALUES ('39996000000000','10038000000000','32936000000000','2014-06-07','12:45:52');
 
+/*unit_tests_public.signatures_check(boolean) duplicate teacher*/
+	INSERT INTO public.signatures(signature,classroom,teacher,on_date,at_time) VALUES ('11033773000000000','10035000000000','32934000000000','2013-09-19','09:47:57');
+/*unit_tests_public.signatures_check(boolean) duplicate classroom*/
+	INSERT INTO public.signatures(signature,classroom,teacher,on_date,at_time) VALUES ('11133773000000000','10038000000000','32931000000000','2013-09-19','09:47:57');
+/*unut_tests_public.signatures_check(boolean) duplicate at_time*/
+	INSERT INTO public.signatures(signature,classroom,teacher,on_date,at_time) VALUES ('11233773000000000','10035000000000','32931000000000','2013-09-19','12:45:52');
+
+
     _results =  _results || assert.pass(full_function_name, test_name);
 
 
