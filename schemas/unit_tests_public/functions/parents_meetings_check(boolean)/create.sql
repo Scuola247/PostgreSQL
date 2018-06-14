@@ -39,7 +39,7 @@ BEGIN
 
 /*
 manca una combinazione sul check parents_meetings_uq
-- duplicate teacher
+- duplicate teacher - gia' presente
 */
 
   ------------------------------------
