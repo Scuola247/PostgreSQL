@@ -1,4 +1,4 @@
-  ALTER TABLE schools ENABLE ROW LEVEL SECURITY;
+﻿  ALTER TABLE schools ENABLE ROW LEVEL SECURITY;
 --ALTER TABLE schools DISABLE ROW LEVEL SECURITY;
 
   ALTER TABLE school_years ENABLE ROW LEVEL SECURITY;
@@ -319,8 +319,8 @@ CREATE POLICY qualifications_pl_school ON qualifications TO public
 
   DROP POLICY qualifications_plan_pl_qualification ON qualifications_plan;
 CREATE POLICY qualifications_plan_pl_qualification ON qualifications_plan TO public 
- USING (qualification IN (SELECT qualification FROM qualifications_plan))
-  WITH CHECK (qualification IN (SELECT qualification FROM qualifications_plan));  
+ USING (qualification IN (SELECT qualification FROM qualifications))
+  WITH CHECK (qualification IN (SELECT qualification FROM qualifications));  
 
   DROP POLICY signatures_pl_classroom ON signatures; 
 CREATE POLICY signatures_pl_classroom ON signatures TO public 
