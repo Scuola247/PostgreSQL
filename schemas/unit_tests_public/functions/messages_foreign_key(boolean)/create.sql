@@ -28,7 +28,7 @@ BEGIN
     UPDATE messages SET conversation = '999999999' WHERE message = '50112000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but conversation set with non existence subject', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE '23503' THEN
+    /*EXCEPTION WHEN SQLSTATE '23503' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
       IF error.constraint_name = 'messages_fk_conversation' THEN
         _results = _results || assert.pass(full_function_name, test_name);
@@ -39,7 +39,11 @@ BEGIN
       WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);
-        RETURN;
+        RETURN;*/
+     EXCEPTION WHEN OTHERS THEN
+     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23503','messages_fk_conversation');
+     IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
   -------------------------------------------------------------
   test_name = 'UPDATE messages person with a non existent one';
@@ -48,7 +52,7 @@ BEGIN
     UPDATE messages SET person = '999999999' WHERE message = '50112000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person set with non existence subject', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE '23503' THEN
+    /*EXCEPTION WHEN SQLSTATE '23503' THEN
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
       IF error.constraint_name = 'messages_fk_person' THEN
         _results = _results || assert.pass(full_function_name, test_name);
@@ -59,7 +63,11 @@ BEGIN
       WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception 2', error);
-        RETURN;
+        RETURN;*/
+      EXCEPTION WHEN OTHERS THEN
+     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23503','messages_fk_person');
+     IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
 
   RETURN;
@@ -68,4 +76,4 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION unit_tests_public.messages_foreign_key(boolean)
-  OWNER TO postgres;
+  OWNER TO scuola247_supervisor;
