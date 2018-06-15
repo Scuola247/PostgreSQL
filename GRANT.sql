@@ -1,15 +1,62 @@
--- IMMETTERE LA EMAIL E LA password
--- TOGLIERE LA COMMENTAZIONE PER FAR PARTIRE IL COMANDO
--- Immetere la propria email
-/* -- <-- da togliere
-CREATE ROLE " *email*  " LOGIN
-ENCRYPTED PASSWORD ' *password*  '
-NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+-- ATTENZIONE personalizzare il comando cambiando: fol@fulcro.net con la propria email;
+/*;
+CREATE ROLE "fol@fulcro.net" LOGIN ENCRYPTED PASSWORD '*password*' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
 GRANT scuola247_supervisor TO " *email* " WITH ADMIN OPTION;
-*/ -- <--da togliere
-/* GRANT SINGOLI */
+*/;
+/* GRANT SINGOLI */;
+REVOKE scuola247_employee FROM scuola247_user;
+REVOKE scuola247_executive FROM scuola247_user;
+REVOKE scuola247_relative FROM scuola247_user;
+REVOKE scuola247_student FROM scuola247_user;
+REVOKE scuola247_teacher FROM scuola247_user;
+REVOKE scuola247_supervisor FROM scuola247_user;
+
+REVOKE scuola247_user FROM scuola247_employee;
+REVOKE scuola247_executive FROM scuola247_employee;
+REVOKE scuola247_relative FROM scuola247_employee;
+REVOKE scuola247_student FROM scuola247_employee;
+REVOKE scuola247_teacher FROM scuola247_employee;
+REVOKE scuola247_supervisor FROM scuola247_employee;
+
+REVOKE scuola247_user FROM scuola247_executive;
+REVOKE scuola247_employee FROM scuola247_executive;
+REVOKE scuola247_relative FROM scuola247_executive;
+REVOKE scuola247_student FROM scuola247_executive;
+REVOKE scuola247_teacher FROM scuola247_executive;
+REVOKE scuola247_supervisor FROM scuola247_executive;
+
+REVOKE scuola247_user FROM scuola247_relative;
+REVOKE scuola247_employee FROM scuola247_relative;
+REVOKE scuola247_executive FROM scuola247_relative;
+REVOKE scuola247_student FROM scuola247_relative;
+REVOKE scuola247_teacher FROM scuola247_relative;
+REVOKE scuola247_supervisor FROM scuola247_relative;
+
+REVOKE scuola247_user FROM scuola247_student;
+REVOKE scuola247_employee FROM scuola247_student;
+REVOKE scuola247_executive FROM scuola247_student;
+REVOKE scuola247_relative FROM scuola247_student;
+REVOKE scuola247_teacher FROM scuola247_student;
+REVOKE scuola247_supervisor FROM scuola247_student;
+
+REVOKE scuola247_user FROM scuola247_teacher;
+REVOKE scuola247_employee FROM scuola247_teacher;
+REVOKE scuola247_executive FROM scuola247_teacher;
+REVOKE scuola247_relative FROM scuola247_teacher;
+REVOKE scuola247_student FROM scuola247_teacher;
+REVOKE scuola247_supervisor FROM scuola247_teacher;
+
+REVOKE scuola247_user FROM scuola247_supervisor;
+REVOKE scuola247_employee FROM scuola247_supervisor;
+REVOKE scuola247_executive FROM scuola247_supervisor;
+REVOKE scuola247_relative FROM scuola247_supervisor;
+REVOKE scuola247_student FROM scuola247_supervisor;
+REVOKE scuola247_teacher FROM scuola247_supervisor;
+REVOKE scuola247_supervisor FROM scuola247_supervisor;
+
 GRANT scuola247_user TO scuola247_employee;
 GRANT scuola247_user TO scuola247_executive;
+GRANT scuola247_user TO scuola247_teacher;
 GRANT scuola247_user TO scuola247_relative;
 GRANT scuola247_user TO scuola247_student;
 GRANT scuola247_employee TO scuola247_supervisor;
@@ -18,57 +65,330 @@ GRANT scuola247_relative TO scuola247_supervisor;
 GRANT scuola247_student TO scuola247_supervisor;
 GRANT scuola247_teacher TO scuola247_supervisor;
 GRANT scuola247_user TO scuola247_supervisor;
-GRANT scuola247_user TO scuola247_teacher;
-/* GRANT SU TUTTI I SCHEMA */
--- ASSERT
+
+REVOKE ALL ON DATABASE scuola247 FROM public;
+REVOKE ALL ON DATABASE scuola247 FROM scuola247_supervisor;
+REVOKE ALL ON DATABASE scuola247 FROM scuola247_executive;
+REVOKE ALL ON DATABASE scuola247 FROM scuola247_employee;
+REVOKE ALL ON DATABASE scuola247 FROM scuola247_teacher;
+REVOKE ALL ON DATABASE scuola247 FROM scuola247_relative;
+REVOKE ALL ON DATABASE scuola247 FROM scuola247_student;
+REVOKE ALL ON DATABASE scuola247 FROM scuola247_user;
+
+GRANT ALL ON DATABASE scuola247 TO scuola247_supervisor WITH GRANT OPTION;
+GRANT CONNECT ON DATABASE scuola247 TO scuola247_user;
+
+GRANT ALL ON LANGUAGE plpgsql TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON LANGUAGE plpgsql TO scuola247_user;
+
+/* GRANT SU TUTTI I SCHEMA */;
+-- ASSERT;
+REVOKE ALL ON SCHEMA assert FROM public;
+REVOKE ALL ON SCHEMA assert FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA assert FROM scuola247_executive;
+REVOKE ALL ON SCHEMA assert FROM scuola247_employee;
+REVOKE ALL ON SCHEMA assert FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA assert FROM scuola247_relative;
+REVOKE ALL ON SCHEMA assert FROM scuola247_student;
+REVOKE ALL ON SCHEMA assert FROM scuola247_user;
+
 GRANT ALL ON SCHEMA assert TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON SCHEMA assert TO scuola247_user;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA assert TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA assert TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA assert TO scuola247_user;
--- DATASETS
+
+-- DATASETS;
+REVOKE ALL ON SCHEMA datasets FROM public;
+REVOKE ALL ON SCHEMA datasets FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA datasets FROM scuola247_executive;
+REVOKE ALL ON SCHEMA datasets FROM scuola247_employee;
+REVOKE ALL ON SCHEMA datasets FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA datasets FROM scuola247_relative;
+REVOKE ALL ON SCHEMA datasets FROM scuola247_student;
+REVOKE ALL ON SCHEMA datasets FROM scuola247_user;
+
 GRANT ALL ON SCHEMA datasets TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON SCHEMA datasets TO scuola247_user;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA datasets TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT ALL ON ALL TABLES IN SCHEMA datasets TO scuola247_supervisor WITH GRANT OPTION;
+GRANT SELECT ON ALL TABLES IN SCHEMA datasets TO scuola247_user;
+
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA datasets TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA datasets TO scuola247_user;
--- DIAGNOSTIC
+
+GRANT ALL ON ALL SEQUENCES IN SCHEMA datasets TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON ALL SEQUENCES IN SCHEMA datasets TO scuola247_user;
+
+-- DIAGNOSTIC;
+REVOKE ALL ON SCHEMA diagnostic FROM public;
+REVOKE ALL ON SCHEMA diagnostic FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA diagnostic FROM scuola247_executive;
+REVOKE ALL ON SCHEMA diagnostic FROM scuola247_employee;
+REVOKE ALL ON SCHEMA diagnostic FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA diagnostic FROM scuola247_relative;
+REVOKE ALL ON SCHEMA diagnostic FROM scuola247_student;
+REVOKE ALL ON SCHEMA diagnostic FROM scuola247_user;
+
 GRANT ALL ON SCHEMA diagnostic TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON SCHEMA diagnostic TO scuola247_user;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA diagnostic TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA diagnostic TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA diagnostic TO scuola247_user;
--- PUBLIC
+
+GRANT ALL ON TYPE diagnostic.error TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON TYPE diagnostic.error TO scuola247_user;
+
+GRANT ALL ON TYPE diagnostic.verbosities TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON TYPE diagnostic.verbosities TO scuola247_user;
+
+-- GIT;
+REVOKE ALL ON SCHEMA git FROM public;
+REVOKE ALL ON SCHEMA git FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA git FROM scuola247_executive;
+REVOKE ALL ON SCHEMA git FROM scuola247_employee;
+REVOKE ALL ON SCHEMA git FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA git FROM scuola247_relative;
+REVOKE ALL ON SCHEMA git FROM scuola247_student;
+REVOKE ALL ON SCHEMA git FROM scuola247_user;
+
+GRANT ALL ON SCHEMA git TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA git TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT ALL ON ALL TABLES IN SCHEMA git TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT ALL ON TYPE git.options TO scuola247_supervisor WITH GRANT OPTION;
+
+-- PUBLIC;
+REVOKE ALL ON SCHEMA public FROM public;
+REVOKE ALL ON SCHEMA public FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA public FROM scuola247_executive;
+REVOKE ALL ON SCHEMA public FROM scuola247_employee;
+REVOKE ALL ON SCHEMA public FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA public FROM scuola247_relative;
+REVOKE ALL ON SCHEMA public FROM scuola247_student;
+REVOKE ALL ON SCHEMA public FROM scuola247_user;
+
 GRANT ALL ON SCHEMA public TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON SCHEMA public TO scuola247_user;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT ALL ON DOMAIN public.course_year TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON DOMAIN public.mime_type_image TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON DOMAIN public.period_lesson TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON DOMAIN public.week TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON DOMAIN public.week_day TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT USAGE ON DOMAIN public.course_year TO scuola247_user WITH GRANT OPTION;
+GRANT USAGE ON DOMAIN public.mime_type_image TO scuola247_user WITH GRANT OPTION;
+GRANT USAGE ON DOMAIN public.period_lesson TO scuola247_user WITH GRANT OPTION;
+GRANT USAGE ON DOMAIN public.week TO scuola247_user WITH GRANT OPTION;
+GRANT USAGE ON DOMAIN public.week_day TO scuola247_user WITH GRANT OPTION;
+
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA public TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO scuola247_user;
--- TRANSLATE
+
+GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO scuola247_user;
+
+GRANT ALL ON ALL TABLES IN SCHEMA public TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT ALL ON TYPE public.address_type TO scuola247_supervisor;
+GRANT ALL ON TYPE public.explanation_type TO scuola247_supervisor;
+GRANT ALL ON TYPE public.file_extension TO scuola247_supervisor;
+GRANT ALL ON TYPE public.gbtreekey16 TO scuola247_supervisor;
+GRANT ALL ON TYPE public.gbtreekey32 TO scuola247_supervisor;
+GRANT ALL ON TYPE public.gbtreekey4 TO scuola247_supervisor;
+GRANT ALL ON TYPE public.gbtreekey8 TO scuola247_supervisor;
+GRANT ALL ON TYPE public.gbtreekey_var TO scuola247_supervisor;
+GRANT ALL ON TYPE public.geographical_area TO scuola247_supervisor;
+GRANT ALL ON TYPE public.image TO scuola247_supervisor;
+GRANT ALL ON TYPE public.language TO scuola247_supervisor;
+GRANT ALL ON TYPE public.marital_status TO scuola247_supervisor;
+GRANT ALL ON TYPE public.mime_type TO scuola247_supervisor;
+GRANT ALL ON TYPE public.relationships TO scuola247_supervisor;
+GRANT ALL ON TYPE public.role TO scuola247_supervisor;
+GRANT ALL ON TYPE public.sex TO scuola247_supervisor;
+GRANT ALL ON TYPE public.wikimedia_type TO scuola247_supervisor;
+
+GRANT USAGE ON TYPE public.address_type TO scuola247_user;
+GRANT USAGE ON TYPE public.explanation_type TO scuola247_user;
+GRANT USAGE ON TYPE public.file_extension TO scuola247_user;
+GRANT USAGE ON TYPE public.gbtreekey16 TO scuola247_user;
+GRANT USAGE ON TYPE public.gbtreekey32 TO scuola247_user;
+GRANT USAGE ON TYPE public.gbtreekey4 TO scuola247_user;
+GRANT USAGE ON TYPE public.gbtreekey8 TO scuola247_user;
+GRANT USAGE ON TYPE public.gbtreekey_var TO scuola247_user;
+GRANT USAGE ON TYPE public.geographical_area TO scuola247_user;
+GRANT USAGE ON TYPE public.image TO scuola247_user;
+GRANT USAGE ON TYPE public.language TO scuola247_user;
+GRANT USAGE ON TYPE public.marital_status TO scuola247_user;
+GRANT USAGE ON TYPE public.mime_type TO scuola247_user;
+GRANT USAGE ON TYPE public.relationships TO scuola247_user;
+GRANT USAGE ON TYPE public.role TO scuola247_user;
+GRANT USAGE ON TYPE public.sex TO scuola247_user;
+GRANT USAGE ON TYPE public.wikimedia_type TO scuola247_user;
+
+-- TRANSLATE;
+REVOKE ALL ON SCHEMA translate FROM public;
+REVOKE ALL ON SCHEMA translate FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA translate FROM scuola247_executive;
+REVOKE ALL ON SCHEMA translate FROM scuola247_employee;
+REVOKE ALL ON SCHEMA translate FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA translate FROM scuola247_relative;
+REVOKE ALL ON SCHEMA translate FROM scuola247_student;
+REVOKE ALL ON SCHEMA translate FROM scuola247_user;
+
 GRANT ALL ON SCHEMA translate TO scuola247_supervisor WITH GRANT OPTION;
-GRANT USAGE ON SCHEMA translate TO scuola247_user;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA translate TO scuola247_supervisor WITH GRANT OPTION;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA translate TO scuola247_user;
--- UNIT_TESTING
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA translate TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA translate TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON ALL TABLES IN SCHEMA translate TO scuola247_supervisor WITH GRANT OPTION;
+
+-- UNIT_TESTING;
+REVOKE ALL ON SCHEMA unit_testing FROM public;
+REVOKE ALL ON SCHEMA unit_testing FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA unit_testing FROM scuola247_executive;
+REVOKE ALL ON SCHEMA unit_testing FROM scuola247_employee;
+REVOKE ALL ON SCHEMA unit_testing FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA unit_testing FROM scuola247_relative;
+REVOKE ALL ON SCHEMA unit_testing FROM scuola247_student;
+REVOKE ALL ON SCHEMA unit_testing FROM scuola247_user;
+
 GRANT ALL ON SCHEMA unit_testing TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON SCHEMA unit_testing TO scuola247_user;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_testing TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_testing TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_testing TO scuola247_user;
--- UNIT_TESTS_PUBLIC
+
+GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO scuola247_user;
+
+GRANT ALL ON ALL TABLES IN SCHEMA public TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON ALL TABLES IN SCHEMA public TO scuola247_user;
+
+GRANT ALL ON TYPE unit_testing.check_point TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON TYPE unit_testing.check_point_status TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON TYPE unit_testing.unit_test_result TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT ALL ON TYPE unit_testing.check_point TO scuola247_user WITH GRANT OPTION;
+GRANT ALL ON TYPE unit_testing.check_point_status TO scuola247_user WITH GRANT OPTION;
+GRANT ALL ON TYPE unit_testing.unit_test_result TO scuola247_user WITH GRANT OPTION;
+
+-- UNIT_TESTS_DATASETS;
+REVOKE ALL ON SCHEMA unit_tests_datasets FROM public;
+REVOKE ALL ON SCHEMA unit_tests_datasets FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA unit_tests_datasets FROM scuola247_executive;
+REVOKE ALL ON SCHEMA unit_tests_datasets FROM scuola247_employee;
+REVOKE ALL ON SCHEMA unit_tests_datasets FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA unit_tests_datasets FROM scuola247_relative;
+REVOKE ALL ON SCHEMA unit_tests_datasets FROM scuola247_student;
+REVOKE ALL ON SCHEMA unit_tests_datasets FROM scuola247_user;
+
+GRANT ALL ON SCHEMA unit_tests_datasets TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON SCHEMA unit_tests_datasets TO scuola247_user;
+
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_datasets TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_datasets TO scuola247_user;
+
+-- UNIT_TESTS_PUBLIC;
+REVOKE ALL ON SCHEMA unit_tests_public FROM public;
+REVOKE ALL ON SCHEMA unit_tests_public FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA unit_tests_public FROM scuola247_executive;
+REVOKE ALL ON SCHEMA unit_tests_public FROM scuola247_employee;
+REVOKE ALL ON SCHEMA unit_tests_public FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA unit_tests_public FROM scuola247_relative;
+REVOKE ALL ON SCHEMA unit_tests_public FROM scuola247_student;
+REVOKE ALL ON SCHEMA unit_tests_public FROM scuola247_user;
+
 GRANT ALL ON SCHEMA unit_tests_public TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON SCHEMA unit_tests_public TO scuola247_user;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_public TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_public TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_public TO scuola247_user;
--- UNIT_TESTS_SECURITY
+
+-- UNIT_TESTS_SECURITY;
+REVOKE ALL ON SCHEMA unit_tests_security FROM public;
+REVOKE ALL ON SCHEMA unit_tests_security FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA unit_tests_security FROM scuola247_executive;
+REVOKE ALL ON SCHEMA unit_tests_security FROM scuola247_employee;
+REVOKE ALL ON SCHEMA unit_tests_security FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA unit_tests_security FROM scuola247_relative;
+REVOKE ALL ON SCHEMA unit_tests_security FROM scuola247_student;
+REVOKE ALL ON SCHEMA unit_tests_security FROM scuola247_user;
+
 GRANT ALL ON SCHEMA unit_tests_security TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON SCHEMA unit_tests_security TO scuola247_user;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_security TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_security TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_security TO scuola247_user;
--- UTILITY
+
+-- UNIT_TESTS_TRANSLATE;
+REVOKE ALL ON SCHEMA unit_tests_translate FROM public;
+REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_executive;
+REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_employee;
+REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_relative;
+REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_student;
+REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_user;
+
+GRANT ALL ON SCHEMA unit_tests_translate TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON SCHEMA unit_tests_translate TO scuola247_user;
+
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_translate TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_translate TO scuola247_user;
+
+-- UTILITY;
+REVOKE ALL ON SCHEMA utility FROM public;
+REVOKE ALL ON SCHEMA utility FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA utility FROM scuola247_executive;
+REVOKE ALL ON SCHEMA utility FROM scuola247_employee;
+REVOKE ALL ON SCHEMA utility FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA utility FROM scuola247_relative;
+REVOKE ALL ON SCHEMA utility FROM scuola247_student;
+REVOKE ALL ON SCHEMA utility FROM scuola247_user;
+
 GRANT ALL ON SCHEMA utility TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON SCHEMA utility TO scuola247_user;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA utility TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT ALL ON DOMAIN utility.number_base34 TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON DOMAIN utility.week_day TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT USAGE ON DOMAIN utility.number_base34 TO scuola247_user WITH GRANT OPTION;
+GRANT USAGE ON DOMAIN utility.week_day TO scuola247_user WITH GRANT OPTION;
+
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA utility TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA utility TO scuola247_user;
-/* DROP DELLA FUNZIONE create_role(boolean) */
+
+GRANT ALL ON TYPE utility.language TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON TYPE utility.system_message TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT USAGE ON TYPE utility.language TO scuola247_user;
+GRANT USAGE ON TYPE utility.system_message TO scuola247_user;
+
+
+ALTER  OPERATOR utility.+(utility.number_base34, int4) OWNER TO scuola247_supervisor;
+
+
+
+
+
+
+
+
+ALTER DOMAIN public.course_year OWNER TO scuola247_supervisor;
+ALTER DOMAIN public.mime_type_image OWNER TO scuola247_supervisor;
+ALTER DOMAIN public.period_lesson OWNER TO scuola247_supervisor;
+ALTER DOMAIN public.week OWNER TO scuola247_supervisor;
+ALTER DOMAIN public.week_day OWNER TO scuola247_supervisor;
+
+
+
+
+/* DROP DELLA FUNZIONE create_role(boolean) */;
 DROP FUNCTION unit_tests_security.create_role(boolean);
-/* SISTEMAZIONE RUOLI */
--- scuola247_student
+/* SISTEMAZIONE RUOLI */;
+-- scuola247_student;
 REVOKE scuola247_relative FROM "student-a@scuola-1.it";
 GRANT scuola247_student TO "student-a@scuola-1.it";
 REVOKE scuola247_relative FROM "student-b@scuola-1.it";
@@ -81,7 +401,7 @@ REVOKE scuola247_relative FROM "student-e@scuola-28961.it";
 GRANT scuola247_student TO "student-e@scuola-28961.it";
 REVOKE scuola247_relative FROM "student-f@scuola-28961.it";
 GRANT scuola247_student TO "student-f@scuola-28961.it";
--- scuola247_teacher
+-- scuola247_teacher;
 REVOKE scuola247_relative FROM "teacher-a@scuola-1.it";
 GRANT scuola247_teacher TO "teacher-a@scuola-1.it";
 REVOKE scuola247_relative FROM "teacher-b@scuola-1.it";
@@ -94,33 +414,21 @@ REVOKE scuola247_relative FROM "teacher-e@scuola-28961.it";
 GRANT scuola247_teacher TO "teacher-e@scuola-28961.it";
 REVOKE scuola247_relative FROM "teacher-f@scuola-28961.it";
 GRANT scuola247_teacher TO "teacher-f@scuola-28961.it";
-/* CREAZIONE DI RUOLI MANCANTI */
--- scuola247_employee
-CREATE ROLE "employee-a@scuola-1.it" LOGIN
-ENCRYPTED PASSWORD 'password'
-NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+/* CREAZIONE DI RUOLI MANCANTI */;
+-- scuola247_employee;
+CREATE ROLE "employee-a@scuola-1.it" LOGIN ENCRYPTED PASSWORD 'password' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
 GRANT scuola247_employee TO "employee-a@scuola-1.it";
-CREATE ROLE "employee-b@scuola-1.it" LOGIN
-ENCRYPTED PASSWORD 'password'
-NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+CREATE ROLE "employee-b@scuola-1.it" LOGIN ENCRYPTED PASSWORD 'password' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
 GRANT scuola247_employee TO "employee-b@scuola-1.it";
-CREATE ROLE "employee-c@scuola-2.it" LOGIN
-ENCRYPTED PASSWORD 'password'
-NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+CREATE ROLE "employee-c@scuola-2.it" LOGIN ENCRYPTED PASSWORD 'password' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
 GRANT scuola247_employee TO "employee-c@scuola-2.it";
-CREATE ROLE "employee-d@scuola-2.it" LOGIN
-ENCRYPTED PASSWORD 'password'
-NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+CREATE ROLE "employee-d@scuola-2.it" LOGIN ENCRYPTED PASSWORD 'password' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
 GRANT scuola247_employee TO "employee-d@scuola-2.it";
-CREATE ROLE "employee-e@scuola-28961.it" LOGIN
-ENCRYPTED PASSWORD 'password'
-NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+CREATE ROLE "employee-e@scuola-28961.it" LOGIN ENCRYPTED PASSWORD 'password' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
 GRANT scuola247_employee TO "employee-e@scuola-28961.it";
-CREATE ROLE "employee-f@scuola-28961.it" LOGIN
-ENCRYPTED PASSWORD 'password'
-NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+CREATE ROLE "employee-f@scuola-28961.it" LOGIN ENCRYPTED PASSWORD 'password' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
 GRANT scuola247_employee TO "employee-f@scuola-28961.it";
-/* TRIGGER */
+/* TRIGGER */;
 ALTER FUNCTION public.tr_absences_iu() OWNER TO scuola247_supervisor;
 ALTER FUNCTION public.tr_classrooms_iu() OWNER TO scuola247_supervisor;
 ALTER FUNCTION public.tr_classrooms_students_iu() OWNER TO scuola247_supervisor;
@@ -150,22 +458,8 @@ ALTER FUNCTION public.tr_valutations_qualifications_iu() OWNER TO scuola247_supe
 ALTER FUNCTION unit_testing.tr_dependencies_iu() OWNER TO scuola247_supervisor;
 ALTER FUNCTION unit_testing.tr_function_versions_iu() OWNER TO scuola247_supervisor;
 ALTER FUNCTION unit_testing.tr_unit_test_sets_details_iu() OWNER TO scuola247_supervisor;
-/* FUNCTIONS */
-ALTER FUNCTION public.__plpgsql_check_function(regprocedure, regclass, text, boolean, boolean, boolean, boolean) OWNER TO scuola247_supervisor;
-ALTER FUNCTION public.__plpgsql_check_function_tb(regprocedure, regclass, boolean, boolean, boolean, boolean) OWNER TO scuola247_supervisor;
+/* FUNCTIONS */;
 ALTER FUNCTION unit_tests_public._after_data_insert(boolean) OWNER TO scuola247_supervisor;
-ALTER FUNCTION information_schema._pg_char_max_length(oid, integer) OWNER TO scuola247_supervisor;
-ALTER FUNCTION information_schema._pg_char_octet_length(oid, integer) OWNER TO scuola247_supervisor;
-ALTER FUNCTION information_schema._pg_datetime_precision(oid, integer) OWNER TO scuola247_supervisor;
-ALTER FUNCTION information_schema._pg_expandarray(anyarray) OWNER TO scuola247_supervisor;
-ALTER FUNCTION information_schema._pg_index_position(oid, smallint) OWNER TO scuola247_supervisor;
-ALTER FUNCTION information_schema._pg_interval_type(oid, integer) OWNER TO scuola247_supervisor;
-ALTER FUNCTION information_schema._pg_keysequal(smallint[], smallint[]) OWNER TO scuola247_supervisor;
-ALTER FUNCTION information_schema._pg_numeric_precision(oid, integer) OWNER TO scuola247_supervisor;
-ALTER FUNCTION information_schema._pg_numeric_precision_radix(oid, integer) OWNER TO scuola247_supervisor;
-ALTER FUNCTION information_schema._pg_numeric_scale(oid, integer) OWNER TO scuola247_supervisor;
-ALTER FUNCTION information_schema._pg_truetypid(pg_attribute, pg_type) OWNER TO scuola247_supervisor;
-ALTER FUNCTION information_schema._pg_truetypmod(pg_attribute, pg_type) OWNER TO scuola247_supervisor;
 ALTER FUNCTION unit_tests_public.absences(boolean) OWNER TO scuola247_supervisor;
 ALTER FUNCTION unit_tests_public.absences_check(boolean) OWNER TO scuola247_supervisor;
 ALTER FUNCTION unit_tests_public.absences_foreign_key(boolean) OWNER TO scuola247_supervisor;
@@ -743,7 +1037,7 @@ ALTER FUNCTION unit_tests_public.wikimedia_files_check(boolean) OWNER TO scuola2
 ALTER FUNCTION unit_tests_public.wikimedia_files_persons(boolean) OWNER TO scuola247_supervisor;
 ALTER FUNCTION unit_tests_public.wikimedia_files_persons_check(boolean) OWNER TO scuola247_supervisor;
 ALTER FUNCTION unit_tests_public.wikimedia_files_persons_foreign_key(boolean) OWNER TO scuola247_supervisor;
-/* VIEWS & TABLES*/
+/* VIEWS & TABLES*/;
 ALTER TABLE public.conversations_invites OWNER TO scuola247_supervisor;
 ALTER TABLE public.schools OWNER TO scuola247_supervisor;
 ALTER TABLE unit_testing.tests_details_ex OWNER TO scuola247_supervisor;
@@ -962,7 +1256,7 @@ ALTER TABLE public.regions OWNER TO scuola247_supervisor;
 ALTER TABLE public.school_years OWNER TO scuola247_supervisor;
 
 
-/* SEQUENCES */
+/* SEQUENCES */;
 
 ALTER TABLE datasets.pk_seq OWNER TO scuola247_supervisor;
 ALTER TABLE translate.pk_seq OWNER TO scuola247_supervisor;
