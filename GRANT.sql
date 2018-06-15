@@ -960,3 +960,11 @@ ALTER TABLE public.weekly_timetable_teachers_ex OWNER TO scuola247_supervisor;
 ALTER TABLE public.persons_roles OWNER TO scuola247_supervisor;
 ALTER TABLE public.regions OWNER TO scuola247_supervisor;
 ALTER TABLE public.school_years OWNER TO scuola247_supervisor;
+
+
+/* SEQUENCES */
+
+ALTER TABLE datasets.pk_seq OWNER TO scuola247_supervisor;
+ALTER TABLE translate.pk_seq OWNER TO scuola247_supervisor;
+ALTER TABLE public.pk_seq OWNER TO scuola247_supervisor;
+ALTER TABLE unit_testing.pk_seq OWNER TO scuola247_supervisor;
