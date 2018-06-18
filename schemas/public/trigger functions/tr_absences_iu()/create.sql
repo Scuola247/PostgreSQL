@@ -17,7 +17,7 @@ DECLARE
     ('en', 1, 'The absence was marked in a day where there are no lessons.')::utility.system_message,
     ('en', 2, 'On date: %L, was marked the absence: %L, day when class: %L has no lesson')::utility.system_message,
     ('en', 3, 'Try to re-insert the absent date you want to insert.')::utility.system_message,
-    ('en', 4, 'On date:% L the class: %L has no lesson, so the absence can not be entered.')::utility.system_message,
+    ('en', 4, 'On date:%L the class: %L has no lesson, so the absence can not be entered.')::utility.system_message,
     ('en', 5, 'On the absent day the pupil is already marked as '' delay ''.')::utility.system_message,
     ('en', 6, 'In absence: %L with description: %L of the student: %L in date %L, the student is already marked as '' delay''.')::utility.system_message,
     ('en', 7, 'Try re-entering the absence date or the name of the pupil.')::utility.system_message,
