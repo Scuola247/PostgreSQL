@@ -92,6 +92,7 @@ BEGIN
 		_results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23514');
 		IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   RETURN;
+  END;
 END;
 $BODY$
   LANGUAGE plpgsql VOLATILE
