@@ -363,4 +363,4 @@ GRANT ALL ON TYPE utility.system_message TO scuola247_supervisor WITH GRANT OPTI
 GRANT USAGE ON TYPE utility.language TO scuola247_user;
 GRANT USAGE ON TYPE utility.system_message TO scuola247_user;
 
-utility.execute_command_query('SELECT command FROM utility.objects_set_owner'::text);
+SELECT utility.execute_command_query('SELECT command FROM utility.objects_set_owner'::text);
