@@ -9,7 +9,6 @@ $BODY$
 DECLARE
   context		text;
   full_function_name	text;
-  message		text;
 BEGIN 
 --
 -- Recupero il nome della funzione
@@ -32,3 +31,4 @@ $BODY$
   COST 100;
 ALTER FUNCTION unit_testing.last_checkpoint_failed(unit_testing.unit_test_result[])
   OWNER TO scuola247_supervisor;
+COMMENT ON FUNCTION unit_testing.last_checkpoint_failed(unit_testing.unit_test_result[]) IS 'Check the last element of the _result parameter array and test the status member variable of check_point structure returning TRUE is the value is ''Failed'' FALSE otherwise.';
