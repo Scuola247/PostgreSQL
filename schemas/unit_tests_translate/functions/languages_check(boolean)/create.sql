@@ -37,15 +37,15 @@ BEGIN
   END IF;
 
 
-  -----------------------------------
+  ------------------------------------
 
   test_name = 'description mandatory';
 
-  -----------------------------------
+  ------------------------------------
 
   BEGIN
 
-    UPDATE languages SET description = NULL WHERE language = '297479000000000';
+    UPDATE translate.languages SET description = NULL WHERE language = '297479000000000';
 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description mandatory was expected', NULL::diagnostic.error);
 
@@ -65,15 +65,15 @@ BEGIN
 
   END;
 
- -----------------------------------
+ --------------------------------
 
   test_name = 'schema mandatory';
 
-  -----------------------------------
+  -------------------------------
 
   BEGIN
 
-    UPDATE languages SET schema = NULL WHERE language = '297479000000000';
+    UPDATE translate.languages SET schema = NULL WHERE language = '297479000000000';
 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but schema mandatory was expected', NULL::diagnostic.error);
 
@@ -92,11 +92,11 @@ BEGIN
         RETURN;
 
   END;
-  -------------------------------------
+  ------------------------------------
 
   test_name = 'duplicate description';
 
-  -------------------------------------
+  ------------------------------------
 
   BEGIN
 
@@ -132,11 +132,11 @@ BEGIN
 
   END;
 
-  -------------------------------------
+  -------------------------------
 
   test_name = 'duplicate schema';
 
-  -------------------------------------
+  -------------------------------
     BEGIN
 
     INSERT INTO translate.languages(language,description,schema) VALUES ('12297479000000000','England','it (test)');

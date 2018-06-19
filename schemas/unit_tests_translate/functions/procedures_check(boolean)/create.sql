@@ -10,7 +10,7 @@ $BODY$
 
 <<me>>
 
-DECLARE 
+DECLARE
 
   context               text;
 
@@ -34,94 +34,65 @@ BEGIN
 
     RETURN;
 
-  END IF;  
+  END IF;
 
-
-  -----------------------------------
-
-  test_name = 'procedure mandatory';
-
-  -----------------------------------
-
-  BEGIN
-
-    UPDATE procedures SET procedure = NULL WHERE procedure = '24000000000';
-
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but procedures mandatory was expected', NULL::diagnostic.error);      
-
-    RETURN;
-
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
-
-      _results = _results || assert.pass(full_function_name, test_name);
-
-      WHEN OTHERS THEN 
-
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);    
-
-        RETURN;
-
-  END; 
-
- -----------------------------------
+ ------------------------------
 
   test_name = 'name mandatory';
 
-  -----------------------------------
+  -----------------------------
 
   BEGIN
 
-    UPDATE procedures SET name = NULL WHERE procedure = '24000000000';
+    UPDATE translate.procedures SET name = NULL WHERE procedure = '24000000000';
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but name mandatory was expected', NULL::diagnostic.error);      
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but name mandatory was expected', NULL::diagnostic.error);
 
     RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
+    EXCEPTION WHEN SQLSTATE '23502' THEN
 
       _results = _results || assert.pass(full_function_name, test_name);
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);    
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
   END; 
-   -----------------------------------
+  ---------------------------------
 
   test_name = 'language mandatory';
 
-  -----------------------------------
+  ---------------------------------
 
   BEGIN
 
-    UPDATE procedures SET language = NULL WHERE procedure = '24000000000';
+    UPDATE translate.procedures SET language = NULL WHERE procedure = '24000000000';
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but language mandatory was expected', NULL::diagnostic.error);      
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but language mandatory was expected', NULL::diagnostic.error);
 
     RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
+    EXCEPTION WHEN SQLSTATE '23502' THEN
 
       _results = _results || assert.pass(full_function_name, test_name);
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);    
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END; 
-  
+  END;
 
-  RETURN; 
+
+  RETURN;
 
 END
 
