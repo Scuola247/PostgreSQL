@@ -1,4 +1,4 @@
--- Function: public.tr_absences_iu()
+﻿-- Function: public.tr_absences_iu()
 
 -- DROP FUNCTION public.tr_absences_iu();
 
@@ -21,7 +21,7 @@ DECLARE
     ('en', 5, 'On the absent day the pupil is already marked as '' delay ''.')::utility.system_message,
     ('en', 6, 'In absence: %L with description: %L of the student: %L in date %L, the student is already marked as '' delay''.')::utility.system_message,
     ('en', 7, 'Try re-entering the absence date or the name of the pupil.')::utility.system_message,
-    ('en', 8, 'In absence:  L with description: %L of the student: %L in date %L, the student is already marked as '' delay ''.')::utility.system_message,
+    ('en', 8, 'Inserting absence with description: %L of the student: %L in date %L, the student is already marked as '' delay ''.')::utility.system_message,
     ('en', 9, 'The school assigned to the pupil marked in absentia is not equivalent to the school of the class')::utility.system_message,
     ('en', 10, 'In absence: %L of the student: %L. School: %L does not match class: %L.')::utility.system_message,
     ('en', 11, 'Try re-inserting a pupil assigned to absent.')::utility.system_message,
@@ -57,7 +57,7 @@ DECLARE
     ('it', 5, 'Nel giorno dell''assenza inserita l''alunno è gia segnato come ''in ritardo''.')::utility.system_message,
     ('it', 6, 'Nell''assenza: %L con descrizione : %L dello studente: %L in data %L, lo studente è già segnato come ''in ritartdo''.')::utility.system_message,
     ('it', 7, 'Provare a re-inserire la data dell''assenza oppure il nome dell''alunno.')::utility.system_message,
-    ('it', 8, 'Nell''assenza: %L con descrizione : %L dello studente: %L in data %L, lo studente è già segnato come ''in ritartdo''.')::utility.system_message,
+    ('it', 8, 'Nell''inserimento dell'' assenza con descrizione : %L dello studente: %L in data %L, lo studente è già segnato come ''in ritartdo''.')::utility.system_message,
     ('it', 9, 'La scuola assegnata all''alunno contrassegnato nell''assenza non equivale alla scuola della classe ')::utility.system_message,
     ('it', 10, 'Nell''assenza: %L dello studente: %L. la scuola: %L non corrisponde a quella della classe: %L.')::utility.system_message,
     ('it', 11, 'Provare a re-inserire l''alunno assegnato all''assenza.')::utility.system_message,
@@ -94,6 +94,7 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
 --
 -- read the school of the classroom
+--
 --
   SELECT s.school, cs.classroom , cs.student
     INTO me.school , me.classroom, me.student
@@ -148,7 +149,7 @@ BEGIN
         RAISE EXCEPTION USING
 	  ERRCODE = diagnostic.my_sqlcode(me.full_function_name,'4'),
 	  MESSAGE = utility.system_messages_locale(system_messages,5),
-          DETAIL = format(utility.system_messages_locale(system_messages,8), new.absence, new.explanation, me.student, new.on_date),
+          DETAIL = format(utility.system_messages_locale(system_messages,8), new.explanation, me.student, new.on_date),
           HINT = utility.system_messages_locale(system_messages,7);
       END IF;
     END IF;
@@ -312,7 +313,8 @@ $BODY$
   COST 100;
 ALTER FUNCTION public.tr_absences_iu()
   OWNER TO postgres;
-GRANT EXECUTE ON FUNCTION public.tr_absences_iu() TO postgres;
+GRANT EXECUTE ON FUNCTION public.tr_absences_iu() TO postgres WITH GRANT OPTION;
 GRANT EXECUTE ON FUNCTION public.tr_absences_iu() TO scuola247_executive;
 GRANT EXECUTE ON FUNCTION public.tr_absences_iu() TO scuola247_relative;
+GRANT EXECUTE ON FUNCTION public.tr_absences_iu() TO scuola247_user;
 REVOKE ALL ON FUNCTION public.tr_absences_iu() FROM public;
