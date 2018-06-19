@@ -46,8 +46,7 @@ BEGIN
 	EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23505', 'persons_uq_school_tax_code');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
 
   --------------------------------
   test_name = 'duplicate usename'; -- constrollare se il primo update viene annullato
@@ -75,8 +74,7 @@ BEGIN
 	EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23505', 'persons_uq_usename');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;		
-
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;
   END;
 
   --------------------------------
@@ -97,8 +95,7 @@ BEGIN
 	EXCEPTION WHEN OTHERS THEN
 		GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 		_results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
-		IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;	
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
 
   -----------------------------------
   test_name = 'surname''s mandatory';
@@ -118,8 +115,7 @@ BEGIN
 	EXCEPTION WHEN OTHERS THEN
 		GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 		_results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
-		IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
 
   -------------------------------
   test_name = 'sex''s mandatory';
@@ -139,8 +135,7 @@ BEGIN
 	EXCEPTION WHEN OTHERS THEN
 		GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 		_results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
-		IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
 
   ------------------------------------------------------
   test_name = 'city_of_birth_fiscal_code''s min length';
@@ -166,8 +161,7 @@ BEGIN
 	EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23514', 'persons_ck_city_of_birth_fiscal_code');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
 
   ---------------------------------
   test_name = 'name''s min length';
@@ -193,8 +187,7 @@ BEGIN
 	EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23514', 'persons_ck_name');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
 
   ---------------------------------
   test_name = 'note''s min length';
@@ -220,8 +213,7 @@ BEGIN
 	EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23514', 'persons_ck_note');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
 
   ------------------------------------
   test_name = 'surname''s min length';
@@ -247,8 +239,7 @@ BEGIN
 	EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23514', 'persons_ck_surname');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
 
   -------------------------------------
   test_name = 'tax_code''s min length';
@@ -274,8 +265,7 @@ BEGIN
 	EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23514', 'persons_ck_tax_code');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
 
   ------------------------------------
   test_name = 'usename''s min length';
@@ -301,8 +291,7 @@ BEGIN
 	EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23514', 'persons_ck_usename');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
 
   RETURN;
 END
