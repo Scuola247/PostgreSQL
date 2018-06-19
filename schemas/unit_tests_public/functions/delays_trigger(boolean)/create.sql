@@ -38,8 +38,7 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04L1');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
   -------------------------------------------------
   test_name = 'INSERT delays with date on holiday';
   -------------------------------------------------
@@ -57,8 +56,7 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04L2');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
   ---------------------------------------------------------
   test_name = 'UPDATE delays date before explanation date';
   ---------------------------------------------------------
@@ -75,8 +73,7 @@ BEGIN
    EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04L3');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
   ---------------------------------------------------------
   test_name = 'INSERT delays date before explanation date';
   ---------------------------------------------------------
@@ -94,8 +91,7 @@ BEGIN
    EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04L4');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
   ---------------------------------------------------
   test_name = 'UPDATE teachers out of the classroom';
   ---------------------------------------------------
@@ -113,8 +109,7 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04L7');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
   ---------------------------------------------------
   test_name = 'INSERT teachers out of the classroom';
   ---------------------------------------------------
@@ -131,8 +126,7 @@ BEGIN
    EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04L8');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
   ---------------------------------------------------
   test_name = 'UPDATE delays date in an absent date';
   ---------------------------------------------------
@@ -149,8 +143,7 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04L9');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
   ---------------------------------------------------
   test_name = 'INSERT delays date in an absent date';
   ---------------------------------------------------
@@ -168,8 +161,7 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04LA');
-    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
-  END;
+		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
 
   RETURN;
 END
