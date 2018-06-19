@@ -43,8 +43,7 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23503','grading_meetings_valutations_fk_classroom');
-		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END; 
-
+		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
     ---------------------------------------------------------------------
   test_name = 'update grading_meetings_valutations set grade with a non existing one';
   ---------------------------------------------------------------------
@@ -67,8 +66,7 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23503','grading_meetings_valutations_fk_grade');
-		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END; 
-
+		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   ---------------------------------------------------------------------
    test_name = 'update grading_meetings_valutations set grading_meeting with a non existing one';
   ---------------------------------------------------------------------
@@ -91,8 +89,7 @@ BEGIN
      EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23503','grading_meetings_valutations_fk_grading_meeting');
-		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
-
+		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
 
   ---------------------------------------------------------------------
    test_name = 'update grading_meetings_valutations set student with a non existing one';
@@ -116,8 +113,7 @@ BEGIN
    EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23503','grading_meetings_valutations_fk_student');
-		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
-
+		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
     ---------------------------------------------------------------------
    test_name = 'update grading_meetings_valutations set subject with a non existing one';
   ---------------------------------------------------------------------
@@ -140,8 +136,7 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23503','grading_meetings_valutations_fk_subject');
-		IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;  END;
-
+		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   RETURN; 
 END
 $BODY$
