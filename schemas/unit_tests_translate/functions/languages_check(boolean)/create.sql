@@ -10,7 +10,7 @@ $BODY$
 
 <<me>>
 
-DECLARE 
+DECLARE
 
   context               text;
 
@@ -34,7 +34,7 @@ BEGIN
 
     RETURN;
 
-  END IF;  
+  END IF;
 
 
   -----------------------------------
@@ -45,25 +45,25 @@ BEGIN
 
   BEGIN
 
-    UPDATE languages SET descrption = NULL WHERE language = '297479000000000';
+    UPDATE languages SET description = NULL WHERE language = '297479000000000';
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description mandatory was expected', NULL::diagnostic.error);      
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description mandatory was expected', NULL::diagnostic.error);
 
     RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
+    EXCEPTION WHEN SQLSTATE '23502' THEN
 
       _results = _results || assert.pass(full_function_name, test_name);
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);    
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END; 
+  END;
 
  -----------------------------------
 
@@ -75,98 +75,110 @@ BEGIN
 
     UPDATE languages SET schema = NULL WHERE language = '297479000000000';
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but schema mandatory was expected', NULL::diagnostic.error);      
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but schema mandatory was expected', NULL::diagnostic.error);
 
     RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23502' THEN 
+    EXCEPTION WHEN SQLSTATE '23502' THEN
 
       _results = _results || assert.pass(full_function_name, test_name);
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);    
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-  END; 
-  ---------------------------------
+  END;
+  -------------------------------------
 
-  test_name = 'duplicate descrpition';
+  test_name = 'duplicate description';
 
-  ---------------------------------
+  -------------------------------------
 
   BEGIN
 
-    INSERT INTO translate.languages(language,description,schema) VALUES ('1297479000000000','Italian','uk');
+    INSERT INTO translate.languages(language,description,schema) VALUES ('1297479000000000','Italian (test)','uk');
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);   
+    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
 
-    RETURN;        
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23505' THEN 
+    EXCEPTION WHEN SQLSTATE '23505' THEN
 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
       IF error.constraint_name = 'languages_uq_description' THEN
 
-        _results = _results || assert.pass(full_function_name, test_name); 
+        _results = _results || assert.pass(full_function_name, test_name);
 
       ELSE
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-      END IF; 
+      END IF;
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
-        RETURN; 
+        RETURN;
 
   END;
+
+  -------------------------------------
+
+  test_name = 'duplicate schema';
+
+  -------------------------------------
     BEGIN
 
-    INSERT INTO translate.languages(language,description,schema) VALUES ('2297479000000000','England','it');
+    INSERT INTO translate.languages(language,description,schema) VALUES ('12297479000000000','England','it (test)');
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate schema was expected', NULL::diagnostic.error);   
+    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate schema was expected', NULL::diagnostic.error);
 
-    RETURN;        
+    RETURN;
 
-    EXCEPTION WHEN SQLSTATE '23505' THEN 
+    EXCEPTION WHEN SQLSTATE '23505' THEN
 
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
       IF error.constraint_name = 'languages_uq_schema' THEN
 
-        _results = _results || assert.pass(full_function_name, test_name); 
+        _results = _results || assert.pass(full_function_name, test_name);
 
       ELSE
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
         RETURN;
 
-      END IF; 
+      END IF;
 
-      WHEN OTHERS THEN 
+      WHEN OTHERS THEN
 
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
 
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);   
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
 
-        RETURN; 
+        RETURN;
 
   END;
-  
 
-  RETURN; 
+  /*
+mancano check generici:
+- description min length
+- schema min length
+  */
+
+
+  RETURN;
 
 END
 

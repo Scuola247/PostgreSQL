@@ -104,12 +104,12 @@ BEGIN
 --
 -- check that in the on_date of absence there is at least one lesson
 --
-  PERFORM DISTINCT 1 
+  PERFORM DISTINCT 1
      FROM lessons l
      JOIN classrooms_students cs ON cs.classroom = l.classroom
     WHERE cs.classroom_student = new.classroom_student
       AND l.on_date = new.on_date;
-      
+
   IF NOT FOUND THEN
     IF (TG_OP = 'UPDATE') THEN
       RAISE EXCEPTION USING
@@ -123,20 +123,20 @@ BEGIN
         MESSAGE = utility.system_messages_locale(system_messages,1),
         DETAIL = format(utility.system_messages_locale(system_messages,4), new.on_date, me.classroom),
         HINT = utility.system_messages_locale(system_messages,3);
-    END IF;	  
+    END IF;
   END IF;
 --
 -- Check that the student, in the on_date, has not already been recorded as delay
 --
   IF new.explanation IS NOT NULL THEN
-  
-    PERFORM 1 
+
+    PERFORM 1
        FROM explanations e
-      WHERE e.explanation=new.explanation 
+      WHERE e.explanation=new.explanation
         AND e.student = me.student
-        AND e.created_on >= new.on_date 
+        AND e.created_on >= new.on_date
         AND new.on_date BETWEEN from_time AND to_time ;
-        
+
     IF NOT FOUND THEN
       IF (TG_OP = 'UPDATE') THEN
 	RAISE EXCEPTION USING
@@ -148,19 +148,19 @@ BEGIN
         RAISE EXCEPTION USING
 	  ERRCODE = diagnostic.my_sqlcode(me.full_function_name,'4'),
 	  MESSAGE = utility.system_messages_locale(system_messages,5),
-          DETAIL = format(utility.system_messages_locale(system_messages,8), new.explanation, me.student, new.on_date),
+          DETAIL = format(utility.system_messages_locale(system_messages,8), new.absence, new.explanation, me.student, new.on_date),
           HINT = utility.system_messages_locale(system_messages,7);
-      END IF;	   
+      END IF;
     END IF;
   END IF;
 --
 -- Check that the school of the student equals that of the classroom
 --
-  PERFORM 1 
+  PERFORM 1
      FROM persons p
     WHERE p.person = me.student
       AND p.school = me.school;
-      
+
     IF NOT FOUND THEN
       IF (TG_OP = 'UPDATE') THEN
         RAISE EXCEPTION USING
@@ -174,16 +174,16 @@ BEGIN
           MESSAGE = utility.system_messages_locale(system_messages,9),
           DETAIL = format(utility.system_messages_locale(system_messages,12), me.student, me.school, me.classroom),
           HINT = utility.system_messages_locale(system_messages,11);
-      END IF;	   
+      END IF;
     END IF;
 --
 -- Checking that the school of the teacher is equal to that of the classroom
 --
-  PERFORM 1 
+  PERFORM 1
      FROM persons p
-    WHERE p.person = new.teacher 
+    WHERE p.person = new.teacher
       AND p.school = me.school;
-      
+
     IF NOT FOUND THEN
       IF (TG_OP = 'UPDATE') THEN
         RAISE EXCEPTION USING
@@ -197,12 +197,12 @@ BEGIN
           MESSAGE = utility.system_messages_locale(system_messages,13),
           DETAIL = format(utility.system_messages_locale(system_messages,16), new.teacher, me.school, me.classroom),
           HINT = utility.system_messages_locale(system_messages,15);
-      END IF;	   
-    END IF;	
+      END IF;
+    END IF;
 --
 -- Checking that the student, in the on_date, has not already been recorded as delay
 --
-  PERFORM 1 
+  PERFORM 1
      FROM delays d
     WHERE classroom_student = new.classroom_student
       AND on_date = new.on_date;
@@ -220,16 +220,16 @@ BEGIN
         MESSAGE = utility.system_messages_locale(system_messages,17),
         DETAIL = format(utility.system_messages_locale(system_messages,20), me.student, me.classroom, new.on_date),
         HINT = utility.system_messages_locale(system_messages,19);
-    END IF;	   
+    END IF;
   END IF;
--- 
+--
 -- Checking that the student, in the on_date, has not already been recorded as exit
 --
   PERFORM 1
-     FROM leavings 
+     FROM leavings
     WHERE classroom_student = new.classroom_student
       AND on_date = new.on_date;
-    
+
   IF FOUND THEN
     IF (TG_OP = 'UPDATE') THEN
       RAISE EXCEPTION USING
@@ -243,16 +243,16 @@ BEGIN
         MESSAGE = utility.system_messages_locale(system_messages,21),
         DETAIL = format(utility.system_messages_locale(system_messages,24),me.student, me.classroom, new.on_date),
         HINT = utility.system_messages_locale(system_messages,23);
-    END IF;	   
+    END IF;
   END IF;
 --
 -- Checking that the student, in the on_date, has not already been recorded as exit of class
 --
-  PERFORM 1 
-     FROM out_of_classrooms 
+  PERFORM 1
+     FROM out_of_classrooms
     WHERE classroom_student = new.classroom_student
       AND on_date = new.on_date;
-      
+
       IF FOUND THEN
         IF (TG_OP = 'UPDATE') THEN
           RAISE EXCEPTION USING
@@ -266,7 +266,7 @@ BEGIN
             MESSAGE = utility.system_messages_locale(system_messages,25),
             DETAIL = format(utility.system_messages_locale(system_messages,28), me.student, me.classroom, new.on_date),
             HINT = utility.system_messages_locale(system_messages,27);
-        END IF;	   
+        END IF;
       END IF;
 --
 -- Check that the student is in rule students
@@ -284,7 +284,7 @@ BEGIN
         MESSAGE = utility.system_messages_locale(system_messages,29),
         DETAIL = format(utility.system_messages_locale(system_messages,32), me.student),
         HINT = utility.system_messages_locale(system_messages,31);
-      END IF;	   
+      END IF;
     END IF;
 --
 -- Check that the teachers is in rule teachers
@@ -302,9 +302,9 @@ BEGIN
         MESSAGE = utility.system_messages_locale(system_messages,33),
         DETAIL = format(utility.system_messages_locale(system_messages,36), new.teacher),
         HINT = utility.system_messages_locale(system_messages,35);
-    END IF;	   
+    END IF;
   END IF;
-  
+
   RETURN NEW;
 END;
 $BODY$
@@ -316,4 +316,3 @@ GRANT EXECUTE ON FUNCTION public.tr_absences_iu() TO postgres;
 GRANT EXECUTE ON FUNCTION public.tr_absences_iu() TO scuola247_executive;
 GRANT EXECUTE ON FUNCTION public.tr_absences_iu() TO scuola247_relative;
 REVOKE ALL ON FUNCTION public.tr_absences_iu() FROM public;
-
