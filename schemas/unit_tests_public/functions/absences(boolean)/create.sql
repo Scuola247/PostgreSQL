@@ -18,17 +18,17 @@ BEGIN
   -- check to build dependencies
   IF _build_dependencies THEN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public.persons',
-					                                                  	               'unit_tests_public.classrooms',
-					                                                  				   'unit_tests_public.school_years',
-					                                                  				   'unit_tests_public.lessons',
-                              					                                       -- to avoide generation of circular references
-                              					                                       -- 'delays',
-                              					                                       -- to avoide generation of circular references
-                                                            						   -- 'leavings',
-                              					                                       -- to avoide generation of circular references
-                                                            						   -- 'out_of_classrooms',
-                                                            						   'unit_tests_public.classrooms_students',
-					                                                  				   'unit_tests_public.explanations');
+					                                                  										       'unit_tests_public.classrooms',
+					                                                  										       'unit_tests_public.school_years',
+					                                                  										       'unit_tests_public.lessons',
+                              					                                               -- to avoide generation of circular references
+                              					                                               -- 'delays',
+                              					                                               -- to avoide generation of circular references
+                                                            										       -- 'leavings',
+                              					                                               -- to avoide generation of circular references
+                                                            										       -- 'out_of_classrooms',
+                                                            										       'unit_tests_public.classrooms_students',
+					                                                  										       'unit_tests_public.explanations'); 
     RETURN;
   END IF;
   ------------------------------
@@ -184,7 +184,6 @@ BEGIN
        RETURN;
   END;
   RETURN;
-  
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE
