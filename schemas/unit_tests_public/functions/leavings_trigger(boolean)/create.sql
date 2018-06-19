@@ -44,7 +44,9 @@ BEGIN
    EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04U1');
-		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
+    END;
+
   --------------------------------------------------------------------
   test_name = 'INSERT leavings with a date where there''s no lessons';
   --------------------------------------------------------------------
@@ -62,7 +64,9 @@ BEGIN
    EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04U2');
-		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
+   END;
+
   ------------------------------ SCRIPT NON FUNZIONANTE
  -- test_name = 'UPDATE leavings change the classroom_student from different school ';
   ------------------------------
@@ -95,7 +99,9 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04U7');
-		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;  -----------------------------------------------------------------
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
+    END;
+  -----------------------------------------------------------------
   test_name = 'INSERT leavings with a teacher from another school';
   -----------------------------------------------------------------
  BEGIN
@@ -112,7 +118,9 @@ BEGIN
    EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04U8');
-		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
+    END;
+
   -----------------------------------------------------
   test_name = 'UPDATE leavings with an absent student';
   -----------------------------------------------------
@@ -129,7 +137,9 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04U9');
-		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
+        END;
+
   -----------------------------------------------------
   test_name = 'INSERT leavings with an absent student';
   -----------------------------------------------------
@@ -146,7 +156,9 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04UA');
-		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
+        END;
+
   ---------------------------------------------------
   test_name = 'UPDATE leavings set to a non teacher';
   ---------------------------------------------------
@@ -163,7 +175,9 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04UB');
-		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
+        END;
+
   ---------------------------------------------------------
   test_name = 'INSERT leavings set to a non teacher code ';
   ---------------------------------------------------------
@@ -180,7 +194,9 @@ BEGIN
    EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04UC');
-		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
+        END;
+
   ----------------------------------------------------------
   test_name = 'UPDATE leavings set to a wrong explanations';
   ----------------------------------------------------------
@@ -197,7 +213,9 @@ BEGIN
    EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04U3');
-		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
+        END;
+
   ----------------------------------------------------------
   test_name = 'INSERT leavings set to a wrong explanations';
   ----------------------------------------------------------
@@ -214,7 +232,9 @@ BEGIN
    EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04U4');
-		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
+        END;
+
   -----------------------------------------------------
   test_name = 'UPDATE leavings set to a wrong student';
   -----------------------------------------------------
@@ -231,7 +251,9 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04U3');
-		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
+        END;
+
   -----------------------------------------------------
   test_name = 'INSERT leavings set to a wrong student';
   -----------------------------------------------------
@@ -248,7 +270,9 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04U4');
-		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
+        END;
+
   -----------------------------------------------------
   test_name = 'UPDATE leavings set to a wrong on_date';
   -----------------------------------------------------
@@ -265,7 +289,9 @@ BEGIN
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04U3');
-		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
+        END;
+
   -----------------------------------------------------
   test_name = 'INSERT leavings set to a wrong on_date';
   -----------------------------------------------------
@@ -282,7 +308,9 @@ BEGIN
    EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04U4');
-		IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
+        END;
+
  RETURN;
 
 
