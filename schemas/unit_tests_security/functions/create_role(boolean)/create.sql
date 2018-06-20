@@ -54,6 +54,8 @@ BEGIN
       NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
     GRANT scuola247_executive TO "test-executive-d@scuola-2.it";
 
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-executive-d@scuola-2.it', 2000000000);
+
     --------------------------------------------------
     test_name = 'CREATE ROLE Executive  school 28961';
     --------------------------------------------------
@@ -62,108 +64,127 @@ BEGIN
       NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
     GRANT scuola247_executive TO "test-executive-d@scuola-28961.it";
 
-  ----------------------------------------------
-  test_name = 'CREATE ROLE Employee  school 1';
-  ----------------------------------------------
-  CREATE ROLE "test-employee-d@scuola-1.it" LOGIN
-    ENCRYPTED PASSWORD 'md5password'
-    NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
-  GRANT scuola247_employee TO "test-employee-d@scuola-1.it";
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-executive-d@scuola-28961.it', 28961000000000);
 
-  ----------------------------------------------
-  test_name = 'CREATE ROLE Employee  school 2';
-  ----------------------------------------------
-  CREATE ROLE "test-employee-d@scuola-2.it" LOGIN
-  ENCRYPTED PASSWORD 'md5password'
-  NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
-  GRANT scuola247_employee TO "test-employee-d@scuola-2.it";
+    ----------------------------------------------
+    test_name = 'CREATE ROLE Employee  school 1';
+    ----------------------------------------------
+    CREATE ROLE "test-employee-d@scuola-1.it" LOGIN
+      ENCRYPTED PASSWORD 'md5password'
+      NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+    GRANT scuola247_employee TO "test-employee-d@scuola-1.it";
 
-  ----------------------------------------------
-  test_name = 'CREATE ROLE Employee  school 28961';
-  ----------------------------------------------
-  CREATE ROLE "test-employee-d@scuola-28961.it" LOGIN
-  ENCRYPTED PASSWORD 'md5password'
-  NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
-  GRANT scuola247_employee TO "test-employee-d@scuola-28961.it";
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-employee-d@scuola-1.it', 1000000000);
 
-  ----------------------------------------------
-  test_name = 'CREATE ROLE Teacher   school 1';
-  ----------------------------------------------
-  CREATE ROLE "test-teacher-d@scuola-1.it" LOGIN
-  ENCRYPTED PASSWORD 'md5password'
-  NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
-  GRANT scuola247_teacher TO "test-teacher-d@scuola-1.it";
+    ---------------------------------------------
+    test_name = 'CREATE ROLE Employee  school 2';
+    ---------------------------------------------
+    CREATE ROLE "test-employee-d@scuola-2.it" LOGIN
+      ENCRYPTED PASSWORD 'md5password'
+      NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+    GRANT scuola247_employee TO "test-employee-d@scuola-2.it";
 
-  ----------------------------------------------
-  test_name = 'CREATE ROLE Teacher   school 2';
-  ----------------------------------------------
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-employee-d@scuola-2.it', 2000000000);
 
-  CREATE ROLE "test-teacher-d@scuola-2.it" LOGIN
-  ENCRYPTED PASSWORD 'md5password'
-  NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
-  GRANT scuola247_teacher TO "test-teacher-d@scuola-2.it";
+    -------------------------------------------------
+    test_name = 'CREATE ROLE Employee  school 28961';
+    -------------------------------------------------
+    CREATE ROLE "test-employee-d@scuola-28961.it" LOGIN
+      ENCRYPTED PASSWORD 'md5password'
+      NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+    GRANT scuola247_employee TO "test-employee-d@scuola-28961.it";
 
-  ----------------------------------------------
-  test_name = 'CREATE ROLE Teacher   school 28961';
-  ----------------------------------------------
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-employee-d@scuola-28961.it', 28961000000000);
 
-  CREATE ROLE "test-teacher-d@scuola-28961.it" LOGIN
-  ENCRYPTED PASSWORD 'md5password'
-  NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
-  GRANT scuola247_teacher TO "test-teacher-d@scuola-28961.it";
+    ----------------------------------------------
+    test_name = 'CREATE ROLE Teacher   school 1';
+    ----------------------------------------------
+    CREATE ROLE "test-teacher-d@scuola-1.it" LOGIN
+      ENCRYPTED PASSWORD 'md5password'
+      NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+    GRANT scuola247_teacher TO "test-teacher-d@scuola-1.it";
 
-  ----------------------------------------------
-  test_name = 'CREATE ROLE Relative  school 1';
-  ----------------------------------------------
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-teacher-d@scuola-1.it', 1000000000);
 
-  CREATE ROLE "test-relative-d@scuola-1.it" LOGIN
-  ENCRYPTED PASSWORD 'md5password'
-  NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
-  GRANT scuola247_relative TO "test-relative-d@scuola-1.it";
-  ----------------------------------------------
-  test_name = 'CREATE ROLE Relative  school 2';
-  ----------------------------------------------
+    ----------------------------------------------
+    test_name = 'CREATE ROLE Teacher   school 2';
+    ----------------------------------------------
+    CREATE ROLE "test-teacher-d@scuola-2.it" LOGIN
+      ENCRYPTED PASSWORD 'md5password'
+      NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+    GRANT scuola247_teacher TO "test-teacher-d@scuola-2.it";
 
-  CREATE ROLE "test-relative-d@scuola-2.it" LOGIN
-  ENCRYPTED PASSWORD 'md5password'
-  NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
-  GRANT scuola247_relative TO "test-relative-d@scuola-2.it";
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-teacher-d@scuola-2.it', 2000000000);
 
-  ----------------------------------------------
-  test_name = 'CREATE ROLE Relative  school 28961';
-  ----------------------------------------------
+    -------------------------------------------------
+    test_name = 'CREATE ROLE Teacher   school 28961';
+    -------------------------------------------------
+    CREATE ROLE "test-teacher-d@scuola-28961.it" LOGIN
+      ENCRYPTED PASSWORD 'md5password'
+      NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+    GRANT scuola247_teacher TO "test-teacher-d@scuola-28961.it";
 
-  CREATE ROLE "test-relative-d@scuola-28961.it" LOGIN
-  ENCRYPTED PASSWORD 'md5password'
-  NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
-  GRANT scuola247_relative TO "test-relative-d@scuola-28961.it";
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-teacher-d@scuola-28961.it', 28961000000000);
 
-  ----------------------------------------------
-  test_name = 'CREATE ROLE Student  school 1';
-  ----------------------------------------------
+    ---------------------------------------------
+    test_name = 'CREATE ROLE Relative  school 1';
+    ---------------------------------------------
+    CREATE ROLE "test-relative-d@scuola-1.it" LOGIN
+      ENCRYPTED PASSWORD 'md5password'
+      NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+    GRANT scuola247_relative TO "test-relative-d@scuola-1.it";
 
-  CREATE ROLE "test-student-d@scuola-1.it" LOGIN
-  ENCRYPTED PASSWORD 'md5password'
-  NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
-  GRANT scuola247_student TO "test-student-d@scuola-1.it";
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-relative-d@scuola-1.it', 1000000000);
 
-  ----------------------------------------------
-  test_name = 'CREATE ROLE Student  school 2';
-  ----------------------------------------------
+    ---------------------------------------------
+    test_name = 'CREATE ROLE Relative  school 2';
+    ---------------------------------------------
+    CREATE ROLE "test-relative-d@scuola-2.it" LOGIN
+      ENCRYPTED PASSWORD 'md5password'
+      NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+    GRANT scuola247_relative TO "test-relative-d@scuola-2.it";
 
-  CREATE ROLE "test-student-d@scuola-2.it" LOGIN
-  ENCRYPTED PASSWORD 'md5password'
-  NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
-  GRANT scuola247_student TO "test-student-d@scuola-2.it";
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-relative-d@scuola-2.it', 2000000000);
 
-  ----------------------------------------------
-  test_name = 'CREATE ROLE Student  school 28961';
-  ----------------------------------------------
+    ----------------------------------------------
+    test_name = 'CREATE ROLE Relative  school 28961';
+    ----------------------------------------------
+    CREATE ROLE "test-relative-d@scuola-28961.it" LOGIN
+      ENCRYPTED PASSWORD 'md5password'
+      NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+    GRANT scuola247_relative TO "test-relative-d@scuola-28961.it";
 
-  CREATE ROLE "test-student-d@scuola-28961.it" LOGIN
-  ENCRYPTED PASSWORD 'md5password'
-  NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
-  GRANT scuola247_student TO "test-student-d@scuola-28961.it";
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-relative-d@scuola-28961.it', 28961000000000);
+
+    ----------------------------------------------
+    test_name = 'CREATE ROLE Student  school 1';
+    ----------------------------------------------
+    CREATE ROLE "test-student-d@scuola-1.it" LOGIN
+      ENCRYPTED PASSWORD 'md5password'
+      NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+    GRANT scuola247_student TO "test-student-d@scuola-1.it";
+
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-student-d@scuola-1.it', 1000000000);
+
+    ----------------------------------------------
+    test_name = 'CREATE ROLE Student  school 2';
+    ----------------------------------------------
+    CREATE ROLE "test-student-d@scuola-2.it" LOGIN
+      ENCRYPTED PASSWORD 'md5password'
+      NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+    GRANT scuola247_student TO "test-student-d@scuola-2.it";
+
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-student-d@scuola-2.it', 2000000000);
+
+    ----------------------------------------------
+    test_name = 'CREATE ROLE Student  school 28961';
+    ----------------------------------------------
+    CREATE ROLE "test-student-d@scuola-28961.it" LOGIN
+      ENCRYPTED PASSWORD 'md5password'
+      NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+    GRANT scuola247_student TO "test-student-d@scuola-28961.it";
+
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-student-d@scuola-28961.it', 28961000000000);
 
     _results = _results || assert.pass(full_function_name, test_name);
 
@@ -182,5 +203,5 @@ $BODY$
 ALTER FUNCTION unit_tests_security.create_role(boolean)
   OWNER TO scuola247_supervisor;
 GRANT EXECUTE ON FUNCTION unit_tests_security.create_role(boolean) TO public;
-GRANT EXECUTE ON FUNCTION unit_tests_security.create_role(boolean) TO postgres WITH GRANT OPTION;
+GRANT EXECUTE ON FUNCTION unit_tests_security.create_role(boolean) TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON FUNCTION unit_tests_security.create_role(boolean) TO scuola247_user;
