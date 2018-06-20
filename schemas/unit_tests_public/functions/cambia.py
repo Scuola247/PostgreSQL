@@ -1,6 +1,6 @@
 import os
-old = "IF unit_testing.last_unit_test_failed(_results) THEN RETURN; END IF;"
-new = "\t\tIF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;"
+old = "IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;"
+new = "\tIF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;\n"
 l = []
 a= []
 
