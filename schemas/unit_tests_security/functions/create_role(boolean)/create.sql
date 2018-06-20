@@ -19,7 +19,7 @@ BEGIN
 
     -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_insert');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
 
@@ -33,7 +33,7 @@ BEGIN
     GRANT scuola247_supervisor TO "test-supervisor-d@scuola.it";
 
     INSERT INTO public.usename_school(usename, school) VALUES ('test-supervisor-d@scuola.it', 1000000000);
-    INSERT INTO public.usename_school(usename, school) VALUES ('test-supervisor-d@scuola.it', 2000000000); 
+    INSERT INTO public.usename_school(usename, school) VALUES ('test-supervisor-d@scuola.it', 2000000000);
     INSERT INTO public.usename_school(usename, school) VALUES ('test-supervisor-d@scuola.it', 28961000000000);
 
     ----------------------------------------------
@@ -128,7 +128,7 @@ BEGIN
   ENCRYPTED PASSWORD 'md5password'
   NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
   GRANT scuola247_relative TO "test-relative-d@scuola-2.it";
-  
+
   ----------------------------------------------
   test_name = 'CREATE ROLE Relative  school 28961';
   ----------------------------------------------
@@ -146,7 +146,7 @@ BEGIN
   ENCRYPTED PASSWORD 'md5password'
   NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
   GRANT scuola247_student TO "test-student-d@scuola-1.it";
-  
+
   ----------------------------------------------
   test_name = 'CREATE ROLE Student  school 2';
   ----------------------------------------------
@@ -155,7 +155,7 @@ BEGIN
   ENCRYPTED PASSWORD 'md5password'
   NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
   GRANT scuola247_student TO "test-student-d@scuola-2.it";
-  
+
   ----------------------------------------------
   test_name = 'CREATE ROLE Student  school 28961';
   ----------------------------------------------
@@ -167,10 +167,10 @@ BEGIN
 
     _results = _results || assert.pass(full_function_name, test_name);
 
-  EXCEPTION WHEN OTHERS THEN 
+  EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-    _results = _results || assert.fail(full_function_name, test_name, 'CREATE ROLE FAILED'::text, error);   
-    RETURN; 
+    _results = _results || assert.fail(full_function_name, test_name, 'CREATE ROLE FAILED'::text, error);
+    RETURN;
   END;
 
 RETURN;
