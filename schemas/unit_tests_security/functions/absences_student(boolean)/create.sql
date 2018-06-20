@@ -16,7 +16,7 @@ DECLARE
 BEGIN
   GET DIAGNOSTICS context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
-  
+
   -- check to build dependencies
   IF _build_dependencies THEN
       PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_security.create_role',
@@ -40,7 +40,7 @@ BEGIN
         RETURN;
      RESET ROLE;
   END;
-  
+
   -------------------------------------------------
   test_name = 'INSERT absences with no permission';
   -------------------------------------------------
@@ -76,29 +76,29 @@ BEGIN
      RESET ROLE;
   END;
 
- 
+
   -------------------------------------------------
   test_name = 'SELECT absences with permission';
   -------------------------------------------------
   BEGIN
-    SET ROLE 'test-student-d@scuola-1.it';  
-    PERFORM 1 FROM public.absences WHERE absence = '33322';   
-         
+    SET ROLE 'test-student-d@scuola-1.it';
+    PERFORM 1 FROM public.absences WHERE absence = '33322';
+
       _results = _results || assert.pass(full_function_name, test_name);
     RETURN;
     EXCEPTION WHEN SQLSTATE '4250P' THEN
-    _results = _results || assert.fail(full_function_name, test_name, 'SELECT was not ok but the student should be able to', NULL::diagnostic.error);   
+    _results = _results || assert.fail(full_function_name, test_name, 'SELECT was not ok but the student should be able to', NULL::diagnostic.error);
      WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
         RETURN;
      RESET ROLE;
   END;
-  
+
     /*
      EXCEPTION WHEN OTHERS THEN
-       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;           
-     IF error.returned_sqlstate = '42501' THEN 
+       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+     IF error.returned_sqlstate = '42501' THEN
 	_results = _results || assert.fail(full_function_name, test_name,'INSERT was OK the student should be able to', NULL::diagnostic.error);
      ELSIF error.returned_sqlstate = '42601' THEN
         _results = _results || assert.pass(full_function_name, test_name);
@@ -116,4 +116,4 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION unit_tests_security.absences_student(boolean)
-  OWNER TO postgres;
+  OWNER TO scuola247_supervisor;

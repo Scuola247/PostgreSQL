@@ -1,4 +1,4 @@
-﻿-- Function: unit_tests_security.create_role(boolean)
+-- Function: unit_tests_security.create_role(boolean)
 
 -- DROP FUNCTION unit_tests_security.create_role(boolean);
 
@@ -32,9 +32,9 @@ BEGIN
       NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
     GRANT scuola247_supervisor TO "test-supervisor-d@scuola.it";
 
-    INSERT INTO public.usename_school(usename, school) VALUES ('test-supervisor-d@scuola.it', 1000000000);
-    INSERT INTO public.usename_school(usename, school) VALUES ('test-supervisor-d@scuola.it', 2000000000);
-    INSERT INTO public.usename_school(usename, school) VALUES ('test-supervisor-d@scuola.it', 28961000000000);
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-supervisor-d@scuola.it', 1000000000);
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-supervisor-d@scuola.it', 2000000000);
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-supervisor-d@scuola.it', 28961000000000);
 
     ----------------------------------------------
     test_name = 'CREATE ROLE Executive  school 1';
@@ -44,7 +44,7 @@ BEGIN
       NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
     GRANT scuola247_executive TO "test-executive-d@scuola-1.it";
 
-    INSERT INTO public.usename_school(usename, school) VALUES ('test-executive-d@scuola-1.it', 1000000000);
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-executive-d@scuola-1.it', 1000000000);
 
     ----------------------------------------------
     test_name = 'CREATE ROLE Executive  school 2';
@@ -180,4 +180,7 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION unit_tests_security.create_role(boolean)
-  OWNER TO postgres;
+  OWNER TO scuola247_supervisor;
+GRANT EXECUTE ON FUNCTION unit_tests_security.create_role(boolean) TO public;
+GRANT EXECUTE ON FUNCTION unit_tests_security.create_role(boolean) TO postgres WITH GRANT OPTION;
+GRANT EXECUTE ON FUNCTION unit_tests_security.create_role(boolean) TO scuola247_user;
