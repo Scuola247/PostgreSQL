@@ -32,9 +32,9 @@ BEGIN
       NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
     GRANT scuola247_supervisor TO "test-supervisor-d@scuola.it";
 
-    INSERT INTO public.usename_school(usename, school) VALUES ('test-supervisor-d@scuola.it', 1000000000);
-    INSERT INTO public.usename_school(usename, school) VALUES ('test-supervisor-d@scuola.it', 2000000000);
-    INSERT INTO public.usename_school(usename, school) VALUES ('test-supervisor-d@scuola.it', 28961000000000);
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-supervisor-d@scuola.it', 1000000000);
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-supervisor-d@scuola.it', 2000000000);
+    INSERT INTO public.usenames_schools(usename, school) VALUES ('test-supervisor-d@scuola.it', 28961000000000);
 
     ----------------------------------------------
     test_name = 'CREATE ROLE Executive  school 1';
