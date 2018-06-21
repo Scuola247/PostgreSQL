@@ -15,8 +15,10 @@ DECLARE
   context 		text;
   full_function_name	text;
 
+  scuola247_groups      text[] = ARRAY['scuola247_supervisor','scuola247_executive','scuola247_employee','scuola247_teacher','scuola247_relative','scuola247_student','scuola247_user'];
   error			diagnostic.error;
   school		bigint;
+  message_text		text;
   command		text;
 BEGIN 
 --
@@ -24,6 +26,11 @@ BEGIN
 --
   GET DIAGNOSTICS me.context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
+
+  IF array_position(scuola247_groups, _group) IS NULL THEN
+    message_text =  'group wrong value, the value have to be one of: ' || array_to_string(scuola247_groups,',');
+    PERFORM diagnostic.function_syntax_error(full_function_name, message_text);
+  END IF;
 
   BEGIN
     command = format('CREATE ROLE %L LOGIN PASSWORD %L IN ROLE %L', _usename, _password, _group);
@@ -35,7 +42,6 @@ BEGIN
       INSERT INTO usenames_schools(usename, school) VALUES (_usename, school);
     END LOOP;
     
-    RETURN;
   EXCEPTION WHEN OTHERS THEN
       -- trap exception only to show it and rethrow it
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -46,7 +52,7 @@ BEGIN
         DETAIL = error.pg_exception_detail,
         HINT = error.pg_exception_hint; 
   END;
-RETURN;
+  RETURN;
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE SECURITY DEFINER
