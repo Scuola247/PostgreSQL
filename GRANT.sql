@@ -79,7 +79,7 @@ GRANT ALL ON LANGUAGE plpgsql TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON LANGUAGE plpgsql TO scuola247_user;
 
 -- GRANT su pg_catalog
-GRANT ALL ON TABLE pg_shadow TO scuola247_supervisor;
+GRANT ALL ON TABLE pg_shadow TO scuola247_supervisor; -- forse dovrebbe essere SELECT oppure USAGE
 
 
 /* GRANT SU TUTTI I SCHEMA */;
@@ -265,15 +265,15 @@ GRANT ALL ON ALL SEQUENCES IN SCHEMA unit_testing TO scuola247_supervisor WITH G
 GRANT USAGE ON ALL SEQUENCES IN SCHEMA unit_testing TO scuola247_user;
 
 GRANT ALL ON ALL TABLES IN SCHEMA unit_testing TO scuola247_supervisor WITH GRANT OPTION;
-GRANT ALL ON ALL TABLES IN SCHEMA unit_testing TO scuola247_user;
+GRANT SELECT ON ALL TABLES IN SCHEMA unit_testing TO scuola247_user;
 
 GRANT ALL ON TYPE unit_testing.check_point TO scuola247_supervisor WITH GRANT OPTION;
 GRANT ALL ON TYPE unit_testing.check_point_status TO scuola247_supervisor WITH GRANT OPTION;
 GRANT ALL ON TYPE unit_testing.unit_test_result TO scuola247_supervisor WITH GRANT OPTION;
 
-GRANT ALL ON TYPE unit_testing.check_point TO scuola247_user WITH GRANT OPTION;
-GRANT ALL ON TYPE unit_testing.check_point_status TO scuola247_user WITH GRANT OPTION;
-GRANT ALL ON TYPE unit_testing.unit_test_result TO scuola247_user WITH GRANT OPTION;
+GRANT USAGE ON TYPE unit_testing.check_point TO scuola247_user WITH GRANT OPTION;
+GRANT USAGE ON TYPE unit_testing.check_point_status TO scuola247_user WITH GRANT OPTION;
+GRANT USAGE ON TYPE unit_testing.unit_test_result TO scuola247_user WITH GRANT OPTION;
 
 -- UNIT_TESTS_DATASETS;
 REVOKE ALL ON SCHEMA unit_tests_datasets FROM public;
@@ -335,6 +335,9 @@ REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_user;
 
 GRANT ALL ON SCHEMA unit_tests_translate TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON SCHEMA unit_tests_translate TO scuola247_user;
+
+GRANT ALL ON ALL TABLES IN SCHEMA unit_tests_translate TO scuola247_supervisor WITH GRANT OPTION;
+GRANT SELECT ON ALL TABLES IN SCHEMA unit_tests_translate TO scuola247_user;
 
 GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_translate TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_translate TO scuola247_user;
