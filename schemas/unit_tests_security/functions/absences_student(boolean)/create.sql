@@ -1,4 +1,4 @@
-﻿-- Function: unit_tests_security.absences_student(boolean)
+-- Function: unit_tests_security.absences_student(boolean)
 
 -- DROP FUNCTION unit_tests_security.absences_student(boolean);
 
@@ -28,7 +28,7 @@ BEGIN
   test_name = 'UPDATE absences with no permission';
   -------------------------------------------------
   BEGIN
-    SET ROLE 'test-student-d@scuola-1.it';
+    SET ROLE 'test-student-a@scuola-1.it';
     UPDATE public.absences set teacher = '32933000000000' WHERE absence = '33312000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RETURN;
@@ -45,7 +45,7 @@ BEGIN
   test_name = 'INSERT absences with no permission';
   -------------------------------------------------
   BEGIN
-    SET ROLE 'test-student-d@scuola-1.it';
+    SET ROLE 'test-student-a@scuola-1.it';
     INSERT INTO public.absences(absence,on_date,teacher,explanation,classroom_student) VALUES ('1133312000000000','2013-10-05','32936000000000',NULL,'10372000000000');
 
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student shouldn''t be able to', NULL::diagnostic.error);
@@ -63,7 +63,7 @@ BEGIN
   test_name = 'DELETE absences with no permission';
   -------------------------------------------------
   BEGIN
-    SET ROLE 'test-student-d@scuola-1.it';
+    SET ROLE 'test-student-a@scuola-1.it';
     DELETE FROM public.absences WHERE absence = '33312000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RETURN;
@@ -81,7 +81,7 @@ BEGIN
   test_name = 'SELECT absences with permission';
   -------------------------------------------------
   BEGIN
-    SET ROLE 'test-student-d@scuola-1.it';
+    SET ROLE 'test-student-a@scuola-1.it';
     PERFORM 1 FROM public.absences WHERE absence = '33322';
 
       _results = _results || assert.pass(full_function_name, test_name);
@@ -117,3 +117,6 @@ $BODY$
   COST 100;
 ALTER FUNCTION unit_tests_security.absences_student(boolean)
   OWNER TO scuola247_supervisor;
+GRANT EXECUTE ON FUNCTION unit_tests_security.absences_student(boolean) TO public;
+GRANT EXECUTE ON FUNCTION unit_tests_security.absences_student(boolean) TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON FUNCTION unit_tests_security.absences_student(boolean) TO scuola247_user;

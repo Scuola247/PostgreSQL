@@ -1,4 +1,4 @@
-﻿-- Function: unit_tests_security.create_role(boolean)
+-- Function: unit_tests_security.create_role(boolean)
 
 -- DROP FUNCTION unit_tests_security.create_role(boolean);
 
@@ -27,39 +27,39 @@ BEGIN
     ---------------------------
     test_name = 'CREATE ROLES';
     ---------------------------
-    PERFORM special.scuola247_create_user('test-supervisor@scuola.it', 'password', 'scuola247_supervisor', 'it', 1000000000, 2000000000, 28961000000000);
-    PERFORM special.scuola247_create_user('test-manager-a@scuola-1.it', 'password', 'scuola247_executive', 'it', 1000000000);
-    PERFORM special.scuola247_create_user('test-manager-b@scuola-1.it', 'password', 'scuola247_executive', 'it', 1000000000);
-    PERFORM special.scuola247_create_user('test-manager-c@scuola-2.it', 'password', 'scuola247_executive', 'it', 2000000000);
-    PERFORM special.scuola247_create_user('test-manager-d@scuola-2.it', 'password', 'scuola247_executive', 'it', 2000000000);
-    PERFORM special.scuola247_create_user('test-manager-e@scuola-28961.it', 'password', 'scuola247_executive', 'it', 28961000000000);
-    PERFORM special.scuola247_create_user('test-manager-f@scuola-28961.it', 'password', 'scuola247_executive', 'it', 28961000000000);
-    PERFORM special.scuola247_create_user('test-employee-a@scuola-1.it', 'password', 'scuola247_employee', 'it', 1000000000);
-    PERFORM special.scuola247_create_user('test-employee-b@scuola-1.it', 'password', 'scuola247_employee', 'it', 1000000000);
-    PERFORM special.scuola247_create_user('test-employee-c@scuola-2.it', 'password', 'scuola247_employee', 'it', 2000000000);
-    PERFORM special.scuola247_create_user('test-employee-d@scuola-2.it', 'password', 'scuola247_employee', 'it', 2000000000);
-    PERFORM special.scuola247_create_user('test-employee-e@scuola-28961.it', 'password', 'scuola247_employee', 'it', 28961000000000);
-    PERFORM special.scuola247_create_user('test-employee-f@scuola-28961.it', 'password', 'scuola247_employee', 'it', 28961000000000);
-    PERFORM special.scuola247_create_user('test-teacher-a@scuola-1.it', 'password', 'scuola247_teacher', 'it', 1000000000);
-    PERFORM special.scuola247_create_user('test-teacher-b@scuola-1.it', 'password', 'scuola247_teacher', 'it', 1000000000);
-    PERFORM special.scuola247_create_user('test-teacher-c@scuola-2.it', 'password', 'scuola247_teacher', 'it', 2000000000);
-    PERFORM special.scuola247_create_user('test-teacher-d@scuola-2.it', 'password', 'scuola247_teacher', 'it', 2000000000);
-    PERFORM special.scuola247_create_user('test-teacher-e@scuola-28961.it', 'password', 'scuola247_teacher', 'it', 28961000000000);
-    PERFORM special.scuola247_create_user('test-teacher-f@scuola-28961.it', 'password', 'scuola247_teacher', 'it', 28961000000000);
-    PERFORM special.scuola247_create_user('test-relative-a@scuola-1.it', 'password', 'scuola247_relative', 'it', 1000000000);
-    PERFORM special.scuola247_create_user('test-relative-b@scuola-1.it', 'password', 'scuola247_relative', 'it', 1000000000);
-    PERFORM special.scuola247_create_user('test-relative-c@scuola-2.it', 'password', 'scuola247_relative', 'it', 2000000000);
-    PERFORM special.scuola247_create_user('test-relative-d@scuola-2.it', 'password', 'scuola247_relative', 'it', 2000000000);
-    PERFORM special.scuola247_create_user('test-relative-e@scuola-28961.it', 'password', 'scuola247_relative', 'it', 28961000000000);
-    PERFORM special.scuola247_create_user('test-relative-f@scuola-28961.it', 'password', 'scuola247_relative', 'it', 28961000000000);
-    PERFORM special.scuola247_create_user('test-student-a@scuola-1.it', 'password', 'scuola247_student', 'it', 1000000000);
-    PERFORM special.scuola247_create_user('test-student-b@scuola-1.it', 'password', 'scuola247_student', 'it', 1000000000);
-    PERFORM special.scuola247_create_user('test-student-c@scuola-2.it', 'password', 'scuola247_student', 'it', 2000000000);
-    PERFORM special.scuola247_create_user('test-student-d@scuola-2.it', 'password', 'scuola247_student', 'it', 2000000000);
-    PERFORM special.scuola247_create_user('test-student-e@scuola-28961.it', 'password', 'scuola247_student', 'it', 28961000000000);
-    PERFORM special.scuola247_create_user('test-student-f@scuola-28961.it', 'password', 'scuola247_student', 'it', 28961000000000);  
-    PERFORM special.scuola247_create_user('test-user@scuola.it', 'password', 'scuola247_user', 'it', NULL);  
-    
+    PERFORM special.scuola247_create_user('test-supervisor@scuola.it', 'password', 'scuola247_supervisor', 'it'::utility.language, 1000000000, 2000000000, 28961000000000);
+    PERFORM special.scuola247_create_user('test-executive-a@scuola-1.it', 'password', 'scuola247_executive', 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('test-executive-b@scuola-1.it', 'password', 'scuola247_executive', 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('test-executive-c@scuola-2.it', 'password', 'scuola247_executive', 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('test-executive-d@scuola-2.it', 'password', 'scuola247_executive', 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('test-executive-e@scuola-28961.it', 'password', 'scuola247_executive', 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('test-executive-f@scuola-28961.it', 'password', 'scuola247_executive', 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('test-employee-a@scuola-1.it', 'password', 'scuola247_employee', 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('test-employee-b@scuola-1.it', 'password', 'scuola247_employee', 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('test-employee-c@scuola-2.it', 'password', 'scuola247_employee', 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('test-employee-d@scuola-2.it', 'password', 'scuola247_employee', 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('test-employee-e@scuola-28961.it', 'password', 'scuola247_employee', 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('test-employee-f@scuola-28961.it', 'password', 'scuola247_employee', 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('test-teacher-a@scuola-1.it', 'password', 'scuola247_teacher', 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('test-teacher-b@scuola-1.it', 'password', 'scuola247_teacher', 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('test-teacher-c@scuola-2.it', 'password', 'scuola247_teacher', 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('test-teacher-d@scuola-2.it', 'password', 'scuola247_teacher', 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('test-teacher-e@scuola-28961.it', 'password', 'scuola247_teacher', 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('test-teacher-f@scuola-28961.it', 'password', 'scuola247_teacher', 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('test-relative-a@scuola-1.it', 'password', 'scuola247_relative', 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('test-relative-b@scuola-1.it', 'password', 'scuola247_relative', 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('test-relative-c@scuola-2.it', 'password', 'scuola247_relative', 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('test-relative-d@scuola-2.it', 'password', 'scuola247_relative', 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('test-relative-e@scuola-28961.it', 'password', 'scuola247_relative', 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('test-relative-f@scuola-28961.it', 'password', 'scuola247_relative', 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('test-student-a@scuola-1.it', 'password', 'scuola247_student', 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('test-student-b@scuola-1.it', 'password', 'scuola247_student', 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('test-student-c@scuola-2.it', 'password', 'scuola247_student', 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('test-student-d@scuola-2.it', 'password', 'scuola247_student', 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('test-student-e@scuola-28961.it', 'password', 'scuola247_student', 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('test-student-f@scuola-28961.it', 'password', 'scuola247_student', 'it'::utility.language, 28961000000000);
+--    PERFORM special.scuola247_create_user('test-user@scuola.it', 'password', 'scuola247_user', 'it'::utility.language, NULL);  -- campo school è not null con contstraint di foreign key
+
     _results = _results || assert.pass(full_function_name, test_name);
 
   EXCEPTION WHEN OTHERS THEN

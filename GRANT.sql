@@ -230,6 +230,9 @@ GRANT USAGE ON TYPE public.role TO scuola247_user;
 GRANT USAGE ON TYPE public.sex TO scuola247_user;
 GRANT USAGE ON TYPE public.wikimedia_type TO scuola247_user;
 
+-- SPECIAL
+GRANT EXECUTE ON SCHEMA special TO scuola247_supervisor WITH GRANT OPTION;
+
 -- TRANSLATE;
 REVOKE ALL ON SCHEMA translate FROM public;
 REVOKE ALL ON SCHEMA translate FROM scuola247_supervisor;
