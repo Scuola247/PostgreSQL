@@ -1,5 +1,5 @@
 ﻿/*
- SCUOLA247 SICUREZZA VERTICALE 
+ SCUOLA247 SICUREZZA VERTICALE
 */;
 REVOKE scuola247_employee FROM scuola247_user;
 REVOKE scuola247_executive FROM scuola247_user;
@@ -77,6 +77,10 @@ GRANT CONNECT ON DATABASE scuola247 TO scuola247_user;
 
 GRANT ALL ON LANGUAGE plpgsql TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON LANGUAGE plpgsql TO scuola247_user;
+
+-- GRANT su pg_catalog
+GRANT ALL ON TABLE pg_shadow TO scuola247_supervisor;
+
 
 /* GRANT SU TUTTI I SCHEMA */;
 -- ASSERT;
@@ -257,11 +261,11 @@ GRANT USAGE ON SCHEMA unit_testing TO scuola247_user;
 GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_testing TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_testing TO scuola247_user;
 
-GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO scuola247_supervisor WITH GRANT OPTION;
-GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO scuola247_user;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA unit_testing TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON ALL SEQUENCES IN SCHEMA unit_testing TO scuola247_user;
 
-GRANT ALL ON ALL TABLES IN SCHEMA public TO scuola247_supervisor WITH GRANT OPTION;
-GRANT ALL ON ALL TABLES IN SCHEMA public TO scuola247_user;
+GRANT ALL ON ALL TABLES IN SCHEMA unit_testing TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON ALL TABLES IN SCHEMA unit_testing TO scuola247_user;
 
 GRANT ALL ON TYPE unit_testing.check_point TO scuola247_supervisor WITH GRANT OPTION;
 GRANT ALL ON TYPE unit_testing.check_point_status TO scuola247_supervisor WITH GRANT OPTION;

@@ -2253,4 +2253,7 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION unit_tests_public.weekly_timetables_days(boolean)
-  OWNER TO postgres;
+  OWNER TO scuola247_supervisor;
+GRANT EXECUTE ON FUNCTION unit_tests_public.weekly_timetables_days(boolean) TO public;
+GRANT EXECUTE ON FUNCTION unit_tests_public.weekly_timetables_days(boolean) TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON FUNCTION unit_tests_public.weekly_timetables_days(boolean) TO scuola247_user;
