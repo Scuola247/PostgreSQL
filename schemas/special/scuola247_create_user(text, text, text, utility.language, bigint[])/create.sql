@@ -33,10 +33,10 @@ BEGIN
   END IF;
 
   BEGIN
-    command = format('CREATE ROLE %L LOGIN PASSWORD %L IN ROLE %L', _usename, _password, _group);
+    command = format('CREATE ROLE %I LOGIN PASSWORD %L IN ROLE %I', _usename, _password, _group);
     EXECUTE command;
 
-    INSERT INTO public.usename_ex(usename, language) VALUES (_usename, _language);
+    INSERT INTO public.usenames_ex(usename, language) VALUES (_usename, _language);
 
     FOREACH school IN ARRAY _schools LOOP
       INSERT INTO usenames_schools(usename, school) VALUES (_usename, school);
