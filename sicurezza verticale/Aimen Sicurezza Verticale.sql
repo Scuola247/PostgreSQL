@@ -45,9 +45,9 @@ REVOKE ALL ON TABLE public.grades FROM public;
 ------------------------------------------------------
 GRANT ALL ON TABLE public.grading_meetings TO scuola247_supervisor;
 GRANT ALL ON TABLE public.grading_meetings TO scuola247_executive;
+GRANT ALL ON TABLE public.grading_meetings TO scuola247_employee;
 
 GRANT SELECT ON TABLE public.grading_meetings TO scuola247_teacher;
-GRANT SELECT ON TABLE public.grading_meetings TO scuola247_employee;
 GRANT SELECT ON TABLE public.grading_meetings TO scuola247_student;
 GRANT SELECT ON TABLE public.grading_meetings TO scuola247_relative;
 
@@ -57,8 +57,9 @@ REVOKE ALL ON TABLE public.grading_meetings FROM public;
 GRANT ALL ON TABLE public.grading_meetings_valutations TO scuola247_supervisor;
 GRANT ALL ON TABLE public.grading_meetings_valutations TO scuola247_executive;
 GRANT ALL ON TABLE public.grading_meetings_valutations TO scuola247_teacher;
+GRANT ALL ON TABLE public.grading_meetings_valutations TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.grading_meetings_valutations TO scuola247_employee;
+
 GRANT SELECT ON TABLE public.grading_meetings_valutations TO scuola247_relative;
 GRANT SELECT ON TABLE public.grading_meetings_valutations TO scuola247_student;
 
