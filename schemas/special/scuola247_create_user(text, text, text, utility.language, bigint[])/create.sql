@@ -50,6 +50,8 @@ BEGIN
   
     INSERT INTO public.usenames_ex(usename, language) VALUES (_usename, _language);
 
+    INSERT INTO public.usenames_ex(usename, language) VALUES (_usename, _language);
+
     FOREACH school IN ARRAY _schools LOOP
       INSERT INTO usenames_schools(usename, school) VALUES (_usename, school);
     END LOOP;
