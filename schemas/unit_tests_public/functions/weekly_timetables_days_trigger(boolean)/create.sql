@@ -1,4 +1,4 @@
-﻿-- Function: unit_tests_public.weekly_timetables_days_trigger(boolean)
+﻿-- Function: unit_tests_public.weekly_timetables_days_trigger(boolean) --
 
 -- DROP FUNCTION unit_tests_public.weekly_timetables_days_trigger(boolean);
 
