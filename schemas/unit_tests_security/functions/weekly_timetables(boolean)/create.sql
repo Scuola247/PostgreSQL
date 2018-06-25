@@ -553,4 +553,3 @@ ALTER FUNCTION unit_tests_security.weekly_timetables(boolean)
 GRANT EXECUTE ON FUNCTION unit_tests_security.weekly_timetables(boolean) TO public;
 GRANT EXECUTE ON FUNCTION unit_tests_security.weekly_timetables(boolean) TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON FUNCTION unit_tests_security.weekly_timetables(boolean) TO scuola247_user;
-GRANT EXECUTE ON FUNCTION unit_tests_security.weekly_timetables(boolean) TO "jiahaodong@gmail.com" WITH GRANT OPTION;
