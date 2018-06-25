@@ -35,16 +35,15 @@ BEGIN
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'SELECT wasn''t OK but the student should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
  -------------------------------------
@@ -55,19 +54,17 @@ RESET ROLE;
     SET ROLE 'test-student-a@scuola-1.it';
     UPDATE public.explanations SET description = 'ritardoo' WHERE explanation = '47600000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.pass(full_function_name, test_name);
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
-
 RESET ROLE;
 
 
@@ -78,18 +75,17 @@ RESET ROLE;
     SET ROLE 'test-student-a@scuola-1.it';
     INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('1157313000000000','1214000000000','uscita in anticipo per motivi personali','2013-10-24 10:44:59','3512000000000','2013-10-25 10:44:59','32933000000000','2013-10-24','2013-10-24',NULL,'11:30:30','Leave');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student shouldn''t be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.pass(full_function_name, test_name);
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
  -------------------------------------
@@ -100,19 +96,18 @@ RESET ROLE;
     SET ROLE 'test-student-a@scuola-1.it';
     DELETE FROM public.explanations WHERE explanation = '47600000000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.pass(full_function_name, test_name);
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
 
     
 END;
-
 RESET ROLE;
 
 -- SUPERVISOR
@@ -128,16 +123,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'SELECT wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
  -------------------------------------
  test_name = 'UPDATE in supervisor role';
@@ -149,16 +143,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
  -------------------------------------
  test_name = 'INSERT in supervisor role';
@@ -170,16 +163,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
 
@@ -193,16 +185,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
 --EXECUTIVE
@@ -217,16 +208,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'SELECT wasn''t OK but the executive should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
  ------------------------------------
@@ -238,17 +228,16 @@ RESET ROLE;
     UPDATE public.explanations SET description = 'ritardoo' WHERE explanation = '47599000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the executive should be able to', NULL::diagnostic.error);ù
-	RESET ROLE;
+    _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the executive should be able to', NULL::diagnostic.error);
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
  -------------------------------------
@@ -261,17 +250,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the executive should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
-
 RESET ROLE;
  -------------------------------------
  test_name = 'DELETE in executive role';
@@ -283,16 +270,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the executive should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
 -- EMPLOYEE
@@ -307,16 +293,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'SELECT wasn''t OK but the employee should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
  -------------------------------------
@@ -329,16 +314,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the employee should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
  -------------------------------------
@@ -351,16 +335,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the employee should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
  -------------------------------------
  test_name = 'DELETE in employee role';
@@ -372,16 +355,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the employee should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
 -- teacher
@@ -396,16 +378,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'SELECT wasn''t OK but the teacher should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
  -------------------------------------
@@ -418,17 +399,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the teacher should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
-
 RESET ROLE;
  -------------------------------------
  test_name = 'INSERT in teacher role';
@@ -440,18 +419,16 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the teacher should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
-
  -------------------------------------
  test_name = 'DELETE in teacher role';
  -------------------------------------
@@ -462,16 +439,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the teacher should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
 -- relative
@@ -486,16 +462,15 @@ RESET ROLE;
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'SELECT wasn''t OK but the relative should be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
  -------------------------------------
@@ -506,18 +481,17 @@ RESET ROLE;
     SET ROLE 'test-relative-a@scuola-1.it';
     UPDATE public.explanations SET description = 'ritardoo' WHERE explanation = '47600000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the relative shouldn''t be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.pass(full_function_name, test_name);
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
  -------------------------------------
@@ -528,18 +502,17 @@ RESET ROLE;
     SET ROLE 'test-relative-a@scuola-1.it';
     INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('1157313000000000','1214000000000','uscita in anticipo per motivi personali','2013-10-24 10:44:59','3512000000000','2013-10-25 10:44:59','32933000000000','2013-10-24','2013-10-24',NULL,'11:30:30','Leave');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the relative shouldn''t be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.pass(full_function_name, test_name);
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
     
 END;
-
 RESET ROLE;
 
  -------------------------------------
@@ -550,21 +523,19 @@ RESET ROLE;
     SET ROLE 'test-relative-a@scuola-1.it';
     DELETE FROM public.explanations WHERE explanation = '47600000000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but the relative shouldn''t be able to', NULL::diagnostic.error);
-	RESET ROLE;
+    RESET ROLE;
     RETURN;
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.pass(full_function_name, test_name);
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
         _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-		RESET ROLE;
+        RESET ROLE;
         RETURN;
 
     
 END;
-
 RESET ROLE;
-
 
 
 END
