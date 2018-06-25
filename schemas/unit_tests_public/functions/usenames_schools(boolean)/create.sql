@@ -25,8 +25,9 @@ BEGIN
   test_name = 'INSERT public.usenames_schools';
   --------------------------------------------
   BEGIN
-  /*
-  */
+	INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('726621000000000','student-a@scuola-1.it','1000000000');
+	INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('726624000000000','student-f@scuola-28961.it','28961000000000');
+	INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('726634000000000','manager-c@scuola-2.it','2000000000');
     _results = _results || assert.pass(full_function_name, test_name);
 
     EXCEPTION
@@ -41,4 +42,8 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION unit_tests_public.usenames_schools(boolean)
-  OWNER TO postgres;
+  OWNER TO scuola247_supervisor;
+GRANT EXECUTE ON FUNCTION unit_tests_public.usenames_schools(boolean) TO public;
+GRANT EXECUTE ON FUNCTION unit_tests_public.usenames_schools(boolean) TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON FUNCTION unit_tests_public.usenames_schools(boolean) TO scuola247_user;
+GRANT EXECUTE ON FUNCTION unit_tests_public.usenames_schools(boolean) TO "jiahaodong@gmail.com" WITH GRANT OPTION;
