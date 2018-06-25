@@ -51,7 +51,7 @@ RESET ROLE;
  -------------------------------------
  BEGIN
     SET ROLE 'test-student-a@scuola-1.it';
-  INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('1','Airasca (test)','758321000000000','11758438000000000');
+  INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('01','Airasca (test) (test)','758321000000000','11758438000000000');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -139,7 +139,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-supervisor@scuola.it';
-  INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('1','Airasca (test)','758321000000000','11758438000000000');
+  INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('01','Airasca (test) (test)','758321000000000','11758438000000000');
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
@@ -225,7 +225,7 @@ RESET ROLE;
  -------------------------------------
  BEGIN
     SET ROLE 'test-executive-a@scuola-1.it';
-  INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('1','Airasca (test)','758321000000000','11758438000000000');
+  INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('01','Airasca (test) (test)','758321000000000','11758438000000000');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the executive shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -311,7 +311,7 @@ RESET ROLE;
  -------------------------------------
  BEGIN
     SET ROLE 'test-employee-a@scuola-1.it';
-  INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('1','Airasca (test)','758321000000000','11758438000000000');
+  INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('01','Airasca (test) (test)','758321000000000','11758438000000000');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the employee shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -398,7 +398,7 @@ RESET ROLE;
  -------------------------------------
  BEGIN
     SET ROLE 'test-teacher-a@scuola-1.it';
-  INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('1','Airasca (test)','758321000000000','11758438000000000');
+  INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('01','Airasca (test) (test)','758321000000000','11758438000000000');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the teacher shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -484,7 +484,7 @@ RESET ROLE;
  -------------------------------------
  BEGIN
     SET ROLE 'test-relative-a@scuola-1.it';
-  INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('1','Airasca (test)','758321000000000','11758438000000000');
+  INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('01','Airasca (test) (test)','758321000000000','11758438000000000');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the relative shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;

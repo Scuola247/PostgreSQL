@@ -194,6 +194,9 @@ GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO scuola247_user;
 
 GRANT ALL ON ALL TABLES IN SCHEMA public TO scuola247_supervisor WITH GRANT OPTION;
 
+REVOKE ALL ON TABLE public.cities FROM scuola247_executive;
+GRANT SELECT ON TABLE public.cities TO scuola247_executive;
+
 GRANT ALL ON TYPE public.address_type TO scuola247_supervisor;
 GRANT ALL ON TYPE public.explanation_type TO scuola247_supervisor;
 GRANT ALL ON TYPE public.file_extension TO scuola247_supervisor;

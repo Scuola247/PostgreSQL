@@ -51,7 +51,7 @@ RESET ROLE;
  -------------------------------------
  BEGIN
     SET ROLE 'test-student-a@scuola-1.it';
-    INSERT INTO public.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('1110246000000000','10023000000000','275000000000',NULL,NULL);
+    INSERT INTO public.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('10306000000000','10025000000000','6057000000000',NULL,NULL);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -72,7 +72,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-student-a@scuola-1.it';
-    UPDATE public.classrooms_students SET classroom = '1002700000000' WHERE classroom_student = '1110246000000000';
+    UPDATE public.classrooms_students SET classroom = '1002700000000' WHERE classroom_student = '1024600000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -93,7 +93,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-student-a@scuola-1.it';
-    DELETE FROM public.classrooms_students WHERE classroom_student = '1110246000000000';
+    DELETE FROM public.classrooms_students WHERE classroom_student = '1024600000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -114,8 +114,6 @@ RESET ROLE;
  -------------------------------------
  test_name = 'SELECT in supervisor role';
  -------------------------------------
-
-
  BEGIN
     SET ROLE 'test-supervisor@scuola.it';
     PERFORM 1 from public.classrooms_students WHERE classroom_student = '1024600000000';
@@ -139,7 +137,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-supervisor@scuola.it';
-    INSERT INTO public.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('1110246000000000','10023000000000','275000000000',NULL,NULL);
+    INSERT INTO public.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('10306000000000','10025000000000','6057000000000',NULL,NULL);
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
@@ -161,7 +159,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-supervisor@scuola.it';
-    UPDATE public.classrooms_students SET classroom = '1002700000000' WHERE classroom_student = '1110246000000000';
+    UPDATE public.classrooms_students SET classroom = '1002700000000' WHERE classroom_student = '10306000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
@@ -182,7 +180,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-supervisor@scuola.it';
-    DELETE FROM public.classrooms_students WHERE classroom_student = '1110246000000000';
+    DELETE FROM public.classrooms_students WHERE classroom_student = '10306000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
@@ -227,7 +225,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-executive-a@scuola-1.it';
-    INSERT INTO public.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('1110246000000000','10023000000000','275000000000',NULL,NULL);
+    INSERT INTO public.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('10306000000000','10025000000000','6057000000000',NULL,NULL);
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the executive should be able to', NULL::diagnostic.error);
@@ -248,7 +246,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-executive-a@scuola-1.it';
-    UPDATE public.classrooms_students SET classroom = '1002700000000' WHERE classroom_student = '1110246000000000';
+    UPDATE public.classrooms_students SET classroom = '1002700000000' WHERE classroom_student = '10306000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the executive should be able to', NULL::diagnostic.error);
@@ -269,7 +267,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-executive-a@scuola-1.it';
-    DELETE FROM public.classrooms_students WHERE classroom_student = '1110246000000000';
+    DELETE FROM public.classrooms_students WHERE classroom_student = '10306000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the executive should be able to', NULL::diagnostic.error);
@@ -313,7 +311,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-employee-a@scuola-1.it';
-    INSERT INTO public.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('1110246000000000','10023000000000','275000000000',NULL,NULL);
+    INSERT INTO public.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('10306000000000','10025000000000','6057000000000',NULL,NULL);
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the employee should be able to', NULL::diagnostic.error);
@@ -334,7 +332,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-employee-a@scuola-1.it';
-    UPDATE public.classrooms_students SET classroom = '1002700000000' WHERE classroom_student = '1110246000000000';
+    UPDATE public.classrooms_students SET classroom = '1002700000000' WHERE classroom_student = '10306000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the employee should be able to', NULL::diagnostic.error);
@@ -355,7 +353,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-employee-a@scuola-1.it';
-    DELETE FROM public.classrooms_students WHERE classroom_student = '1110246000000000';
+    DELETE FROM public.classrooms_students WHERE classroom_student = '10306000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the employee should be able to', NULL::diagnostic.error);
@@ -397,7 +395,7 @@ RESET ROLE;
  -------------------------------------
  BEGIN
     SET ROLE 'test-teacher-a@scuola-1.it';
-    INSERT INTO public.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('1110246000000000','10023000000000','275000000000',NULL,NULL);
+    INSERT INTO public.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('10306000000000','10025000000000','6057000000000',NULL,NULL);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the teacher shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -417,7 +415,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-teacher-a@scuola-1.it';
-    UPDATE public.classrooms_students SET classroom = '1002700000000' WHERE classroom_student = '1110246000000000';
+    UPDATE public.classrooms_students SET classroom = '1002700000000' WHERE classroom_student = '10306000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the teacher shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -437,7 +435,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-teacher-a@scuola-1.it';
-    DELETE FROM public.classrooms_students WHERE classroom_student = '1110246000000000';
+    DELETE FROM public.classrooms_students WHERE classroom_student = '10306000000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but the teacher shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -482,7 +480,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-relative-a@scuola-1.it';
-    INSERT INTO public.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('1110246000000000','10023000000000','275000000000',NULL,NULL);
+    INSERT INTO public.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('10306000000000','10025000000000','6057000000000',NULL,NULL);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the relative shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -503,7 +501,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-relative-a@scuola-1.it';
-    UPDATE public.classrooms_students SET classroom = '1002700000000' WHERE classroom_student = '1110246000000000';
+    UPDATE public.classrooms_students SET classroom = '1002700000000' WHERE classroom_student = '10306000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the relative shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -524,7 +522,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-relative-a@scuola-1.it';
-    DELETE FROM public.classrooms_students WHERE classroom_student = '1110246000000000';
+    DELETE FROM public.classrooms_students WHERE classroom_student = '10306000000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but the relative shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
