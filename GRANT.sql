@@ -231,7 +231,20 @@ GRANT USAGE ON TYPE public.sex TO scuola247_user;
 GRANT USAGE ON TYPE public.wikimedia_type TO scuola247_user;
 
 -- SPECIAL
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA special TO scuola247_supervisor WITH GRANT OPTION;
+REVOKE ALL ON SCHEMA special FROM public;
+REVOKE ALL ON SCHEMA special FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA special FROM scuola247_executive;
+REVOKE ALL ON SCHEMA special FROM scuola247_employee;
+REVOKE ALL ON SCHEMA special FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA special FROM scuola247_relative;
+REVOKE ALL ON SCHEMA special FROM scuola247_student;
+REVOKE ALL ON SCHEMA special FROM scuola247_user;
+
+GRANT USAGE ON SCHEMA special TO scuola247_supervisor;
+
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA special TO scuola247_supervisor;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA special TO scuola247_executive;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA special TO scuola247_employee;
 
 -- TRANSLATE;
 REVOKE ALL ON SCHEMA translate FROM public;
