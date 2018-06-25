@@ -26,7 +26,7 @@ DECLARE
   message_text		text;
   command		text;
 
-BEGIN 
+BEGIN
 
 --
 
@@ -47,7 +47,7 @@ BEGIN
   BEGIN
     command = format('CREATE ROLE %I LOGIN PASSWORD %L IN ROLE %I', _usename, _password, _group);
     EXECUTE command;
-  
+
     INSERT INTO public.usenames_ex(usename, language) VALUES (_usename, _language);
 
     INSERT INTO public.usenames_ex(usename, language) VALUES (_usename, _language);
@@ -55,7 +55,7 @@ BEGIN
     FOREACH school IN ARRAY _schools LOOP
       INSERT INTO usenames_schools(usename, school) VALUES (_usename, school);
     END LOOP;
-    
+
   EXCEPTION WHEN OTHERS THEN
       -- trap exception only to show it and rethrow it
       GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -64,7 +64,7 @@ BEGIN
         ERRCODE = error.returned_sqlstate,
         MESSAGE = error.message_text,
         DETAIL = error.pg_exception_detail,
-        HINT = error.pg_exception_hint; 
+        HINT = error.pg_exception_hint;
   END;
   RETURN;
 
@@ -75,8 +75,7 @@ $BODY$
   COST 100;
 ALTER FUNCTION special.scuola247_create_user(text, text, text, utility.language, bigint[])
   OWNER TO postgres;
-GRANT EXECUTE ON FUNCTION special.scuola247_create_user(text, text, text, utility.language, bigint[]) TO public;
-GRANT EXECUTE ON FUNCTION special.scuola247_create_user(text, text, text, utility.language, bigint[]) TO postgres;
+
 GRANT EXECUTE ON FUNCTION special.scuola247_create_user(text, text, text, utility.language, bigint[]) TO scuola247_supervisor;
 GRANT EXECUTE ON FUNCTION special.scuola247_create_user(text, text, text, utility.language, bigint[]) TO scuola247_executive;
 GRANT EXECUTE ON FUNCTION special.scuola247_create_user(text, text, text, utility.language, bigint[]) TO scuola247_employee;

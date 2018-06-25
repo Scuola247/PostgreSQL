@@ -1,6 +1,6 @@
 ﻿-- Function: public.tr_weekly_timetables_days_iu()
 
--- DROP FUNCTION public.tr_weekly_timetables_days_iu(); 
+-- DROP FUNCTION public.tr_weekly_timetables_days_iu();
 
 CREATE OR REPLACE FUNCTION public.tr_weekly_timetables_days_iu()
   RETURNS trigger AS
