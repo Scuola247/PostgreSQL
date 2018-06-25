@@ -45,26 +45,7 @@ BEGIN
     
 END;
 RESET ROLE;
- -------------------------------------
- test_name = 'UPDATE in student role';
- -------------------------------------
 
- BEGIN
-    SET ROLE 'test-student-a@scuola-1.it';
-    UPDATE public.messages_read SET message = '50113000000000' WHERE message_read = '60304000000000';
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
-    RESET ROLE;
-    RETURN;
- EXCEPTION WHEN SQLSTATE '42501' THEN
-    _results = _results || assert.pass(full_function_name, test_name);
-    WHEN OTHERS THEN
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RESET ROLE;
-        RETURN;
-    
-END;
-RESET ROLE;
  -------------------------------------
  test_name = 'INSERT in student role';
  -------------------------------------
@@ -86,12 +67,33 @@ END;
 RESET ROLE;
 
  -------------------------------------
+ test_name = 'UPDATE in student role';
+ -------------------------------------
+
+ BEGIN
+    SET ROLE 'test-student-a@scuola-1.it';
+    UPDATE public.messages_read SET message = '50113000000000' WHERE message_read = '1160304000000000';
+    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
+    RESET ROLE;
+    RETURN;
+ EXCEPTION WHEN SQLSTATE '42501' THEN
+    _results = _results || assert.pass(full_function_name, test_name);
+    WHEN OTHERS THEN
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RESET ROLE;
+        RETURN;
+    
+END;
+RESET ROLE;
+
+ -------------------------------------
  test_name = 'DELETE in student role';
  -------------------------------------
 
  BEGIN
     SET ROLE 'test-student-a@scuola-1.it';
-    DELETE FROM public.messages_read WHERE message_read = '60304000000000';
+    DELETE FROM public.messages_read WHERE message_read = '1160304000000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -132,27 +134,6 @@ END;
 RESET ROLE;
 
  -------------------------------------
- test_name = 'UPDATE in supervisor role';
- -------------------------------------
-
- BEGIN
-    SET ROLE 'test-supervisor@scuola.it';
-    UPDATE public.messages_read SET message = '50113000000000' WHERE message_read = '60304000000000';
-    _results = _results || assert.pass(full_function_name, test_name);
- EXCEPTION WHEN SQLSTATE '42501' THEN
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
-    RESET ROLE;
-    RETURN;
-    WHEN OTHERS THEN
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RESET ROLE;
-        RETURN;
-    
-END;
-RESET ROLE;
-
- -------------------------------------
  test_name = 'INSERT in supervisor role';
  -------------------------------------
 
@@ -174,12 +155,33 @@ END;
 RESET ROLE;
 
  -------------------------------------
+ test_name = 'UPDATE in supervisor role';
+ -------------------------------------
+
+ BEGIN
+    SET ROLE 'test-supervisor@scuola.it';
+    UPDATE public.messages_read SET message = '50113000000000' WHERE message_read = '1160304000000000';
+    _results = _results || assert.pass(full_function_name, test_name);
+ EXCEPTION WHEN SQLSTATE '42501' THEN
+    _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
+    RESET ROLE;
+    RETURN;
+    WHEN OTHERS THEN
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RESET ROLE;
+        RETURN;
+    
+END;
+RESET ROLE;
+
+ -------------------------------------
  test_name = 'DELETE in supervisor role';
  -------------------------------------
 
  BEGIN
     SET ROLE 'test-supervisor@scuola.it';
-    DELETE FROM public.messages_read WHERE message_read = '60304000000000';
+    DELETE FROM public.messages_read WHERE message_read = '1160304000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
@@ -217,26 +219,7 @@ RESET ROLE;
     
 END;
 RESET ROLE;
- -------------------------------------
- test_name = 'UPDATE in executive role';
- -------------------------------------
 
- BEGIN
-    SET ROLE 'test-executive-a@scuola-1.it';
-    UPDATE public.messages_read SET message = '50113000000000' WHERE message_read = '60304000000000';
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the executive shouldn''t be able to', NULL::diagnostic.error);
-    RESET ROLE;
-    RETURN;
- EXCEPTION WHEN SQLSTATE '42501' THEN
-    _results = _results || assert.pass(full_function_name, test_name);
-    WHEN OTHERS THEN
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RESET ROLE;
-        RETURN;
-    
-END;
-RESET ROLE;
  -------------------------------------
  test_name = 'INSERT in executive role';
  -------------------------------------
@@ -258,12 +241,33 @@ END;
 RESET ROLE;
 
  -------------------------------------
+ test_name = 'UPDATE in executive role';
+ -------------------------------------
+
+ BEGIN
+    SET ROLE 'test-executive-a@scuola-1.it';
+    UPDATE public.messages_read SET message = '50113000000000' WHERE message_read = '1160304000000000';
+    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the executive shouldn''t be able to', NULL::diagnostic.error);
+    RESET ROLE;
+    RETURN;
+ EXCEPTION WHEN SQLSTATE '42501' THEN
+    _results = _results || assert.pass(full_function_name, test_name);
+    WHEN OTHERS THEN
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RESET ROLE;
+        RETURN;
+    
+END;
+RESET ROLE;
+
+ -------------------------------------
  test_name = 'DELETE in executive role';
  -------------------------------------
 
  BEGIN
     SET ROLE 'test-executive-a@scuola-1.it';
-    DELETE FROM public.messages_read WHERE message_read = '60304000000000';
+    DELETE FROM public.messages_read WHERE message_read = '1160304000000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but the executive shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -301,26 +305,7 @@ RESET ROLE;
     
 END;
 RESET ROLE;
- -------------------------------------
- test_name = 'UPDATE in employee role';
- -------------------------------------
 
- BEGIN
-    SET ROLE 'test-employee-a@scuola-1.it';
-    UPDATE public.messages_read SET message = '50113000000000' WHERE message_read = '60304000000000';
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the employee shouldn''t be able to', NULL::diagnostic.error);
-    RESET ROLE;
-    RETURN;
- EXCEPTION WHEN SQLSTATE '42501' THEN
-    _results = _results || assert.pass(full_function_name, test_name);
-    WHEN OTHERS THEN
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RESET ROLE;
-        RETURN;
-    
-END;
-RESET ROLE;
  -------------------------------------
  test_name = 'INSERT in employee role';
  -------------------------------------
@@ -342,12 +327,33 @@ END;
 RESET ROLE;
 
  -------------------------------------
+ test_name = 'UPDATE in employee role';
+ -------------------------------------
+
+ BEGIN
+    SET ROLE 'test-employee-a@scuola-1.it';
+    UPDATE public.messages_read SET message = '50113000000000' WHERE message_read = '1160304000000000';
+    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the employee shouldn''t be able to', NULL::diagnostic.error);
+    RESET ROLE;
+    RETURN;
+ EXCEPTION WHEN SQLSTATE '42501' THEN
+    _results = _results || assert.pass(full_function_name, test_name);
+    WHEN OTHERS THEN
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RESET ROLE;
+        RETURN;
+    
+END;
+RESET ROLE;
+
+ -------------------------------------
  test_name = 'DELETE in employee role';
  -------------------------------------
 
  BEGIN
     SET ROLE 'test-employee-a@scuola-1.it';
-    DELETE FROM public.messages_read WHERE message_read = '60304000000000';
+    DELETE FROM public.messages_read WHERE message_read = '1160304000000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but the employee shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -386,26 +392,7 @@ RESET ROLE;
     
 END;
 RESET ROLE;
- -------------------------------------
- test_name = 'UPDATE in teacher role';
- -------------------------------------
 
- BEGIN
-    SET ROLE 'test-teacher-a@scuola-1.it';
-    UPDATE public.messages_read SET message = '50113000000000' WHERE message_read = '60304000000000';
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the teacher shouldn''t be able to', NULL::diagnostic.error);
-    RESET ROLE;
-    RETURN;
- EXCEPTION WHEN SQLSTATE '42501' THEN
-    _results = _results || assert.pass(full_function_name, test_name);
-    WHEN OTHERS THEN
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RESET ROLE;
-        RETURN;
-    
-END;
-RESET ROLE;
  -------------------------------------
  test_name = 'INSERT in teacher role';
  -------------------------------------
@@ -427,12 +414,33 @@ END;
 RESET ROLE;
 
  -------------------------------------
+ test_name = 'UPDATE in teacher role';
+ -------------------------------------
+
+ BEGIN
+    SET ROLE 'test-teacher-a@scuola-1.it';
+    UPDATE public.messages_read SET message = '50113000000000' WHERE message_read = '1160304000000000';
+    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the teacher shouldn''t be able to', NULL::diagnostic.error);
+    RESET ROLE;
+    RETURN;
+ EXCEPTION WHEN SQLSTATE '42501' THEN
+    _results = _results || assert.pass(full_function_name, test_name);
+    WHEN OTHERS THEN
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RESET ROLE;
+        RETURN;
+    
+END;
+RESET ROLE;
+
+ -------------------------------------
  test_name = 'DELETE in teacher role';
  -------------------------------------
 
  BEGIN
     SET ROLE 'test-teacher-a@scuola-1.it';
-    DELETE FROM public.messages_read WHERE message_read = '60304000000000';
+    DELETE FROM public.messages_read WHERE message_read = '1160304000000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but the teacher shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -470,26 +478,7 @@ RESET ROLE;
     
 END;
 RESET ROLE;
- -------------------------------------
- test_name = 'UPDATE in relative role';
- -------------------------------------
 
- BEGIN
-    SET ROLE 'test-relative-a@scuola-1.it';
-    UPDATE public.messages_read SET message = '50113000000000' WHERE message_read = '60304000000000';
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the relative shouldn''t be able to', NULL::diagnostic.error);
-    RESET ROLE;
-    RETURN;
- EXCEPTION WHEN SQLSTATE '42501' THEN
-    _results = _results || assert.pass(full_function_name, test_name);
-    WHEN OTHERS THEN
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RESET ROLE;
-        RETURN;
-    
-END;
-RESET ROLE;
  -------------------------------------
  test_name = 'INSERT in relative role';
  -------------------------------------
@@ -511,12 +500,33 @@ END;
 RESET ROLE;
 
  -------------------------------------
+ test_name = 'UPDATE in relative role';
+ -------------------------------------
+
+ BEGIN
+    SET ROLE 'test-relative-a@scuola-1.it';
+    UPDATE public.messages_read SET message = '50113000000000' WHERE message_read = '1160304000000000';
+    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the relative shouldn''t be able to', NULL::diagnostic.error);
+    RESET ROLE;
+    RETURN;
+ EXCEPTION WHEN SQLSTATE '42501' THEN
+    _results = _results || assert.pass(full_function_name, test_name);
+    WHEN OTHERS THEN
+        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
+        RESET ROLE;
+        RETURN;
+    
+END;
+RESET ROLE;
+
+ -------------------------------------
  test_name = 'DELETE in relative role';
  -------------------------------------
 
  BEGIN
     SET ROLE 'test-relative-a@scuola-1.it';
-    DELETE FROM public.messages_read WHERE message_read = '60304000000000';
+    DELETE FROM public.messages_read WHERE message_read = '1160304000000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but the relative shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;

@@ -47,13 +47,13 @@ END;
 RESET ROLE;
 
  -------------------------------------
- test_name = 'UPDATE in student role';
+ test_name = 'INSERT in student role';
  -------------------------------------
 
  BEGIN
     SET ROLE 'test-student-a@scuola-1.it';
-    UPDATE public.usename_schools SET usename = 'usename' WHERE usename_school = '726621000000000';
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
+    INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('1726636000000000','manager-e@scuola-28961.it','28961000000000');
+    _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
  EXCEPTION WHEN SQLSTATE '42501' THEN 
@@ -68,13 +68,13 @@ END;
 RESET ROLE;
 
  -------------------------------------
- test_name = 'INSERT in student role';
+ test_name = 'UPDATE in student role';
  -------------------------------------
 
  BEGIN
     SET ROLE 'test-student-a@scuola-1.it';
-    INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('726636000000000','manager-e@scuola-28961.it','28961000000000');
-    _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student shouldn''t be able to', NULL::diagnostic.error);
+    UPDATE public.usename_schools SET usename = 'usename' WHERE usename_school = '1726636000000000';
+    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
  EXCEPTION WHEN SQLSTATE '42501' THEN 
@@ -95,7 +95,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-student-a@scuola-1.it';
-    DELETE FROM public.usename_schools WHERE usename_school = '726621000000000';
+    DELETE FROM public.usename_schools WHERE usename_school = '1726636000000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -135,15 +135,15 @@ END;
 RESET ROLE;
 
  -------------------------------------
- test_name = 'UPDATE in supervisor role';
+ test_name = 'INSERT in supervisor role';
  -------------------------------------
  
  BEGIN
     SET ROLE 'test-supervisor@scuola.it';
-    UPDATE public.usename_schools SET usename = 'usename' WHERE usename_school = '726621000000000';    
+    INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('1726636000000000','manager-e@scuola-28961.it','28961000000000');
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN 
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
+    _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
@@ -156,15 +156,15 @@ END;
 RESET ROLE;
 
  -------------------------------------
- test_name = 'INSERT in supervisor role';
+ test_name = 'UPDATE in supervisor role';
  -------------------------------------
  
  BEGIN
     SET ROLE 'test-supervisor@scuola.it';
-    INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('726636000000000','manager-e@scuola-28961.it','28961000000000');
+    UPDATE public.usename_schools SET usename = 'usename' WHERE usename_school = '1726636000000000';    
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN 
-    _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
+    _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
@@ -182,7 +182,7 @@ RESET ROLE;
  
  BEGIN
     SET ROLE 'test-supervisor@scuola.it';
-    DELETE FROM public.usename_schools WHERE usename_school = '726621000000000';
+    DELETE FROM public.usename_schools WHERE usename_school = '1726636000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN 
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
@@ -222,15 +222,15 @@ END;
 RESET ROLE;
 
  -------------------------------------
- test_name = 'UPDATE in executive role';
+ test_name = 'INSERT in executive role';
  -------------------------------------
  
  BEGIN
     SET ROLE 'test-executive-a@scuola-1.it';
-    UPDATE public.usename_schools SET usename = 'usename' WHERE usename_school = '726621000000000';    
+    INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('1726636000000000','manager-e@scuola-28961.it','28961000000000');
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN 
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the executive should be able to', NULL::diagnostic.error);
+    _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the executive should be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
@@ -243,15 +243,15 @@ END;
 RESET ROLE;
 
  -------------------------------------
- test_name = 'INSERT in executive role';
+ test_name = 'UPDATE in executive role';
  -------------------------------------
  
  BEGIN
     SET ROLE 'test-executive-a@scuola-1.it';
-    INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('726636000000000','manager-e@scuola-28961.it','28961000000000');
+    UPDATE public.usename_schools SET usename = 'usename' WHERE usename_school = '1726636000000000';    
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN 
-    _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the executive should be able to', NULL::diagnostic.error);
+    _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the executive should be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
     WHEN OTHERS THEN
@@ -269,7 +269,7 @@ RESET ROLE;
  
  BEGIN
     SET ROLE 'test-executive-a@scuola-1.it';
-    DELETE FROM public.usename_schools WHERE usename_school = '726621000000000';
+    DELETE FROM public.usename_schools WHERE usename_school = '1726636000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN 
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the executive should be able to', NULL::diagnostic.error);
@@ -307,12 +307,12 @@ END;
 RESET ROLE;
 
  -------------------------------------
- test_name = 'UPDATE in employee role';
+ test_name = 'INSERT in employee role';
  -------------------------------------
  
  BEGIN
     SET ROLE 'test-employee-a@scuola-1.it';
-    UPDATE public.usename_schools SET usename = 'usename' WHERE usename_school = '726621000000000';   
+    INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('1726636000000000','manager-e@scuola-28961.it','28961000000000');
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN 
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the employee should be able to', NULL::diagnostic.error);
@@ -328,12 +328,12 @@ END;
 RESET ROLE;
 
  -------------------------------------
- test_name = 'INSERT in employee role';
+ test_name = 'UPDATE in employee role';
  -------------------------------------
  
  BEGIN
     SET ROLE 'test-employee-a@scuola-1.it';
-    INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('726636000000000','manager-e@scuola-28961.it','28961000000000');
+    UPDATE public.usename_schools SET usename = 'usename' WHERE usename_school = '1726636000000000';   
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN 
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the employee should be able to', NULL::diagnostic.error);
@@ -354,7 +354,7 @@ RESET ROLE;
  
  BEGIN
     SET ROLE 'test-employee-a@scuola-1.it';
-    DELETE FROM public.usename_schools WHERE usename_school = '726621000000000';
+    DELETE FROM public.usename_schools WHERE usename_school = '1726636000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN 
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the employee should be able to', NULL::diagnostic.error);
@@ -393,16 +393,16 @@ END;
 RESET ROLE;
 
  -------------------------------------
- test_name = 'UPDATE in teacher role';
+ test_name = 'INSERT in teacher role';
  -------------------------------------
  
  BEGIN
     SET ROLE 'test-teacher-a@scuola-1.it';
-    UPDATE public.usename_schools SET usename = 'usename' WHERE usename_school = '726621000000000';    
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the teacher should be able to', NULL::diagnostic.error);
+    INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('1726636000000000','manager-e@scuola-28961.it','28961000000000');
+    _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the teacher should be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
- EXCEPTION WHEN SQLSTATE '42501' THEN 
+ EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.pass(full_function_name, test_name);
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -414,16 +414,16 @@ END;
 RESET ROLE;
 
  -------------------------------------
- test_name = 'INSERT in teacher role';
+ test_name = 'UPDATE in teacher role';
  -------------------------------------
  
  BEGIN
     SET ROLE 'test-teacher-a@scuola-1.it';
-    INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('726636000000000','manager-e@scuola-28961.it','28961000000000');
-    _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the teacher should be able to', NULL::diagnostic.error);
+    UPDATE public.usename_schools SET usename = 'usename' WHERE usename_school = '1726636000000000';    
+    _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the teacher should be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
- EXCEPTION WHEN SQLSTATE '42501' THEN
+ EXCEPTION WHEN SQLSTATE '42501' THEN 
     _results = _results || assert.pass(full_function_name, test_name);
     WHEN OTHERS THEN
         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -440,7 +440,7 @@ RESET ROLE;
  
  BEGIN
     SET ROLE 'test-teacher-a@scuola-1.it';
-    DELETE FROM public.usename_schools WHERE usename_school = '726621000000000';
+    DELETE FROM public.usename_schools WHERE usename_school = '1726636000000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the teacher should be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -480,13 +480,13 @@ END;
 RESET ROLE;
 
  -------------------------------------
- test_name = 'UPDATE in relative role';
+ test_name = 'INSERT in relative role';
  -------------------------------------
 
  BEGIN
     SET ROLE 'test-relative-a@scuola-1.it';
-    UPDATE public.usename_schools SET usename = 'usename' WHERE usename_school = '726621000000000';
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
+    INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('1726636000000000','manager-e@scuola-28961.it','28961000000000');
+    _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
  EXCEPTION WHEN SQLSTATE '42501' THEN 
@@ -501,13 +501,13 @@ END;
 RESET ROLE;
 
  -------------------------------------
- test_name = 'INSERT in relative role';
+ test_name = 'UPDATE in relative role';
  -------------------------------------
 
  BEGIN
     SET ROLE 'test-relative-a@scuola-1.it';
-    INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('726636000000000','manager-e@scuola-28961.it','28961000000000');
-    _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student shouldn''t be able to', NULL::diagnostic.error);
+    UPDATE public.usename_schools SET usename = 'usename' WHERE usename_school = '1726636000000000';
+    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
  EXCEPTION WHEN SQLSTATE '42501' THEN 
@@ -528,7 +528,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-relative-a@scuola-1.it';
-    DELETE FROM public.usename_schools WHERE usename_school = '726621000000000';
+    DELETE FROM public.usename_schools WHERE usename_school = '1726636000000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
