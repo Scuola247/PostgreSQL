@@ -159,6 +159,10 @@ REVOKE ALL ON TABLE public.weekly_timetables_days FROM public;
 -- wikimedia_files
 GRANT ALL ON TABLE public.wikimedia_files TO scuola247_supervisor;
 
+GRANT SELECT ON TABLE public.wikimedia_files TO scuola247_executive;
+GRANT SELECT ON TABLE public.wikimedia_files TO scuola247_employee;
+GRANT SELECT ON TABLE public.wikimedia_files TO scuola247_teacher;
+GRANT SELECT ON TABLE public.wikimedia_files TO scuola247_student;
 GRANT SELECT ON TABLE public.wikimedia_files TO scuola247_relative;
 
 REVOKE ALL ON TABLE public.wikimedia_files FROM public;
@@ -167,9 +171,13 @@ REVOKE ALL ON TABLE public.wikimedia_files FROM public;
 
 
 -- wikimedia_files_persons
+
 GRANT ALL ON TABLE public.wikimedia_files_persons TO scuola247_supervisor;
 
-
+GRANT SELECT ON TABLE public.wikimedia_files_persons TO scuola247_executive;
+GRANT SELECT ON TABLE public.wikimedia_files_persons TO scuola247_employee;
+GRANT SELECT ON TABLE public.wikimedia_files_persons TO scuola247_teacher;
+GRANT SELECT ON TABLE public.wikimedia_files_persons TO scuola247_student;
 GRANT SELECT ON TABLE public.wikimedia_files_persons TO scuola247_relative;
 
 REVOKE ALL ON TABLE public.wikimedia_files_persons FROM public;
