@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests_translate.procedures_check(boolean)
+﻿-- Function: unit_tests_translate.relations_check(boolean)
 
--- DROP FUNCTION unit_tests_translate.procedures_check(boolean);
+-- DROP FUNCTION unit_tests_translate.relations_check(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests_translate.procedures_check(
+CREATE OR REPLACE FUNCTION unit_tests_translate.relations_check(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -21,11 +21,12 @@ BEGIN
       PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
+ 
   --------------------------------------------------
   test_name = 'name mandatory';
   --------------------------------------------------
   BEGIN
-    UPDATE translate.procedures SET name = NULL WHERE procedure = '24000000000';
+    UPDATE translate.relations SET name = NULL WHERE relation = '299124000000000';
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but name mandatory was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -34,11 +35,12 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
+ 
   --------------------------------------------------
   test_name = 'language mandatory';
   --------------------------------------------------
   BEGIN
-    UPDATE translate.procedures SET language = NULL WHERE procedure = '24000000000';
+    UPDATE translate.relations SET language = NULL WHERE relation = '299124000000000';
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but language mandatory was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -47,15 +49,10 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
   
-
   RETURN;
-
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests_translate.procedures_check(boolean)
-  OWNER TO scuola247_supervisor;
-GRANT EXECUTE ON FUNCTION unit_tests_translate.procedures_check(boolean) TO public;
-GRANT EXECUTE ON FUNCTION unit_tests_translate.procedures_check(boolean) TO scuola247_supervisor WITH GRANT OPTION;
-GRANT EXECUTE ON FUNCTION unit_tests_translate.procedures_check(boolean) TO scuola247_user;
+ALTER FUNCTION unit_tests_translate.relations_check(boolean)
+  OWNER TO postgres;
