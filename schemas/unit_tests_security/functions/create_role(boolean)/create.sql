@@ -1,4 +1,4 @@
--- Function: unit_tests_security.create_role(boolean)
+﻿-- Function: unit_tests_security.create_role(boolean)
 
 -- DROP FUNCTION unit_tests_security.create_role(boolean);
 
