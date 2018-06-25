@@ -546,4 +546,3 @@ ALTER FUNCTION unit_tests_security.degrees(boolean)
 GRANT EXECUTE ON FUNCTION unit_tests_security.degrees(boolean) TO public;
 GRANT EXECUTE ON FUNCTION unit_tests_security.degrees(boolean) TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON FUNCTION unit_tests_security.degrees(boolean) TO scuola247_user;
-GRANT EXECUTE ON FUNCTION unit_tests_security.degrees(boolean) TO "jiahaodong@gmail.com" WITH GRANT OPTION;

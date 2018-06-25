@@ -550,4 +550,3 @@ ALTER FUNCTION unit_tests_security.delays(boolean)
 GRANT EXECUTE ON FUNCTION unit_tests_security.delays(boolean) TO public;
 GRANT EXECUTE ON FUNCTION unit_tests_security.delays(boolean) TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON FUNCTION unit_tests_security.delays(boolean) TO scuola247_user;
-GRANT EXECUTE ON FUNCTION unit_tests_security.delays(boolean) TO "jiahaodong@gmail.com" WITH GRANT OPTION;

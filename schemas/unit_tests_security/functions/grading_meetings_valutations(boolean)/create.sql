@@ -553,4 +553,3 @@ ALTER FUNCTION unit_tests_security.grading_meeting_valutation(boolean)
 GRANT EXECUTE ON FUNCTION unit_tests_security.grading_meeting_valutation(boolean) TO public;
 GRANT EXECUTE ON FUNCTION unit_tests_security.grading_meeting_valutation(boolean) TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON FUNCTION unit_tests_security.grading_meeting_valutation(boolean) TO scuola247_user;
-GRANT EXECUTE ON FUNCTION unit_tests_security.grading_meeting_valutation(boolean) TO "jiahaodong@gmail.com" WITH GRANT OPTION;
