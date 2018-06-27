@@ -1,6 +1,6 @@
-﻿-- Function: unit_tests_security.check_statement_enabled(text, text[],text, text)
+﻿-- Function: unit_tests_security.check_statement_enabled(text, text[], text, text)
 
--- DROP FUNCTION unit_tests_security.check_statement_enabled(text, text[],text, text);
+-- DROP FUNCTION unit_tests_security.check_statement_enabled(text, text[], text, text);
 
 CREATE OR REPLACE FUNCTION unit_tests_security.check_statement_enabled(
     IN _test_group text,
@@ -50,13 +50,16 @@ BEGIN
         RESET ROLE;
         RETURN;
 
+  RESET ROLE;
   END;
+  
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests_security.set_role_vertical(boolean)
-  OWNER TO scuola247_supervisor;
-GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text[],text, text) TO public;
-GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text[],text, text) TO scuola247_supervisor WITH GRANT OPTION;
-GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text[],text, text) TO scuola247_user;
+ALTER FUNCTION unit_tests_security.check_statement_enabled(text, text[], text, text)
+  OWNER TO "aimenhammou@gmail.com";
+GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text[], text, text) TO public;
+GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text[], text, text) TO "aimenhammou@gmail.com";
+GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text[], text, text) TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text[], text, text) TO scuola247_user;
