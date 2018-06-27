@@ -50,7 +50,7 @@ RESET ROLE;
  -------------------------------------
  BEGIN
     SET ROLE 'test-student-a@scuola-1.it';
-	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1148854000000000','32935000000000','47594000000000','2013-09-18','08:16:21','10373000000000');
+	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1148872000000000','32927000000000','47612000000000','2013-09-18','08:30:05','10690000000000');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -70,7 +70,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-student-a@scuola-1.it';
-    UPDATE public.delays SET on_date = '2013-10-17' WHERE delay = '1148854000000000';
+    UPDATE public.delays SET on_date = '2013-10-17' WHERE delay = '1148872000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -91,7 +91,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-student-a@scuola-1.it';
-    DELETE FROM public.delays WHERE delay = '1148854000000000';
+    DELETE FROM public.delays WHERE delay = '1148872000000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -136,7 +136,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-supervisor@scuola.it';
-	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1148854000000000','32935000000000','47594000000000','2013-09-18','08:16:21','10373000000000');
+	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1148872000000000','32927000000000','47612000000000','2013-09-18','08:30:05','10690000000000');
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
@@ -156,7 +156,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-supervisor@scuola.it';
-    UPDATE public.delays SET on_date = '2013-10-17' WHERE delay = '1148854000000000';
+    UPDATE public.delays SET on_date = '2013-10-17' WHERE delay = '1148872000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
@@ -177,7 +177,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-supervisor@scuola.it';
-    DELETE FROM public.delays WHERE delay = '1148854000000000';
+    DELETE FROM public.delays WHERE delay = '1148872000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
@@ -223,7 +223,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-executive-a@scuola-1.it';
-	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1148854000000000','32935000000000','47594000000000','2013-09-18','08:16:21','10373000000000');
+	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1148872000000000','32927000000000','47612000000000','2013-09-18','08:30:05','10690000000000');
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the executive should be able to', NULL::diagnostic.error);
@@ -244,7 +244,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-executive-a@scuola-1.it';
-    UPDATE public.delays SET on_date = '2013-10-17' WHERE delay = '1148854000000000';
+    UPDATE public.delays SET on_date = '2013-10-17' WHERE delay = '1148872000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the executive should be able to', NULL::diagnostic.error);
@@ -265,7 +265,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-executive-a@scuola-1.it';
-    DELETE FROM public.delays WHERE delay = '1148854000000000';
+    DELETE FROM public.delays WHERE delay = '1148872000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the executive should be able to', NULL::diagnostic.error);
@@ -308,7 +308,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-employee-a@scuola-1.it';
-	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1148854000000000','32935000000000','47594000000000','2013-09-18','08:16:21','10373000000000');
+	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1148872000000000','32927000000000','47612000000000','2013-09-18','08:30:05','10690000000000');
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the employee should be able to', NULL::diagnostic.error);
@@ -328,7 +328,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-employee-a@scuola-1.it';
-    UPDATE public.delays SET on_date = '2013-10-17' WHERE delay = '1148854000000000';
+    UPDATE public.delays SET on_date = '2013-10-17' WHERE delay = '1148872000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the employee should be able to', NULL::diagnostic.error);
@@ -349,7 +349,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-employee-a@scuola-1.it';
-    DELETE FROM public.delays WHERE delay = '1148854000000000';
+    DELETE FROM public.delays WHERE delay = '1148872000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the employee should be able to', NULL::diagnostic.error);
@@ -394,7 +394,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-teacher-a@scuola.it';
-	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1148854000000000','32935000000000','47594000000000','2013-09-18','08:16:21','10373000000000');
+	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1148872000000000','32927000000000','47612000000000','2013-09-18','08:30:05','10690000000000');
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the teacher should be able to', NULL::diagnostic.error);
@@ -414,7 +414,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-teacher-a@scuola.it';
-    UPDATE public.delays SET on_date = '2013-10-17' WHERE delay = '1148854000000000';
+    UPDATE public.delays SET on_date = '2013-10-17' WHERE delay = '1148872000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE wasn''t OK but the teacher should be able to', NULL::diagnostic.error);
@@ -436,7 +436,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-teacher-a@scuola.it';
-    DELETE FROM public.delays WHERE delay = '1148854000000000';
+    DELETE FROM public.delays WHERE delay = '1148872000000000';
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'DELETE wasn''t OK but the teacher should be able to', NULL::diagnostic.error);
@@ -481,7 +481,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-relative-a@scuola-1.it';
-	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1148854000000000','32935000000000','47594000000000','2013-09-18','08:16:21','10373000000000');
+    INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1148872000000000','32927000000000','47612000000000','2013-09-18','08:30:05','10690000000000');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the relative shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -501,7 +501,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-relative-a@scuola-1.it';
-    UPDATE public.delays SET on_date = '2013-10-17' WHERE delay = '1148854000000000';
+    UPDATE public.delays SET on_date = '2013-10-17' WHERE delay = '1148872000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the relative shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -522,7 +522,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-relative-a@scuola-1.it';
-    DELETE FROM public.delays WHERE delay = '1148854000000000';
+    DELETE FROM public.delays WHERE delay = '1148872000000000';
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but the relative shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;

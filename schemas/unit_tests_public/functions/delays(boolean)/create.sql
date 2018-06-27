@@ -50,7 +50,7 @@ BEGIN
 	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('48869000000000','32926000000000','47609000000000','2013-09-21','08:26:04','10662000000000');
 	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('48870000000000','32931000000000','47610000000000','2013-09-16','08:07:55','10700000000000');
 	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('48871000000000','32936000000000','47611000000000','2013-09-17','08:50:26','10695000000000');
-	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('48872000000000','32927000000000','47612000000000','2013-09-18','08:30:05','10690000000000');
+	--INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('48872000000000','32927000000000','47612000000000','2013-09-18','08:30:05','10690000000000');
 	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('48873000000000','32932000000000','47613000000000','2013-09-19','08:37:02','10685000000000');
 	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('48874000000000','32937000000000','47614000000000','2013-09-20','08:23:30','10724000000000');
 	INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('48875000000000','32928000000000','47615000000000','2013-09-21','08:19:44','10719000000000');
@@ -1303,4 +1303,7 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION unit_tests_public.delays(boolean)
-  OWNER TO postgres;
+  OWNER TO scuola247_supervisor;
+GRANT EXECUTE ON FUNCTION unit_tests_public.delays(boolean) TO public;
+GRANT EXECUTE ON FUNCTION unit_tests_public.delays(boolean) TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON FUNCTION unit_tests_public.delays(boolean) TO scuola247_user;
