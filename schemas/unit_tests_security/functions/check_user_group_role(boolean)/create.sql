@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests_security.test_user_group_role(text, text)
+﻿-- Function: unit_tests_security.check_user_group_role(text, text)
 
--- DROP FUNCTION unit_tests_security.test_user_group_role(text, text);
+-- DROP FUNCTION unit_tests_security.check_user_group_role(text, text);
 
-CREATE OR REPLACE FUNCTION unit_tests_security.test_user_group_role(
+CREATE OR REPLACE FUNCTION unit_tests_security.check_user_group_role(
     IN _test_group text DEFAULT 'scuola247_supervisor'::text,
     IN _username text DEFAULT NULL::text,
     OUT _results unit_testing.unit_test_result[])
@@ -29,5 +29,5 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests_security.test_user_group_role(text, text)
+ALTER FUNCTION unit_tests_security.check_user_group_role(text, text)
   OWNER TO scuola247_supervisor;

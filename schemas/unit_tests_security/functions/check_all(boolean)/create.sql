@@ -19,7 +19,7 @@ BEGIN
 
     -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_security.create_role', 'unit_tests_public._after_data_insert');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_security.create_role');
     RETURN;
   END IF;
 
@@ -29,27 +29,27 @@ BEGIN
     ---------------------------
 
     -- 'test-supervisor@scuola.it';
-    _results = _results || unit_tests_security.test_user_group_role('scuola247_supervisor','test-supervisor@scuola.it');
+    _results = _results || unit_tests_security.test_user_group_role('test-supervisor@scuola.it','scuola247_supervisor');
   
 
     -- 'test-executive-a@scuola-1.it';
-    _results = _results || unit_tests_security.test_user_group_role('scuola247_executive','test-executive-a@scuola-1.it');
+    _results = _results || unit_tests_security.test_user_group_role('test-executive-a@scuola-1.it','scuola247_executive');
     
 
     -- 'test-employee-a@scuola-1.it';
-    _results = _results || unit_tests_security.test_user_group_role('scuola247_employee','test-employee-a@scuola-1.it');
+    _results = _results || unit_tests_security.test_user_group_role('test-employee-a@scuola-1.it','scuola247_employee');
     
 
     -- 'test-teacher-a@scuola-1.it';
-    _results = _results || unit_tests_security.test_user_group_role('scuola247_teacher','test-teacher-a@scuola-1.it');
+    _results = _results || unit_tests_security.test_user_group_role('test-teacher-a@scuola-1.it', 'scuola247_teacher');
     
 
     -- 'test-student-a@scuola-1.it';
-    _results = _results || unit_tests_security.test_user_group_role('scuola247_student','test-student-a@scuola-1.it');
+    _results = _results || unit_tests_security.test_user_group_role('test-student-a@scuola-1.it','scuola247_student');
     
 
     -- 'test-relative-a@scuola-1.it';
-    _results = _results || unit_tests_security.test_user_group_role('scuola247_relative','test-relative-a@scuola-1.it');
+    _results = _results || unit_tests_security.test_user_group_role('test-relative-a@scuola-1.it','scuola247_relative');
    
 
     _results = _results || assert.pass(full_function_name, test_name);
