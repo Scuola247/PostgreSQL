@@ -1,11 +1,11 @@
-﻿-- Function: unit_tests_security.check_statement_enabled(text, text[], text, text)
+﻿-- Function: unit_tests_security.check_statement_enabled(text, text, text[], text)
 
--- DROP FUNCTION unit_tests_security.check_statement_enabled(text, text[], text, text);
+-- DROP FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text);
 
 CREATE OR REPLACE FUNCTION unit_tests_security.check_statement_enabled(
-    IN _test_group text,
-    IN groups_enabled text[],
-    IN _username text,
+    IN _usename text,
+    IN _group text,
+    IN _groups_enabled text[],
     IN _sql text,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -14,30 +14,36 @@ $BODY$
 DECLARE
   context               text;
   full_function_name   	text;
-  test_name		          text = '';
-  error			            diagnostic.error;
+  test_name	        text = '';
+  error			diagnostic.error;
   command 		text;
 BEGIN
   GET DIAGNOSTICS context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
-  
+
+  ----------------------------------------------------------------------------------------------------------------------------------
+  test_name = format('Check Statement for user: %s, group:%s, groups enabled: %s, sql: %s', _usename, _group, _groups_enabled, _sql);
+  ----------------------------------------------------------------------------------------------------------------------------------
+
   BEGIN
-    command = format('SET ROLE %I;',_username);
+
+    command = format('SET ROLE %I;',_usename);
     
     EXECUTE command;
     EXECUTE _sql;
 
-    IF (_test_group = ANY(groups_enabled)) THEN
+    IF (_group = ANY(_groups_enabled)) THEN
 	_results = _results || assert.pass(full_function_name, test_name);
     ELSE
-        _results = _results || assert.fail(full_function_name, test_name,format('SELECT was OK but the group %s shouldn''t be able to',_test_group), NULL::diagnostic.error);
+        _results = _results || assert.fail(full_function_name, test_name,format('Command OK but the group %s shouldn''t be able to SQL: %s', _group, _sql), NULL::diagnostic.error);
         RESET ROLE;
 	RETURN;
     END IF;
+
   EXCEPTION WHEN SQLSTATE '42501' THEN
   
-     IF (_test_group = ANY(groups_enabled)) THEN
-        _results = _results || assert.fail(full_function_name, test_name,format('SELECT wasn''t OK but the group %s should be able to',_test_group), NULL::diagnostic.error);
+     IF (_group = ANY(_groups_enabled)) THEN
+        _results = _results || assert.fail(full_function_name, test_name,format('Command OK but the group %s shouldn''t be able to SQL: %s', _group, _sql), NULL::diagnostic.error);
         RESET ROLE;
 	RETURN;
     ELSE
@@ -57,9 +63,9 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests_security.check_statement_enabled(text, text[], text, text)
+ALTER FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text)
   OWNER TO "aimenhammou@gmail.com";
-GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text[], text, text) TO public;
-GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text[], text, text) TO "aimenhammou@gmail.com";
-GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text[], text, text) TO scuola247_supervisor WITH GRANT OPTION;
-GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text[], text, text) TO scuola247_user;
+GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text) TO public;
+GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text) TO "aimenhammou@gmail.com";
+GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text) TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text) TO scuola247_user;

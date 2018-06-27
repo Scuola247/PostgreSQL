@@ -27,30 +27,13 @@ BEGIN
     ---------------------------
     test_name = 'SET ROLES';
     ---------------------------
-
-    -- 'test-supervisor@scuola.it';
-    _results = _results || unit_tests_security.test_user_group_role('test-supervisor@scuola.it','scuola247_supervisor');
-  
-
-    -- 'test-executive-a@scuola-1.it';
-    _results = _results || unit_tests_security.test_user_group_role('test-executive-a@scuola-1.it','scuola247_executive');
     
-
-    -- 'test-employee-a@scuola-1.it';
-    _results = _results || unit_tests_security.test_user_group_role('test-employee-a@scuola-1.it','scuola247_employee');
-    
-
-    -- 'test-teacher-a@scuola-1.it';
-    _results = _results || unit_tests_security.test_user_group_role('test-teacher-a@scuola-1.it', 'scuola247_teacher');
-    
-
-    -- 'test-student-a@scuola-1.it';
-    _results = _results || unit_tests_security.test_user_group_role('test-student-a@scuola-1.it','scuola247_student');
-    
-
-    -- 'test-relative-a@scuola-1.it';
-    _results = _results || unit_tests_security.test_user_group_role('test-relative-a@scuola-1.it','scuola247_relative');
-   
+    _results = _results || unit_tests_security.check_user_group_role('test-supervisor@scuola.it','scuola247_supervisor');   
+    _results = _results || unit_tests_security.check_user_group_role('unit_testing_executive_a@scuola_1.it','scuola247_executive');   
+    _results = _results || unit_tests_security.check_user_group_role('unit_testing_employee_a@scuola_1.it','scuola247_employee');   
+    _results = _results || unit_tests_security.check_user_group_role('unit_testing_teacher_a@scuola_1.it', 'scuola247_teacher');  
+    _results = _results || unit_tests_security.check_user_group_role('unit_testing_student_a@scuola_1.it','scuola247_student');
+    _results = _results || unit_tests_security.check_user_group_role('unit_testing_relative_a@scuola_1.it','scuola247_relative');
 
     _results = _results || assert.pass(full_function_name, test_name);
 
