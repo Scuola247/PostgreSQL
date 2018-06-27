@@ -27,38 +27,38 @@ BEGIN
     ---------------------------
     test_name = 'CREATE ROLES';
     ---------------------------
-    PERFORM special.scuola247_create_user('test-supervisor@scuola.it', 'password', 'scuola247_supervisor', 'it'::utility.language, 1000000000, 2000000000, 28961000000000);
-    PERFORM special.scuola247_create_user('test-executive-a@scuola-1.it', 'password', 'scuola247_executive', 'it'::utility.language, 1000000000);
-    PERFORM special.scuola247_create_user('test-executive-b@scuola-1.it', 'password', 'scuola247_executive', 'it'::utility.language, 1000000000);
-    PERFORM special.scuola247_create_user('test-executive-c@scuola-2.it', 'password', 'scuola247_executive', 'it'::utility.language, 2000000000);
-    PERFORM special.scuola247_create_user('test-executive-d@scuola-2.it', 'password', 'scuola247_executive', 'it'::utility.language, 2000000000);
-    PERFORM special.scuola247_create_user('test-executive-e@scuola-28961.it', 'password', 'scuola247_executive', 'it'::utility.language, 28961000000000);
-    PERFORM special.scuola247_create_user('test-executive-f@scuola-28961.it', 'password', 'scuola247_executive', 'it'::utility.language, 28961000000000);
-    PERFORM special.scuola247_create_user('test-employee-a@scuola-1.it', 'password', 'scuola247_employee', 'it'::utility.language, 1000000000);
-    PERFORM special.scuola247_create_user('test-employee-b@scuola-1.it', 'password', 'scuola247_employee', 'it'::utility.language, 1000000000);
-    PERFORM special.scuola247_create_user('test-employee-c@scuola-2.it', 'password', 'scuola247_employee', 'it'::utility.language, 2000000000);
-    PERFORM special.scuola247_create_user('test-employee-d@scuola-2.it', 'password', 'scuola247_employee', 'it'::utility.language, 2000000000);
-    PERFORM special.scuola247_create_user('test-employee-e@scuola-28961.it', 'password', 'scuola247_employee', 'it'::utility.language, 28961000000000);
-    PERFORM special.scuola247_create_user('test-employee-f@scuola-28961.it', 'password', 'scuola247_employee', 'it'::utility.language, 28961000000000);
-    PERFORM special.scuola247_create_user('test-teacher-a@scuola-1.it', 'password', 'scuola247_teacher', 'it'::utility.language, 1000000000);
-    PERFORM special.scuola247_create_user('test-teacher-b@scuola-1.it', 'password', 'scuola247_teacher', 'it'::utility.language, 1000000000);
-    PERFORM special.scuola247_create_user('test-teacher-c@scuola-2.it', 'password', 'scuola247_teacher', 'it'::utility.language, 2000000000);
-    PERFORM special.scuola247_create_user('test-teacher-d@scuola-2.it', 'password', 'scuola247_teacher', 'it'::utility.language, 2000000000);
-    PERFORM special.scuola247_create_user('test-teacher-e@scuola-28961.it', 'password', 'scuola247_teacher', 'it'::utility.language, 28961000000000);
-    PERFORM special.scuola247_create_user('test-teacher-f@scuola-28961.it', 'password', 'scuola247_teacher', 'it'::utility.language, 28961000000000);
-    PERFORM special.scuola247_create_user('test-relative-a@scuola-1.it', 'password', 'scuola247_relative', 'it'::utility.language, 1000000000);
-    PERFORM special.scuola247_create_user('test-relative-b@scuola-1.it', 'password', 'scuola247_relative', 'it'::utility.language, 1000000000);
-    PERFORM special.scuola247_create_user('test-relative-c@scuola-2.it', 'password', 'scuola247_relative', 'it'::utility.language, 2000000000);
-    PERFORM special.scuola247_create_user('test-relative-d@scuola-2.it', 'password', 'scuola247_relative', 'it'::utility.language, 2000000000);
-    PERFORM special.scuola247_create_user('test-relative-e@scuola-28961.it', 'password', 'scuola247_relative', 'it'::utility.language, 28961000000000);
-    PERFORM special.scuola247_create_user('test-relative-f@scuola-28961.it', 'password', 'scuola247_relative', 'it'::utility.language, 28961000000000);
-    PERFORM special.scuola247_create_user('test-student-a@scuola-1.it', 'password', 'scuola247_student', 'it'::utility.language, 1000000000);
-    PERFORM special.scuola247_create_user('test-student-b@scuola-1.it', 'password', 'scuola247_student', 'it'::utility.language, 1000000000);
-    PERFORM special.scuola247_create_user('test-student-c@scuola-2.it', 'password', 'scuola247_student', 'it'::utility.language, 2000000000);
-    PERFORM special.scuola247_create_user('test-student-d@scuola-2.it', 'password', 'scuola247_student', 'it'::utility.language, 2000000000);
-    PERFORM special.scuola247_create_user('test-student-e@scuola-28961.it', 'password', 'scuola247_student', 'it'::utility.language, 28961000000000);
-    PERFORM special.scuola247_create_user('test-student-f@scuola-28961.it', 'password', 'scuola247_student', 'it'::utility.language, 28961000000000);
---    PERFORM special.scuola247_create_user('test-user@scuola.it', 'password', 'scuola247_user', 'it'::utility.language, NULL);  -- campo school è not null con contstraint di foreign key
+    PERFORM special.scuola247_create_user('unit_testing_supervisor@scuola.it', 'scuola247_supervisor'::special.scuola247_groups, 'it'::utility.language, 1000000000, 2000000000, 28961000000000);
+    PERFORM special.scuola247_create_user('unit_testing_executive_a@scuola_1.it', 'scuola247_executive'::special.scuola247_groups, 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('unit_testing_executive_b@scuola_1.it', 'scuola247_executive'::special.scuola247_groups, 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('unit_testing_executive_c@scuola_2.it', 'scuola247_executive'::special.scuola247_groups, 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('unit_testing_executive_d@scuola_2.it', 'scuola247_executive'::special.scuola247_groups, 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('unit_testing_executive_e@scuola_28961.it', 'scuola247_executive'::special.scuola247_groups, 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('unit_testing_executive_f@scuola_28961.it', 'scuola247_executive'::special.scuola247_groups, 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('unit_testing_employee_a@scuola_1.it', 'scuola247_employee'::special.scuola247_groups, 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('unit_testing_employee_b@scuola_1.it', 'scuola247_employee'::special.scuola247_groups, 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('unit_testing_employee_c@scuola_2.it', 'scuola247_employee'::special.scuola247_groups, 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('unit_testing_employee_d@scuola_2.it', 'scuola247_employee'::special.scuola247_groups, 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('unit_testing_employee_e@scuola_28961.it', 'scuola247_employee'::special.scuola247_groups, 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('unit_testing_employee_f@scuola_28961.it', 'scuola247_employee'::special.scuola247_groups, 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('unit_testing_teacher_a@scuola_1.it', 'scuola247_teacher'::special.scuola247_groups, 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('unit_testing_teacher_b@scuola_1.it', 'scuola247_teacher'::special.scuola247_groups, 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('unit_testing_teacher_c@scuola_2.it', 'scuola247_teacher'::special.scuola247_groups, 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('unit_testing_teacher_d@scuola_2.it', 'scuola247_teacher'::special.scuola247_groups, 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('unit_testing_teacher_e@scuola_28961.it', 'scuola247_teacher'::special.scuola247_groups, 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('unit_testing_teacher_f@scuola_28961.it', 'scuola247_teacher'::special.scuola247_groups, 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('unit_testing_relative_a@scuola_1.it', 'scuola247_relative'::special.scuola247_groups, 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('unit_testing_relative_b@scuola_1.it', 'scuola247_relative'::special.scuola247_groups, 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('unit_testing_relative_c@scuola_2.it', 'scuola247_relative'::special.scuola247_groups, 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('unit_testing_relative_d@scuola_2.it', 'scuola247_relative'::special.scuola247_groups, 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('unit_testing_relative_e@scuola_28961.it', 'scuola247_relative'::special.scuola247_groups, 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('unit_testing_relative_f@scuola_28961.it', 'scuola247_relative'::special.scuola247_groups, 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('unit_testing_student_a@scuola_1.it', 'scuola247_student'::special.scuola247_groups, 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('unit_testing_student_b@scuola_1.it', 'scuola247_student'::special.scuola247_groups, 'it'::utility.language, 1000000000);
+    PERFORM special.scuola247_create_user('unit_testing_student_c@scuola_2.it', 'scuola247_student'::special.scuola247_groups, 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('unit_testing_student_d@scuola_2.it', 'scuola247_student'::special.scuola247_groups, 'it'::utility.language, 2000000000);
+    PERFORM special.scuola247_create_user('unit_testing_student_e@scuola_28961.it', 'scuola247_student'::special.scuola247_groups, 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('unit_testing_student_f@scuola_28961.it', 'scuola247_student'::special.scuola247_groups, 'it'::utility.language, 28961000000000);
+    PERFORM special.scuola247_create_user('unit_testing_user@scuola.it', 'scuola247_user'::special.scuola247_groups, 'it'::utility.language, NULL);
 
     _results = _results || assert.pass(full_function_name, test_name);
 
@@ -66,7 +66,7 @@ BEGIN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.fail(full_function_name, test_name, 'CREATE ROLE FAILED'::text, error);
     RETURN;
-END;
+  END;
 
 RETURN;
 

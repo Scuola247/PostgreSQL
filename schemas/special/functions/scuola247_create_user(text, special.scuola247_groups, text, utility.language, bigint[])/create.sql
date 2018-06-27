@@ -1,6 +1,6 @@
-﻿-- Function: special.scuola247_create_user(text, text, text, utility.language, bigint[])
+﻿-- Function: special.scuola247_create_user(text, special.scuola247_groups, utility.language, bigint[])
 
--- DROP FUNCTION special.scuola247_create_user(text, text, text, utility.language, bigint[]);
+-- DROP FUNCTION special.scuola247_create_user(text, special.scuola247_groups, utility.language, bigint[]);
 
 CREATE OR REPLACE FUNCTION special.scuola247_create_user(
     IN _usename text,
@@ -33,9 +33,12 @@ BEGIN
     EXECUTE command;
   
     INSERT INTO public.usenames_ex(usename, language) VALUES (_usename, _language);
-
+    
     FOREACH school IN ARRAY _schools LOOP
-      INSERT INTO usenames_schools(usename, school) VALUES (_usename, school);
+      IF school IS NULL THEN
+      ELSE
+	INSERT INTO usenames_schools(usename, school) VALUES (_usename, school);
+      END IF;
     END LOOP;
     
   EXCEPTION WHEN OTHERS THEN
@@ -53,9 +56,5 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE SECURITY DEFINER
   COST 100;
-ALTER FUNCTION special.scuola247_create_user(text, text, text, utility.language, bigint[])
+ALTER FUNCTION special.scuola247_create_user(text, special.scuola247_groups, utility.language, bigint[])
   OWNER TO postgres;
-GRANT EXECUTE ON FUNCTION special.scuola247_create_user(text, text, text, utility.language, bigint[]) TO public;
-GRANT EXECUTE ON FUNCTION special.scuola247_create_user(text, text, text, utility.language, bigint[]) TO postgres;
-GRANT EXECUTE ON FUNCTION special.scuola247_create_user(text, text, text, utility.language, bigint[]) TO scuola247_executive;
-GRANT EXECUTE ON FUNCTION special.scuola247_create_user(text, text, text, utility.language, bigint[]) TO scuola247_employee;
