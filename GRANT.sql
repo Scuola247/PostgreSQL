@@ -226,8 +226,8 @@ GRANT USAGE ON TYPE public.wikimedia_type TO scuola247_user;
 GRANT ALL ON TABLE public.absences TO scuola247_supervisor;
 GRANT ALL ON TABLE public.absences TO scuola247_executive;
 GRANT ALL ON TABLE public.absences TO scuola247_teacher;
+GRANT ALL ON TABLE public.absences TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.absences TO scuola247_employee;
 GRANT SELECT ON TABLE public.absences TO scuola247_student;
 GRANT SELECT ON TABLE public.absences TO scuola247_relative;
 

@@ -50,7 +50,7 @@ RESET ROLE;
  -------------------------------------
  BEGIN
     SET ROLE 'test-student-a@scuola-1.it';
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (119942000000000, 1000000000, 'Scuola dell''infanzia', 3);
+    INSERT INTO degrees (degree, school, description, course_years) VALUES (119942000000000, 1000000000, 'test', 3);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -137,7 +137,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-supervisor@scuola.it';
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (119942000000000, 1000000000, 'Scuola dell''infanzia', 3);
+    INSERT INTO degrees (degree, school, description, course_years) VALUES (119942000000000, 1000000000, 'test', 3);
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the supervisor should be able to', NULL::diagnostic.error);
@@ -224,7 +224,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-executive-a@scuola-1.it';
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (119942000000000, 1000000000, 'Scuola dell''infanzia', 3);
+    INSERT INTO degrees (degree, school, description, course_years) VALUES (119942000000000, 1000000000, 'test', 3);
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the executive should be able to', NULL::diagnostic.error);
@@ -310,7 +310,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-employee-a@scuola-1.it';
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (119942000000000, 1000000000, 'Scuola dell''infanzia', 3);
+    INSERT INTO degrees (degree, school, description, course_years) VALUES (119942000000000, 1000000000, 'test', 3);
     _results = _results || assert.pass(full_function_name, test_name);
  EXCEPTION WHEN SQLSTATE '42501' THEN
     _results = _results || assert.fail(full_function_name, test_name,'INSERT wasn''t OK but the employee should be able to', NULL::diagnostic.error);
@@ -394,7 +394,7 @@ RESET ROLE;
  -------------------------------------
  BEGIN
     SET ROLE 'test-teacher-a@scuola-1.it';
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (119942000000000, 1000000000, 'Scuola dell''infanzia', 3);
+    INSERT INTO degrees (degree, school, description, course_years) VALUES (119942000000000, 1000000000, 'test', 3);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the teacher shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
@@ -481,7 +481,7 @@ RESET ROLE;
 
  BEGIN
     SET ROLE 'test-relative-a@scuola-1.it';
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (119942000000000, 1000000000, 'Scuola dell''infanzia', 3);
+    INSERT INTO degrees (degree, school, description, course_years) VALUES (119942000000000, 1000000000, 'test', 3);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the relative shouldn''t be able to', NULL::diagnostic.error);
     RESET ROLE;
     RETURN;
