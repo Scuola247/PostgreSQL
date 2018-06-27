@@ -50,7 +50,7 @@ BEGIN
         RETURN; 
     END IF;
   END;
-/*
+
  BEGIN 
   SET ROLE _user;
   --------------------------------------------------------
@@ -192,7 +192,7 @@ EXCEPTION WHEN OTHERS THEN
   PERFORM 1 FROM
   public.communications_media
   JOIN  public.persons ON communications_media.person = persons.person  
-  WHERE persons.school = school;
+  WHERE persons.school = _school;
 
 	IF FOUND THEN
            _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
@@ -219,7 +219,7 @@ EXCEPTION WHEN OTHERS THEN
   public.conversations
   JOIN  public.classrooms_students ON conversations.classroom_student = classrooms_students.classroom_student
   JOIN  public.persons ON classrooms_students.student = persons.born
-  WHERE persons.school = school;
+  WHERE persons.school = _school;
 
 	IF FOUND THEN
            _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
@@ -247,7 +247,7 @@ EXCEPTION WHEN OTHERS THEN
   JOIN public.conversations ON conversations_invites.conversation = conversations.conversation
   JOIN public.classrooms_students ON conversations.classroom_student = classrooms_students.classroom_student 
   JOIN public.persons ON classrooms_students.student = persons.person
-  WHERE persons.school = school;
+  WHERE persons.school = _school;
   
 
 	IF FOUND THEN
@@ -276,7 +276,7 @@ EXCEPTION WHEN OTHERS THEN
   public.conversations
   JOIN  public.classrooms_students ON conversations.classroom_student = classrooms_students.classroom_student
   JOIN  public.persons ON classrooms_students.student = persons.born
-  WHERE persons.school = school;
+  WHERE persons.school = _school;
 
 	IF FOUND THEN
            _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
@@ -330,7 +330,7 @@ EXCEPTION WHEN OTHERS THEN
     public.delays
     JOIN public.explanations ON delays.explanation = explanations.explanation
     JOIN public.persons ON explanations.student = persons.person
-  WHERE persons.school = school;
+  WHERE persons.school = _school;
   
 
 	IF FOUND THEN
@@ -488,7 +488,7 @@ EXCEPTION WHEN OTHERS THEN
 	PERFORM 1 FROM 
 	  public.grading_meetings_valutations 
 	  JOIN public.persons ON grading_meetings_valutations.student = persons.person
-	  WHERE subjects.school = _school;
+	  WHERE person.school = _school;
   
 	IF FOUND THEN
            _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
@@ -512,9 +512,9 @@ EXCEPTION WHEN OTHERS THEN
   SET ROLE _user;
   PERFORM 1 FROM 
        public.grading_meetings_valutations
-       JOIN public.persons ON grading_meetings_valutations.student = persons.person
        JOIN public.grading_meetings_valutations ON grading_meetings_valutations_qua.grading_meeting_valutation = grading_meetings_valutations.grading_meeting_valutation
-       WHERE subjects.school = _school;
+       JOIN public.persons ON grading_meetings_valutations.student = persons.person
+       WHERE person.school = _school;
 	IF FOUND THEN
            _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
@@ -534,7 +534,7 @@ EXCEPTION WHEN OTHERS THEN
 
 
  ---------------------------------------------------------------
-  test_name= 'check user and school on table holdays';
+  test_name= 'check user and school on table holidays';
  ---------------------------------------------------------------
   SET ROLE _user;
   PERFORM 1 FROM 
@@ -555,8 +555,163 @@ EXCEPTION WHEN OTHERS THEN
         RETURN; 
     END IF;
   END;
-  --BEGIN
-*/
+  BEGIN
+
+  ---------------------------------------------------------------
+  test_name= 'check user and school on table leavings';
+ ---------------------------------------------------------------
+  SET ROLE _user;
+  SELECT 1 FROM 
+    public.leavings
+    JOIN public.persons ON leavings.teacher = persons.person
+    WHERE persons.school = _school;
+
+  
+	IF FOUND THEN
+           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+	RESET ROLE;
+	RETURN; 
+        ELSE 
+          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+        END IF;
+  EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN 
+	RESET ROLE;
+        RETURN; 
+    END IF;
+  END;
+  BEGIN
+
+
+ ---------------------------------------------------------------
+  test_name= 'check user and school on table lessons';
+ ---------------------------------------------------------------
+  SET ROLE _user;
+  PERFORM 1 FROM 
+    public.lessons
+    JOIN public.persons ON lessons.teacher = persons.person
+    WHERE person.school = _school; 
+  IF FOUND THEN
+           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+	RESET ROLE;
+	RETURN; 
+        ELSE 
+          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+        END IF;
+  EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN 
+	RESET ROLE;
+        RETURN; 
+    END IF;
+  END;
+  BEGIN 
+
+
+  
+ ---------------------------------------------------------------
+  test_name= 'check user and school on table messages';
+ ---------------------------------------------------------------
+  SET ROLE _user;
+  PERFORM 1 FROM 
+    public.messages 
+    JOIN public.persons ON messages.person = persons.person
+    WHERE person.school = _school;
+  IF FOUND THEN
+           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+	RESET ROLE;
+	RETURN; 
+        ELSE 
+          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+        END IF;
+  EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN 
+	RESET ROLE;
+        RETURN; 
+    END IF;
+  END;
+  BEGIN 
+
+ ---------------------------------------------------------------
+  test_name= 'check user and school on table messages_read';
+ ---------------------------------------------------------------
+  SET ROLE _user;
+  PERFORM 1 FROM 
+    public.messages_read
+    JOIN public.persons ON messages_read.person = persons.person
+    WHERE person.school = _school;
+  IF FOUND THEN
+           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+	RESET ROLE;
+	RETURN; 
+        ELSE 
+          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+        END IF;
+  EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN 
+	RESET ROLE;
+        RETURN; 
+    END IF;
+  END;
+  BEGIN 
+  
+ ---------------------------------------------------------------
+  test_name= 'check user and school on table metrics';
+ ---------------------------------------------------------------
+  SET ROLE _user;
+  PERFORM 1 FROM 
+  public.metrics
+  WHERE metrics.school = _school;
+  IF FOUND THEN
+           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+	RESET ROLE;
+	RETURN; 
+        ELSE 
+          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+        END IF;
+  EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN 
+	RESET ROLE;
+        RETURN; 
+    END IF;
+  END;
+  BEGIN 
+
+    
+ ---------------------------------------------------------------
+  test_name= 'check user and school on table notes';
+ ---------------------------------------------------------------
+  SET ROLE _user;
+  PERFORM 1 FROM 
+    public.notes
+    JOIN public.persons ON notes.student = persons.person
+    WHERE persons.school = _school;
+  
+  IF FOUND THEN
+           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+	RESET ROLE;
+	RETURN; 
+        ELSE 
+          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+        END IF;
+  EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
+    IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN 
+	RESET ROLE;
+        RETURN; 
+    END IF;
+  END;
+
 
   
   RETURN;  
