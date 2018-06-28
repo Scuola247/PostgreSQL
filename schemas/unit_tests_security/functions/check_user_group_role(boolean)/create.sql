@@ -150,6 +150,24 @@ BEGIN
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher'], 'UPDATE public.lessons SET description = ''descrizione non esistente'' WHERE lesson = ''1198581000000000'';');
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher'], 'DELETE FROM public.lessons WHERE lesson = ''1198581000000000'';');
 
+-- messages
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.messages WHERE message = ''50112000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'INSERT INTO public.messages(message,conversation,written_on,message_text,person) VALUES (''1150112000000000'',''46328000000000'',''2013-09-16 08:26:43'',''Giustifico il ritardo di mio figlio.'',''5719000000000'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'UPDATE public.messages SET message_text = ''text non esistente'' WHERE message = ''1150112000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'DELETE FROM public.messages WHERE message = ''1150112000000000'';');
+
+-- messages_read
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.messages_read WHERE message_read = ''60304000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'INSERT INTO public.districts(mnemonic,description,region,district) VALUES (''01'',''Torino (test)'',''1000000000'',''11758321000000000'');INSERT INTO public.messages_read(message_read,message,person,read_on) VALUES (''1160304000000000'',''50112000000000'',''32925000000000'',''2013-09-16 16:26:43'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'UPDATE public.messages_read SET message = ''50113000000000'' WHERE message_read = ''1160304000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'DELETE FROM public.messages_read WHERE message_read = ''1160304000000000'';');
+
+-- metrics
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.metrics WHERE metric = ''11433000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'INSERT INTO public.metrics(metric,school,description,sufficiency) VALUES (''1111433000000000'',''1000000000'',''Decimale'',''600'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'UPDATE public.metrics SET description = ''descrizione non esistente'' WHERE metric = ''1111433000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'DELETE FROM public.holidays WHERE holiday = ''111335000000000'';');
+
   RETURN;
 END
 $BODY$
