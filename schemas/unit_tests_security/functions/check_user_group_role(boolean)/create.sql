@@ -228,6 +228,88 @@ BEGIN
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'UPDATE public.qualifications_plan SET course_year = ''0'' WHERE qualification_plan = ''11128989000000000'';');
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'DELETE FROM public.qualifications_plan WHERE qualification_plan = ''11128989000000000'';');
 
+  -- regions
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.regions WHERE region = ''1000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'INSERT INTO public.regions(region,description,geographical_area) VALUES (''111000000000'',''Piemonte_test'',''North-west'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'UPDATE public.regions SET description = ''descrizione non esistente'' WHERE region = ''111000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'DELETE FROM public.regions WHERE region = ''111000000000'';');
+
+-- school_years
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.school_years WHERE school_year = 24400000000;');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'INSERT INTO school_years (school_year, school, description, duration, lessons_duration) VALUES (111244000000000, 2000000000, ''2013/2014'', ''[2013-09-11,2014-09-11)'', ''[2013-09-11,2014-06-08)'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'UPDATE public.school_years SET description = ''sede non esistente'' WHERE school_year = 111244000000000;');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'DELETE FROM public.school_years WHERE school_year = 111244000000000;');
+
+-- schools
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.schools WHERE school = ''1000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'INSERT INTO schools (school, description, processing_code, mnemonic, example, logo, behavior) VALUES (111000000000, ''Istituto Tecnico Tecnologico "Leonardo da Vinci2"'', ''AZITT0000Z'', ''ITT DAVINCI2'', true, NULL, NULL);');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'UPDATE public.schools SET description = ''descrizione non esistente'' WHERE school = ''111000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'DELETE FROM public.schools WHERE school = ''111000000000'';');
+
+-- signatures
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.signatures WHERE signature = ''33773000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher','scuola247_employee'], 'INSERT INTO public.signatures(signature,classroom,teacher,on_date,at_time) VALUES (''133773000000000'',''10035000000000'',''32931000000000'',''2013-10-05'',''09:47:57'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher','scuola247_employee'], 'UPDATE public.signatures SET classroom = ''10036000000000'' WHERE signature = ''133773000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher','scuola247_employee'], 'DELETE FROM public.signatures WHERE signature = ''133773000000000'';');
+
+-- subjects
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.subjects WHERE subject = ''29105000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'INSERT INTO public.subjects(subject,school,description) VALUES (''129105000000000'',''28961000000000'',''materia'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'UPDATE public.subjects SET description = ''materia'' WHERE subject = ''129105000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'DELETE FROM public.subjects WHERE subject = ''129105000000000'';');
+
+-- teachears_notes
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.teachears_notes WHERE teacher_notes = ''61764000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher'], 'INSERT INTO public.teachears_notes(teacher_notes,student,description,teacher,on_date,at_time,classroom) VALUES (''161764000000000'',''6617000000000'',''alunno con difficoltÃ  nell''apprendimento'',''32926000000000'',''2014-02-25'',NULL,''10033000000000'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher'], 'UPDATE public.teachears_notes SET description = ''descrizione'' WHERE teacher_notes = ''161764000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher'], 'DELETE FROM public.teachears_notes WHERE teacher_notes = ''161764000000000'';');
+
+-- topics
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.topics WHERE topic = ''33242000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher'], 'INSERT INTO public.topics(topic,subject,description,course_year,degree) VALUES (''133242000000000'',''32911000000000'',''descrizione'',''1'',''9944000000000'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher'], 'UPDATE public.topics SET description = ''descrizione'' WHERE topic = ''133242000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher'], 'DELETE FROM public.topics WHERE topic = ''133242000000000'';');
+
+-- usenames_ex mancante
+
+-- usenames_schools
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.usename_schools WHERE usename_school = ''726621000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES (''1726636000000000'',''manager-e@scuola-28961.it'',''28961000000000'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'UPDATE public.usename_schools SET usename = ''usename'' WHERE usename_school = ''1726636000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'DELETE FROM public.usename_schools WHERE usename_school = ''1726636000000000'';');
+
+-- valutations
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.valutations WHERE valutation = ''86813000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher'], 'INSERT INTO public.valutations(valutation,subject,grade_type,topic,grade,evaluation,private,teacher,on_date,note,classroom_student) VALUES (''1186813000000000'',''29107000000000'',''72745000000000'',''62012000000000'',''29096000000000'',NULL,''f'',''29148000000000'',''2013-12-06'',NULL,''31458000000000'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher'], 'UPDATE public.valutations SET on_date = ''2013-10-17'' WHERE valutation = ''1186813000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher'], 'DELETE FROM public.valutations WHERE valutation = ''1186813000000000'';');
+
+-- valutations_qualifications
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.valutations_qualifications WHERE valutation_qualification = ''107038000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher'], 'INSERT INTO public.valutations_qualifications(valutation_qualificationtion,valutation,qualification,grade,note) VALUES (''11107038000000000'',''105226000000000'',''95979000000000'',''11478000000000'',''Esempio di nota associata ad una qualifica'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher'], 'UPDATE public.valutations_qualifications SET note = ''nota non esistente'' WHERE valutation_qualification = ''11107038000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher'], 'DELETE FROM public.valutations_qualifications WHERE valutation_qualification = ''11107038000000000'';');
+
+-- weekly_timetables
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.weekly_timetables WHERE weekly_timetable = ''51386000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'INSERT INTO public.weekly_timetables(weekly_timetable,classroom,description) VALUES (''151386000000000'',''10033000000000'',''descrizione'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'UPDATE public.weekly_timetables SET description = ''materia'' WHERE weekly_timetable = ''151386000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'DELETE FROM public.weekly_timetables WHERE weekly_timetable = ''151386000000000'';');
+
+-- weekly_timetables_days
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.weekly_timetables_days WHERE weekly_timetables_day = ''33008000000000''');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'INSERT INTO public.weekly_timetables_days(weekly_timetable_day,weekly_timetable,weekday,teacher,subject,team_teaching,from_time,to_time) VALUES (''133008000000000'',''51386000000000'',''1'',''32925000000000'',''32911000000000'',''1'',''08:00:00'',''09:00:00'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'UPDATE public.weekly_timetables_days SET subject = NULL WHERE weekly_timetables_day = ''133008000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'DELETE FROM public.weekly_timetables_days WHERE weekly_timetables_day = ''133008000000000'';');
+
+-- wikimedia_files mancante
+
+-- wikimedia_files_persons
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.wikimedia_files_persons WHERE wikimedia_file_person = ''329668000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'INSERT INTO public.wikimedia_files_persons(wikimedia_file_person, wikimedia_file, person) VALUES (''11329668000000000'', ''301735000000000'', ''9046000000000'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'UPDATE public.wikimedia_files_persons SET wikimedia_file = ''3017520000000000'' WHERE wikimedia_file_person = ''11329668000000000'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'DELETE FROM public.wikimedia_files_persons WHERE wikimedia_file_person = ''11329668000000000'';');
+
   RETURN;
 END
 $BODY$
