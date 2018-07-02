@@ -21,9 +21,9 @@ BEGIN
   GET DIAGNOSTICS context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
 
-  ----------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------------------------------------------------------------------
   test_name = format('Check Statement for user: %s, group:%s, groups enabled: %s, sql: %s', _usename, _group, _groups_enabled, _sql);
-  ----------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------------------------------------------------------------------
 
   BEGIN
 
@@ -33,7 +33,7 @@ BEGIN
     EXECUTE _sql;
 
     IF (_group = ANY(_groups_enabled)) THEN
-	_results = _results || assert.pass(full_function_name, test_name);
+	      _results = _results || assert.pass(full_function_name, test_name);
     ELSE
         _results = _results || assert.fail(full_function_name, test_name,format('Command OK but the group %s shouldn''t be able to SQL: %s', _group, _sql), NULL::diagnostic.error);
         RESET ROLE;

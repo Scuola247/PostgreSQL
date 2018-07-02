@@ -19,7 +19,8 @@ BEGIN
 
     -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_security.create_role');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_security.create_role',
+                                                                                       'unit_tests_security.insert_data');
     RETURN;
   END IF;
 
@@ -28,7 +29,7 @@ BEGIN
     test_name = 'SET ROLES';
     ---------------------------
     
-    _results = _results || unit_tests_security.check_user_group_role('test-supervisor@scuola.it','scuola247_supervisor');   
+    _results = _results || unit_tests_security.check_user_group_role('unit_testing_supervisor@scuola.it','scuola247_supervisor');   
     _results = _results || unit_tests_security.check_user_group_role('unit_testing_executive_a@scuola_1.it','scuola247_executive');   
     _results = _results || unit_tests_security.check_user_group_role('unit_testing_employee_a@scuola_1.it','scuola247_employee');   
     _results = _results || unit_tests_security.check_user_group_role('unit_testing_teacher_a@scuola_1.it', 'scuola247_teacher');  
