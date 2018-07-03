@@ -19,8 +19,7 @@ BEGIN
 
     -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_security.create_role',
-                                                                                       'unit_tests_security.insert_data');
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_security.create_role');
     RETURN;
   END IF;
 
@@ -29,19 +28,18 @@ BEGIN
     test_name = 'SET ROLES';
     ---------------------------
     
-    _results = _results || unit_tests_security.check_user_group_role('unit_testing_supervisor@scuola.it','scuola247_supervisor');   
-    _results = _results || unit_tests_security.check_user_group_role('unit_testing_executive_a@scuola_1.it','scuola247_executive');   
-    _results = _results || unit_tests_security.check_user_group_role('unit_testing_employee_a@scuola_1.it','scuola247_employee');   
-    _results = _results || unit_tests_security.check_user_group_role('unit_testing_teacher_a@scuola_1.it', 'scuola247_teacher');  
-    _results = _results || unit_tests_security.check_user_group_role('unit_testing_student_a@scuola_1.it','scuola247_student');
-    _results = _results || unit_tests_security.check_user_group_role('unit_testing_relative_a@scuola_1.it','scuola247_relative');
+    _results = _results || unit_tests_security.check_user_group_role('unit_testing_supervisor_security@scuola.it','scuola247_supervisor');   
+    _results = _results || unit_tests_security.check_user_group_role('unit_testing_executive_g@scuola_2000000200.it','scuola247_executive');   
+    _results = _results || unit_tests_security.check_user_group_role('unit_testing_employee_g@scuola_2000000200.it','scuola247_employee');   
+    _results = _results || unit_tests_security.check_user_group_role('unit_testing_teacher_g@scuola_2000000200.it', 'scuola247_teacher');  
+    _results = _results || unit_tests_security.check_user_group_role('unit_testing_student_g@scuola_2000000200.it','scuola247_student');
+    _results = _results || unit_tests_security.check_user_group_role('unit_testing_relative_g@scuola_2000000200.it','scuola247_relative');
 
     _results = _results || assert.pass(full_function_name, test_name);
 
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
     _results = _results || assert.fail(full_function_name, test_name, format('SET ROLE %s FAILED'::text, current_user) , error);
-    
     RETURN;
 END;
 

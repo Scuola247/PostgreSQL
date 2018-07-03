@@ -25,7 +25,7 @@ BEGIN
   full_function_name = diagnostic.full_function_name(context);
 
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'?????????????????'); 
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_security.create_role'); 
     RETURN;
   END IF;
   
@@ -33,7 +33,7 @@ BEGIN
                     FROM usenames_schools
                    WHERE usename LIKE 'unit_testing%') LOOP
                    
-    command = format('unit_testing_horizontal_security.check_usename_enable_school(%L,%L)',me.current_user.usename,me.current_user.school);
+    command = format('SELECT unit_tests_horizontal_security.check_user_enable_school(%L,%L)',me.current_user.usename,me.current_user.school);
     RAISE INFO 'command: %',command;
     EXECUTE me.command INTO me.results;
     _results = _results || me.results;
@@ -53,7 +53,7 @@ BEGIN
     RAISE INFO 'sql: %',me.sql;
 
     FOR me.current_user_school IN EXECUTE me.sql LOOP
-      command = format('unit_testing_horizontal_security.check_usename_disable_school(%L,%L)',me.current_user.member, me.current_user_school.school);
+      command = format('SELECT unit_tests_horizontal_security.check_user_disable_school(%L,%L)',me.current_user.member, me.current_user_school.school);
       RAISE INFO 'command: %',command;
       EXECUTE me.command INTO me.results;
       _results = _results || me.results;

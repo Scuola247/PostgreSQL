@@ -183,9 +183,6 @@ GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO scuola247_user;
 GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO scuola247_user;
 
-REVOKE ALL ON TABLE public.cities FROM scuola247_executive;
-GRANT SELECT ON TABLE public.cities TO scuola247_executive;
-
 GRANT ALL ON TYPE public.address_type TO scuola247_supervisor;
 GRANT ALL ON TYPE public.explanation_type TO scuola247_supervisor;
 GRANT ALL ON TYPE public.file_extension TO scuola247_supervisor;
@@ -249,6 +246,7 @@ REVOKE ALL ON TABLE public.branches FROM public;
 -------------------------------------------------------------
 
 -- cities
+REVOKE ALL ON TABLE public.cities FROM scuola247_executive;
 GRANT ALL ON TABLE public.cities TO scuola247_supervisor;
 
 GRANT SELECT ON TABLE public.cities TO scuola247_executive;
@@ -337,6 +335,8 @@ REVOKE ALL ON TABLE public.conversations_invites FROM public;
 -------------------------------------------------------------
 
 -- countries
+REVOKE ALL ON TABLE public.countries FROM scuola247_executive;
+
 GRANT ALL ON TABLE public.countries TO scuola247_supervisor;
 
 GRANT SELECT ON TABLE public.countries TO scuola247_executive;
@@ -376,6 +376,8 @@ REVOKE ALL ON TABLE public.delays FROM public;
 -------------------------------------------------------------
 
 -- districts
+REVOKE ALL ON TABLE public.districts FROM scuola247_executive;
+
 GRANT ALL ON TABLE public.districts TO scuola247_supervisor;
 
 GRANT SELECT ON TABLE public.districts TO scuola247_executive;
@@ -509,6 +511,8 @@ GRANT ALL ON TABLE public.messages TO scuola247_relative;
 REVOKE ALL ON TABLE public.messages FROM public;
 ------------------------------------------------------
 ------------------------------------------------------
+REVOKE ALL ON TABLE public.messages_read FROM scuola247_executive;
+
 GRANT ALL ON TABLE public.messages_read TO scuola247_supervisor;
 
 GRANT SELECT, INSERT ON TABLE public.messages_read TO scuola247_executive;
@@ -641,6 +645,8 @@ GRANT SELECT ON TABLE public.qualifications_plan TO scuola247_relative;
 REVOKE ALL ON TABLE public.qualifications_plan FROM public;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
+REVOKE ALL ON TABLE public.regions FROM scuola247_executive;
+
 GRANT ALL ON TABLE public.regions TO scuola247_supervisor;
 
 GRANT SELECT ON TABLE public.regions TO scuola247_executive;
@@ -663,6 +669,8 @@ GRANT SELECT ON TABLE public.school_years TO scuola247_relative;
 REVOKE ALL ON TABLE public.school_years FROM public;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
+REVOKE ALL ON TABLE public.schools FROM scuola247_executive;
+
 GRANT ALL ON TABLE public.schools TO scuola247_supervisor;
 
 GRANT SELECT ON TABLE public.schools TO scuola247_executive;
@@ -862,8 +870,13 @@ REVOKE ALL ON SCHEMA translate FROM scuola247_student;
 REVOKE ALL ON SCHEMA translate FROM scuola247_user;
 
 GRANT ALL ON SCHEMA translate TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON SCHEMA translate TO scuola247_user;
+
 GRANT ALL ON ALL FUNCTIONS IN SCHEMA translate TO scuola247_supervisor WITH GRANT OPTION;
+
 GRANT ALL ON ALL SEQUENCES IN SCHEMA translate TO scuola247_supervisor WITH GRANT OPTION;
+
+GRANT ALL ON ALL TABLES IN SCHEMA translate TO scuola247_supervisor WITH GRANT OPTION;
 
 -- UNIT_TESTING;
 REVOKE ALL ON SCHEMA unit_testing FROM public;
@@ -923,6 +936,22 @@ GRANT USAGE ON SCHEMA unit_tests_public TO scuola247_user;
 
 GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_public TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_public TO scuola247_user;
+
+-- UNIT_TESTS_HORIZONTAL_SECURITY;
+REVOKE ALL ON SCHEMA unit_tests_horizontal_security FROM public;
+REVOKE ALL ON SCHEMA unit_tests_horizontal_security FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA unit_tests_horizontal_security FROM scuola247_executive;
+REVOKE ALL ON SCHEMA unit_tests_horizontal_security FROM scuola247_employee;
+REVOKE ALL ON SCHEMA unit_tests_horizontal_security FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA unit_tests_horizontal_security FROM scuola247_relative;
+REVOKE ALL ON SCHEMA unit_tests_horizontal_security FROM scuola247_student;
+REVOKE ALL ON SCHEMA unit_tests_horizontal_security FROM scuola247_user;
+
+GRANT ALL ON SCHEMA unit_tests_horizontal_security TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON SCHEMA unit_tests_horizontal_security TO scuola247_user;
+
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_horizontal_security TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_horizontal_security TO scuola247_user;
 
 -- UNIT_TESTS_SECURITY;
 REVOKE ALL ON SCHEMA unit_tests_security FROM public;

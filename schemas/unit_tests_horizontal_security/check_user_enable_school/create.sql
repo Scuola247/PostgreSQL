@@ -107,9 +107,9 @@ BEGIN
   BEGIN
       command = format('SET ROLE %I', _user);
       EXECUTE command;
-  --------------------------------------------------------
+  -----------------------------------------
   test_name= ' table classrooms_students ';
-  --------------------------------------------------------
+  -----------------------------------------
   PERFORM 1  
 	FROM public.classrooms_students
 	JOIN public.persons ON classrooms_students.student = persons.person

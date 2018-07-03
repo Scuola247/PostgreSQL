@@ -10,15 +10,15 @@ $BODY$
 <<me>>
 DECLARE
   context               text;
-  full_function_name 	text;
-  test_name		text = '';
-  error			diagnostic.error;
+  full_function_name    text;
+  test_name     text = '';
+  error         diagnostic.error;
 BEGIN
   GET DIAGNOSTICS context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
   -- check to build dependencies
   IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context));
+    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert'); 
     RETURN;
   END IF;
 
@@ -44,20 +44,20 @@ BEGIN
     INSERT INTO public.degrees (degree, school, description, course_years) VALUES (9947000000200, 2000000200, 'Informatica', 5);
 
     -- Student
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2358000000200','Gabriel','Tiberi','1996-05-18',NULL,NULL,'TBRGBR96E58L781M','F','2000000200',NULL,'L781',NULL,NULL,'unit_testing_student_c@scuola_2.it',NULL,'761554000000000');
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2359000000200','Iris','Micillo','1997-08-22',NULL,NULL,'MCLRSI70C64L781E','F','2000000200',NULL,'L781',NULL,NULL,NULL,NULL,'761554000000000');
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('1032000000200','Zaccaria','Firenze','2003-02-19',NULL,NULL,'FRNZCC03B59L781A','F','2000000200',NULL,'L781',NULL,NULL,NULL,NULL,'761554000000000');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2358000000200','Gabriel','Tiberi','1996-05-18',NULL,201000000100,'TBRGBR96E58L781M','F','2000000200',NULL,'L781',NULL,NULL,NULL,NULL,'758438000000100');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2359000000200','Iris','Micillo','1997-08-22',NULL,201000000100,'MCLRSI70C64L781E','F','2000000200',NULL,'L781',NULL,NULL,NULL,NULL,'758438000000100');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('1032000000200','Zaccaria','Firenze','2003-02-19',NULL,201000000100,'FRNZCC03B59L781A','F','2000000200',NULL,'L781',NULL,NULL,NULL,NULL,'758438000000100');
 
     -- Relative
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2360000000200','Angelo','Cunego','1970-03-24',NULL,NULL,'CNGNGL05M22L781J','M','2000000200','3590542000000200','L781',NULL,NULL,NULL,NULL,'761554000000000');
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2361000000200','Filippo','Bragantini','1951-07-11',NULL,NULL,'BRGFPP51L11M018D','M','2000000200',NULL,'M018',NULL,NULL,NULL,NULL,'765130000000000');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2360000000200','Angelo','Cunego','1970-03-24',NULL,201000000100,'CNGNGL05M22L781J','M','2000000200','3590542000000200','L781',NULL,NULL,NULL,NULL,'758438000000100');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2361000000200','Filippo','Bragantini','1951-07-11',NULL,201000000100,'BRGFPP51L11M018D','M','2000000200',NULL,'M018',NULL,NULL,NULL,NULL,'758438000000100');
     -- Teacher
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2362000000200','Enrico','Bonometti','1951-01-25',NULL,NULL,'BNMNRC51A25H703L','M','2000000200',NULL,'H703',NULL,NULL,NULL,NULL,'763989000000000');
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('3836000000200','Sandra','Iorillo','1977-02-03',NULL,NULL,'RLLSND77B43L781F','F','2000000200',NULL,'L781',NULL,NULL,NULL,NULL,'761554000000000');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2362000000200','Enrico','Bonometti','1951-01-25',NULL,201000000100,'BNMNRC51A25H703L','M','2000000200',NULL,'H703',NULL,NULL,NULL,NULL,'758438000000100');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('3836000000200','Sandra','Iorillo','1977-02-03',NULL,201000000100,'RLLSND77B43L781F','F','2000000200',NULL,'L781',NULL,NULL,NULL,NULL,'758438000000100');
     -- Employee
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2363000000200','Anthea','Bortolasi','1974-08-14',NULL,NULL,'BRTNTH74M54L781Y','F','2000000200',NULL,'L781',NULL,NULL,NULL,NULL,'761554000000000');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2363000000200','Anthea','Bortolasi','1974-08-14',NULL,201000000100,'BRTNTH74M54L781Y','F','2000000200',NULL,'L781',NULL,NULL,NULL,NULL,'758438000000100');
     -- Executive
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2364000000200','Giuseppe Lorenzo','Braga','1953-07-09',NULL,NULL,'BRGGPP53L09I594G','M','2000000200',NULL,'I594',NULL,NULL,NULL,NULL,'761543000000000');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2364000000200','Giuseppe Lorenzo','Braga','1953-07-09',NULL,201000000100,'BRGGPP53L09I594G','M','2000000200',NULL,'I594',NULL,NULL,NULL,NULL,'758438000000100');
 
     INSERT INTO public.school_years (school_year, school, description, duration, lessons_duration) VALUES (244000000200, 2000000200, '2013/2014', '[2013-09-11,2014-09-11)', '[2013-09-11,2014-06-08)');
 
@@ -207,8 +207,8 @@ BEGIN
     INSERT INTO public.parents_meetings(parents_meeting,teacher,person,on_date) VALUES ('33433000000200','2362000000200','2360000000200','2013-10-01 00:00:00');
     INSERT INTO public.parents_meetings(parents_meeting,teacher,person,on_date) VALUES ('33434000000200','3836000000200','2361000000200','2013-10-03 00:00:00');
 
-    INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('16765000000200','2358000000200','Residence','Via G. Segantini 91','37069','L949','761559000000000');
-    INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('52292000000200','2359000000200','Residence','Loc. Lener 51','37132','L781','761554000000000');
+    INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('16765000000200','2358000000200','Residence','Via G. Segantini 91','37069','L949','758438000000100');
+    INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('52292000000200','2359000000200','Residence','Loc. Lener 51','37132','L781','758438000000100');
 
     -- schools_behavior
     UPDATE public.schools SET behavior = 29107000000200 WHERE school = 2000000200;
@@ -216,12 +216,10 @@ BEGIN
     INSERT INTO public.teachears_notes(teacher_notes,student,description,teacher,on_date,at_time,classroom) VALUES ('61764000000200','2358000000200','alunno con difficoltÃ  nell''apprendimento','2362000000200','2013-10-23',NULL,'10062000000200');
     INSERT INTO public.teachears_notes(teacher_notes,student,description,teacher,on_date,at_time,classroom) VALUES ('61776000000200','2359000000200','alunno con difficoltÃ  nell''apprendimento','3836000000200','2013-10-24',NULL,'10062000000200');
 
-    INSERT INTO public.usenames_schools(usename_school, usename, school) VALUES (61889000000200, 'unit_testing_student_c@scuola_2.it', 2000000200);
-
-    INSERT INTO public.usenames_ex(usename_ex, usename, language) VALUES (61891000000200, 'unit_testing_student_c@scuola_2.it', 'it');
+ --   INSERT INTO public.usenames_schools(usename_school, usename, school) VALUES (61889000000200, 'unit_testing_student_c@scuola_2.it', 2000000200);
 
     INSERT INTO public.valutations_qualifications(valutation_qualificationtion,valutation,qualification,grade,note) VALUES ('107038000000200','86813000000200','95980000000200','29086000000200','Esempio di nota associata ad una qualifica');
-    INSERT INTO public.valutations_qualifications(valutation_qualificationtion,valutation,qualification,grade,note) VALUES ('107057000000200','86814000000200','95977000000200','29094000000200','Testo di esempio di una nota associabile alla qualifica');
+ --   INSERT INTO public.valutations_qualifications(valutation_qualificationtion,valutation,qualification,grade,note) VALUES ('107057000000200','86814000000200','95977000000200','29094000000200','Testo di esempio di una nota associabile alla qualifica');
 
     INSERT INTO public.weekly_timetables_days(weekly_timetable_day,weekly_timetable,weekday,teacher,subject,team_teaching,from_time,to_time) VALUES ('33008000000200','51386000000200','1','2362000000200','29105000000200','1','08:00:00','09:00:00');
     INSERT INTO public.weekly_timetables_days(weekly_timetable_day,weekly_timetable,weekday,teacher,subject,team_teaching,from_time,to_time) VALUES ('33009000000200','51386000000200','1','2362000000200','29105000000200','1','09:00:00','10:00:00');
@@ -244,20 +242,20 @@ BEGIN
     INSERT INTO public.degrees (degree, school, description, course_years) VALUES (9947000000300, 2000000300, 'Informatica', 5);
 
     -- Student
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2358000000300','Gabriel','Tiberi','1996-05-18',NULL,NULL,'TBRGBR96E58L781M','F','2000000300',NULL,'L781',NULL,NULL,'unit_testing_student_d@scuola_2.it',NULL,'761554000000000');
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2359000000300','Iris','Micillo','1997-08-22',NULL,NULL,'MCLRSI70C64L781E','F','2000000300',NULL,'L781',NULL,NULL,NULL,NULL,'761554000000000');
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('1032000000300','Zaccaria','Firenze','2003-02-19',NULL,NULL,'FRNZCC03B59L781A','F','2000000300',NULL,'L781',NULL,NULL,NULL,NULL,'761554000000000');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2358000000300','Gabriel','Tiberi','1996-05-18',NULL,NULL,'TBRGBR96E58L781M','F','2000000300',NULL,'L781',NULL,NULL,NULL,NULL,'758438000000100');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2359000000300','Iris','Micillo','1997-08-22',NULL,NULL,'MCLRSI70C64L781E','F','2000000300',NULL,'L781',NULL,NULL,NULL,NULL,'758438000000100');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('1032000000300','Zaccaria','Firenze','2003-02-19',NULL,NULL,'FRNZCC03B59L781A','F','2000000300',NULL,'L781',NULL,NULL,NULL,NULL,'758438000000100');
 
     -- Relative
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2360000000300','Angelo','Cunego','1970-03-24',NULL,NULL,'CNGNGL05M22L781J','M','2000000300','3590542000000300','L781',NULL,NULL,NULL,NULL,'761554000000000');
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2361000000300','Filippo','Bragantini','1951-07-11',NULL,NULL,'BRGFPP51L11M018D','M','2000000300',NULL,'M018',NULL,NULL,NULL,NULL,'765130000000000');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2360000000300','Angelo','Cunego','1970-03-24',NULL,NULL,'CNGNGL05M22L781J','M','2000000300','3590542000000300','L781',NULL,NULL,NULL,NULL,'758438000000100');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2361000000300','Filippo','Bragantini','1951-07-11',NULL,NULL,'BRGFPP51L11M018D','M','2000000300',NULL,'M018',NULL,NULL,NULL,NULL,'758438000000100');
     -- Teacher
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2362000000300','Enrico','Bonometti','1951-01-25',NULL,NULL,'BNMNRC51A25H703L','M','2000000300',NULL,'H703',NULL,NULL,NULL,NULL,'763989000000000');
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('3836000000300','Sandra','Iorillo','1977-02-03',NULL,NULL,'RLLSND77B43L781F','F','2000000300',NULL,'L781',NULL,NULL,NULL,NULL,'761554000000000');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2362000000300','Enrico','Bonometti','1951-01-25',NULL,NULL,'BNMNRC51A25H703L','M','2000000300',NULL,'H703',NULL,NULL,NULL,NULL,'758438000000100');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('3836000000300','Sandra','Iorillo','1977-02-03',NULL,NULL,'RLLSND77B43L781F','F','2000000300',NULL,'L781',NULL,NULL,NULL,NULL,'758438000000100');
     -- Employee
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2363000000300','Anthea','Bortolasi','1974-08-14',NULL,NULL,'BRTNTH74M54L781Y','F','2000000300',NULL,'L781',NULL,NULL,NULL,NULL,'761554000000000');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2363000000300','Anthea','Bortolasi','1974-08-14',NULL,NULL,'BRTNTH74M54L781Y','F','2000000300',NULL,'L781',NULL,NULL,NULL,NULL,'758438000000100');
     -- Executive
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2364000000300','Giuseppe Lorenzo','Braga','1953-07-09',NULL,NULL,'BRGGPP53L09I594G','M','2000000300',NULL,'I594',NULL,NULL,NULL,NULL,'761543000000000');
+    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('2364000000300','Giuseppe Lorenzo','Braga','1953-07-09',NULL,NULL,'BRGGPP53L09I594G','M','2000000300',NULL,'I594',NULL,NULL,NULL,NULL,'758438000000100');
 
     INSERT INTO public.school_years (school_year, school, description, duration, lessons_duration) VALUES (244000000300, 2000000300, '2013/2014', '[2013-09-11,2014-09-11)', '[2013-09-11,2014-06-08)');
 
@@ -408,8 +406,8 @@ BEGIN
     INSERT INTO public.parents_meetings(parents_meeting,teacher,person,on_date) VALUES ('33433000000300','2362000000300','2360000000300','2013-10-01 00:00:00');
     INSERT INTO public.parents_meetings(parents_meeting,teacher,person,on_date) VALUES ('33434000000300','3836000000300','2361000000300','2013-10-03 00:00:00');
 
-    INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('16765000000300','2358000000300','Residence','Via G. Segantini 91','37069','L949','761559000000000');
-    INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('52292000000300','2359000000300','Residence','Loc. Lener 51','37132','L781','761554000000000');
+    INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('16765000000300','2358000000300','Residence','Via G. Segantini 91','37069','L949','758438000000100');
+    INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('52292000000300','2359000000300','Residence','Loc. Lener 51','37132','L781','758438000000100');
 
     -- schools_behavior
     UPDATE public.schools SET behavior = 29107000000300 WHERE school = 2000000300;
@@ -417,9 +415,7 @@ BEGIN
     INSERT INTO public.teachears_notes(teacher_notes,student,description,teacher,on_date,at_time,classroom) VALUES ('61764000000300','2358000000300','alunno con difficoltÃ  nell''apprendimento','2362000000300','2013-10-23',NULL,'10062000000300');
     INSERT INTO public.teachears_notes(teacher_notes,student,description,teacher,on_date,at_time,classroom) VALUES ('61776000000300','2359000000300','alunno con difficoltÃ  nell''apprendimento','3836000000300','2013-10-24',NULL,'10062000000300');
 
-    INSERT INTO public.usenames_schools(usename_school, usename, school) VALUES (61889000000300, 'unit_testing_student_d@scuola_2.it', 2000000300);
-
-    INSERT INTO public.usenames_ex(usename_ex, usename, language) VALUES (61891000000300, 'unit_testing_student_d@scuola_2.it', 'it');
+ --   INSERT INTO public.usenames_schools(usename_school, usename, school) VALUES (61889000000300, 'unit_testing_student_d@scuola_2.it', 2000000300);
 
     INSERT INTO public.valutations_qualifications(valutation_qualificationtion,valutation,qualification,grade,note) VALUES ('107038000000300','86813000000300','95980000000300','29086000000300','Esempio di nota associata ad una qualifica');
     INSERT INTO public.valutations_qualifications(valutation_qualificationtion,valutation,qualification,grade,note) VALUES ('107057000000300','86814000000300','95977000000300','29094000000300','Testo di esempio di una nota associabile alla qualifica');
@@ -451,8 +447,8 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests_public.absences(boolean)
+ALTER FUNCTION unit_tests_security.insert_data(boolean)
   OWNER TO scuola247_supervisor;
-GRANT EXECUTE ON FUNCTION unit_tests_public.absences(boolean) TO public;
-GRANT EXECUTE ON FUNCTION unit_tests_public.absences(boolean) TO scuola247_supervisor WITH GRANT OPTION;
-GRANT EXECUTE ON FUNCTION unit_tests_public.absences(boolean) TO scuola247_user;
+GRANT EXECUTE ON FUNCTION unit_tests_security.insert_data(boolean) TO public;
+GRANT EXECUTE ON FUNCTION unit_tests_security.insert_data(boolean) TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON FUNCTION unit_tests_security.insert_data(boolean) TO scuola247_user;
