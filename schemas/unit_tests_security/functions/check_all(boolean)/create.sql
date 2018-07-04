@@ -28,7 +28,7 @@ BEGIN
     test_name = 'SET ROLES';
     ---------------------------
     
-    _results = _results || unit_tests_security.check_user_group_role('unit_testing_supervisor_security@scuola.it','scuola247_supervisor');   
+    _results = _results || unit_tests_security.check_user_group_role('unit_testing_supervisor@scuola.it','scuola247_supervisor');   
     _results = _results || unit_tests_security.check_user_group_role('unit_testing_executive_g@scuola_2000000200.it','scuola247_executive');   
     _results = _results || unit_tests_security.check_user_group_role('unit_testing_employee_g@scuola_2000000200.it','scuola247_employee');   
     _results = _results || unit_tests_security.check_user_group_role('unit_testing_teacher_g@scuola_2000000200.it', 'scuola247_teacher');  
