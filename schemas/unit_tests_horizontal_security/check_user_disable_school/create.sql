@@ -33,11 +33,11 @@ BEGIN
        WHERE person.school = _school;
 
        IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
            RESET ROLE;
            RETURN; 
        ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
        END IF;
         
   EXCEPTION WHEN OTHERS THEN
@@ -61,11 +61,11 @@ BEGIN
 	WHERE branches.school = _school;
 	
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
            RESET ROLE;
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;    
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -88,11 +88,11 @@ BEGIN
         WHERE persons.school = _school;
         
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
            RESET ROLE;
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
 EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -115,11 +115,11 @@ EXCEPTION WHEN OTHERS THEN
         WHERE persons.school = _school;
         
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
            RESET ROLE;
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
 EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -141,11 +141,11 @@ EXCEPTION WHEN OTHERS THEN
    WHERE persons.school = _school;
    
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
            RESET ROLE;
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -167,11 +167,11 @@ EXCEPTION WHEN OTHERS THEN
    WHERE persons.school = _school;
 
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -193,11 +193,11 @@ EXCEPTION WHEN OTHERS THEN
   WHERE persons.school = _school;
 
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -220,11 +220,11 @@ EXCEPTION WHEN OTHERS THEN
   WHERE persons.school = _school;
 
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -249,11 +249,11 @@ EXCEPTION WHEN OTHERS THEN
   
 
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -277,11 +277,11 @@ EXCEPTION WHEN OTHERS THEN
   WHERE persons.school = _school;
 
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -303,11 +303,11 @@ EXCEPTION WHEN OTHERS THEN
   
 
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -332,11 +332,11 @@ EXCEPTION WHEN OTHERS THEN
   
 
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -359,11 +359,11 @@ EXCEPTION WHEN OTHERS THEN
 
 
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -384,11 +384,11 @@ EXCEPTION WHEN OTHERS THEN
     JOIN public.persons ON faults.student = persons.person
     WHERE persons.school = school; 
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -411,11 +411,11 @@ EXCEPTION WHEN OTHERS THEN
       WHERE subjects.school = _school;
   
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -438,11 +438,11 @@ EXCEPTION WHEN OTHERS THEN
     WHERE metrics.school = _school;
   
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -463,11 +463,11 @@ EXCEPTION WHEN OTHERS THEN
       WHERE subjects.school = _school;
   
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -489,11 +489,11 @@ EXCEPTION WHEN OTHERS THEN
 	  WHERE person.school = _school;
   
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -514,11 +514,11 @@ EXCEPTION WHEN OTHERS THEN
        JOIN public.persons ON grading_meetings_valutations.student = persons.person
        WHERE person.school = _school;
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -539,11 +539,11 @@ EXCEPTION WHEN OTHERS THEN
       public.holidays
       WHERE holidays.school = _school;
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -566,11 +566,11 @@ EXCEPTION WHEN OTHERS THEN
 
   
 	IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -592,11 +592,11 @@ EXCEPTION WHEN OTHERS THEN
     JOIN public.persons ON lessons.teacher = persons.person
     WHERE person.school = _school; 
   IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -619,11 +619,11 @@ EXCEPTION WHEN OTHERS THEN
     JOIN public.persons ON messages.person = persons.person
     WHERE person.school = _school;
   IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -644,11 +644,11 @@ EXCEPTION WHEN OTHERS THEN
     JOIN public.persons ON messages_read.person = persons.person
     WHERE person.school = _school;
   IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -668,11 +668,11 @@ EXCEPTION WHEN OTHERS THEN
   public.metrics
   WHERE metrics.school = _school;
   IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -695,11 +695,11 @@ EXCEPTION WHEN OTHERS THEN
     WHERE persons.school = _school;
   
   IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
+           _results = _results ||assert.fail(full_function_name, test_name, format('User:%s, School:%s', _user, _school), NULL::diagnostic.error);
 	RESET ROLE;
 	RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -722,10 +722,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE persons.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -746,10 +746,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE persons.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -769,10 +769,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE persons.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -791,10 +791,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE persons.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -814,10 +814,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE persons.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -837,10 +837,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE persons.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -860,10 +860,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE persons.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -882,10 +882,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE qualifications.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -905,10 +905,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE degrees.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -929,10 +929,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE school_years.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -951,10 +951,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE schools.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
    EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -974,10 +974,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE persons.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
    EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -996,10 +996,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE subjects.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -1019,10 +1019,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE persons.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -1042,10 +1042,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE degrees.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -1066,10 +1066,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE usenames_schools.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -1089,10 +1089,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE persons.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -1113,10 +1113,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE persons.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
    EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -1137,10 +1137,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE degrees.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -1160,10 +1160,10 @@ EXCEPTION WHEN OTHERS THEN
     WHERE persons.school = _school;
 
         IF FOUND THEN
-           _results = _results || fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
+           _results = _results ||assert.fail(full_function_name, test_name,error, format('User:%s, School:%s', _user, _school));
            RETURN; 
         ELSE 
-          _results = _results || pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
+          _results = _results ||assert.pass(full_function_name, test_name, format('User:%s, School:%s', _user, _school));
         END IF;
   EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
