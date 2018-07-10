@@ -316,7 +316,7 @@ REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM scuola247_student;
 REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM scuola247_user;
 
 REVOKE ALL ON ALL TABLES IN SCHEMA public FROM public;
-REVOKE ALL ON ALL TABLES IN SCHEMA public FROM scuola247_supervisor; -- da problemi di dipendenze
+-- REVOKE ALL ON ALL TABLES IN SCHEMA public FROM scuola247_supervisor; -- da problemi di dipendenze
 REVOKE ALL ON ALL TABLES IN SCHEMA public FROM scuola247_executive;
 REVOKE ALL ON ALL TABLES IN SCHEMA public FROM scuola247_employee;
 REVOKE ALL ON ALL TABLES IN SCHEMA public FROM scuola247_teacher;
@@ -1556,7 +1556,7 @@ REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_student;
 REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_user;
 
 REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_translate FROM public;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_translate FROM scuola247_supervisor;
+-- REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_translate FROM scuola247_supervisor; -- da problemi di dipendenze
 REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_translate FROM scuola247_executive;
 REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_translate FROM scuola247_employee;
 REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_translate FROM scuola247_teacher;
