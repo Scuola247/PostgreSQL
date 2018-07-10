@@ -78,6 +78,16 @@ GRANT CONNECT ON DATABASE scuola247 TO scuola247_user;
 GRANT ALL ON LANGUAGE plpgsql TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON LANGUAGE plpgsql TO scuola247_user;
 
+-- pg_shadow
+GRANT SELECT ON TABLE pg_shadow TO scuola247_supervisor;
+GRANT SELECT ON TABLE pg_shadow TO scuola247_executive;
+GRANT SELECT ON TABLE pg_shadow TO scuola247_employee;
+GRANT SELECT ON TABLE pg_shadow TO scuola247_teacher;
+GRANT SELECT ON TABLE pg_shadow TO scuola247_student;
+GRANT SELECT ON TABLE pg_shadow TO scuola247_relative;
+-------------------------------------------------------------
+-------------------------------------------------------------
+
 /* GRANT SU TUTTI I SCHEMA */;
 -- ASSERT;
 REVOKE ALL ON SCHEMA assert FROM public;
@@ -396,51 +406,6 @@ REVOKE ALL ON TYPE public.file_extension FROM scuola247_relative;
 REVOKE ALL ON TYPE public.file_extension FROM scuola247_student;
 REVOKE ALL ON TYPE public.file_extension FROM scuola247_user;
 
-REVOKE ALL ON TYPE public.gbtreekey16 FROM public;
-REVOKE ALL ON TYPE public.gbtreekey16 FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.gbtreekey16 FROM scuola247_executive;
-REVOKE ALL ON TYPE public.gbtreekey16 FROM scuola247_employee;
-REVOKE ALL ON TYPE public.gbtreekey16 FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.gbtreekey16 FROM scuola247_relative;
-REVOKE ALL ON TYPE public.gbtreekey16 FROM scuola247_student;
-REVOKE ALL ON TYPE public.gbtreekey16 FROM scuola247_user;
-
-REVOKE ALL ON TYPE public.gbtreekey32 FROM public;
-REVOKE ALL ON TYPE public.gbtreekey32 FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.gbtreekey32 FROM scuola247_executive;
-REVOKE ALL ON TYPE public.gbtreekey32 FROM scuola247_employee;
-REVOKE ALL ON TYPE public.gbtreekey32 FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.gbtreekey32 FROM scuola247_relative;
-REVOKE ALL ON TYPE public.gbtreekey32 FROM scuola247_student;
-REVOKE ALL ON TYPE public.gbtreekey32 FROM scuola247_user;
-
-REVOKE ALL ON TYPE public.gbtreekey4 FROM public;
-REVOKE ALL ON TYPE public.gbtreekey4 FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.gbtreekey4 FROM scuola247_executive;
-REVOKE ALL ON TYPE public.gbtreekey4 FROM scuola247_employee;
-REVOKE ALL ON TYPE public.gbtreekey4 FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.gbtreekey4 FROM scuola247_relative;
-REVOKE ALL ON TYPE public.gbtreekey4 FROM scuola247_student;
-REVOKE ALL ON TYPE public.gbtreekey4 FROM scuola247_user;
-
-REVOKE ALL ON TYPE public.gbtreekey8 FROM public;
-REVOKE ALL ON TYPE public.gbtreekey8 FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.gbtreekey8 FROM scuola247_executive;
-REVOKE ALL ON TYPE public.gbtreekey8 FROM scuola247_employee;
-REVOKE ALL ON TYPE public.gbtreekey8 FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.gbtreekey8 FROM scuola247_relative;
-REVOKE ALL ON TYPE public.gbtreekey8 FROM scuola247_student;
-REVOKE ALL ON TYPE public.gbtreekey8 FROM scuola247_user;
-
-REVOKE ALL ON TYPE public.gbtreekey_var FROM public;
-REVOKE ALL ON TYPE public.gbtreekey_var FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.gbtreekey_var FROM scuola247_executive;
-REVOKE ALL ON TYPE public.gbtreekey_var FROM scuola247_employee;
-REVOKE ALL ON TYPE public.gbtreekey_var FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.gbtreekey_var FROM scuola247_relative;
-REVOKE ALL ON TYPE public.gbtreekey_var FROM scuola247_student;
-REVOKE ALL ON TYPE public.gbtreekey_var FROM scuola247_user;
-
 REVOKE ALL ON TYPE public.geographical_area FROM public;
 REVOKE ALL ON TYPE public.geographical_area FROM scuola247_supervisor;
 REVOKE ALL ON TYPE public.geographical_area FROM scuola247_executive;
@@ -546,11 +511,6 @@ GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO scuola247_user;
 GRANT ALL ON TYPE public.address_type TO scuola247_supervisor;
 GRANT ALL ON TYPE public.explanation_type TO scuola247_supervisor;
 GRANT ALL ON TYPE public.file_extension TO scuola247_supervisor;
-GRANT ALL ON TYPE public.gbtreekey16 TO scuola247_supervisor;
-GRANT ALL ON TYPE public.gbtreekey32 TO scuola247_supervisor;
-GRANT ALL ON TYPE public.gbtreekey4 TO scuola247_supervisor;
-GRANT ALL ON TYPE public.gbtreekey8 TO scuola247_supervisor;
-GRANT ALL ON TYPE public.gbtreekey_var TO scuola247_supervisor;
 GRANT ALL ON TYPE public.geographical_area TO scuola247_supervisor;
 GRANT ALL ON TYPE public.image TO scuola247_supervisor;
 GRANT ALL ON TYPE public.language TO scuola247_supervisor;
@@ -564,11 +524,6 @@ GRANT ALL ON TYPE public.wikimedia_type TO scuola247_supervisor;
 GRANT USAGE ON TYPE public.address_type TO scuola247_user;
 GRANT USAGE ON TYPE public.explanation_type TO scuola247_user;
 GRANT USAGE ON TYPE public.file_extension TO scuola247_user;
-GRANT USAGE ON TYPE public.gbtreekey16 TO scuola247_user;
-GRANT USAGE ON TYPE public.gbtreekey32 TO scuola247_user;
-GRANT USAGE ON TYPE public.gbtreekey4 TO scuola247_user;
-GRANT USAGE ON TYPE public.gbtreekey8 TO scuola247_user;
-GRANT USAGE ON TYPE public.gbtreekey_var TO scuola247_user;
 GRANT USAGE ON TYPE public.geographical_area TO scuola247_user;
 GRANT USAGE ON TYPE public.image TO scuola247_user;
 GRANT USAGE ON TYPE public.language TO scuola247_user;
@@ -602,7 +557,6 @@ GRANT SELECT ON TABLE public.branches TO scuola247_relative;
 -------------------------------------------------------------
 
 -- cities
-REVOKE ALL ON TABLE public.cities FROM scuola247_executive;
 GRANT ALL ON TABLE public.cities TO scuola247_supervisor;
 
 GRANT SELECT ON TABLE public.cities TO scuola247_executive;
@@ -677,8 +631,6 @@ GRANT ALL ON TABLE public.conversations_invites TO scuola247_relative;
 -------------------------------------------------------------
 
 -- countries
-REVOKE ALL ON TABLE public.countries FROM scuola247_executive;
-
 GRANT ALL ON TABLE public.countries TO scuola247_supervisor;
 
 GRANT SELECT ON TABLE public.countries TO scuola247_executive;
@@ -925,9 +877,9 @@ GRANT SELECT ON TABLE public.persons TO scuola247_relative;
 GRANT ALL ON TABLE public.persons_addresses TO scuola247_supervisor;
 GRANT ALL ON TABLE public.persons_addresses TO scuola247_executive;
 GRANT ALL ON TABLE public.persons_addresses TO scuola247_employee;
+GRANT ALL ON TABLE public.persons_addresses TO scuola247_teacher;
 GRANT ALL ON TABLE public.persons_addresses TO scuola247_student;
 GRANT ALL ON TABLE public.persons_addresses TO scuola247_relative;
-GRANT ALL ON TABLE public.persons_addresses TO scuola247_student;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
@@ -1059,25 +1011,25 @@ GRANT ALL ON TABLE public.usenames_ex TO scuola247_supervisor;
 GRANT ALL ON TABLE public.usenames_ex TO scuola247_executive;
 GRANT ALL ON TABLE public.usenames_ex TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.usenames_ex TO scuola247_teacher;
-GRANT SELECT ON TABLE public.usenames_ex TO scuola247_student;
-GRANT SELECT ON TABLE public.usenames_ex TO scuola247_relative;
+GRANT SELECT(usename, language) ON TABLE public.usenames_ex TO scuola247_teacher;
+GRANT SELECT(usename, language) ON TABLE public.usenames_ex TO scuola247_student;
+GRANT SELECT(usename, language) ON TABLE public.usenames_ex TO scuola247_relative;
+
 
 /* possono fare l'update della lingua */
 /* il token non può essere visto da nessuno*/
-REVOKE ALL (token) ON public.usenames_ex FROM scuola247_supervisor;
-REVOKE ALL (token) ON public.usenames_ex FROM scuola247_executive;
-REVOKE ALL (token) ON public.usenames_ex FROM scuola247_employee;
 REVOKE ALL (token) ON public.usenames_ex FROM scuola247_teacher;
 REVOKE ALL (token) ON public.usenames_ex FROM scuola247_student;
 REVOKE ALL (token) ON public.usenames_ex FROM scuola247_relative;
+REVOKE ALL (token) ON public.usenames_ex FROM scuola247_user;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- usenames_schools
-GRANT SELECT ON TABLE public.usenames_schools TO scuola247_supervisor;
-GRANT SELECT ON TABLE public.usenames_schools TO scuola247_executive;
-GRANT SELECT ON TABLE public.usenames_schools TO scuola247_employee;
+GRANT ALL ON TABLE public.usenames_schools TO scuola247_supervisor;
+GRANT ALL ON TABLE public.usenames_schools TO scuola247_executive;
+GRANT ALL ON TABLE public.usenames_schools TO scuola247_employee;
+
 GRANT SELECT ON TABLE public.usenames_schools TO scuola247_teacher;
 GRANT SELECT ON TABLE public.usenames_schools TO scuola247_student;
 GRANT SELECT ON TABLE public.usenames_schools TO scuola247_relative;
@@ -1322,6 +1274,8 @@ GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_testing TO scuola247_user;
 GRANT ALL ON ALL SEQUENCES IN SCHEMA unit_testing TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON ALL SEQUENCES IN SCHEMA unit_testing TO scuola247_user;
 
+GRANT ALL ON ALL TABLES IN SCHEMA unit_testing TO public;
+
 GRANT ALL ON TYPE unit_testing.check_point TO scuola247_supervisor WITH GRANT OPTION;
 GRANT ALL ON TYPE unit_testing.check_point_status TO scuola247_supervisor WITH GRANT OPTION;
 GRANT ALL ON TYPE unit_testing.unit_test_result TO scuola247_supervisor WITH GRANT OPTION;
@@ -1546,8 +1500,8 @@ GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_security TO scuola247_supervisor
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_security TO scuola247_user;
 
 -- UNIT_TESTS_TRANSLATE;
-REVOKE ALL ON SCHEMA unit_tests_translate FROM public;
-REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA unit_tests_translate FROM public; 
+-- REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_supervisor; -- da problemi di dipendenze
 REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_executive;
 REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_employee;
 REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_teacher;
@@ -1556,7 +1510,7 @@ REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_student;
 REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_user;
 
 REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_translate FROM public;
--- REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_translate FROM scuola247_supervisor; -- da problemi di dipendenze
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_translate FROM scuola247_supervisor; -- da problemi di dipendenze
 REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_translate FROM scuola247_executive;
 REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_translate FROM scuola247_employee;
 REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_translate FROM scuola247_teacher;

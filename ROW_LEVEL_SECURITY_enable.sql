@@ -132,6 +132,11 @@ CREATE POLICY usenames_ex_pl_usename ON usenames_ex TO public
  USING (usename = current_user)
   WITH CHECK (usename = current_user);
 
+  DROP POLICY usenames_ex_pl_supervisor ON usenames_ex;
+CREATE POLICY usenames_ex_pl_supervisor ON usenames_ex TO scuola247_supervisor 
+ USING (TRUE)
+  WITH CHECK (TRUE);
+
   DROP POLICY usenames_schools_pl_usename ON usenames_schools;
 CREATE POLICY usenames_schools_pl_usename ON usenames_schools TO public 
  USING (usename = current_user)
