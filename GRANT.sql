@@ -857,8 +857,7 @@ GRANT ALL ON TABLE public.parents_meetings TO scuola247_teacher;
 GRANT ALL ON TABLE public.parents_meetings TO scuola247_relative;
 
 /* date grant alla sola colonna person */
-GRANT SELECT (person) ON TABLE public.parents_meetings TO scuola247_student;
---GRANT SELECT ON TABLE public.parents_meetings TO scuola247_student;
+GRANT SELECT(parents_meeting, person) ON TABLE public.parents_meetings TO scuola247_student;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
@@ -1011,17 +1010,11 @@ GRANT ALL ON TABLE public.usenames_ex TO scuola247_supervisor;
 GRANT ALL ON TABLE public.usenames_ex TO scuola247_executive;
 GRANT ALL ON TABLE public.usenames_ex TO scuola247_employee;
 
-GRANT SELECT(usename, language) ON TABLE public.usenames_ex TO scuola247_teacher;
-GRANT SELECT(usename, language) ON TABLE public.usenames_ex TO scuola247_student;
-GRANT SELECT(usename, language) ON TABLE public.usenames_ex TO scuola247_relative;
-
-
 /* possono fare l'update della lingua */
 /* il token non può essere visto da nessuno*/
-REVOKE ALL (token) ON public.usenames_ex FROM scuola247_teacher;
-REVOKE ALL (token) ON public.usenames_ex FROM scuola247_student;
-REVOKE ALL (token) ON public.usenames_ex FROM scuola247_relative;
-REVOKE ALL (token) ON public.usenames_ex FROM scuola247_user;
+GRANT SELECT(usename, language) UPDATE(language) ON TABLE public.usenames_ex TO scuola247_teacher;
+GRANT SELECT(usename, language) UPDATE(language) ON TABLE public.usenames_ex TO scuola247_student;
+GRANT SELECT(usename, language) UPDATE(language) ON TABLE public.usenames_ex TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
