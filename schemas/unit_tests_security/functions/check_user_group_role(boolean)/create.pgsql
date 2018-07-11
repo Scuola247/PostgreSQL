@@ -279,30 +279,20 @@ BEGIN
 -- usenames_ex  -- sequenza diversa
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.usenames_ex WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'UPDATE public.usenames_ex SET language = ''de'' WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
-  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'DELETE FROM public.usenames_ex WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
-  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'INSERT INTO public.usenames_ex(usename,language) VALUES (''test_unit_special_testing_user@scuola-200000200.it'',''it'');');
-  -- serve per eliminare il record aggiornato e a reinserirlo
-  IF _group = ANY(ARRAY['scuola247_teacher', 'scuola247_student','scuola247_relative']) THEN
-    _results = _results || unit_tests_security.check_statement_enabled('unit_testing_supervisor@scuola.it','scuola247_supervisor', ARRAY['scuola247_supervisor'],'DELETE FROM public.usenames_ex WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
-    _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'INSERT INTO public.usenames_ex(usename,language) VALUES (''test_unit_special_testing_user@scuola-200000200.it'',''it'');');
-  END IF;
-  -- controllo colonna token
-  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'SELECT token FROM public.usenames_ex WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
-  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'UPDATE public.usenames_ex SET token = ''999999999999999999999'' WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
-  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'DELETE FROM public.usenames_ex WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');  
-  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'INSERT INTO public.usenames_ex(usename,token,language) VALUES (''test_unit_special_testing_user@scuola-200000200.it'',''888888888888888888888888'',''it'');');
-  -- serve per eliminare il record prima di reinserirlo
-  IF _group = ANY(ARRAY['scuola247_teacher', 'scuola247_student','scuola247_relative']) THEN
-    _results = _results || unit_tests_security.check_statement_enabled('unit_testing_supervisor@scuola.it','scuola247_supervisor', ARRAY['scuola247_supervisor'],'DELETE FROM public.usenames_ex WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
-    _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'INSERT INTO public.usenames_ex(usename,token,language) VALUES (''test_unit_special_testing_user@scuola-200000200.it'',''888888888888888888888888'',''it'');');
-  END IF;
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'DELETE FROM public.usenames_ex WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'INSERT INTO public.usenames_ex(usename,language) VALUES (''test_unit_special_testing_user@scuola-200000200.it'',''it'');');
 
+  -- controllo colonna token
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'SELECT token FROM public.usenames_ex WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'UPDATE public.usenames_ex SET token = ''999999999999999999999'' WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'DELETE FROM public.usenames_ex WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');  
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'INSERT INTO public.usenames_ex(usename,token,language) VALUES (''test_unit_special_testing_user@scuola-200000200.it'',''888888888888888888888888'',''it'');');
 
 -- usenames_schools -- sequenza diversa
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.usenames_schools WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
-  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'UPDATE public.usenames_schools SET school = ''2000000200'' WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
-  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'DELETE FROM public.usenames_schools WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
-  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee'], 'INSERT INTO public.usenames_schools(usename,school) VALUES (''test_unit_special_testing_user@scuola-200000200.it'',''2000000200'');');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'UPDATE public.usenames_schools SET school = ''2000000200'' WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'DELETE FROM public.usenames_schools WHERE usename = ''test_unit_special_testing_user@scuola-200000200.it'';');
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'INSERT INTO public.usenames_schools(usename,school) VALUES (''test_unit_special_testing_user@scuola-200000200.it'',''2000000200'');');
 
 -- valutations
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.valutations WHERE valutation = ''86813000000200'';');

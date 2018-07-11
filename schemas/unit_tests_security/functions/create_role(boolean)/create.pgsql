@@ -63,7 +63,7 @@ BEGIN
     -- utente per el prove di SELECT, INSERT, UPDATE, DELETE delle tabelle usenames_schools e usename_ex
     PERFORM special.scuola247_create_user('test_unit_special_testing_user@scuola-200000200.it', 'scuola247_user'::special.scuola247_groups, 'it'::utility.language,NULL); 
 
-    PERFORM special.scuola247_create_user('unit_testing_supervisor@scuola.it', 'scuola247_supervisor'::special.scuola247_groups, 'it'::utility.language,1000000000,2000000000,28961000000000,2000000200,2000000300);
+    PERFORM special.scuola247_create_user('unit_testing_supervisor@scuola.it', 'scuola247_supervisor'::special.scuola247_groups, 'it'::utility.language,2000000200,2000000300);
     PERFORM special.scuola247_create_user('unit_testing_executive_g@scuola_2000000200.it', 'scuola247_executive'::special.scuola247_groups, 'it'::utility.language,2000000200);
     PERFORM special.scuola247_create_user('unit_testing_executive_h@scuola_2000000200.it', 'scuola247_executive'::special.scuola247_groups, 'it'::utility.language,2000000200);
     PERFORM special.scuola247_create_user('unit_testing_executive_m@scuola_2000000300.it', 'scuola247_executive'::special.scuola247_groups, 'it'::utility.language,2000000300);

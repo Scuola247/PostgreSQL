@@ -1007,22 +1007,22 @@ GRANT SELECT ON TABLE public.topics TO scuola247_relative;
 
 -- usenames_ex
 GRANT ALL ON TABLE public.usenames_ex TO scuola247_supervisor;
-GRANT ALL ON TABLE public.usenames_ex TO scuola247_executive;
-GRANT ALL ON TABLE public.usenames_ex TO scuola247_employee;
 
 /* possono fare l'update della lingua */
 /* il token non può essere visto da nessuno*/
-GRANT SELECT(usename, language) UPDATE(language) ON TABLE public.usenames_ex TO scuola247_teacher;
-GRANT SELECT(usename, language) UPDATE(language) ON TABLE public.usenames_ex TO scuola247_student;
-GRANT SELECT(usename, language) UPDATE(language) ON TABLE public.usenames_ex TO scuola247_relative;
+GRANT SELECT(usename, language), UPDATE(language) ON TABLE public.usenames_ex TO scuola247_executive;
+GRANT SELECT(usename, language), UPDATE(language) ON TABLE public.usenames_ex TO scuola247_employee;
+GRANT SELECT(usename, language), UPDATE(language) ON TABLE public.usenames_ex TO scuola247_teacher;
+GRANT SELECT(usename, language), UPDATE(language) ON TABLE public.usenames_ex TO scuola247_student;
+GRANT SELECT(usename, language), UPDATE(language) ON TABLE public.usenames_ex TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- usenames_schools
 GRANT ALL ON TABLE public.usenames_schools TO scuola247_supervisor;
-GRANT ALL ON TABLE public.usenames_schools TO scuola247_executive;
-GRANT ALL ON TABLE public.usenames_schools TO scuola247_employee;
 
+GRANT SELECT ON TABLE public.usenames_schools TO scuola247_executive;
+GRANT SELECT ON TABLE public.usenames_schools TO scuola247_employee;
 GRANT SELECT ON TABLE public.usenames_schools TO scuola247_teacher;
 GRANT SELECT ON TABLE public.usenames_schools TO scuola247_student;
 GRANT SELECT ON TABLE public.usenames_schools TO scuola247_relative;

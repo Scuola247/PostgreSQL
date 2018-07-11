@@ -30,8 +30,8 @@ BEGIN
   END IF;
   
   FOR me.current_user IN (SELECT usename, school
-                    FROM usenames_schools
-                   WHERE usename LIKE 'unit_testing%') LOOP
+                            FROM usenames_schools
+                           WHERE usename LIKE 'unit_testing%') LOOP
                    
     command = format('SELECT unit_tests_horizontal_security.check_user_enable_school(%L,%L)',me.current_user.usename,me.current_user.school);
     RAISE INFO 'command: %',command;
@@ -49,7 +49,14 @@ BEGIN
                            WHERE roleid::regrole::text like 'scuola247_%'
                              AND member::regrole::text like 'unit_testing%') LOOP
                            
-    me.sql =format('WITH my_usenames_schools AS (SELECT usename, school FROM usenames_schools WHERE usename = %L) SELECT s.school AS school, m.usename AS usename FROM my_usenames_schools m RIGHT JOIN schools s ON m.school = s.school WHERE m.school IS  NULL', me.current_user.member);                 
+    me.sql =format('WITH my_usenames_schools AS (SELECT usename, school
+                                                 FROM usenames_schools 
+                                                 WHERE usename = %L)
+                         SELECT s.school AS school, m.usename AS usename 
+                           FROM my_usenames_schools m 
+                     RIGHT JOIN schools s ON m.school = s.school 
+                          WHERE s.school IN (2000000200, 2000000300)
+                            AND m.school IS  NULL', me.current_user.member);                 
     RAISE INFO 'sql: %',me.sql;
 
     FOR me.current_user_school IN EXECUTE me.sql LOOP
