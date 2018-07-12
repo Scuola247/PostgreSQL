@@ -1,12 +1,13 @@
-﻿-- Function: unit_tests_security.check_statement_enabled(text, text, text[], text)
+﻿-- Function: unit_tests_security.check_statement_enabled(text, text, text[], text, bigint)
 
--- DROP FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text);
+-- DROP FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text, bigint);
 
 CREATE OR REPLACE FUNCTION unit_tests_security.check_statement_enabled(
     IN _usename text,
     IN _group text,
     IN _groups_enabled text[],
     IN _sql text,
+    IN _expected_rows bigint,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
 $BODY$
@@ -35,8 +36,8 @@ BEGIN
 
     GET DIAGNOSTICS row_count = ROW_COUNT;
 
-    IF ((_group = ANY(_groups_enabled) AND row_count = 1))
-      OR ((_group = 'scuola247_supervisor') AND row_count = 2) THEN
+    IF (_group = ANY(_groups_enabled) 
+        AND row_count = _expected_rows) THEN
 	      _results = _results || assert.pass(full_function_name, test_name);
     ELSE
         _results = _results || assert.fail(full_function_name, test_name,format('Command EXECUTED WITHOUT EXCEPTION but the group %s shouldn''t be able to SQL: %s', _group, _sql), NULL::diagnostic.error);
@@ -68,8 +69,8 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text)
+ALTER FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text, bigint)
   OWNER TO scuola247_supervisor;
-GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text) TO public;
-GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text) TO scuola247_supervisor WITH GRANT OPTION;
-GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text) TO scuola247_user;
+GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text, bigint) TO public;
+GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text, bigint) TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text, bigint) TO scuola247_user;
