@@ -189,7 +189,7 @@ BEGIN
     INSERT INTO public.faults(fault,student,description,lesson,note) VALUES ('59633000000200','2359000000200','non ha portato il quaderno','98583000000200',NULL);
 
     -- grading_meetings_close
-    UPDATE public.grading_meetings SET closed = 't' WHERE grading_meeting = '119533000000200';
+    UPDATE public.grading_meetings gm SET closed = 't' WHERE gm.grading_meeting = '119533000000200';
 
     INSERT INTO public.holidays(holiday,school,on_date,description) VALUES ('11335000000200','2000000200','2013-01-01','Capodanno');
     INSERT INTO public.holidays(holiday,school,on_date,description) VALUES ('11336000000200','2000000200','2013-01-06','Epifania');
@@ -200,7 +200,7 @@ BEGIN
     INSERT INTO public.messages_read(message_read,message,person,read_on) VALUES ('60304000000200','50112000000200','2363000000200','2013-09-17 09:26:43');
 
     -- notes_signed
-    UPDATE public.notes_signed SET on_date = '2014-06-09 10:39:00' WHERE note = '104925000000200';
+    UPDATE public.notes_signed ns SET on_date = '2014-06-09 10:39:00' WHERE ns.note = '104925000000200';
 
     INSERT INTO public.out_of_classrooms(out_of_classroom,school_operator,description,on_date,from_time,to_time,classroom_student) VALUES ('98577000000200','2362000000200','Olimpiadi di Informatica','2013-10-22','08:00:00','12:00:00','10247000000200');
 
@@ -388,7 +388,7 @@ BEGIN
     INSERT INTO public.faults(fault,student,description,lesson,note) VALUES ('59633000000300','2359000000300','non ha portato il quaderno','98583000000300',NULL);
 
     -- grading_meetings_close
-    UPDATE public.grading_meetings SET closed = 't' WHERE grading_meeting = '119533000000300';
+    UPDATE public.grading_meetings gm SET closed = 't' WHERE gm.grading_meeting = '119533000000300';
 
     INSERT INTO public.holidays(holiday,school,on_date,description) VALUES ('11335000000300','2000000300','2013-01-01','Capodanno');
     INSERT INTO public.holidays(holiday,school,on_date,description) VALUES ('11336000000300','2000000300','2013-01-06','Epifania');
@@ -399,7 +399,7 @@ BEGIN
     INSERT INTO public.messages_read(message_read,message,person,read_on) VALUES ('60304000000300','50112000000300','2363000000300','2013-09-17 09:26:43');
 
     -- notes_signed
-    UPDATE public.notes_signed SET on_date = '2014-06-09 10:39:00' WHERE note = '104925000000300';
+    UPDATE public.notes_signed ns SET on_date = '2014-06-09 10:39:00' WHERE ns.note = '104925000000300';
 
     INSERT INTO public.out_of_classrooms(out_of_classroom,school_operator,description,on_date,from_time,to_time,classroom_student) VALUES ('98577000000300','2362000000300','Olimpiadi di Informatica','2013-10-22','08:00:00','12:00:00','10247000000300');
 

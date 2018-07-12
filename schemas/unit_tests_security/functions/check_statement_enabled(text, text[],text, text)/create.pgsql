@@ -17,6 +17,7 @@ DECLARE
   test_name	        text = '';
   error			diagnostic.error;
   command 		text;
+  row_count   bigint;
 BEGIN
   GET DIAGNOSTICS context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
@@ -32,7 +33,10 @@ BEGIN
     EXECUTE command;
     EXECUTE _sql;
 
-    IF (_group = ANY(_groups_enabled)) THEN
+    GET DIAGNOSTICS row_count = ROW_COUNT;
+
+    IF ((_group = ANY(_groups_enabled) AND row_count = 1))
+      OR ((_group = 'scuola247_supervisor') AND row_count = 2) THEN
 	      _results = _results || assert.pass(full_function_name, test_name);
     ELSE
         _results = _results || assert.fail(full_function_name, test_name,format('Command EXECUTED WITHOUT EXCEPTION but the group %s shouldn''t be able to SQL: %s', _group, _sql), NULL::diagnostic.error);

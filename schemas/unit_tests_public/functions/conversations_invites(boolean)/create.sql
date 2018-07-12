@@ -27,7 +27,7 @@ BEGIN
   test_name = 'INSERT conversations_invites';
   -------------------------------------------
   BEGIN
---    INSERT INTO public.conversations_invites(....
+    INSERT INTO public.conversations_invites(conversation_invite,conversation,invited) VALUES (825811000000000,33565000000000,5674000000000);
 
     _results = _results || assert.pass(full_function_name, test_name);
 
@@ -43,4 +43,7 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION unit_tests_public.conversations_invites(boolean)
-  OWNER TO postgres;
+  OWNER TO scuola247_supervisor;
+GRANT EXECUTE ON FUNCTION unit_tests_public.conversations_invites(boolean) TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON FUNCTION unit_tests_public.conversations_invites(boolean) TO scuola247_user;
+REVOKE ALL ON FUNCTION unit_tests_public.conversations_invites(boolean) FROM public;
