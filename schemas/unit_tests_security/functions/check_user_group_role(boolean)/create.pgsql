@@ -286,14 +286,7 @@ BEGIN
   ELSE
     RAISE WARNING 'role %I non ha eseguito SELECT 1 from public.usenames_schools WHERE usename = %L;',_usename,_usename;
   END IF;  
-  /*
-  IF _group = ANY(ARRAY['scuola247_supervisor']) THEN
-    _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], format('SELECT 1 from public.usenames_schools WHERE usename = %L;', _usename), 2);
-  END IF; 
-  IF _group = ANY(ARRAY['scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative']) THEN
-    _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], format('SELECT 1 from public.usenames_schools WHERE usename = %L;', _usename), 1);
-  END IF; 
-  */
+  
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'UPDATE public.usenames_schools SET school = ''2000000300'' WHERE usename = ''test_unit_special_testing_user@scuola_2000000200.it'';', 1);
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor'], 'DELETE FROM public.usenames_schools WHERE usename = ''test_unit_special_testing_user@scuola_2000000200.it'';', 1);
 

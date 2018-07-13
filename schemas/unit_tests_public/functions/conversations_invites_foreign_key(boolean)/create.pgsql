@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests_public.countries_check(boolean)
+﻿-- Function: unit_tests_public.conversations_invites_foreign_key(boolean)
 
--- DROP FUNCTION unit_tests_public.countries_check(boolean);
+-- DROP FUNCTION unit_tests_public.conversations_invites_foreign_key(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests_public.countries_check(
+CREATE OR REPLACE FUNCTION unit_tests_public.conversations_invites_foreign_key(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -21,44 +21,35 @@ BEGIN
       PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
-
-  -----------------------------------
-  test_name = 'country''s mandatory';
-  -----------------------------------
+  
+  ----------------------------------------------------------------------------------
+  test_name = 'UPDATE conversations_invites set conversation to a non existing one';
+  ----------------------------------------------------------------------------------
   BEGIN
-    UPDATE countries SET country = NULL WHERE country = '201000000000';
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but country mandatory was expected', NULL::diagnostic.error);
-    RETURN;
-   EXCEPTION WHEN OTHERS THEN
-    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
-	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
-  END;
-  ---------------------------------------
-  test_name = 'description''s mandatory';
-  ---------------------------------------
-  BEGIN
-    UPDATE countries SET description = NULL WHERE country = '201000000000';
-    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description mandatory was expected', NULL::diagnostic.error);
+    UPDATE conversations_invites SET conversation = 999999999 WHERE conversation_invite = '831562000000000';
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but conversation set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
+    _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23503', 'conversations_invites_fk_conversation');
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
-
-/*
-mancano checks:
-- lunghezza minima della description
-- duplicazione description
-- duplicazione processing_code
-*/
-
-
+  -----------------------------------------------------------------------------
+  test_name = 'UPDATE conversations_invites set invited to a non existing one';
+  -----------------------------------------------------------------------------
+  BEGIN
+    UPDATE conversations_invites SET invited = 999999999 WHERE conversation_invite = '831562000000000';
+    _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but conversation set with a non existing one', NULL::diagnostic.error);
+    RETURN;
+    EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23503', 'conversations_invites_fk_person');
+	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+  END;
   RETURN;
 END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests_public.countries_check(boolean)
+ALTER FUNCTION unit_tests_public.conversations_invites_foreign_key(boolean)
   OWNER TO postgres;

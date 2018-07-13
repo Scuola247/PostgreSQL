@@ -39,10 +39,10 @@ BEGIN
         END;
 
   ----------------------------------
-  test_name = 'person''s mandatory'; -- da controllare se si può aver lo stesso risultato mettendo codice moltiplicato per 1000000000
+  test_name = 'person''s mandatory'; 
   ----------------------------------
   BEGIN
-    UPDATE notes_signed SET person = NULL WHERE note = '104925';
+    UPDATE notes_signed SET person = NULL WHERE note = '104925000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -52,10 +52,10 @@ BEGIN
   END;
 
   --------------------------------
-  test_name = 'note''s mandatory'; -- da controllare se si può aver lo stesso risultato mettendo codice moltiplicato per 1000000000
+  test_name = 'note''s mandatory'; 
   --------------------------------
    BEGIN
-    UPDATE notes_signed SET note = NULL WHERE note = '105054';
+    UPDATE notes_signed SET note = NULL WHERE note = '104925000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but note required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

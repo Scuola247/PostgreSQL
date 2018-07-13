@@ -22,7 +22,7 @@ BEGIN
     RETURN;
   END IF;
   ---------------------------------------------------------------------------------
-  test_name = 'update conversations set classroom_student with a non existing one';
+  test_name = 'UPDATE conversations set classroom_student with a non existing one';
   ---------------------------------------------------------------------------------
   BEGIN
     UPDATE conversations SET classroom_student = 999999999 WHERE conversation = '33670000000000';

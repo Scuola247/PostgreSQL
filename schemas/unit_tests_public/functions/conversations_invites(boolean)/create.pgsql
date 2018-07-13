@@ -27,7 +27,8 @@ BEGIN
   test_name = 'INSERT conversations_invites';
   -------------------------------------------
   BEGIN
-    INSERT INTO public.conversations_invites(conversation_invite,conversation,invited) VALUES (825811000000000,33565000000000,5674000000000);
+    INSERT INTO public.conversations_invites(conversation_invite,conversation,invited) VALUES (831562000000000,33565000000000,5674000000000);
+    INSERT INTO public.conversations_invites(conversation_invite,conversation,invited) VALUES (831563000000000,33566000000000,6603000000000);
 
     _results = _results || assert.pass(full_function_name, test_name);
 

@@ -37,7 +37,7 @@ BEGIN
   --------------------------------------------------
   BEGIN
     UPDATE absences SET on_date = NULL WHERE absence = '33312000000000';
-    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but on_date NULL value was expected', NULL::diagnostic.error);
+    _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but on_date NULL value was expected', NULL::diagnostic.error);
     RETURN;
 
     EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
   --------------------------------------------------
   BEGIN
     UPDATE absences SET teacher = NULL WHERE absence = '33312000000000';
-    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but teacher NULL value was expected', NULL::diagnostic.error);
+    _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher NULL value was expected', NULL::diagnostic.error);
     RETURN;
 
     EXCEPTION WHEN OTHERS THEN

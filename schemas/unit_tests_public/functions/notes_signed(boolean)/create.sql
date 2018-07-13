@@ -34,7 +34,10 @@ BEGIN
   -- the person signed
   ----------------------------------
   BEGIN
-    UPDATE public.notes_signed SET on_date = '2014-06-09 10:39:00' WHERE note_signed = '113134000000000';
+  -- bisogna fare questo cambio
+    UPDATE public.notes_signed SET on_date = '2014-06-09 10:39:00' WHERE note = '104925000000000';
+    --UPDATE public.notes_signed SET on_date = '2014-06-09 10:39:00' WHERE note_signed = '113134000000000';
+
     UPDATE public.notes_signed SET on_date = '2013-09-21 10:57:37' WHERE note_signed = '119212000000000';
     UPDATE public.notes_signed SET on_date = '2013-09-20 11:18:57' WHERE note_signed = '119215000000000';
     UPDATE public.notes_signed SET on_date = '2013-09-26 14:12:37' WHERE note_signed = '119217000000000';
@@ -185,4 +188,7 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION unit_tests_public.notes_signed(boolean)
-  OWNER TO postgres;
+  OWNER TO scuola247_supervisor;
+GRANT EXECUTE ON FUNCTION unit_tests_public.notes_signed(boolean) TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON FUNCTION unit_tests_public.notes_signed(boolean) TO scuola247_user;
+REVOKE ALL ON FUNCTION unit_tests_public.notes_signed(boolean) FROM public;
