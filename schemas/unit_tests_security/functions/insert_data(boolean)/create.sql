@@ -229,7 +229,7 @@ BEGIN
 
     INSERT INTO public.wikimedia_files_persons(wikimedia_file_person, wikimedia_file, person) VALUES ('329668000000200', '301735000000200', '2358000000200');
 
-    INSERT INTO public.qualifications_plan(qualificationtion_plan,qualification,degree,course_year,subject) VALUES ('128989000000200','95977000000200','9947000000200','1','29105000000200');
+    INSERT INTO public.qualifications_plan(qualification_plan,qualification,degree,course_year,subject) VALUES ('128989000000200','95977000000200','9947000000200','1','29105000000200');
 
     INSERT INTO public.signatures(signature,classroom,teacher,on_date,at_time) VALUES ('33773000000200','10062000000200','2362000000200','2013-10-22','09:47:57');
 
@@ -428,7 +428,7 @@ BEGIN
 
     INSERT INTO public.wikimedia_files_persons(wikimedia_file_person, wikimedia_file, person) VALUES ('329668000000300', '301735000000300', '2358000000300');
 
-    INSERT INTO public.qualifications_plan(qualificationtion_plan,qualification,degree,course_year,subject) VALUES ('128989000000300','95977000000300','9947000000300','1','29105000000300');
+    INSERT INTO public.qualifications_plan(qualification_plan,qualification,degree,course_year,subject) VALUES ('128989000000300','95977000000300','9947000000300','1','29105000000300');
 
     INSERT INTO public.signatures(signature,classroom,teacher,on_date,at_time) VALUES ('33773000000300','10062000000300','2362000000300','2013-10-22','09:47:57');
 
