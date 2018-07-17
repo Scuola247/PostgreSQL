@@ -22,64 +22,13 @@ BEGIN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
-  -------------------------------------------------------------------------
-  test_name = 'UPDATE grading_meeting_valutatios with different classroom';
-  -------------------------------------------------------------------------
-  BEGIN
-    UPDATE public.grading_meetings_valutations set classroom = '29052000000000' WHERE grading_meeting_valutation = '130752000000000';
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but classroom isn''t in the same_year of the grading meeting ', NULL::diagnostic.error);
-    RETURN;
-
-    EXCEPTION WHEN OTHERS THEN
-    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04R1');
-	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
-  END;
-
-  ---------------------------------------------------------------------------
-  test_name = 'INSERT grading_meeting_valutation with a different classroom';
-  ---------------------------------------------------------------------------
-  BEGIN
-    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1001130752000000000','119533000000000','29052000000000','1325000000000','32919000000000','11463000000000',NULL,'f','f',NULL);
-    _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but classroom isn''t in the same_year of the grading meeting ', NULL::diagnostic.error);
-    RETURN;
-    EXCEPTION WHEN OTHERS THEN
-    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04R2');
-	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
-  END;
-
-  ------------------------------------------------------------------------------------------
-  test_name = 'UPDATE grading_meetings_valutations with student from a different classroom';
-  ------------------------------------------------------------------------------------------
-  BEGIN
-    UPDATE public.grading_meetings_valutations set student = '6603000000000' where grading_meeting_valutation = '130752000000000';
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but student is not in the classroom', NULL::diagnostic.error);
-    RETURN;
-   EXCEPTION WHEN OTHERS THEN
-    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04R3');
-	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
-  END;
-  ------------------------------------------------------------------------------------------
-  test_name = 'INSERT grading_meetings_valutations with student from a different classroom';
-  ------------------------------------------------------------------------------------------
-  BEGIN
-    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1011130752000000000','119533000000000','10034000000000','6603000000000','32919000000000','11463000000000',NULL,'f','f',NULL);
-    _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but student is not in the classroom', NULL::diagnostic.error);
-    RETURN;
-    EXCEPTION WHEN OTHERS THEN
-    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04R4');
-	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
-  END;
 
   --------------------------------------------------------------------------------------------
   test_name = 'UPDATE grading_meetings_valutations with a subject from a different classroom';
   --------------------------------------------------------------------------------------------
 
   BEGIN
-    UPDATE public.grading_meetings_valutations SET subject = '166675000000000' where grading_meeting_valutation = '130752000000000';
+    UPDATE public.grading_meetings_valutations SET subject = '166675000000000' where grading_meeting_valutation = '131709000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but subject is not in the school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -93,7 +42,7 @@ BEGIN
   ------------------------------------------------------------------------------------------
 
 BEGIN
-    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1021130752000000000','119533000000000','10034000000000','1325000000000','166675000000000','11463000000000',NULL,'f','f',NULL);
+    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('1021130752000000000','119533000000000','166675000000000','11463000000000',NULL,'f','f',NULL,10395000000000);
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but subject is not in the school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -105,9 +54,8 @@ BEGIN
   -------------------------------------------------------------------------------------
   test_name = 'UPDATE grading_meetings_valutations with grade from a different school';
   -------------------------------------------------------------------------------------
-
    BEGIN
-    UPDATE public.grading_meetings_valutations SET grade = '29067000000000' where grading_meeting_valutation = '130752000000000';
+    UPDATE public.grading_meetings_valutations SET grade = '29067000000000' where grading_meeting_valutation = '131709000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but grade is from a different school', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -120,7 +68,7 @@ BEGIN
   test_name = 'INSERT grading_meetings_valutations with grade from a different school';
   -------------------------------------------------------------------------------------
    BEGIN
-        INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1031130752000000000','119533000000000','10034000000000','1325000000000','32919000000000','29067000000000',NULL,'f','f',NULL);
+      INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('1031130752000000000','119533000000000','32919000000000','29067000000000',NULL,'f','f',NULL,10395000000000);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but grade is from a different school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -129,13 +77,11 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
-
-
   ----------------------------------------------------------------------------
   test_name = 'UPDATE grading_meeting_valutation with closed grading meeting';
   ----------------------------------------------------------------------------
      BEGIN
-    UPDATE public.grading_meetings_valutations SET grading_meeting = '119533000000000' where grading_meeting_valutation = '130752000000000';
+    UPDATE public.grading_meetings_valutations SET grading_meeting = '119533000000000' where grading_meeting_valutation = '131709000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but grading_meeting is closed', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -148,7 +94,7 @@ BEGIN
   test_name = 'INSERT grading_meeting_valutation with closed grading meeting';
   ----------------------------------------------------------------------------
      BEGIN
-    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('1041130752000000000', '119533000000000', '10034000000000', '1325000000000', '32919000000000', '11463000000000', NULL, 'f', 'f', NULL);
+    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('1041130752000000000', '119533000000000','32919000000000', '11463000000000', NULL, 'f', 'f', NULL,10395000000000);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but grading_meeting is closed', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

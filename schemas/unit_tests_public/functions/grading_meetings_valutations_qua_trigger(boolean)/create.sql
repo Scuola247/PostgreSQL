@@ -89,12 +89,12 @@ BEGIN
   test_name = 'INSERT grading_meeting_valutation_qua  where grading_meeting is closed';
   -------------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.grading_meetings_valutations_qua(grading_meeting_valutation_qua,grading_meeting_valutation,qualification,grade,notes) VALUES ('1126109000000000','124388000000000','95977000000000','11478000000000','Esempio di una nota testuale a commento della valutazione della qualifica');
+    INSERT INTO public.grading_meetings_valutations_qua(grading_meeting_valutation_qua,grading_meeting_valutation,qualification,grade,notes) VALUES ('1126109000000000','1130752000000000','95977000000000','11478000000000','Esempio di una nota testuale a commento della valutazione della qualifica');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK grading_meeting is closed', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
     GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04RA');
+    _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04T8');
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
   RETURN;
