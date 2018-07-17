@@ -22,10 +22,6 @@ DECLARE
     ('en', 6, 'In absence: %L with description: %L of the student: %L in date %L, the student is already marked as '' delay''.')::utility.system_message,
     ('en', 7, 'Try re-entering the absence date or the name of the pupil.')::utility.system_message,
     ('en', 8, 'Inserting absence with description: %L of the student: %L in date %L, the student is already marked as '' delay ''.')::utility.system_message,
-    ('en', 9, 'The school assigned to the pupil marked in absentia is not equivalent to the school of the class')::utility.system_message,
-    ('en', 10, 'In absence: %L of the student: %L. School: %L does not match class: %L.')::utility.system_message,
-    ('en', 11, 'Try re-inserting a pupil assigned to absent.')::utility.system_message,
-    ('en', 12, 'In the absence of the student: %L, the School %L does not match school''s class:% L.')::utility.system_message,
     ('en', 13, 'The school assigned to the absent teacher. Does not match the class assigned to the class.')::utility.system_message,
     ('en', 14, 'In absence: %L entered by the teacher: %L, does not match school: %L with class assigned: %L.')::utility.system_message,
     ('en', 15, 'Try re-enter the data.')::utility.system_message,
@@ -58,10 +54,6 @@ DECLARE
     ('it', 6, 'Nell''assenza: %L con descrizione : %L dello studente: %L in data %L, lo studente è già segnato come ''in ritartdo''.')::utility.system_message,
     ('it', 7, 'Provare a re-inserire la data dell''assenza oppure il nome dell''alunno.')::utility.system_message,
     ('it', 8, 'Nell''inserimento dell'' assenza con descrizione : %L dello studente: %L in data %L, lo studente è già segnato come ''in ritartdo''.')::utility.system_message,
-    ('it', 9, 'La scuola assegnata all''alunno contrassegnato nell''assenza non equivale alla scuola della classe ')::utility.system_message,
-    ('it', 10, 'Nell''assenza: %L dello studente: %L. la scuola: %L non corrisponde a quella della classe: %L.')::utility.system_message,
-    ('it', 11, 'Provare a re-inserire l''alunno assegnato all''assenza.')::utility.system_message,
-    ('it', 12, 'Nell''assenza inserita dello studente: %L . la scuola %L non corrisponde alla scuola segnata alla classe: %L.')::utility.system_message,
     ('it', 13, 'La scuola assegnata all''insegnante dell''assenza. Non corrisponde alla scuola assegnata alla classe.')::utility.system_message,
     ('it', 14, 'Nell''assenza: %L inserita dall''insegnante: %L, non corrisponde la scuola: %L con quella assegnata alla classe: %L.')::utility.system_message,
     ('it', 15, 'Provare a re-inserire i dati.')::utility.system_message,
@@ -93,8 +85,10 @@ BEGIN
   GET DIAGNOSTICS context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
 --
--- read the school of the classroom
---
+-- N.B.
+-- We do not check the school of the student equals that of the classroom because the classroom_student trigger checks it
+--  
+-- store school, classrrom and student
 --
   SELECT s.school, cs.classroom , cs.student
     INTO me.school , me.classroom, me.student
@@ -127,7 +121,8 @@ BEGIN
     END IF;
   END IF;
 --
--- Check that the student, in the on_date, has not already been recorded as delay
+-- Check that the explanation, if present, is for the student that did the absence 
+-- and the date is in the the range of the explanation
 --
   IF new.explanation IS NOT NULL THEN
 
@@ -135,7 +130,6 @@ BEGIN
        FROM explanations e
       WHERE e.explanation=new.explanation
         AND e.student = me.student
-        AND e.created_on >= new.on_date
         AND new.on_date BETWEEN from_time AND to_time ;
 
     IF NOT FOUND THEN
@@ -154,29 +148,6 @@ BEGIN
       END IF;
     END IF;
   END IF;
---
--- Check that the school of the student equals that of the classroom
---
-  PERFORM 1
-     FROM persons p
-    WHERE p.person = me.student
-      AND p.school = me.school;
-
-    IF NOT FOUND THEN
-      IF (TG_OP = 'UPDATE') THEN
-        RAISE EXCEPTION USING
-          ERRCODE = diagnostic.my_sqlcode(me.full_function_name,'5'),
-          MESSAGE = utility.system_messages_locale(system_messages,9),
-          DETAIL = format(utility.system_messages_locale(system_messages,10), new.absence, me.student, me.school, me.classroom),
-          HINT = utility.system_messages_locale(system_messages,11);
-      ELSE
-        RAISE EXCEPTION USING
-          ERRCODE = diagnostic.my_sqlcode(me.full_function_name,'6'),
-          MESSAGE = utility.system_messages_locale(system_messages,9),
-          DETAIL = format(utility.system_messages_locale(system_messages,12), me.student, me.school, me.classroom),
-          HINT = utility.system_messages_locale(system_messages,11);
-      END IF;
-    END IF;
 --
 -- Checking that the school of the teacher is equal to that of the classroom
 --
@@ -312,8 +283,8 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION public.tr_absences_iu()
-  OWNER TO postgres;
-GRANT EXECUTE ON FUNCTION public.tr_absences_iu() TO postgres WITH GRANT OPTION;
+  OWNER TO scuola247_supervisor;
+GRANT EXECUTE ON FUNCTION public.tr_absences_iu() TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON FUNCTION public.tr_absences_iu() TO scuola247_executive;
 GRANT EXECUTE ON FUNCTION public.tr_absences_iu() TO scuola247_relative;
 GRANT EXECUTE ON FUNCTION public.tr_absences_iu() TO scuola247_user;
