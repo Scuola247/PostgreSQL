@@ -1,38 +1,4 @@
-﻿-- Function: unit_tests_public.grading_meetings_valutations(boolean)
 
--- DROP FUNCTION unit_tests_public.grading_meetings_valutations(boolean);
-
-CREATE OR REPLACE FUNCTION unit_tests_public.grading_meetings_valutations(
-    IN _build_dependencies boolean DEFAULT false,
-    OUT _results unit_testing.unit_test_result[])
-  RETURNS unit_testing.unit_test_result[] AS
-$BODY$
-<<me>>
-DECLARE
-  context               text;
-  full_function_name 	text;
-  test_name		text = '';
-  error			diagnostic.error;
-BEGIN
-  GET DIAGNOSTICS context = PG_CONTEXT;
-  full_function_name = diagnostic.full_function_name(context);
-  -- check to build dependencies
-  IF _build_dependencies THEN
-    PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public.classrooms',
-                                                                                       'unit_tests_public.classrooms_students',
-                                                                                       'unit_tests_public.school_years',
-                                                                                       'unit_tests_public.grades',
-                                                                                       'unit_tests_public.metrics',
-                                                                                       'unit_tests_public.grading_meetings',
-                                                                                       'unit_tests_public.persons',
-                                                                                       'unit_tests_public.subjects');
-    RETURN;
-  END IF;
-  --------------------------------------------------
-  test_name = 'INSERT grading_meetings_valutations';
-  --------------------------------------------------
-  BEGIN
-    
 INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('130752000000000','119533000000000','32919000000000','11463000000000',NULL,'f','f',NULL,'10395000000000');
 INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('131709000000000','119538000000000','32915000000000','11463000000000',NULL,'f',NULL,'32929000000000','10671000000000');
 INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('131829000000000','119538000000000','32920000000000','11455000000000',NULL,'f',NULL,'32934000000000','10663000000000');
@@ -3465,23 +3431,3 @@ INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,gradi
 INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('126100000000000','119538000000000','32923000000000','11473000000000','Esempio di una nota associata ad un voto di scrutinio','f','f',NULL,'10709000000000');
 INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('126101000000000','119538000000000','32923000000000','11474000000000','Esempio di una nota associata ad un voto di scrutinio','f','f',NULL,'10710000000000');
 INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('126102000000000','119538000000000','32923000000000','11475000000000','Esempio di una nota associata ad un voto di scrutinio','f','f',NULL,'10711000000000');
-
-/*For grading_meetings_valutations_qua_trigger */
-INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('1130752000000000','119533000000000','32919000000000','11463000000000',NULL,'f','f',NULL, 10395000000000);
-
-
-    _results = _results || assert.pass(full_function_name, test_name);
-
-    EXCEPTION
-       WHEN OTHERS THEN
-         GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-         _results = _results || assert.fail(full_function_name, test_name, 'INSERT public.grading_meetings_valutations FAILED'::text, error);
-       RETURN;
-  END;
-  RETURN;
-END
-$BODY$
-  LANGUAGE plpgsql VOLATILE
-  COST 100;
-ALTER FUNCTION unit_tests_public.grading_meetings_valutations(boolean)
-  OWNER TO postgres;
