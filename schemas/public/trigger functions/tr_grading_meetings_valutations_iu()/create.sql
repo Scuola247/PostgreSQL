@@ -55,11 +55,11 @@ BEGIN
 -- check that the classroom is of the same school_year of the grading_meeting
 --
   PERFORM 1 
-     FROM grading_meetings gm, classrooms_students cs 
-     JOIN classrooms c ON c.classroom = cs.classroom
+     FROM grading_meetings gm 
+     JOIN classrooms c ON c.school_year = gm.school_year 
+     JOIN classrooms_students cs ON cs.classroom = c.classroom 
     WHERE gm.grading_meeting = new.grading_meeting
-      AND cs.classroom_student = new.classroom_student 
-      AND gm.school_year = c.school_year;
+      AND cs.classroom_student = new.classroom_student;
    
   IF NOT FOUND THEN
     IF (TG_OP = 'UPDATE') THEN
@@ -80,10 +80,12 @@ BEGIN
 -- check that the subject belongs to the same school of the school_year of the grading_meeting
 --
   PERFORM 1
-     FROM subjects s, grading_meetings gm
-     JOIN school_years sy ON sy.school_year = gm.school_year
+     FROM grading_meetings gm
+     JOIN school_years sy ON sy.schoool_year = gm.school_year
+     JOIN schools s ON s.school = sy.school
+     JOIN subjects su ON su.school = s.school
     WHERE gm.grading_meeting = new.grading_meeting
-      AND s.subject = new.subject;
+      AND su.subject = new.subject;
 
   IF NOT FOUND THEN
     IF (TG_OP = 'UPDATE') THEN
@@ -104,11 +106,13 @@ BEGIN
 -- check the school of the metric of the grade both the same of the school_year of the grading_meeting
 --
   PERFORM 1 
-     FROM grading_meetings gm, grades g
-     JOIN metrics m ON m.metric = g.metric  
-     JOIN school_years sy ON sy.school = m.school
-    WHERE g.grade = new.grade
-      AND gm.grading_meeting = new.grading_meeting;
+     FROM grading_meetings gm 
+     JOIN schools_years sy ON sy.school_year = gm.school_year
+     JOIN schools s ON s.school = sy.school
+     JOIN metrics m ON m.school = g.school  
+     JOIN grades g ON g.grade = m.grade
+    WHERE gm.grading_meeting = new.grading_meeting
+      AND g.grade = new.grade;
       
   IF NOT FOUND THEN
     IF (TG_OP = 'UPDATE') THEN
