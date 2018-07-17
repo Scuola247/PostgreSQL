@@ -81,7 +81,7 @@ BEGIN
 --
   PERFORM 1
      FROM grading_meetings gm
-     JOIN school_years sy ON sy.schoool_year = gm.school_year
+     JOIN school_years sy ON sy.school_year = gm.school_year
      JOIN schools s ON s.school = sy.school
      JOIN subjects su ON su.school = s.school
     WHERE gm.grading_meeting = new.grading_meeting
@@ -107,7 +107,7 @@ BEGIN
 --
   PERFORM 1 
      FROM grading_meetings gm 
-     JOIN schools_years sy ON sy.school_year = gm.school_year
+     JOIN school_years sy ON sy.school_year = gm.school_year
      JOIN schools s ON s.school = sy.school
      JOIN metrics m ON m.school = g.school  
      JOIN grades g ON g.grade = m.grade
