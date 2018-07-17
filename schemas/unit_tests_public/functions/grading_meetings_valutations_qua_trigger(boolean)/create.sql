@@ -73,7 +73,7 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
   --------------------------------------------------------------------------------
-  test_name = 'UPDATE grading_meeting_valutation where grading_meeting is closed';
+  test_name = 'UPDATE grading_meeting_valutation_qua where grading_meeting is closed';
   --------------------------------------------------------------------------------
   BEGIN
     UPDATE public.grading_meetings_valutations_qua set grading_meeting_valutation = '1130752000000000' WHERE grading_meeting_valutation_qua = '126109000000000';
@@ -89,7 +89,7 @@ BEGIN
   test_name = 'INSERT grading_meeting_valutation_qua  where grading_meeting is closed';
   -------------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.grading_meetings_valutations_qua(grading_meeting_valutationahu q,grading_meeting,classroom,student,subject,grade,notes,lack_of_training,council_vote,teacher) VALUES ('10130752000000000','119533000000000','10034000000000','1325000000000','32919000000000','11463000000000',NULL,'f','f',NULL);
+    INSERT INTO public.grading_meetings_valutations_qua(grading_meeting_valutation_qua,grading_meeting_valutation,qualification,grade,notes) VALUES ('1126109000000000','124388000000000','95977000000000','11478000000000','Esempio di una nota testuale a commento della valutazione della qualifica');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK grading_meeting is closed', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
