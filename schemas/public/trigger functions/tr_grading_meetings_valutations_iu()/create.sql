@@ -110,7 +110,7 @@ BEGIN
      JOIN school_years sy ON sy.school_year = gm.school_year
      JOIN schools s ON s.school = sy.school
      JOIN metrics m ON m.school = s.school  
-     JOIN grades g ON g.grade = m.grade
+     JOIN grades g ON g.metric = m.metric
     WHERE gm.grading_meeting = new.grading_meeting
       AND g.grade = new.grade;
       
