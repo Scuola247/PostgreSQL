@@ -11,9 +11,9 @@ DECLARE
   full_function_name    text;
   system_messages   utility.system_message[] = ARRAY[
     ('en', 1, 'The ''grading_meeting'' is not of the same ''school_years'' of the ''class''')::utility.system_message,
-    ('en', 2, 'The ''grading_meeting_valutation'': ''%s'' refer to the ''grading_meeting'': ''%s'' and a ''class'': ''%s'' that does not belong to ''school_years''')::utility.system_message,
+    ('en', 2, 'The ''grading_meeting_valutation'': ''%s'' refer to the ''grading_meeting'': ''%s'' and a ''classroom_student'': ''%s'' that does not belong to ''school_years''')::utility.system_message,
     ('en', 3, 'To correct the values of: ''grading_meeting'' and ''school_years'' and repeat the operation')::utility.system_message,
-    ('en', 4, 'In the ''grading_meeting_valutation'' that you are inserting they are suitable the ''grading_meeting'': ''%s'' and a ''class'': ''%s'' that does not belong to ''school_years''')::utility.system_message,
+    ('en', 4, 'In the ''grading_meeting_valutation'' that you are inserting they are suitable the ''grading_meeting'': ''%s'' and a ''classroom_student'': ''%s'' that does not belong to ''school_years''')::utility.system_message,
     ('en', 9, 'The ''materia'' does not belong to the same institute of the ''school_years'' of the ''grading_meeting''')::utility.system_message,
     ('en', 10, 'The ''grading_meeting_valutation'': ''%s''indicates a ''materia'': ''%s'' that does not belong to the same istitute of the ''school_years'' of the ''grading_meeting'': ''%s''')::utility.system_message,
     ('en', 11, 'To correct the values of: ''materia'' and ''grading_meeting'' and repeat the operation')::utility.system_message,
@@ -27,9 +27,9 @@ DECLARE
     ('en', 23, 'To correct the values of: ''grading_meeting '' and repeat the operation')::utility.system_message,
     ('en', 24, 'The ''grading_meeting_valutation'' that are inserting indicates a ''grading_meeting'': ''%s''  that is closed')::utility.system_message,
     ('it', 1, 'Lo ''scrutinio'' non è dello stesso ''anno_scolastico'' della ''classe''')::utility.system_message,
-    ('it', 2, 'La ''scrutinio_valutazione'': ''%s'' indica uno ''scrutinio'': ''%s'' e una ''classe'': ''%s'' che non appartengono allo stesso ''anno_scolastico''')::utility.system_message,
+    ('it', 2, 'La ''scrutinio_valutazione'': ''%s'' indica uno ''scrutinio'': ''%s'' e una ''classroom_student'': ''%s'' che non appartengono allo stesso ''anno_scolastico''')::utility.system_message,
     ('it', 3, 'Correggere i valori di: ''scrutinio'' e ''anno_scolastico'' e riproporre l''operazione')::utility.system_message,
-    ('it', 4, 'Nella ''scrutinio_valutazione'' che si sta inserendo sono indicati uno ''scrutinio'': ''%s'' e una ''classe'': ''%s'' che non appartengono allo stesso ''anno_scolastico''')::utility.system_message,
+    ('it', 4, 'Nella ''scrutinio_valutazione'' che si sta inserendo sono indicati uno ''scrutinio'': ''%s'' e una ''classroom_student'': ''%s'' che non appartengono allo stesso ''anno_scolastico''')::utility.system_message,
     ('it', 9, 'La ''materia'' non appartiene allo stesso istituto dell'' ''anno_scolastico'' dello ''scrutinio''')::utility.system_message,
     ('it', 10, 'La ''scrutinio_valutazione'': ''%s'' indica una ''materia'': ''%s'' che non appartiene allo stesso istituto dell'' ''anno_scolastico'' dello ''scrutinio'': ''%s''')::utility.system_message,
     ('it', 11, 'Correggere i valori di: ''materia'' e ''scrutinio'' e riproporre l''operazione')::utility.system_message,
@@ -66,13 +66,13 @@ BEGIN
       RAISE EXCEPTION USING
         ERRCODE = diagnostic.my_sqlcode(me.full_function_name,'1'),
         MESSAGE = utility.system_messages_locale(system_messages,1),
-        DETAIL = format(utility.system_messages_locale(system_messages,2), new.grading_meeting_valutation, new.grading_meeting,  new.classroom),
+        DETAIL = format(utility.system_messages_locale(system_messages,2), new.grading_meeting_valutation, new.grading_meeting,  new.classroom_student),
         HINT = utility.system_messages_locale(system_messages,3);
     ELSE
       RAISE EXCEPTION USING
         ERRCODE = diagnostic.my_sqlcode(me.full_function_name,'2'),
         MESSAGE = utility.system_messages_locale(system_messages,1),
-        DETAIL = format(utility.system_messages_locale(system_messages,4), new.grading_meeting,  new.classroom),
+        DETAIL = format(utility.system_messages_locale(system_messages,4), new.grading_meeting,  new.classroom_student),
         HINT = utility.system_messages_locale(system_messages,3);
     END IF;    
   END IF;
