@@ -22,7 +22,6 @@ DECLARE
     ('en', 6, 'Delay: %L has the justification: %L which is not valid because it is not relative to the student: %L or the margin of the criterion: %L is not greater than or equal To the creation of justification or even the day of the criterion is not included in the data '' from '' and '' to the justification .')::utility.system_message,
     ('en', 7, 'Check that justifications have the correct values ​​for the fields: ''created at'', ''from'' and ''to'' .')::utility.system_message,
     ('en', 8, 'The delay you are entering has the justification: %L which is not valid because it is not relative to the student: %L or the margin of the criterion: %L is not greater than Equal to that of creating justifications, or even the day of judgment is not included in data '' from '' and '' to justification .')::utility.system_message,
-    ('en', 12, 'In the delay you are entering the student: %L (a person in the person table) does not belong to the same institution: %L of the class: %L.')::utility.system_message,
     ('en', 13, 'The teacher does not belong to the same class institute.')::utility.system_message,
     ('en', 14, 'In Late: %L who is updating the teacher: %L (one person in the person table) does not belong to the same institute: %L of the class: %L.')::utility.system_message,
     ('en', 15, 'Check the instructor or class indicated and retry the operation.')::utility.system_message,
@@ -43,7 +42,6 @@ DECLARE
     ('it', 6, 'Il ritardo: %L ha la giustificazione: %L che non è valida perchè: non è relativa all''alunno: %L oppure il gorno dell''ritardo: %L non è maggiore od uguale a quello di creazione della giustificazione oppure ancora il giorno dell''ritardo non è compreso nei dati ''dal'' e ''al'' della giustificazione.')::utility.system_message,
     ('it', 7, 'Controllare che la giustificazione abbia i corretti valori per i campi: ''creata_il'', ''dal'' e ''al''.')::utility.system_message,
     ('it', 8, 'Il ritardo che si sta inserendo ha la giustificazione: %L che non è valida perchè: non è relativa all''alunno: %L oppure il gorno dell''ritardo: %L non è maggiore od uguale a quello di creazione della giustificazione oppure ancora il giorno dell''ritardo non è compreso nei dati ''dal'' e ''al'' della giustificazione.')::utility.system_message,
-    ('it', 12, 'Nel ritardo che si sta inserendo l''alunno: %L (una persona della tabella persone) non appartiene allo stesso istituto: %L della classe: %L.')::utility.system_message,
     ('it', 13, 'Il docente non appartiene allo stesso istituto della classe.')::utility.system_message,
     ('it', 14, 'Nel ritardo: %L che si sta aggiornando il docente: %L (una persona della tabella persone) non appartiene allo stesso istituto: %L della classe: %L.')::utility.system_message,
     ('it', 15, 'Controllare il docente o la classe indicata e ritentare l''operazione.')::utility.system_message,
@@ -63,6 +61,9 @@ BEGIN
   GET DIAGNOSTICS me.context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
 --
+-- N.B.
+-- We do not check the school of the student equals that of the classroom because the classroom_student trigger checks it
+--  
 -- read the school of the classroom
 --
   SELECT s.school, cs.classroom , cs.student
