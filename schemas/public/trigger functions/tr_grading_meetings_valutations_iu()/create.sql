@@ -83,7 +83,8 @@ BEGIN
      FROM subjects s, grading_meetings gm
      JOIN school_years sy ON sy.school_year = gm.school_year
     WHERE gm.grading_meeting = new.grading_meeting
-      AND s.subject = new.subject;
+      AND s.subject = new.subject
+      AND s.school = sy.school;
 
   IF NOT FOUND THEN
     IF (TG_OP = 'UPDATE') THEN
