@@ -49,39 +49,6 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
-/*  NON TESTABILE (GIA' CONTROLLATO DAL TRIGGER tr_classrooms_students_iu())
-  --------------------------------------------------------------
-  test_name = 'UPDATE classroom_student with a classroom that has a different school';
-  --------------------------------------------------------------
-  BEGIN
-    UPDATE public.out_of_classrooms set classroom_student = '11065000000000' WHERE out_of_classroom = '98577000000000';
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but classroom student school is different', NULL::diagnostic.error);
-    RETURN;
-    EXCEPTION WHEN SQLSTATE 'U0501' THEN
-      _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
-  END;
-  --INSERT INTO public.out_of_classrooms(out_of_classroom,school_operator,description,on_date,from_time,to_time,classroom_student) VALUES ('198577000000000','32937000000000','per selezioni sportive','2013-01-20','08:00:00','12:00:00','10379000000000');
-  --UPDATE public.out_of_classrooms set school_operator = '4529000000000' WHERE out_of_classroom = '98577000000000'; --1942000000000
-
-  --------------------------------------------------------------
-  test_name = 'INSERT classroom_student with a classroom that has a different school';
-  --------------------------------------------------------------
-  BEGIN
-    INSERT INTO public.out_of_classrooms(out_of_classroom,school_operator,description,on_date,from_time,to_time,classroom_student) VALUES ('1198577000000000','32937000000000','per selezioni sportive','2013-01-20','08:00:00','12:00:00','11065000000000');
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but classroom student school is different', NULL::diagnostic.error);
-    RETURN;
-    EXCEPTION WHEN SQLSTATE 'U0501' THEN
-      _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
-  END;
-*/
   -------------------------------------------------------------
   test_name = 'UPDATE school_operator from a different school';
   -------------------------------------------------------------

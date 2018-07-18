@@ -24,24 +24,6 @@ BEGIN
     RETURN;
   END IF;
 
-
- /* NON TESTABILE.
-  --------------------------------------------------------------
-  test_name = 'UPDATE valutations with student of different school';
-  --------------------------------------------------------------
-  BEGIN
-    --UPDATE public.valutations set classroom_student = '10872000000000', subject = '32911000000000' WHERE valutation = '86813000000000';
-    UPDATE public.valutations set classroom_student = '10872000000000' WHERE valutation = '86813000000000';
-    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the classroom doesnt have the same_year of the grading meeting ', NULL::diagnostic.error);
-    RETURN;
-	
-	EXCEPTION WHEN OTHERS THEN
-		GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-		_results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U057P');
-	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
-  END;
-  */
-
   ------------------------------------------------------------------
   test_name = 'UPDATE valutations with subject of different school';
   ------------------------------------------------------------------
@@ -173,10 +155,6 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
-  /*
-  TRIGGER CHE NON SI RIESCONO A FAR SCATTARE CODICI: U057D, U057E
-  */
-
   ----------------------------------------------------------------
   test_name = 'UPDATE valutations with note of different student';
   ----------------------------------------------------------------
@@ -305,9 +283,9 @@ BEGIN
 		_results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U057P');
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
-  --------------------------------------------------------------
+  --------------------------------------------------------
   test_name = 'INSERT valutations with duplicated values';
-  --------------------------------------------------------------
+  --------------------------------------------------------
   BEGIN
     INSERT INTO public.valutations(valutation,subject,grade_type,topic,grade,evaluation,private,teacher,on_date,note,classroom_student) VALUES ('186813000000000','29107000000000','72745000000000','62012000000000','29096000000000',NULL,'f','29148000000000','2013-12-06',NULL,'31458000000000');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the valutation''s has duplicated values', NULL::diagnostic.error);
@@ -318,24 +296,33 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
-/* -- NON TESTATO
+   -- NON TESTATO
    -- Come mai?
-  --------------------------------------------------------------
-  test_name = 'INSERT valutations with duplicated values';
-  --------------------------------------------------------------
+  -----------------------------------------------
+  test_name = 'UPDATE private and note NOT NULL';
+  -----------------------------------------------
   BEGIN
-    UPDATE public.valutations SET private = 't', note = '1119481000000000' WHERE valutation = '86813000000000';
-    _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the valutation''s has duplicated values', NULL::diagnostic.error);
+    UPDATE public.valutations SET private = 't', note = '104939000000000' WHERE valutation = '105226000000000';
+    _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the valutation''s has private and note NOT NULL', NULL::diagnostic.error);
     RETURN;
-    EXCEPTION WHEN SQLSTATE 'U057Q' THEN
-      _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
+    EXCEPTION WHEN OTHERS THEN
+		GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+		_results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U057R');
+	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
- */
+  ---------------------------------------------------------------
+  test_name = 'INSERT valutation with private and note NOT NULL';
+  ---------------------------------------------------------------
+  BEGIN
+    INSERT INTO public.valutations(valutation,subject,grade_type,topic,grade,evaluation,private,teacher,on_date,note,classroom_student) VALUES ('1105226000000000','32913000000000','98547000000000','33244000000000','11461000000000',NULL,'t','32927000000000','2013-09-21',104939000000000,'10381000000000');
+    _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the valutation''s has private and note NOT NULL', NULL::diagnostic.error);
+    RETURN;
+    EXCEPTION WHEN OTHERS THEN
+		GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+		_results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U057S');
+	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+  END;
 
     RETURN;
 END

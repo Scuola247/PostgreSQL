@@ -52,22 +52,7 @@ BEGIN
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, 'U04U2');
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
    END;
-/*
-  ------------------------------ 
-  test_name = 'UPDATE leavings change the classroom_student from different school '; -- trigger U04U5 U04U6 non funzionante, motivazione: introduzione della chiave classroom_student  
-  ------------------------------
- BEGIN
-    UPDATE leavings SET classroom_student= '31551000000000' WHERE leaving = '59294000000000';
-    _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the classroom is from a different school ', NULL::diagnostic.error);
-    RETURN;
-    EXCEPTION WHEN SQLSTATE 'U04U5' THEN
-      _results = _results || assert.pass(full_function_name, test_name);
-      WHEN OTHERS THEN
-        GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-        _results = _results || assert.fail(full_function_name, test_name, 'Unexpected exception', error);
-        RETURN;
-        END;
-*/
+   
   -----------------------------------------------------------------
   test_name = 'UPDATE leavings with a teacher from another school';
   -----------------------------------------------------------------

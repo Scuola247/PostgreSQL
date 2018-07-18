@@ -22,10 +22,6 @@ BEGIN
     RETURN;
   END IF;
 
-/*
-manca check: description min length
-*/
-
   ------------------------------------
   test_name = 'duplicate description';
   ------------------------------------

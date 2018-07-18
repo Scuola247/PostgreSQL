@@ -48,9 +48,6 @@ BEGIN
 		IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
 
-
-	 --NON SI RIESCE A SCATTARE QUESTO TRIGGER Risultato : <NULL> in tutto; Forse trovato errore nel trigger Sottoporre ad Andrea
-
   ----------------------------------------------------------------------------------------------------
   test_name = 'UPDATE valutations_qualifications with grade in a different school from qualification';
   ----------------------------------------------------------------------------------------------------
