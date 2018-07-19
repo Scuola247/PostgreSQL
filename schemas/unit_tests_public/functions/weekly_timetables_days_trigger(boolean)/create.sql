@@ -23,7 +23,7 @@ BEGIN
   END IF;
 
   ------------------------------------------------------------------------------
-  test_name = 'UPDATE weekly_timetables_days set teacher with different school'; -- fallisce, permette l'operazione
+  test_name = 'UPDATE weekly_timetables_days set teacher with different school'; 
   ------------------------------------------------------------------------------
   BEGIN
     UPDATE weekly_timetables_days SET  teacher='29122000000000'  WHERE weekly_timetable_day = '33008000000000';
@@ -37,7 +37,7 @@ BEGIN
   END;
 
   ------------------------------------------------------------------------------
-  test_name = 'INSERT weekly_timetables_days set teacher with different school'; -- fallisce, pemette l'operatione
+  test_name = 'INSERT weekly_timetables_days set teacher with different school'; 
   ------------------------------------------------------------------------------
   BEGIN
     INSERT INTO public.weekly_timetables_days(weekly_timetable_day,weekly_timetable,weekday,teacher,subject,team_teaching,from_time,to_time) VALUES ('133008000000000','51386000000000','1','29122000000000','32911000000000','1','08:00:00','09:00:00');
@@ -50,7 +50,7 @@ BEGIN
 
   END;
   ------------------------------------------------------------------------------
-  test_name = 'UPDATE weekly_timetables_days set subject with different school'; -- fallisce, permette l'operazione
+  test_name = 'UPDATE weekly_timetables_days set subject with different school'; 
   ------------------------------------------------------------------------------
   BEGIN
     UPDATE weekly_timetables_days SET  subject='29105000000000'  WHERE weekly_timetable_day = '33008000000000';
@@ -63,7 +63,7 @@ BEGIN
   END;
 
   ------------------------------------------------------------------------------
-  test_name = 'INSERT weekly_timetables_days set subject with different school'; -- fallisce, permette l'operazione
+  test_name = 'INSERT weekly_timetables_days set subject with different school'; 
   ------------------------------------------------------------------------------
   BEGIN
     INSERT INTO public.weekly_timetables_days(weekly_timetable_day,weekly_timetable,weekday,teacher,subject,team_teaching,from_time,to_time) VALUES ('133008000000000','51386000000000','1','32925000000000','29105000000000','1','08:00:00','09:00:00');
