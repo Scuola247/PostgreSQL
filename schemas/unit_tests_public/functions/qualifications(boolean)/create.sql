@@ -456,405 +456,405 @@ BEGIN
 
   BEGIN
 
-    UPDATE public.qualifications SET qualification_parent = '95964000000000' WHERE qualification = '95977000000000';
+        _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95964000000000 WHERE qualification = 95977000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95964000000000' WHERE qualification = '95978000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95964000000000 WHERE qualification = 95978000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95964000000000' WHERE qualification = '95979000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95964000000000 WHERE qualification = 95979000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95964000000000' WHERE qualification = '95980000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95964000000000 WHERE qualification = 95980000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95964000000000' WHERE qualification = '95981000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95964000000000 WHERE qualification = 95981000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95964000000000' WHERE qualification = '95982000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95964000000000 WHERE qualification = 95982000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95965000000000' WHERE qualification = '95983000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95965000000000 WHERE qualification = 95983000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95965000000000' WHERE qualification = '95984000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95965000000000 WHERE qualification = 95984000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95965000000000' WHERE qualification = '95985000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95965000000000 WHERE qualification = 95985000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95965000000000' WHERE qualification = '95986000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95965000000000 WHERE qualification = 95986000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95966000000000' WHERE qualification = '95987000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95966000000000 WHERE qualification = 95987000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95966000000000' WHERE qualification = '95988000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95966000000000 WHERE qualification = 95988000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95966000000000' WHERE qualification = '95989000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95966000000000 WHERE qualification = 95989000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95967000000000' WHERE qualification = '95990000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95967000000000 WHERE qualification = 95990000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95967000000000' WHERE qualification = '95991000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95967000000000 WHERE qualification = 95991000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95967000000000' WHERE qualification = '95992000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95967000000000 WHERE qualification = 95992000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '96203000000000' WHERE qualification = '95964000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 96203000000000 WHERE qualification = 95964000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '96203000000000' WHERE qualification = '95965000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 96203000000000 WHERE qualification = 95965000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '96203000000000' WHERE qualification = '95966000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 96203000000000 WHERE qualification = 95966000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '96203000000000' WHERE qualification = '95967000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 96203000000000 WHERE qualification = 95967000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95977000000000' WHERE qualification = '96019000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95977000000000 WHERE qualification = 96019000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95977000000000' WHERE qualification = '96020000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95977000000000 WHERE qualification = 96020000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95977000000000' WHERE qualification = '96021000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95977000000000 WHERE qualification = 96021000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95977000000000' WHERE qualification = '96022000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95977000000000 WHERE qualification = 96022000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95977000000000' WHERE qualification = '96023000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95977000000000 WHERE qualification = 96023000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95977000000000' WHERE qualification = '96024000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95977000000000 WHERE qualification = 96024000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95978000000000' WHERE qualification = '96025000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95978000000000 WHERE qualification = 96025000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95978000000000' WHERE qualification = '96026000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95978000000000 WHERE qualification = 96026000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95978000000000' WHERE qualification = '96027000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95978000000000 WHERE qualification = 96027000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95978000000000' WHERE qualification = '96028000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95978000000000 WHERE qualification = 96028000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95979000000000' WHERE qualification = '96029000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95979000000000 WHERE qualification = 96029000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95979000000000' WHERE qualification = '96030000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95979000000000 WHERE qualification = 96030000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95979000000000' WHERE qualification = '96031000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95979000000000 WHERE qualification = 96031000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95979000000000' WHERE qualification = '96032000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95979000000000 WHERE qualification = 96032000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95980000000000' WHERE qualification = '96033000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95980000000000 WHERE qualification = 96033000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95980000000000' WHERE qualification = '96034000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95980000000000 WHERE qualification = 96034000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95984000000000' WHERE qualification = '96136000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95984000000000 WHERE qualification = 96136000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95980000000000' WHERE qualification = '96035000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95980000000000 WHERE qualification = 96035000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95980000000000' WHERE qualification = '96036000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95980000000000 WHERE qualification = 96036000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95980000000000' WHERE qualification = '96037000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95980000000000 WHERE qualification = 96037000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95980000000000' WHERE qualification = '96038000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95980000000000 WHERE qualification = 96038000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95980000000000' WHERE qualification = '96039000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95980000000000 WHERE qualification = 96039000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95980000000000' WHERE qualification = '96040000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95980000000000 WHERE qualification = 96040000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95981000000000' WHERE qualification = '96041000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95981000000000 WHERE qualification = 96041000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95981000000000' WHERE qualification = '96042000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95981000000000 WHERE qualification = 96042000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95982000000000' WHERE qualification = '96043000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95982000000000 WHERE qualification = 96043000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95982000000000' WHERE qualification = '96044000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95982000000000 WHERE qualification = 96044000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95983000000000' WHERE qualification = '96045000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95983000000000 WHERE qualification = 96045000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95983000000000' WHERE qualification = '96046000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95983000000000 WHERE qualification = 96046000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95983000000000' WHERE qualification = '96047000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95983000000000 WHERE qualification = 96047000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95983000000000' WHERE qualification = '96048000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95983000000000 WHERE qualification = 96048000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95983000000000' WHERE qualification = '96049000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95983000000000 WHERE qualification = 96049000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95983000000000' WHERE qualification = '96050000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95983000000000 WHERE qualification = 96050000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95983000000000' WHERE qualification = '96051000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95983000000000 WHERE qualification = 96051000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95983000000000' WHERE qualification = '96052000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95983000000000 WHERE qualification = 96052000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95984000000000' WHERE qualification = '96053000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95984000000000 WHERE qualification = 96053000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95984000000000' WHERE qualification = '96054000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95984000000000 WHERE qualification = 96054000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95984000000000' WHERE qualification = '96055000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95984000000000 WHERE qualification = 96055000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95984000000000' WHERE qualification = '96056000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95984000000000 WHERE qualification = 96056000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95984000000000' WHERE qualification = '96057000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95984000000000 WHERE qualification = 96057000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95984000000000' WHERE qualification = '96058000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95984000000000 WHERE qualification = 96058000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95985000000000' WHERE qualification = '96059000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95985000000000 WHERE qualification = 96059000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95985000000000' WHERE qualification = '96060000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95985000000000 WHERE qualification = 96060000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95985000000000' WHERE qualification = '96061000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95985000000000 WHERE qualification = 96061000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95985000000000' WHERE qualification = '96062000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95985000000000 WHERE qualification = 96062000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96063000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96063000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96064000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96064000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96065000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96065000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95984000000000' WHERE qualification = '96137000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95984000000000 WHERE qualification = 96137000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96066000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96066000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96067000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96067000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96068000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96068000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96069000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96069000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96070000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96070000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96071000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96071000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96072000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96072000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96073000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96073000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96074000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96074000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96075000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96075000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96076000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96076000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96077000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96077000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96078000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96078000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96079000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96079000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95988000000000' WHERE qualification = '96080000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95988000000000 WHERE qualification = 96080000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95988000000000' WHERE qualification = '96081000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95988000000000 WHERE qualification = 96081000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95989000000000' WHERE qualification = '96082000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95989000000000 WHERE qualification = 96082000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95989000000000' WHERE qualification = '96083000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95989000000000 WHERE qualification = 96083000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95989000000000' WHERE qualification = '96084000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95989000000000 WHERE qualification = 96084000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95989000000000' WHERE qualification = '96085000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95989000000000 WHERE qualification = 96085000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95989000000000' WHERE qualification = '96086000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95989000000000 WHERE qualification = 96086000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95990000000000' WHERE qualification = '96087000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95990000000000 WHERE qualification = 96087000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95990000000000' WHERE qualification = '96088000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95990000000000 WHERE qualification = 96088000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95990000000000' WHERE qualification = '96089000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95990000000000 WHERE qualification = 96089000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95990000000000' WHERE qualification = '96090000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95990000000000 WHERE qualification = 96090000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95990000000000' WHERE qualification = '96091000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95990000000000 WHERE qualification = 96091000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95990000000000' WHERE qualification = '96092000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95990000000000 WHERE qualification = 96092000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95991000000000' WHERE qualification = '96093000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95991000000000 WHERE qualification = 96093000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95991000000000' WHERE qualification = '96094000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95991000000000 WHERE qualification = 96094000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95984000000000' WHERE qualification = '96138000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95984000000000 WHERE qualification = 96138000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95991000000000' WHERE qualification = '96095000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95991000000000 WHERE qualification = 96095000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95991000000000' WHERE qualification = '96096000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95991000000000 WHERE qualification = 96096000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95991000000000' WHERE qualification = '96097000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95991000000000 WHERE qualification = 96097000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95991000000000' WHERE qualification = '96098000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95991000000000 WHERE qualification = 96098000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95992000000000' WHERE qualification = '96099000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95992000000000 WHERE qualification = 96099000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95992000000000' WHERE qualification = '96100000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95992000000000 WHERE qualification = 96100000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95977000000000' WHERE qualification = '96101000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95977000000000 WHERE qualification = 96101000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95977000000000' WHERE qualification = '96102000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95977000000000 WHERE qualification = 96102000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95977000000000' WHERE qualification = '96103000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95977000000000 WHERE qualification = 96103000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95977000000000' WHERE qualification = '96104000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95977000000000 WHERE qualification = 96104000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95977000000000' WHERE qualification = '96105000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95977000000000 WHERE qualification = 96105000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95977000000000' WHERE qualification = '96106000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95977000000000 WHERE qualification = 96106000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95978000000000' WHERE qualification = '96107000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95978000000000 WHERE qualification = 96107000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95978000000000' WHERE qualification = '96108000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95978000000000 WHERE qualification = 96108000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95978000000000' WHERE qualification = '96109000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95978000000000 WHERE qualification = 96109000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95978000000000' WHERE qualification = '96110000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95978000000000 WHERE qualification = 96110000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95978000000000' WHERE qualification = '96111000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95978000000000 WHERE qualification = 96111000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95978000000000' WHERE qualification = '96112000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95978000000000 WHERE qualification = 96112000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95978000000000' WHERE qualification = '96113000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95978000000000 WHERE qualification = 96113000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95978000000000' WHERE qualification = '96114000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95978000000000 WHERE qualification = 96114000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95979000000000' WHERE qualification = '96115000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95979000000000 WHERE qualification = 96115000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95979000000000' WHERE qualification = '96116000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95979000000000 WHERE qualification = 96116000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95979000000000' WHERE qualification = '96117000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95979000000000 WHERE qualification = 96117000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95979000000000' WHERE qualification = '96118000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95979000000000 WHERE qualification = 96118000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95980000000000' WHERE qualification = '96119000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95980000000000 WHERE qualification = 96119000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95980000000000' WHERE qualification = '96120000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95980000000000 WHERE qualification = 96120000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95980000000000' WHERE qualification = '96121000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95980000000000 WHERE qualification = 96121000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95980000000000' WHERE qualification = '96122000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95980000000000 WHERE qualification = 96122000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95980000000000' WHERE qualification = '96123000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95980000000000 WHERE qualification = 96123000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95980000000000' WHERE qualification = '96124000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95980000000000 WHERE qualification = 96124000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95981000000000' WHERE qualification = '96125000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95981000000000 WHERE qualification = 96125000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95981000000000' WHERE qualification = '96126000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95981000000000 WHERE qualification = 96126000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95982000000000' WHERE qualification = '96127000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95982000000000 WHERE qualification = 96127000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95982000000000' WHERE qualification = '96128000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95982000000000 WHERE qualification = 96128000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95982000000000' WHERE qualification = '96129000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95982000000000 WHERE qualification = 96129000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95983000000000' WHERE qualification = '96130000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95983000000000 WHERE qualification = 96130000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95983000000000' WHERE qualification = '96131000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95983000000000 WHERE qualification = 96131000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95983000000000' WHERE qualification = '96132000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95983000000000 WHERE qualification = 96132000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95983000000000' WHERE qualification = '96133000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95983000000000 WHERE qualification = 96133000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95983000000000' WHERE qualification = '96134000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95983000000000 WHERE qualification = 96134000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95984000000000' WHERE qualification = '96135000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95984000000000 WHERE qualification = 96135000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95984000000000' WHERE qualification = '96139000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95984000000000 WHERE qualification = 96139000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95984000000000' WHERE qualification = '96140000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95984000000000 WHERE qualification = 96140000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95984000000000' WHERE qualification = '96141000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95984000000000 WHERE qualification = 96141000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95984000000000' WHERE qualification = '96142000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95984000000000 WHERE qualification = 96142000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95985000000000' WHERE qualification = '96143000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95985000000000 WHERE qualification = 96143000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95985000000000' WHERE qualification = '96144000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95985000000000 WHERE qualification = 96144000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95985000000000' WHERE qualification = '96145000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95985000000000 WHERE qualification = 96145000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96146000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96146000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96147000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96147000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96148000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96148000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96149000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96149000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96150000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96150000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96151000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96151000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96152000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96152000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96153000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96153000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95986000000000' WHERE qualification = '96154000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95986000000000 WHERE qualification = 96154000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96155000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96155000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96156000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96156000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96157000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96157000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96158000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96158000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96159000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96159000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96160000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96160000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96161000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96161000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96162000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96162000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96163000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96163000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96164000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96164000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96165000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96165000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96166000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96166000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96167000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96167000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96168000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96168000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96169000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96169000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95987000000000' WHERE qualification = '96170000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95987000000000 WHERE qualification = 96170000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95988000000000' WHERE qualification = '96171000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95988000000000 WHERE qualification = 96171000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95988000000000' WHERE qualification = '96172000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95988000000000 WHERE qualification = 96172000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95989000000000' WHERE qualification = '96173000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95989000000000 WHERE qualification = 96173000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95989000000000' WHERE qualification = '96174000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95989000000000 WHERE qualification = 96174000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95989000000000' WHERE qualification = '96175000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95989000000000 WHERE qualification = 96175000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95989000000000' WHERE qualification = '96176000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95989000000000 WHERE qualification = 96176000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95989000000000' WHERE qualification = '96177000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95989000000000 WHERE qualification = 96177000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95989000000000' WHERE qualification = '96178000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95989000000000 WHERE qualification = 96178000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95989000000000' WHERE qualification = '96179000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95989000000000 WHERE qualification = 96179000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95990000000000' WHERE qualification = '96180000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95990000000000 WHERE qualification = 96180000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95990000000000' WHERE qualification = '96181000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95990000000000 WHERE qualification = 96181000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95990000000000' WHERE qualification = '96182000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95990000000000 WHERE qualification = 96182000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95990000000000' WHERE qualification = '96183000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95990000000000 WHERE qualification = 96183000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95990000000000' WHERE qualification = '96184000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95990000000000 WHERE qualification = 96184000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95990000000000' WHERE qualification = '96185000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95990000000000 WHERE qualification = 96185000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95990000000000' WHERE qualification = '96186000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95990000000000 WHERE qualification = 96186000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95991000000000' WHERE qualification = '96187000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95991000000000 WHERE qualification = 96187000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95991000000000' WHERE qualification = '96188000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95991000000000 WHERE qualification = 96188000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95991000000000' WHERE qualification = '96189000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95991000000000 WHERE qualification = 96189000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95991000000000' WHERE qualification = '96190000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95991000000000 WHERE qualification = 96190000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95991000000000' WHERE qualification = '96191000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95991000000000 WHERE qualification = 96191000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95991000000000' WHERE qualification = '96192000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95991000000000 WHERE qualification = 96192000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95991000000000' WHERE qualification = '96193000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95991000000000 WHERE qualification = 96193000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95991000000000' WHERE qualification = '96194000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95991000000000 WHERE qualification = 96194000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95992000000000' WHERE qualification = '96195000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95992000000000 WHERE qualification = 96195000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95992000000000' WHERE qualification = '96196000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95992000000000 WHERE qualification = 96196000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95992000000000' WHERE qualification = '96197000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95992000000000 WHERE qualification = 96197000000000;', 1);
 
-    UPDATE public.qualifications SET qualification_parent = '95992000000000' WHERE qualification = '96198000000000';
+    _results = _results || assert.check_update_done('UPDATE public.qualifications SET qualification_parent = 95992000000000 WHERE qualification = 96198000000000;', 1);
 
 
     _results = _results || assert.pass(full_function_name, test_name);

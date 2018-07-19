@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests_security.check_statement_enabled(text, text, text[], text, bigint)
+﻿-- Function: assert.check_statement_enabled(text, text, text[], text, bigint)
 
--- DROP FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text, bigint);
+-- DROP FUNCTION assert.check_statement_enabled(text, text, text[], text, bigint);
 
-CREATE OR REPLACE FUNCTION unit_tests_security.check_statement_enabled(
+CREATE OR REPLACE FUNCTION assert.check_statement_enabled(
     IN _usename text,
     IN _group text,
     IN _groups_enabled text[],
@@ -69,8 +69,8 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text, bigint)
+ALTER FUNCTION assert.check_statement_enabled(text, text, text[], text, bigint)
   OWNER TO scuola247_supervisor;
-GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text, bigint) TO public;
-GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text, bigint) TO scuola247_supervisor WITH GRANT OPTION;
-GRANT EXECUTE ON FUNCTION unit_tests_security.check_statement_enabled(text, text, text[], text, bigint) TO scuola247_user;
+GRANT EXECUTE ON FUNCTION assert.check_statement_enabled(text, text, text[], text, bigint) TO public;
+GRANT EXECUTE ON FUNCTION assert.check_statement_enabled(text, text, text[], text, bigint) TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON FUNCTION assert.check_statement_enabled(text, text, text[], text, bigint) TO scuola247_user;

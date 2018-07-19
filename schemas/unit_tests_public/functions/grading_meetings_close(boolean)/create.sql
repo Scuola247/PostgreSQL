@@ -29,10 +29,8 @@ BEGIN
   -- reject insert in grading_meeting close
   ------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.grading_meetings SET closed = 't' WHERE grading_meeting = '119533000000000';
-    UPDATE public.grading_meetings SET closed = 't' WHERE grading_meeting = '119535000000000';
-
-    _results = _results || assert.pass(full_function_name, test_name);
+    _results = _results || assert.check_update_done('UPDATE public.grading_meetings SET closed = ''t'' WHERE grading_meeting = 119533000000000;', 1);
+    _results = _results || assert.check_update_done('UPDATE public.grading_meetings SET closed = ''t'' WHERE grading_meeting = 119535000000000;', 1);
 
     EXCEPTION
        WHEN OTHERS THEN
