@@ -21,9 +21,9 @@ BEGIN
       PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
-  --------------------------------------------------
+  -----------------------------
   test_name = 'name mandatory';
-  --------------------------------------------------
+  -----------------------------
   BEGIN
     UPDATE translate.procedures SET name = NULL WHERE procedure = '24000000000';
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but name mandatory was expected', NULL::diagnostic.error);
@@ -34,9 +34,9 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
-  --------------------------------------------------
+  ---------------------------------
   test_name = 'language mandatory';
-  --------------------------------------------------
+  ---------------------------------
   BEGIN
     UPDATE translate.procedures SET language = NULL WHERE procedure = '24000000000';
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but language mandatory was expected', NULL::diagnostic.error);

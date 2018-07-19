@@ -21,9 +21,9 @@ BEGIN
       PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
-  --------------------------------------------------
+  -----------------------------
   test_name = 'name mandatory';
-  --------------------------------------------------
+  -----------------------------
   BEGIN
     UPDATE translate.procedures_excluded SET name = NULL WHERE procedure_excluded = '1000000000';
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but name mandatory was expected', NULL::diagnostic.error);

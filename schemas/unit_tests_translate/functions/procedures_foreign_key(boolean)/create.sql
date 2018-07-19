@@ -21,9 +21,9 @@ BEGIN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
-  -------------------------------------------------------------------
+  --------------------------------------------------------------------------
   test_name = 'UPDATE procedures set procedure with non existence language';
-  -------------------------------------------------------------------
+  --------------------------------------------------------------------------
   BEGIN
     UPDATE translate.procedures SET language = '999999999' WHERE procedure = '24000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but language set with a non existing one', NULL::diagnostic.error);

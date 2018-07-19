@@ -22,9 +22,9 @@ BEGIN
     RETURN;
   END IF;
   
-  -------------------------------------------------------------------
+  ------------------------------------------------------------------------
   test_name = 'UPDATE relations set language with non existence language';
-  -------------------------------------------------------------------
+  ------------------------------------------------------------------------
   BEGIN
     UPDATE translate.relations SET language = '999999999' WHERE relation = '299124000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but language set with a non existing one', NULL::diagnostic.error);

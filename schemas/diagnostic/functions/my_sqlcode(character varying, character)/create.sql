@@ -284,7 +284,7 @@ BEGIN
   IF _function = 'unit_tests_public.messages_read(boolean)' THEN RETURN 'U07P' || _id; END IF;
   IF _function = 'unit_tests_public.metrics(boolean)' THEN RETURN 'U07Q' || _id; END IF;
   IF _function = 'unit_tests_public.mime_type(boolean)' THEN RETURN 'U07R' || _id; END IF;
-  IF _function = 'unit_tests_public.my_sqlcode(boolean)' THEN RETURN 'U07S' || _id; END IF;
+  IF _function = 'unit_tests_diagnostic.my_sqlcode(boolean)' THEN RETURN 'U07S' || _id; END IF;
   IF _function = 'unit_tests_public.notes(boolean)' THEN RETURN 'U07T' || _id; END IF;
   IF _function = 'unit_tests_public.notes_signed(boolean)' THEN RETURN 'U07U' || _id; END IF;
   IF _function = 'unit_tests_public.out_of_classrooms(boolean)' THEN RETURN 'U07V' || _id; END IF;

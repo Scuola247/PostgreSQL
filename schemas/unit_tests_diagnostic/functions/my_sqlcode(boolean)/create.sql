@@ -1,8 +1,8 @@
-﻿-- Function: unit_tests_public.my_sqlcode(boolean)
+﻿-- Function: unit_tests_diagnostic.my_sqlcode(boolean)
 
--- DROP FUNCTION unit_tests_public.my_sqlcode(boolean);
+-- DROP FUNCTION unit_tests_diagnostic.my_sqlcode(boolean);
 
-CREATE OR REPLACE FUNCTION unit_tests_public.my_sqlcode(
+CREATE OR REPLACE FUNCTION unit_tests_diagnostic.my_sqlcode(
     IN _build_dependencies boolean DEFAULT false,
     OUT _results unit_testing.unit_test_result[])
   RETURNS unit_testing.unit_test_result[] AS
@@ -246,7 +246,7 @@ BEGIN
     _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: public.tr_topics_iu()',diagnostic.my_sqlcode('public.tr_topics_iu()','0'),'U0550');
     _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: unit_tests_public.mime_type(boolean)',diagnostic.my_sqlcode('unit_tests_public.mime_type(boolean)','0'),'U07R0');
     _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: public.tr_valutations_qualifications_iu()',diagnostic.my_sqlcode('public.tr_valutations_qualifications_iu()','0'),'U0580');
-    _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: unit_tests_public.my_sqlcode(boolean)',diagnostic.my_sqlcode('unit_tests_public.my_sqlcode(boolean)','0'),'U07S0');
+    _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: unit_tests_diagnostic.my_sqlcode(boolean)',diagnostic.my_sqlcode('unit_tests_diagnostic.my_sqlcode(boolean)','0'),'U07S0');
     _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: public.tr_weekly_timetables_days_iu()',diagnostic.my_sqlcode('public.tr_weekly_timetables_days_iu()','0'),'U0590');
     _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: public.tr_classrooms_students_iu()',diagnostic.my_sqlcode('public.tr_classrooms_students_iu()','0'),'U04H0');
     _results = _results || assert.are_equals(full_function_name,'CHECK my_sqlcode: unit_testing.tr_dependencies_iu()',diagnostic.my_sqlcode('unit_testing.tr_dependencies_iu()','0'),'U06J0');
@@ -334,5 +334,5 @@ END
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION unit_tests_public.my_sqlcode(boolean)
+ALTER FUNCTION unit_tests_diagnostic.my_sqlcode(boolean)
   OWNER TO postgres;

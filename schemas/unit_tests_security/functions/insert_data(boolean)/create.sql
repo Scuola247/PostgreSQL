@@ -13,6 +13,10 @@ DECLARE
   full_function_name    text;
   test_name     text = '';
   error         diagnostic.error;
+
+  row_count bigint;
+  result_operation text;
+
 BEGIN
   GET DIAGNOSTICS context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);
@@ -65,8 +69,8 @@ BEGIN
     INSERT INTO public.classrooms(classroom,school_year,degree,section,course_year,description,branch) VALUES ('10063000000200','244000000200','9947000000200','C','2','Superiori 2C','9954000000200');
 
 
-    INSERT INTO public.persons_relations(person_relation,person,person_related_to,sign_request,relationship,can_do_explanation) VALUES ('27915000000200','2358000000200','2360000000200','f','Tutor','t');
-    INSERT INTO public.persons_relations(person_relation,person,person_related_to,sign_request,relationship,can_do_explanation) VALUES ('27932000000200','2359000000200','2361000000200','f','Tutor','t');
+    INSERT INTO public.persons_relations(person_relation,person,person_related_to,sign_request,relationship,can_do_explanation) VALUES ('27915000000200','2358000000200','2360000000200','t','Tutor','t');
+    INSERT INTO public.persons_relations(person_relation,person,person_related_to,sign_request,relationship,can_do_explanation) VALUES ('27932000000200','2359000000200','2361000000200','t','Tutor','t');
 
     INSERT INTO public.persons_roles(person_role,person,role) VALUES ('156239000000200','2358000000200','Student');
     INSERT INTO public.persons_roles(person_role,person,role) VALUES ('156240000000200','2359000000200','Student');
@@ -136,6 +140,8 @@ BEGIN
     INSERT INTO public.conversations(conversation,classroom_student,subject,confidential,begin_on,end_on) VALUES ('33670000000200','10246000000200','Compiti in classe.','f',NULL,NULL);
     INSERT INTO public.conversations(conversation,classroom_student,subject,confidential,begin_on,end_on) VALUES ('33680000000200','10247000000200','Lezione di Oggi.','f',NULL,NULL);
 
+    INSERT INTO public.conversations_invites(conversation_invite,conversation,invited) VALUES (831562000000200,33670000000200,2358000000200);
+
     INSERT INTO public.grade_types(grade_type,description,subject,mnemonic) VALUES ('46299000000200','Scritto','29105000000200','S');
     INSERT INTO public.grade_types(grade_type,description,subject,mnemonic) VALUES ('46312000000200','Orale ','29105000000200','O');
     INSERT INTO public.grade_types(grade_type,description,subject,mnemonic) VALUES ('46304000000200','Laboratorio','29106000000200','L');
@@ -189,7 +195,7 @@ BEGIN
     INSERT INTO public.faults(fault,student,description,lesson,note) VALUES ('59633000000200','2359000000200','non ha portato il quaderno','98583000000200',NULL);
 
     -- grading_meetings_close
-    UPDATE public.grading_meetings gm SET closed = 't' WHERE gm.grading_meeting = '119533000000200';
+    UPDATE public.grading_meetings SET closed = 't' WHERE grading_meeting = '119533000000200';
 
     INSERT INTO public.holidays(holiday,school,on_date,description) VALUES ('11335000000200','2000000200','2013-01-01','Capodanno');
     INSERT INTO public.holidays(holiday,school,on_date,description) VALUES ('11336000000200','2000000200','2013-01-06','Epifania');
@@ -200,8 +206,8 @@ BEGIN
     INSERT INTO public.messages_read(message_read,message,person,read_on) VALUES ('60304000000200','50112000000200','2363000000200','2013-09-17 09:26:43');
 
     -- notes_signed
-    UPDATE public.notes_signed ns SET on_date = '2014-06-09 10:39:00' WHERE ns.note = '104925000000200';
-
+    UPDATE public.notes_signed SET on_date = '2014-10-25 10:39:00' WHERE note= '104925000000200';
+    
     INSERT INTO public.out_of_classrooms(out_of_classroom,school_operator,description,on_date,from_time,to_time,classroom_student) VALUES ('98577000000200','2362000000200','Olimpiadi di Informatica','2013-10-22','08:00:00','12:00:00','10247000000200');
 
     INSERT INTO public.parents_meetings(parents_meeting,teacher,person,on_date) VALUES ('33433000000200','2362000000200','2360000000200','2013-10-01 00:00:00');
@@ -263,8 +269,8 @@ BEGIN
     INSERT INTO public.classrooms(classroom,school_year,degree,section,course_year,description,branch) VALUES ('10063000000300','244000000300','9947000000300','C','2','Superiori 2C','9954000000300');
 
 
-    INSERT INTO public.persons_relations(person_relation,person,person_related_to,sign_request,relationship,can_do_explanation) VALUES ('27915000000300','2358000000300','2360000000300','f','Tutor','t');
-    INSERT INTO public.persons_relations(person_relation,person,person_related_to,sign_request,relationship,can_do_explanation) VALUES ('27932000000300','2359000000300','2361000000300','f','Tutor','t');
+    INSERT INTO public.persons_relations(person_relation,person,person_related_to,sign_request,relationship,can_do_explanation) VALUES ('27915000000300','2358000000300','2360000000300','t','Tutor','t');
+    INSERT INTO public.persons_relations(person_relation,person,person_related_to,sign_request,relationship,can_do_explanation) VALUES ('27932000000300','2359000000300','2361000000300','t','Tutor','t');
 
     INSERT INTO public.persons_roles(person_role,person,role) VALUES ('156239000000300','2358000000300','Student');
     INSERT INTO public.persons_roles(person_role,person,role) VALUES ('156240000000300','2359000000300','Student');
@@ -335,6 +341,8 @@ BEGIN
     INSERT INTO public.conversations(conversation,classroom_student,subject,confidential,begin_on,end_on) VALUES ('33670000000300','10246000000300','Compiti in classe.','f',NULL,NULL);
     INSERT INTO public.conversations(conversation,classroom_student,subject,confidential,begin_on,end_on) VALUES ('33680000000300','10247000000300','Lezione di Oggi.','f',NULL,NULL);
 
+    INSERT INTO public.conversations_invites(conversation_invite,conversation,invited) VALUES (831562000000300,33670000000300,2358000000300);
+
     INSERT INTO public.grade_types(grade_type,description,subject,mnemonic) VALUES ('46299000000300','Scritto','29105000000300','S');
     INSERT INTO public.grade_types(grade_type,description,subject,mnemonic) VALUES ('46312000000300','Orale ','29105000000300','O');
     INSERT INTO public.grade_types(grade_type,description,subject,mnemonic) VALUES ('46304000000300','Laboratorio','29106000000300','L');
@@ -388,7 +396,7 @@ BEGIN
     INSERT INTO public.faults(fault,student,description,lesson,note) VALUES ('59633000000300','2359000000300','non ha portato il quaderno','98583000000300',NULL);
 
     -- grading_meetings_close
-    UPDATE public.grading_meetings gm SET closed = 't' WHERE gm.grading_meeting = '119533000000300';
+    UPDATE public.grading_meetings SET closed = 't' WHERE grading_meeting = '119533000000300';
 
     INSERT INTO public.holidays(holiday,school,on_date,description) VALUES ('11335000000300','2000000300','2013-01-01','Capodanno');
     INSERT INTO public.holidays(holiday,school,on_date,description) VALUES ('11336000000300','2000000300','2013-01-06','Epifania');
@@ -399,7 +407,7 @@ BEGIN
     INSERT INTO public.messages_read(message_read,message,person,read_on) VALUES ('60304000000300','50112000000300','2363000000300','2013-09-17 09:26:43');
 
     -- notes_signed
-    UPDATE public.notes_signed ns SET on_date = '2014-06-09 10:39:00' WHERE ns.note = '104925000000300';
+    UPDATE public.notes_signed SET on_date = '2014-10-25 10:39:00' WHERE note = '104925000000300';
 
     INSERT INTO public.out_of_classrooms(out_of_classroom,school_operator,description,on_date,from_time,to_time,classroom_student) VALUES ('98577000000300','2362000000300','Olimpiadi di Informatica','2013-10-22','08:00:00','12:00:00','10247000000300');
 

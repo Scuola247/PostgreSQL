@@ -180,10 +180,10 @@ BEGIN
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_teacher','scuola247_employee'], 'DELETE FROM public.notes WHERE note = ''1104925000000200'';', 1);
 
 -- notes_signed  -- sequenza diversa
-  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'INSERT INTO public.notes_signed(person,note) VALUES (''2361000000200'',''119211000000200'');', 1); -- inserite automaticamente dal trigger quando una nota viene creata
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.notes_signed WHERE note = ''119211000000200'';', 1);
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'UPDATE public.notes_signed SET on_date = ''2013-10-25 11:39:00'' WHERE note = ''119211000000200'';', 1);
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'DELETE FROM public.notes_signed WHERE note = ''119211000000200'';', 1); 
+  _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'INSERT INTO public.notes_signed(person,note) VALUES (''2361000000200'',''119211000000200'');', 1); -- inserite automaticamente dal trigger quando una nota viene creata
 
 -- out_of_classrooms
   _results = _results || unit_tests_security.check_statement_enabled(_usename,_group, ARRAY['scuola247_supervisor', 'scuola247_executive','scuola247_employee', 'scuola247_teacher', 'scuola247_student','scuola247_relative'], 'SELECT 1 from public.out_of_classrooms WHERE out_of_classroom = ''98577000000200'';', 1);

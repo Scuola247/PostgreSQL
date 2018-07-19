@@ -24,9 +24,9 @@ BEGIN
     RETURN;
   END IF;
 
-  --------------------------------------------------
+  ------------------------------------
   test_name = 'description mandatory';
-  --------------------------------------------------
+  ------------------------------------
   BEGIN
     UPDATE translate.languages SET description = NULL WHERE language = '297479000000000';
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but description mandatory was expected', NULL::diagnostic.error);
@@ -37,9 +37,9 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
-  --------------------------------------------------
+  -------------------------------
   test_name = 'schema mandatory';
-  --------------------------------------------------
+  -------------------------------
   BEGIN
     UPDATE translate.languages SET schema = NULL WHERE language = '297479000000000';
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but schema mandatory was expected', NULL::diagnostic.error);
@@ -64,9 +64,9 @@ BEGIN
    
   END;
   
-  ------------------------------------
+  -------------------------------
   test_name = 'DUPLICATE schema';
-  ------------------------------------
+  -------------------------------
   BEGIN
     INSERT INTO translate.languages(language,description,schema) VALUES ('12297479000000000','England','it (test)');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate schema was expected', NULL::diagnostic.error);
@@ -91,9 +91,9 @@ BEGIN
     IF (_results[array_length(_results,1)]).check_point.status = 'Failed' THEN RETURN; END IF;
   END;
 
-  ----------------------------------------
+  -----------------------------------
   test_name = 'schema''s min lenght';
-  ----------------------------------------
+  -----------------------------------
   BEGIN
     UPDATE translate.languages SET schema = '  ' WHERE language = '297479000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but schema min lenght was expected', NULL::diagnostic.error);

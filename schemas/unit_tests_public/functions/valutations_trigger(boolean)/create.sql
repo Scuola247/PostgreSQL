@@ -296,8 +296,6 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
-   -- NON TESTATO
-   -- Come mai?
   -----------------------------------------------
   test_name = 'UPDATE private and note NOT NULL';
   -----------------------------------------------

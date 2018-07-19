@@ -33,7 +33,7 @@ BEGIN
                             FROM usenames_schools
                            WHERE usename LIKE 'unit_testing%') LOOP
                    
-    command = format('SELECT unit_tests_horizontal_security.check_user_enable_school(%L,%L)',me.current_user.usename,me.current_user.school);
+    command = format('SELECT unit_tests_horizontal_security.check_user_enable_school(%L,%L);',me.current_user.usename,me.current_user.school);
     RAISE INFO 'command: %',command;
     EXECUTE me.command INTO me.results;
     _results = _results || me.results;
@@ -56,11 +56,11 @@ BEGIN
                            FROM my_usenames_schools m 
                      RIGHT JOIN schools s ON m.school = s.school 
                           WHERE s.school IN (2000000200, 2000000300)
-                            AND m.school IS  NULL', me.current_user.member);                 
+                            AND m.school IS  NULL;', me.current_user.member);                 
     RAISE INFO 'sql: %',me.sql;
 
     FOR me.current_user_school IN EXECUTE me.sql LOOP
-      command = format('SELECT unit_tests_horizontal_security.check_user_disable_school(%L,%L)',me.current_user.member, me.current_user_school.school);
+      command = format('SELECT unit_tests_horizontal_security.check_user_disable_school(%L,%L);',me.current_user.member, me.current_user_school.school);
       RAISE INFO 'command: %',command;
       EXECUTE me.command INTO me.results;
       _results = _results || me.results;

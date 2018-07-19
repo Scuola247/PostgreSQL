@@ -21,9 +21,9 @@ BEGIN
       PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context));
     RETURN;
   END IF;
-  --------------------------------------
+  ---------------------------
   test_name = 'INSERT tests';
-  --------------------------------------
+  ---------------------------
   BEGIN
 INSERT INTO unit_testing.tests(test,start_at,end_at,unit_test_set,note,check_queries,check_functions,check_unit_tests,function_oid) VALUES ('44014000000000','2017-08-26 10:43:37.01991','2017-08-26 10:44:06.906916',NULL,NULL,'f','f','t',NULL);
 INSERT INTO unit_testing.tests(test,start_at,end_at,unit_test_set,note,check_queries,check_functions,check_unit_tests,function_oid) VALUES ('44560000000000','2017-08-26 11:05:07.404395','2017-08-26 11:05:47.669986',NULL,NULL,'f','f','t',NULL);

@@ -23,9 +23,9 @@ BEGIN
       PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
-  --------------------------------------------------
+  -----------------------------
   test_name = 'test mandatory';
-  --------------------------------------------------
+  -----------------------------
   BEGIN
     UPDATE unit_testing.tests_details SET test = NULL WHERE tests_detail = '44561000000000';
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but test mandatory was expected', NULL::diagnostic.error);
