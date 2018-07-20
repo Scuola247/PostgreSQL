@@ -1,0 +1,9 @@
+pgbench --initialize --fillfactor=1000 --scale=100 --foreign-keys pgbench
+pgbench --client=50 --define=varname=value --jobs=8 --latency-limit=100 --protocol=prepared --no-vacuum --progress=5 --report-latencies --select-only --time=60 --vacuum-all --progress-timestamp pgbench
+
+pgbench --client=10 --define=varname=value --file=filename --jobs=2 --protocol=prepared --no-vacuum --progress=5 --report-latencies --time=60 --vacuum-all --progress-timestamp scuola247_bench
+
+
+
+prova 1:
+pgbench --host=rage.hammer --port=5432 --username=postgres --client=10 --transactions=30 --file=/Users/federicotomelleri/Documents/PostGreSQLSourceTree/pgbench/scuola247_bench_script.sql --jobs=2 --protocol=prepared --no-vacuum  -P 5 --report-latencies --vacuum-all scuola247_bench

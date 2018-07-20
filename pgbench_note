@@ -1,3 +1,0 @@
-pgbench --initialize --fillfactor=1000 --scale=100 --foreign-keys pgbench
-pgbench --client=50 --define=varname=value --jobs=8 --latency-limit=100 --protocol=prepared --no-vacuum --progress=5 --report-latencies --select-only --time=60 --vacuum-all --progress-timestamp pgbench
-
