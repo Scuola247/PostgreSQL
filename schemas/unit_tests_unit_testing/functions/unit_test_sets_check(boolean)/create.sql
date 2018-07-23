@@ -28,7 +28,7 @@ BEGIN
   test_name = 'duplicate description';
   ------------------------------------
   BEGIN
-INSERT INTO unit_testing.unit_test_sets(unit_test_set,description) VALUES ('1056000000000','prova4');
+    INSERT INTO unit_testing.unit_test_sets(unit_test_set,description) VALUES ('1056000000000','prova4');
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

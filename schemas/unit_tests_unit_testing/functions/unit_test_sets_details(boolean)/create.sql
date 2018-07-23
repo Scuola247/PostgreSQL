@@ -25,13 +25,14 @@ BEGIN
   test_name = 'INSERT unit_test_sets_details';
   --------------------------------------
   BEGIN
-  INSERT INTO unit_testing.unit_test_sets_details(unit_test_set_detail,unit_test_set,schema_name,function_name) VALUES ('59000000000','56000000000','unit_tests_public','schools');
-  INSERT INTO unit_testing.unit_test_sets_details(unit_test_set_detail,unit_test_set,schema_name,function_name) VALUES ('1388000000000','1365000000000','unit_tests_public','schools');
+    INSERT INTO unit_testing.unit_test_sets_details(unit_test_set_detail,unit_test_set,schema_name,function_name) VALUES ('59000000000','56000000000','unit_tests_public','schools');
+    INSERT INTO unit_testing.unit_test_sets_details(unit_test_set_detail,unit_test_set,schema_name,function_name) VALUES ('1388000000000','1365000000000','unit_tests_public','schools');
 
 ------------------Non funzionanti presi dalla unit_testing.export ---------------
-/*INSERT INTO unit_testing.unit_test_sets_details(unit_test_set_detail,unit_test_set,schema_name,function_name) VALUES ('59000000000','56000000000','unit_tests','schools');
-INSERT INTO unit_testing.unit_test_sets_details(unit_test_set_detail,unit_test_set,schema_name,function_name) VALUES ('1386000000000','1379000000000','unit_tests','_school_years');
-INSERT INTO unit_testing.unit_test_sets_details(unit_test_set_detail,unit_test_set,schema_name,function_name) VALUES ('1388000000000','1365000000000','unit_tests','schools');
+/*
+    INSERT INTO unit_testing.unit_test_sets_details(unit_test_set_detail,unit_test_set,schema_name,function_name) VALUES ('59000000000','56000000000','unit_tests','schools');
+    INSERT INTO unit_testing.unit_test_sets_details(unit_test_set_detail,unit_test_set,schema_name,function_name) VALUES ('1386000000000','1379000000000','unit_tests','_school_years');
+    INSERT INTO unit_testing.unit_test_sets_details(unit_test_set_detail,unit_test_set,schema_name,function_name) VALUES ('1388000000000','1365000000000','unit_tests','schools');
 */
     _results =  _results || assert.pass(full_function_name, test_name);
 

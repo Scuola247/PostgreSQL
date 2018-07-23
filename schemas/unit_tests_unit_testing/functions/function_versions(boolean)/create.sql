@@ -25,9 +25,12 @@ BEGIN
   test_name = 'INSERT function_versions';
   --------------------------------------
   BEGIN 
+
+INSERT INTO unit_testing.function_versions(function_version,schema_name,function_name,function_xmin) VALUES ('20667000000000','unit_tests','grading_meetings_valutations_triggers','68781');
+
   ---------------------------------------------------INSERT NON FUNZIONANTI ERRORE function_versions_uq_schema_function -------------------------------
-  
-/*INSERT INTO unit_testing.function_versions(function_version,schema_name,function_name,function_xmin) VALUES ('20667000000000','unit_tests','grading_meetings_valutations_triggers','68781');
+/*
+INSERT INTO unit_testing.function_versions(function_version,schema_name,function_name,function_xmin) VALUES ('20667000000000','unit_tests','grading_meetings_valutations_triggers','68781');
 INSERT INTO unit_testing.function_versions(function_version,schema_name,function_name,function_xmin) VALUES ('20308000000000','unit_tests','grading_meetings_triggers','68778');
 INSERT INTO unit_testing.function_versions(function_version,schema_name,function_name,function_xmin) VALUES ('15631000000000','unit_tests','communications_media_trigger','68749');
 INSERT INTO unit_testing.function_versions(function_version,schema_name,function_name,function_xmin) VALUES ('15244000000000','unit_tests','absences_trigger','68727');

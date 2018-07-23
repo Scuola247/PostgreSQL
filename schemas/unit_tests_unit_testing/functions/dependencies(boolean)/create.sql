@@ -25,7 +25,9 @@ BEGIN
   test_name = 'INSERT dependencies';
   -------------------------------
   BEGIN
-  
+  INSERT INTO unit_testing.dependencies(dependency,before_schema_name,before_function_name,run_schema_name,run_function_name) VALUES ('643292000000000','public','absences','public','persons');
+
+
   -----------------------------INSERT NON FUNZIONANTI ERRORE dependencies_uq_all_but_dependency ------------------------
   /*
 INSERT INTO unit_testing.dependencies(dependency,before_schema_name,before_function_name,run_schema_name,run_function_name) VALUES ('643292000000000','unit_tests_public','absences','unit_tests_public','persons');

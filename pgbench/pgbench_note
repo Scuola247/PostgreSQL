@@ -5,5 +5,10 @@ pgbench --client=10 --define=varname=value --file=filename --jobs=2 --protocol=p
 
 
 
+
 prova 1:
-pgbench --host=rage.hammer --port=5432 --username=postgres --client=10 --transactions=30 --file=/Users/federicotomelleri/Documents/PostGreSQLSourceTree/pgbench/scuola247_bench_script.sql --jobs=2 --protocol=prepared --no-vacuum  -P 5 --report-latencies --vacuum-all scuola247_bench
+pgbench --host=rage.hammer --port=5432 --username=postgres --client=10 --transactions=30 --file=/Users/federicotomelleri/Documents/PostGreSQLSourceTree/pgbench/scuola247_bench_script.sql --jobs=2 --protocol=prepared --no-vacuum  --progress=5 --report-latencies --vacuum-all scuola247_bench
+
+
+$PGBENCHBIN -f $BASEDIR/$TESTDIR/$SCRIPT -s $SCALE -l -n -U $TESTUSER -h $TESTHOST -p $TESTPORT -c 10 $WORKERS $RATEOPT $TESTDB > results.txt &
+pgbench -f /Users/federicotomelleri/Documents/Scuola247/pgbench-tools-master/tests/scuola247_bench_script.sql -s 1 -l -n -U postgres -h rage.hammer -p 5432 -c 10 scuola247_bench
