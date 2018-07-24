@@ -21,12 +21,12 @@ BEGIN
       PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context));
     RETURN;
   END IF;
-  --------------------------------------
+  ---------------------------------------
   test_name = 'INSERT function_versions';
-  --------------------------------------
+  ---------------------------------------
   BEGIN 
 
-INSERT INTO unit_testing.function_versions(function_version,schema_name,function_name,function_xmin) VALUES ('20667000000000','unit_tests','grading_meetings_valutations_triggers','68781');
+    INSERT INTO unit_testing.function_versions(function_version,schema_name,function_name,function_xmin) VALUES ('56238945000000000','unit_tests_unit_testing','nothing_function','759507');
 
   ---------------------------------------------------INSERT NON FUNZIONANTI ERRORE function_versions_uq_schema_function -------------------------------
 /*
