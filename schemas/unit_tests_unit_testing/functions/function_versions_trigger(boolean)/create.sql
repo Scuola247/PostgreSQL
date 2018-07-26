@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE schema_name with one not in unit_tests_functions';
   ----------------------------------------------------------------------
   BEGIN
-    UPDATE unit_testing.function_versions SET schema_name = 'not_a_schemaaaa' WHERE function_name = 'nothing_function';
+    UPDATE unit_testing.function_versions SET schema_name = 'schema_not_exist' WHERE function_name = 'function_for_testing_1';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but schema_name is not in unit_tests_functions', NULL::diagnostic.error);
     RETURN;
 
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'UPDATE function_name with one not in unit_tests_functions';
   ----------------------------------------------------------------------
   BEGIN
-    UPDATE unit_testing.function_versions SET function_name = 'not_a_functionnnnn' WHERE function_name = 'nothing_function';
+    UPDATE unit_testing.function_versions SET function_name = 'schema_not_exist' WHERE function_name = 'function_for_testing_1';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but funtions_name is not in unit_tests_functions', NULL::diagnostic.error);
     RETURN;
 
