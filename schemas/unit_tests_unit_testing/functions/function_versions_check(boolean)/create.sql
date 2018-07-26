@@ -25,7 +25,7 @@ BEGIN
   test_name = 'schema_name mandatory';
   ------------------------------------
   BEGIN
-    UPDATE unit_testing.function_versions SET schema_name = NULL WHERE function_name = 'nothing_function';
+    UPDATE unit_testing.function_versions SET schema_name = NULL WHERE function_name = 'function_for_testing_1';
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but schema_name mandatory was expected', NULL::diagnostic.error);
     RETURN;
 
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'function_xmin mandatory';
   --------------------------------------
   BEGIN
-    UPDATE unit_testing.function_versions SET function_xmin = NULL WHERE function_name = 'nothing_function';
+    UPDATE unit_testing.function_versions SET function_xmin = NULL WHERE function_name = 'function_for_testing_1';
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but function_name mandatory was expected', NULL::diagnostic.error);
     RETURN;
 
@@ -53,7 +53,7 @@ BEGIN
   test_name = 'function_name mandatory';
   --------------------------------------
   BEGIN
-    UPDATE unit_testing.function_versions SET function_name = NULL WHERE function_name = 'nothing_function';
+    UPDATE unit_testing.function_versions SET function_name = NULL WHERE function_name = 'function_for_testing_1';
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but function_name mandatory was expected', NULL::diagnostic.error);
     RETURN;
 
@@ -67,7 +67,7 @@ BEGIN
   test_name = 'duplicate schema_name and function_name';
   ------------------------------------------------------
   BEGIN
-    UPDATE unit_testing.function_versions SET function_name = 'function_versions_check' WHERE function_name = 'nothing_function';
+    UPDATE unit_testing.function_versions SET function_name = 'function_versions_check' WHERE function_name = 'function_for_testing_1';
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but duplicate schema_name and function_name was expected', NULL::diagnostic.error);
     RETURN;
 
