@@ -61,9 +61,9 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
-  -------------------------------------------------
-  test_name = 'duplicate description and district'; -- con l'insert invece la intercetta
-  -------------------------------------------------
+  -------------------------------------------------------------
+  test_name = 'duplicate "description and district" with insert'; 
+  -------------------------------------------------------------
   BEGIN
     INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('01','Airasca (test)','758321000000000','1758438000000000');
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
@@ -74,9 +74,9 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
-  -------------------------------------------------
-  test_name = 'duplicate description and district';
-  -------------------------------------------------
+  -------------------------------------------------------------
+  test_name = 'duplicate "description and district" with update';
+  -------------------------------------------------------------
   BEGIN
     UPDATE public.cities SET description = 'Airasca (test)' WHERE city  = 758440000000000;
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but duplicate description was expected', NULL::diagnostic.error);
@@ -87,9 +87,9 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
-  -------------------------------------------------
-  test_name = 'duplicate district and description';
-  -------------------------------------------------
+  --------------------------------------------------------------------------------
+  test_name = 'duplicate "district and description" setting district with update';
+  --------------------------------------------------------------------------------
   BEGIN
     UPDATE public.cities SET district = 758331000000000 WHERE city  = 761346000000000;
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
@@ -99,9 +99,10 @@ BEGIN
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23505', 'cities_uq_district_description');
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
-  ------------------------------------
-  test_name = 'duplicate fiscal_code';
-  ------------------------------------
+  
+  ------------------------------------------------
+  test_name = 'duplicate fiscal_code with update';
+  ------------------------------------------------
   BEGIN
     UPDATE public.cities SET fiscal_code = '1' WHERE city  = 758440000000000;
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but duplicate fiscal code was expected', NULL::diagnostic.error);
@@ -111,12 +112,12 @@ BEGIN
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23505', 'cities_uq_fiscal_code');
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
-
-  ------------------------------------
-  test_name = 'duplicate fiscal_code'; -- Non funziona con l'Update, lo fa passare;
-  ------------------------------------
+  
+  ------------------------------------------------
+  test_name = 'duplicate fiscal_code with insert'; 
+  ------------------------------------------------
   BEGIN
-     INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('2','(test) Ala di Stura (test)','758321000000000','758437000000000');
+     INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('2','(test) Ala di Stura (test)','758321000000000','1758437000000000');
     _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate fiscal code was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -124,7 +125,7 @@ BEGIN
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23505', 'cities_uq_fiscal_code');
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
-
+  
   ----------------------------------------
   test_name = 'description''s min lenght';
   ----------------------------------------
@@ -151,7 +152,6 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
-
   RETURN;
 END
 $BODY$
@@ -159,3 +159,6 @@ $BODY$
   COST 100;
 ALTER FUNCTION unit_tests_public.cities_check(boolean)
   OWNER TO postgres;
+GRANT EXECUTE ON FUNCTION unit_tests_public.cities_check(boolean) TO postgres WITH GRANT OPTION;
+GRANT EXECUTE ON FUNCTION unit_tests_public.cities_check(boolean) TO scuola247_user;
+REVOKE ALL ON FUNCTION unit_tests_public.cities_check(boolean) FROM public;
