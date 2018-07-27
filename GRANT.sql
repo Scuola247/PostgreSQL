@@ -1492,6 +1492,49 @@ GRANT USAGE ON SCHEMA unit_tests_security TO scuola247_user;
 GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_security TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_security TO scuola247_user;
 
+-- UNIT_TESTS_SPECIAL;
+REVOKE ALL ON SCHEMA unit_tests_special FROM public;
+REVOKE ALL ON SCHEMA unit_tests_special FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA unit_tests_special FROM scuola247_executive;
+REVOKE ALL ON SCHEMA unit_tests_special FROM scuola247_employee;
+REVOKE ALL ON SCHEMA unit_tests_special FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA unit_tests_special FROM scuola247_relative;
+REVOKE ALL ON SCHEMA unit_tests_special FROM scuola247_student;
+REVOKE ALL ON SCHEMA unit_tests_special FROM scuola247_user;
+
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_special FROM public;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_special FROM scuola247_supervisor;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_special FROM scuola247_executive;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_special FROM scuola247_employee;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_special FROM scuola247_teacher;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_special FROM scuola247_relative;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_special FROM scuola247_student;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_special FROM scuola247_user;
+
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_special FROM public;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_special FROM scuola247_supervisor;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_special FROM scuola247_executive;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_special FROM scuola247_employee;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_special FROM scuola247_teacher;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_special FROM scuola247_relative;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_special FROM scuola247_student;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_special FROM scuola247_user;
+
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_special FROM public;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_special FROM scuola247_supervisor;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_special FROM scuola247_executive;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_special FROM scuola247_employee;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_special FROM scuola247_teacher;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_special FROM scuola247_relative;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_special FROM scuola247_student;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_special FROM scuola247_user;
+
+GRANT ALL ON SCHEMA unit_tests_special TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON SCHEMA unit_tests_special TO scuola247_user;
+
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_special TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_special TO scuola247_user;
+
 -- UNIT_TESTS_TRANSLATE;
 REVOKE ALL ON SCHEMA unit_tests_translate FROM public; 
 -- REVOKE ALL ON SCHEMA unit_tests_translate FROM scuola247_supervisor; -- da problemi di dipendenze
