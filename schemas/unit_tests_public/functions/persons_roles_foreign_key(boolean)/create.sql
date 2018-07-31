@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE person with non existence person';
   ------------------------------------------------------
   BEGIN
-    UPDATE persons_roles SET person = '999999999' WHERE person_role ='156239000000000' ;
+    UPDATE scuola247.persons_roles SET person = '999999999' WHERE person_role ='156239000000000' ;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person does not exist', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN

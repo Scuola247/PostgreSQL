@@ -26,7 +26,7 @@ BEGIN
   test_name = 'mandatory teacher';
   --------------------------------
   BEGIN
-    UPDATE parents_meetings SET teacher= NULL WHERE parents_meeting = '33433000000000';
+    UPDATE scuola247.parents_meetings SET teacher= NULL WHERE parents_meeting = '33433000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'duplicate on_date';
   ------------------------------------
   BEGIN
-    UPDATE parents_meetings SET on_date = '2013-10-29 00:00:00' WHERE parents_meeting = '33433000000000';
+    UPDATE scuola247.parents_meetings SET on_date = '2013-10-29 00:00:00' WHERE parents_meeting = '33433000000000';
     _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate on_date was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -52,7 +52,7 @@ BEGIN
   test_name = 'duplicate teacher';
   ------------------------------------
   BEGIN
-    UPDATE parents_meetings SET teacher = '32925000000000' WHERE parents_meeting = '133564000000000';
+    UPDATE scuola247.parents_meetings SET teacher = '32925000000000' WHERE parents_meeting = '133564000000000';
     _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate teacher was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN

@@ -26,7 +26,7 @@ BEGIN
   test_name = 'UPDATE communication_type with a non different one from notification';
   -----------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.communications_media set communication_type = '138029000000000' WHERE communication_media = '112027000000000';
+    UPDATE scuola247.communications_media set communication_type = '138029000000000' WHERE communication_media = '112027000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the communication_type is different from the notification ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'INSERT communication_type with a non different one from notification';
   -----------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','3959000000000','138029000000000','casa','Lara.Lupini@example.org','t');
+    INSERT INTO scuola247.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','3959000000000','138029000000000','casa','Lara.Lupini@example.org','t');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the communication_type is different from the notification ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -52,7 +52,7 @@ BEGIN
   test_name = 'UPDATE communications_type with a different school of the person';
   -------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.communications_media SET communication_type = '138017000000000' WHERE communication_media = '112027000000000';
+    UPDATE scuola247.communications_media SET communication_type = '138017000000000' WHERE communication_media = '112027000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the communication_type has a different school from the person', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -64,7 +64,7 @@ BEGIN
   test_name = 'INSERT communication_type with a different school of the person';
   ------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','3959000000000','138039000000000','casa','Lara.Lupini@example.org','t');
+    INSERT INTO scuola247.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','3959000000000','138039000000000','casa','Lara.Lupini@example.org','t');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the communication_type has a different school from the person ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -77,7 +77,7 @@ BEGIN
   test_name = 'UPDATE communications_type with a different school of the person';
   -------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.communications_media SET person = '2995000000000' WHERE communication_media = '112027000000000';
+    UPDATE scuola247.communications_media SET person = '2995000000000' WHERE communication_media = '112027000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the communication_type has a different school from the person', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -89,7 +89,7 @@ BEGIN
   test_name = 'INSERT communication_type with a different school of the person';
   ------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','2995000000000','138039000000000','casa','Lara.Lupini@example.org','t');
+    INSERT INTO scuola247.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1112027000000000','2995000000000','138039000000000','casa','Lara.Lupini@example.org','t');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the communication_type has a different school from the person ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

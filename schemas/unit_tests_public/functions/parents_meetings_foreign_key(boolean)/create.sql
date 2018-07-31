@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE person to a non existent one';
   --------------------------------------------------
   BEGIN
-    UPDATE parents_meetings SET  person = '999999999' WHERE parents_meeting = '33433000000000';
+    UPDATE scuola247.parents_meetings SET  person = '999999999' WHERE parents_meeting = '33433000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person does not exist subject', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'UPDATE teacher to a non existent one';
   ---------------------------------------------------------------------
   BEGIN
-    UPDATE parents_meetings SET  teacher = '999999999' WHERE parents_meeting = '33433000000000';
+    UPDATE scuola247.parents_meetings SET  teacher = '999999999' WHERE parents_meeting = '33433000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher does not exist', NULL::diagnostic.error);   
     RETURN;
       EXCEPTION WHEN OTHERS THEN

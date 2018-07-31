@@ -44,7 +44,7 @@ BEGIN
 
   BEGIN
 
-    INSERT INTO schools (school, description, processing_code, mnemonic, example, logo, behavior) VALUES (28961000000001, 'Istituto comprensivo "Voyager2"', 'BZIC00001Z', 'IC VOYAGER3', false, NULL, NULL);
+    INSERT INTO scuola247.schools (school, description, processing_code, mnemonic, example, logo, behavior) VALUES (28961000000001, 'Istituto comprensivo "Voyager2"', 'BZIC00001Z', 'IC VOYAGER3', false, NULL, NULL);
 
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
 
@@ -63,7 +63,7 @@ BEGIN
 
   BEGIN
 
-    INSERT INTO schools (school, description, processing_code, mnemonic, example, logo, behavior) VALUES (28961000000001, 'Istituto comprensivo "Voyager3"', 'BZIC00001Z', 'IC VOYAGER2', false, NULL, NULL);
+    INSERT INTO scuola247.schools (school, description, processing_code, mnemonic, example, logo, behavior) VALUES (28961000000001, 'Istituto comprensivo "Voyager3"', 'BZIC00001Z', 'IC VOYAGER2', false, NULL, NULL);
 
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate mnemonic was expected', NULL::diagnostic.error);
 
@@ -82,7 +82,7 @@ BEGIN
 
   BEGIN
 
-    INSERT INTO schools (school, description, processing_code, mnemonic, example, logo, behavior) VALUES (28961000000001, 'Istituto comprensivo "Voyager3"', 'AZIC00001Z', 'IC VOYAGER3', false, NULL, NULL);
+    INSERT INTO scuola247.schools (school, description, processing_code, mnemonic, example, logo, behavior) VALUES (28961000000001, 'Istituto comprensivo "Voyager3"', 'AZIC00001Z', 'IC VOYAGER3', false, NULL, NULL);
 
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate processing code was expected', NULL::diagnostic.error);
 
@@ -101,7 +101,7 @@ BEGIN
 
   BEGIN
 
-    UPDATE schools SET description = NULL WHERE school = 28961000000000;
+    UPDATE scuola247.schools SET description = NULL WHERE school = 28961000000000;
 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
 
@@ -120,7 +120,7 @@ BEGIN
 
   BEGIN
 
-    UPDATE schools SET description = '  ' WHERE school = 28961000000000;
+    UPDATE scuola247.schools SET description = '  ' WHERE school = 28961000000000;
 
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty description was expected', NULL::diagnostic.error);
 
@@ -139,7 +139,7 @@ BEGIN
 
   BEGIN
 
-    UPDATE schools SET processing_code = NULL WHERE school = 28961000000000;
+    UPDATE scuola247.schools SET processing_code = NULL WHERE school = 28961000000000;
 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but processing_code mandatory was expected', NULL::diagnostic.error);
 
@@ -158,7 +158,7 @@ BEGIN
 
   BEGIN
 
-    UPDATE schools SET processing_code = '  ' WHERE school = 28961000000000;
+    UPDATE scuola247.schools SET processing_code = '  ' WHERE school = 28961000000000;
 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but empty processing_code was expected', NULL::diagnostic.error);
 
@@ -177,7 +177,7 @@ BEGIN
 
   BEGIN
 
-    UPDATE schools SET mnemonic = NULL WHERE school = 28961000000000;
+    UPDATE scuola247.schools SET mnemonic = NULL WHERE school = 28961000000000;
 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but mnemonic mandatory was expected', NULL::diagnostic.error);
 
@@ -196,7 +196,7 @@ BEGIN
 
   BEGIN
 
-    UPDATE schools SET mnemonic = '  ' WHERE school = 28961000000000;
+    UPDATE scuola247.schools SET mnemonic = '  ' WHERE school = 28961000000000;
 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but empty mnemonic was expected', NULL::diagnostic.error);
 

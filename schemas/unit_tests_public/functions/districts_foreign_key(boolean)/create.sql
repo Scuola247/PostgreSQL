@@ -26,7 +26,7 @@ BEGIN
   test_name = 'UPDATE districts set region with non existence code';
   ---------------------------------------------------------------------
   BEGIN
-    UPDATE districts SET region = '999999999999999' WHERE district = '758321000000000';
+    UPDATE shared.districts SET region = '999999999999999' WHERE district = '758321000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but region set with non existence code', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN

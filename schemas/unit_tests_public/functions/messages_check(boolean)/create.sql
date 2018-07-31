@@ -26,7 +26,7 @@ BEGIN
   test_name = 'conversation set NULL';
   ------------------------------------
   BEGIN
-    UPDATE messages SET conversation= NULL WHERE message = '50112000000000';
+    UPDATE scuola247.messages SET conversation= NULL WHERE message = '50112000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but mnemonic mandatory was expected', NULL::diagnostic.error);
     RETURN;
       EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'message_text set NULL';
   ------------------------------------
   BEGIN
-    UPDATE messages SET message_text= NULL WHERE message = '50112000000000';
+    UPDATE scuola247.messages SET message_text= NULL WHERE message = '50112000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but mnemonic mandatory was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
   test_name = 'person set NULL';
   ------------------------------
   BEGIN
-    UPDATE messages SET person= NULL WHERE message = '50112000000000';
+    UPDATE scuola247.messages SET person= NULL WHERE message = '50112000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but mnemonic mandatory was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -63,8 +63,8 @@ BEGIN
   test_name = 'messages text''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE messages SET message_text = '   ' WHERE message = '50112000000000';
-    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but messages text empty was expected', NULL::diagnostic.error);
+    UPDATE scuola247.messages SET message_text = '   ' WHERE message = '50112000000000';
+    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but scuola247.messages text empty was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
      GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
@@ -76,7 +76,7 @@ BEGIN
   test_name = 'duplicate from_time';
   -------------------------------------------
   BEGIN
-    INSERT INTO public.messages(message,conversation,written_on,message_text,person) VALUES ('150112000000000','46328000000000','2013-09-16 08:26:43','Giustifico il ritardo di mio figlio.','5719000000000');
+    INSERT INTO scuola247.messages(message,conversation,written_on,message_text,person) VALUES ('150112000000000','46328000000000','2013-09-16 08:26:43','Giustifico il ritardo di mio figlio.','5719000000000');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate from_time was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

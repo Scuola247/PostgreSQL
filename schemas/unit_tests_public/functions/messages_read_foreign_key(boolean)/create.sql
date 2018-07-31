@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE messages_read with a non existing message';
   ---------------------------------------------------------------
   BEGIN
-    UPDATE public.messages_read set message = '99999999999999' WHERE message_read = '60304000000000';
+    UPDATE scuola247.messages_read set message = '99999999999999' WHERE message_read = '60304000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the message does not exist ', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'UPDATE messages_read with a non existing person';
   --------------------------------------------------------------
   BEGIN
-    UPDATE public.messages_read set person = '99999999999999' WHERE message_read = '60304000000000';
+    UPDATE scuola247.messages_read set person = '99999999999999' WHERE message_read = '60304000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the person does not exist ', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN

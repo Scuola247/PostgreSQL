@@ -25,7 +25,7 @@ BEGIN
   test_name = ' UPDATE messages convertsation with a non existent one';
   ---------------------------------------------------------------------
   BEGIN
-    UPDATE messages SET conversation = '999999999' WHERE message = '50112000000000';
+    UPDATE scuola247.messages SET conversation = '999999999' WHERE message = '50112000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but conversation set with non existence subject', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'UPDATE messages person with a non existent one';
   -------------------------------------------------------------
   BEGIN
-    UPDATE messages SET person = '999999999' WHERE message = '50112000000000';
+    UPDATE scuola247.messages SET person = '999999999' WHERE message = '50112000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person set with non existence subject', NULL::diagnostic.error);
     RETURN;
       EXCEPTION WHEN OTHERS THEN

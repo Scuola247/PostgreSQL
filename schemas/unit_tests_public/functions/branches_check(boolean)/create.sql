@@ -26,7 +26,7 @@ BEGIN
   test_name = 'Update branches with school to NULL';
   --------------------------------------------------
   BEGIN
-    UPDATE branches SET school = NULL WHERE branch = '9948000000000';
+    UPDATE scuola247.branches SET school = NULL WHERE branch = '9948000000000';
     _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but school NULL value was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'DUPLICATE description';
   ------------------------------------
   BEGIN
-    INSERT INTO branches (branch, school, description) VALUES (28962000000001, 28961000000000, 'Primaria Borgo Trento');
+    INSERT INTO scuola247.branches (branch, school, description) VALUES (28962000000001, 28961000000000, 'Primaria Borgo Trento');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -53,7 +53,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE branches SET description = '  ' WHERE branch = 28962000000000;
+    UPDATE scuola247.branches SET description = '  ' WHERE branch = 28962000000000;
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

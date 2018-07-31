@@ -26,7 +26,7 @@ BEGIN
   test_name = 'school''s mandatory';
   -----------------------------------
   BEGIN
-    UPDATE subjects SET school = NULL WHERE subject='29105000000000';
+    UPDATE scuola247.subjects SET school = NULL WHERE subject='29105000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school mandatory was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'description''s mandatory';
   ---------------------------------------
   BEGIN
-    UPDATE subjects SET description = NULL WHERE subject='29105000000000';
+    UPDATE scuola247.subjects SET description = NULL WHERE subject='29105000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description mandatory was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -50,7 +50,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE subjects SET description = '  ' WHERE subject = '29105000000000';
+    UPDATE scuola247.subjects SET description = '  ' WHERE subject = '29105000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -62,7 +62,7 @@ BEGIN
   test_name = 'duplicate description';
   ------------------------------------
   BEGIN
-    INSERT INTO public.subjects(subject,school,description) VALUES ('10029105000000000','28961000000000','Italiano');
+    INSERT INTO scuola247.subjects(subject,school,description) VALUES ('10029105000000000','28961000000000','Italiano');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

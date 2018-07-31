@@ -26,7 +26,7 @@ BEGIN
   test_name = 'conversation''s mandatory';
   ----------------------------------------
   BEGIN
-    UPDATE conversations_invites SET conversation = NULL WHERE conversation_invite = '831562000000000';
+    UPDATE scuola247.conversations_invites SET conversation = NULL WHERE conversation_invite = '831562000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but conversation mandatory was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'conversation''s mandatory';
   ----------------------------------------
   BEGIN
-    UPDATE conversations_invites SET invited = NULL WHERE conversation_invite = '831562000000000';
+    UPDATE scuola247.conversations_invites SET invited = NULL WHERE conversation_invite = '831562000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but invited mandatory was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -50,7 +50,7 @@ BEGIN
   test_name = 'Duplicate conversation and invite'; 
   ------------------------------------------------
   BEGIN
-    UPDATE conversations_invites SET (conversation,invited) = (33566000000000,6603000000000) WHERE conversation_invite = 831562000000000;
+    UPDATE scuola247.conversations_invites SET (conversation,invited) = (33566000000000,6603000000000) WHERE conversation_invite = 831562000000000;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but (conversation,invited) is duplicated', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

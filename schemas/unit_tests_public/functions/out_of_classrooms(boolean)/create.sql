@@ -30,15 +30,15 @@ BEGIN
   test_name = 'INSERT out_of_classrooms';
   ---------------------------------------
   BEGIN
-    INSERT INTO public.out_of_classrooms(out_of_classroom,school_operator,description,on_date,from_time,to_time,classroom_student) VALUES ('98577000000000','32937000000000','per selezioni sportive','2013-09-21','08:00:00','12:00:00','10379000000000');
-    INSERT INTO public.out_of_classrooms(out_of_classroom,school_operator,description,on_date,from_time,to_time,classroom_student) VALUES ('98578000000000','32937000000000','per selezioni sportive','2013-09-21','08:00:00','12:00:00','10380000000000');
+    INSERT INTO scuola247.out_of_classrooms(out_of_classroom,school_operator,description,on_date,from_time,to_time,classroom_student) VALUES ('98577000000000','32937000000000','per selezioni sportive','2013-09-21','08:00:00','12:00:00','10379000000000');
+    INSERT INTO scuola247.out_of_classrooms(out_of_classroom,school_operator,description,on_date,from_time,to_time,classroom_student) VALUES ('98578000000000','32937000000000','per selezioni sportive','2013-09-21','08:00:00','12:00:00','10380000000000');
 
     _results = _results || assert.pass(full_function_name, test_name);
 
     EXCEPTION
        WHEN OTHERS THEN
          GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-         _results = _results || assert.fail(full_function_name, test_name, 'INSERT public.out_of_classrooms FAILED'::text, error);
+         _results = _results || assert.fail(full_function_name, test_name, 'INSERT scuola247.out_of_classrooms FAILED'::text, error);
        RETURN;
   END;
   RETURN;

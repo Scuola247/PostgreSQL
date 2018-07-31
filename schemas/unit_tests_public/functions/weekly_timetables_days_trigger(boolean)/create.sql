@@ -26,7 +26,7 @@ BEGIN
   test_name = 'UPDATE weekly_timetables_days set teacher with different school'; 
   ------------------------------------------------------------------------------
   BEGIN
-    UPDATE weekly_timetables_days SET  teacher='29122000000000'  WHERE weekly_timetable_day = '33008000000000';
+    UPDATE scuola247.weekly_timetables_days SET  teacher='29122000000000'  WHERE weekly_timetable_day = '33008000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the teacher is from different school', NULL::diagnostic.error);
     RETURN;
   EXCEPTION WHEN OTHERS THEN
@@ -40,7 +40,7 @@ BEGIN
   test_name = 'INSERT weekly_timetables_days set teacher with different school'; 
   ------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.weekly_timetables_days(weekly_timetable_day,weekly_timetable,weekday,teacher,subject,team_teaching,from_time,to_time) VALUES ('133008000000000','51386000000000','1','29122000000000','32911000000000','1','08:00:00','09:00:00');
+    INSERT INTO scuola247.weekly_timetables_days(weekly_timetable_day,weekly_timetable,weekday,teacher,subject,team_teaching,from_time,to_time) VALUES ('133008000000000','51386000000000','1','29122000000000','32911000000000','1','08:00:00','09:00:00');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the teacher is from different school', NULL::diagnostic.error);
     RETURN;
   EXCEPTION WHEN OTHERS THEN
@@ -53,7 +53,7 @@ BEGIN
   test_name = 'UPDATE weekly_timetables_days set subject with different school'; 
   ------------------------------------------------------------------------------
   BEGIN
-    UPDATE weekly_timetables_days SET  subject='29105000000000'  WHERE weekly_timetable_day = '33008000000000';
+    UPDATE scuola247.weekly_timetables_days SET  subject='29105000000000'  WHERE weekly_timetable_day = '33008000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but the subject is not from the same school ', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -66,7 +66,7 @@ BEGIN
   test_name = 'INSERT weekly_timetables_days set subject with different school'; 
   ------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.weekly_timetables_days(weekly_timetable_day,weekly_timetable,weekday,teacher,subject,team_teaching,from_time,to_time) VALUES ('133008000000000','51386000000000','1','32925000000000','29105000000000','1','08:00:00','09:00:00');
+    INSERT INTO scuola247.weekly_timetables_days(weekly_timetable_day,weekly_timetable,weekday,teacher,subject,team_teaching,from_time,to_time) VALUES ('133008000000000','51386000000000','1','32925000000000','29105000000000','1','08:00:00','09:00:00');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the subject is from different school', NULL::diagnostic.error);
     RETURN;
   EXCEPTION WHEN OTHERS THEN

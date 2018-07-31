@@ -26,7 +26,7 @@ BEGIN
   test_name = 'duplicate description';
   ------------------------------------
   BEGIN
-    INSERT INTO public.metrics(metric,school,description,sufficiency) VALUES ('111433000000000','1000000000','Decimale','700');
+    INSERT INTO scuola247.metrics(metric,school,description,sufficiency) VALUES ('111433000000000','1000000000','Decimale','700');
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
       EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'school''s mandatory';
   ---------------------------------------
   BEGIN
-    UPDATE metrics SET school = NULL WHERE metric = '11433000000000';
+    UPDATE scuola247.metrics SET school = NULL WHERE metric = '11433000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
   test_name = 'description''s mandatory';
   ---------------------------------------
   BEGIN
-    UPDATE metrics SET description = NULL WHERE metric = '11433000000000';
+    UPDATE scuola247.metrics SET description = NULL WHERE metric = '11433000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -64,7 +64,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE metrics SET description = ' ' WHERE metric = '11433000000000';
+    UPDATE scuola247.metrics SET description = ' ' WHERE metric = '11433000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

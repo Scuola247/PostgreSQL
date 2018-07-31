@@ -26,7 +26,7 @@ BEGIN
   test_name = 'duplicate persons_relations';
   ------------------------------------------
   BEGIN
-   INSERT INTO public.persons_relations(person_relation,person,person_related_to,sign_request,relationship,can_do_explanation) VALUES ('127915000000000','6722000000000','8684000000000','f','Tutor','t');
+   INSERT INTO scuola247.persons_relations(person_relation,person,person_related_to,sign_request,relationship,can_do_explanation) VALUES ('127915000000000','6722000000000','8684000000000','f','Tutor','t');
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate persons_relations was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -40,7 +40,7 @@ BEGIN
   test_name = 'person''s mandatory';
   ----------------------------------
   BEGIN
-    UPDATE persons_relations SET person = NULL WHERE person_relation = '27915000000000';
+    UPDATE scuola247.persons_relations SET person = NULL WHERE person_relation = '27915000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -53,7 +53,7 @@ BEGIN
   test_name = 'person related to''s mandatory';
   ---------------------------------------------
   BEGIN
-    UPDATE persons_relations SET person_related_to = NULL WHERE person_relation = '27915000000000';
+    UPDATE scuola247.persons_relations SET person_related_to = NULL WHERE person_relation = '27915000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person_related_to required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -66,7 +66,7 @@ BEGIN
   test_name = 'relationship''s mandatory';
   ---------------------------------------
   BEGIN
-    UPDATE persons_relations SET relationship = NULL WHERE person_relation = '27915000000000';
+    UPDATE scuola247.persons_relations SET relationship = NULL WHERE person_relation = '27915000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but relationship required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN

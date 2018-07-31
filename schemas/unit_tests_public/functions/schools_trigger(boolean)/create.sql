@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE schools set behavior with subject with different school';
   -----------------------------------------------------------------------------
   BEGIN
-    UPDATE schools SET behavior = 166129000000000 WHERE school = 28961000000000;
+    UPDATE scuola247.schools SET behavior = 166129000000000 WHERE school = 28961000000000;
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the behavior set has different school', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN

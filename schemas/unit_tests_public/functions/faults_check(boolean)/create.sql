@@ -25,7 +25,7 @@ BEGIN
   test_name = 'student mandatory';
   --------------------------------
   BEGIN
-    UPDATE faults SET student = NULL WHERE fault = '59632000000000';
+    UPDATE scuola247.faults SET student = NULL WHERE fault = '59632000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but student required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'description mandatory';
   ------------------------------------
   BEGIN
-    UPDATE faults SET description = NULL WHERE fault = '59632000000000';
+    UPDATE scuola247.faults SET description = NULL WHERE fault = '59632000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -49,7 +49,7 @@ BEGIN
   test_name = 'lesson mandatory';
   -------------------------------
   BEGIN
-    UPDATE faults SET lesson = NULL WHERE fault = '59632000000000';
+    UPDATE scuola247.faults SET lesson = NULL WHERE fault = '59632000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but lesson required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -61,7 +61,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE faults SET description = '  ' WHERE fault = '59632000000000';
+    UPDATE scuola247.faults SET description = '  ' WHERE fault = '59632000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

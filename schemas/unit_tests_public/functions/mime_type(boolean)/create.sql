@@ -13,8 +13,8 @@ DECLARE
   full_function_name 	text;
   test_name		text = '';
   error			diagnostic.error;
-  file_extension        file_extension;
-  mime_type	        mime_type;
+  file_extension        utility.file_extension;
+  mime_type	        utility.mime_type;
 BEGIN
   GET DIAGNOSTICS context = PG_CONTEXT;
   full_function_name = diagnostic.full_function_name(context);

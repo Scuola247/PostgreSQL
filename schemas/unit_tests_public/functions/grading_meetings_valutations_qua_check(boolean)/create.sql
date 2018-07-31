@@ -25,7 +25,7 @@ BEGIN
   test_name = 'duplicate qualification';
   --------------------------------------
   BEGIN
-    INSERT INTO public.grading_meetings_valutations_qua(grading_meeting_valutation_qua,grading_meeting_valutation,qualification,grade,notes) VALUES ('1126109000000000','124388000000000','95977000000000','11478000000000','Esempio di una nota testuale a commento della valutazione della qualifica');
+    INSERT INTO scuola247.grading_meetings_valutations_qua(grading_meeting_valutation_qua,grading_meeting_valutation,qualification,grade,notes) VALUES ('1126109000000000','124388000000000','95977000000000','11478000000000','Esempio di una nota testuale a commento della valutazione della qualifica');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate qualification was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'grading_meeting_valutation mandatory';
   ---------------------------------------------------
   BEGIN
-    UPDATE grading_meetings_valutations_qua SET grading_meeting_valutation = NULL WHERE grading_meeting_valutation_qua = '126109000000000';
+    UPDATE scuola247.grading_meetings_valutations_qua SET grading_meeting_valutation = NULL WHERE grading_meeting_valutation_qua = '126109000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but grading_meeting_valutation required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -49,7 +49,7 @@ BEGIN
   test_name = 'qualification mandatory';
   --------------------------------------
   BEGIN
-    UPDATE grading_meetings_valutations_qua SET qualification = NULL WHERE grading_meeting_valutation_qua = '126109000000000';
+    UPDATE scuola247.grading_meetings_valutations_qua SET qualification = NULL WHERE grading_meeting_valutation_qua = '126109000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but qualification required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -61,7 +61,7 @@ BEGIN
   test_name = 'grade mandatory';
   ------------------------------
   BEGIN
-    UPDATE grading_meetings_valutations_qua SET grade = NULL WHERE grading_meeting_valutation_qua = '126109000000000';
+    UPDATE scuola247.grading_meetings_valutations_qua SET grade = NULL WHERE grading_meeting_valutation_qua = '126109000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but grade required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -74,7 +74,7 @@ BEGIN
   test_name = 'note''s min lenght';
   ---------------------------------
   BEGIN
-    UPDATE public.grading_meetings_valutations_qua SET notes = '  ' WHERE grading_meeting_valutation_qua = '126109000000000';
+    UPDATE scuola247.grading_meetings_valutations_qua SET notes = '  ' WHERE grading_meeting_valutation_qua = '126109000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but notes min lenght was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN

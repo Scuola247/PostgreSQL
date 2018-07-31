@@ -22,10 +22,10 @@ BEGIN
     RETURN;
   END IF;
   ---------------------------------------------------------------
-  test_name = 'UPDATE faults set lesson with a non existing one';
+  test_name = 'UPDATE scuola247.faults set lesson with a non existing one';
   ---------------------------------------------------------------
   BEGIN
-    UPDATE faults SET lesson = 999999999 WHERE fault = '59632000000000';
+    UPDATE scuola247.faults SET lesson = 999999999 WHERE fault = '59632000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but lesson set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -34,10 +34,10 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
   ----------------------------------------------------------------
-  test_name = 'UPDATE faults set student with a non existing one';
+  test_name = 'UPDATE scuola247.faults set student with a non existing one';
   ----------------------------------------------------------------
   BEGIN
-    UPDATE faults SET student = 999999999 WHERE fault = '59632000000000';
+    UPDATE scuola247.faults SET student = 999999999 WHERE fault = '59632000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but student set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

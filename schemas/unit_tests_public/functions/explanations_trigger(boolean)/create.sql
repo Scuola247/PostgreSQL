@@ -29,7 +29,7 @@ BEGIN
   test_name = 'UPDATE student explanation with no student ';
   ----------------------------------------------------------
   BEGIN
-    UPDATE explanations SET student='32926000000000' WHERE explanation = '57313000000000';
+    UPDATE scuola247.explanations SET student='32926000000000' WHERE explanation = '57313000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the person is not a student', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -41,7 +41,7 @@ BEGIN
   test_name = 'INSERT explanation with no student';
   -------------------------------------------------
   BEGIN
-    INSERT INTO  public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('10057313000000000','32926000000000','uscita in anticipo per motivi personali','2013-10-24 10:44:59','3512000000000','2013-10-25 10:44:59','32933000000000','2013-10-24','2013-10-24',NULL,'11:30:30','Leave');
+    INSERT INTO scuola247.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('10057313000000000','32926000000000','uscita in anticipo per motivi personali','2013-10-24 10:44:59','3512000000000','2013-10-25 10:44:59','32933000000000','2013-10-24','2013-10-24',NULL,'11:30:30','Leave');
     _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but the person is not a student', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -54,7 +54,7 @@ BEGIN
   test_name = 'UPDATE who create the explanation and the student are in different schools';
   -----------------------------------------------------------------------------------------
   BEGIN
-    UPDATE explanations SET created_by='29146000000000'  WHERE explanation = '57313000000000';
+    UPDATE scuola247.explanations SET created_by='29146000000000'  WHERE explanation = '57313000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but create_by and the student aren''t in the same school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -66,7 +66,7 @@ BEGIN
   test_name = 'INSERT explanation where who create the explanation and the student are in different schools';
   -----------------------------------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('10057313000000000','1214000000000','uscita in anticipo per motivi personali','2013-10-24 10:44:59','29146000000000','2013-10-25 10:44:59','32933000000000','2013-10-24','2013-10-24',NULL,'11:30:30','Leave');
+    INSERT INTO scuola247.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('10057313000000000','1214000000000','uscita in anticipo per motivi personali','2013-10-24 10:44:59','29146000000000','2013-10-25 10:44:59','32933000000000','2013-10-24','2013-10-24',NULL,'11:30:30','Leave');
     _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but create_by and the student aren''t in the same school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -78,7 +78,7 @@ BEGIN
   test_name = 'Update created_by with a student <18 years old';
   -------------------------------------------------------------
   BEGIN
-    UPDATE explanations SET created_by='6743000000000' WHERE explanation='48840000000000';
+    UPDATE scuola247.explanations SET created_by='6743000000000' WHERE explanation='48840000000000';
         _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the student is not an adult', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -90,7 +90,7 @@ BEGIN
   test_name = 'INSERT explanation where created_by with a student <18 years old';
   -------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('10057313000000000','6743000000000','uscita in anticipo per motivi personali','2013-10-24 10:44:59','6743000000000','2013-10-25 10:44:59','32933000000000','2013-10-24','2013-10-24',NULL,'11:30:30','Leave');
+    INSERT INTO scuola247.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('10057313000000000','6743000000000','uscita in anticipo per motivi personali','2013-10-24 10:44:59','6743000000000','2013-10-25 10:44:59','32933000000000','2013-10-24','2013-10-24',NULL,'11:30:30','Leave');
         _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but the student is not an adult', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -102,7 +102,7 @@ BEGIN
   test_name = 'Update created_by with a person that is not allowed to justify';
   -----------------------------------------------------------------------------
   BEGIN
-    UPDATE explanations SET created_by='6739000000000' WHERE explanation='57313000000000';
+    UPDATE scuola247.explanations SET created_by='6739000000000' WHERE explanation='57313000000000';
         _results = _results || assert.fail(full_function_name, test_name,'Update was OK but created_by is not allowed to justify the student', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -115,7 +115,7 @@ BEGIN
   test_name = 'INSERT explanation with created_by with a person that is not allowed to justify';
   ----------------------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('10057313000000000','6743000000000','uscita in anticipo per motivi personali','2013-10-24 10:44:59','6739000000000','2013-10-25 10:44:59','32933000000000','2013-10-24','2013-10-24',NULL,'11:30:30','Leave');
+    INSERT INTO scuola247.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('10057313000000000','6743000000000','uscita in anticipo per motivi personali','2013-10-24 10:44:59','6739000000000','2013-10-25 10:44:59','32933000000000','2013-10-24','2013-10-24',NULL,'11:30:30','Leave');
         _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but created_by is not allowed to justify the student', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -127,7 +127,7 @@ BEGIN
   test_name = 'UPDATE explanation with registered_by not in the school';
   ----------------------------------------------------------------------
   BEGIN
-    UPDATE explanations SET registered_by='29146000000000' WHERE explanation='57313000000000';
+    UPDATE scuola247.explanations SET registered_by='29146000000000' WHERE explanation='57313000000000';
         _results = _results || assert.fail(full_function_name, test_name,'Update was OK but who registered the explanation is from different school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -140,7 +140,7 @@ BEGIN
   test_name = 'INSERT explanation with registered_by not in the school';
   ----------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('100457313000000000','1214000000000','uscita in anticipo per motivi personali','2013-10-24 10:44:59','3512000000000','2013-10-25 10:44:59','29146000000000','2013-10-24','2013-10-24',NULL,'11:30:30','Leave');
+    INSERT INTO scuola247.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('100457313000000000','1214000000000','uscita in anticipo per motivi personali','2013-10-24 10:44:59','3512000000000','2013-10-25 10:44:59','29146000000000','2013-10-24','2013-10-24',NULL,'11:30:30','Leave');
         _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but who registered the explanation is from different school  ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -152,7 +152,7 @@ BEGIN
   test_name = 'UPDATE explanation with registered_by that is not teacher,executive,supervisor,employee';
   -------------------------------------------------------------------------------------------------------
   BEGIN
-    UPDATE explanations SET registered_by='3512000000000' WHERE explanation='57313000000000';
+    UPDATE scuola247.explanations SET registered_by='3512000000000' WHERE explanation='57313000000000';
         _results = _results || assert.fail(full_function_name, test_name,'Update was OK but who registered the explanation is not a teacher,employee,supervisor,executive  ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -164,7 +164,7 @@ BEGIN
   test_name = 'INSERT explanation with registered_by that is not teacher,executive,supervisor,employee';
   ------------------------------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('10557313000000000','1214000000000','uscita in anticipo per motivi personali','2013-10-24 10:44:59','3512000000000','2013-10-25 10:44:59','3512000000000','2013-10-24','2013-10-24',NULL,'11:30:30','Leave');
+    INSERT INTO scuola247.explanations(explanation,student,description,created_on,created_by,registered_on,registered_by,from_time,to_time,coming_at,leaving_at,type) VALUES ('10557313000000000','1214000000000','uscita in anticipo per motivi personali','2013-10-24 10:44:59','3512000000000','2013-10-25 10:44:59','3512000000000','2013-10-24','2013-10-24',NULL,'11:30:30','Leave');
         _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but who registered the explanation is not a teacher,employee,supervisor or executive  ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

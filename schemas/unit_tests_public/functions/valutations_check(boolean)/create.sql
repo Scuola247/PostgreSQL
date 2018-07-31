@@ -26,7 +26,7 @@ BEGIN
   test_name = 'subject''s mandatory';
   -----------------------------------
   BEGIN
-    UPDATE public.valutations SET subject = NULL WHERE valutation = '86813000000000';
+    UPDATE scuola247.valutations SET subject = NULL WHERE valutation = '86813000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but subject required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'grade_type''s mandatory';
   --------------------------------------
   BEGIN
-    UPDATE public.valutations SET grade_type = NULL WHERE valutation = '86813000000000';
+    UPDATE scuola247.valutations SET grade_type = NULL WHERE valutation = '86813000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but grade_type required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -52,7 +52,7 @@ BEGIN
   test_name = 'grade''s mandatory';
   ---------------------------------
   BEGIN
-    UPDATE public.valutations SET grade = NULL WHERE valutation = '86813000000000';
+    UPDATE scuola247.valutations SET grade = NULL WHERE valutation = '86813000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but grade required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -65,7 +65,7 @@ BEGIN
   test_name = 'teacher''s mandatory';
   -----------------------------------
   BEGIN
-    UPDATE public.valutations SET teacher = NULL WHERE valutation = '86813000000000';
+    UPDATE scuola247.valutations SET teacher = NULL WHERE valutation = '86813000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -78,7 +78,7 @@ BEGIN
   test_name = 'on_date''s mandatory';
   -----------------------------------
   BEGIN
-    UPDATE public.valutations SET on_date = NULL WHERE valutation = '86813000000000';
+    UPDATE scuola247.valutations SET on_date = NULL WHERE valutation = '86813000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but on_date required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -91,7 +91,7 @@ BEGIN
   test_name = 'classroom_student''s mandatory';
   ---------------------------------------------
   BEGIN
-    UPDATE public.valutations SET classroom_student = NULL WHERE valutation = '86813000000000';
+    UPDATE scuola247.valutations SET classroom_student = NULL WHERE valutation = '86813000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom_student required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -100,9 +100,18 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
-/*
-dovrebbe esserci un constraint sul evaluation min lenght e relativo check
-*/
+  ---------------------------------------
+  test_name = 'evaluation''s min length';
+  ---------------------------------------
+  BEGIN
+    UPDATE scuola247.valutations SET evaluation = '  ' WHERE valutation = '86813000000000';
+    _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty name was expected', NULL::diagnostic.error);
+    RETURN;
+	EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
+    _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23514', 'valutations_ck_evaluation');
+	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
+  END;
 
 
   RETURN;

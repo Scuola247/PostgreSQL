@@ -26,7 +26,7 @@ BEGIN
   test_name = 'duplicate description (description)';
   --------------------------------------------------
   BEGIN
-    INSERT INTO public.districts(mnemonic,description,region,district) VALUES ('C6','Torino','1900000000','10758321000000000');
+    INSERT INTO shared.districts(mnemonic,description,region,district) VALUES ('C6','Torino','1900000000','10758321000000000');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate districts_uq_description was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'duplicate mnemonic (mnemonic)';
   --------------------------------------------
   BEGIN
-   INSERT INTO public.districts(mnemonic,description,region,district) VALUES ('01','Toro','200000000','10858321000000000');
+   INSERT INTO shared.districts(mnemonic,description,region,district) VALUES ('01','Toro','200000000','10858321000000000');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate districts_uq_mnemonic was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
   test_name = 'description mandatory';
   ------------------------------------
   BEGIN
-    UPDATE districts SET description = NULL WHERE district = '758321000000000';
+    UPDATE shared.districts SET description = NULL WHERE district = '758321000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -64,7 +64,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE districts SET description = ' ' WHERE district = '758322000000000';
+    UPDATE shared.districts SET description = ' ' WHERE district = '758322000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -75,7 +75,7 @@ BEGIN
   test_name = 'mnemonic''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE districts SET  mnemonic = ' ' WHERE district = '758322000000000';
+    UPDATE shared.districts SET  mnemonic = ' ' WHERE district = '758322000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but mnemonic min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -87,7 +87,7 @@ BEGIN
   test_name = 'mnemonic mandatory';
   ------------------------------------
   BEGIN
-    UPDATE districts SET mnemonic = NULL WHERE district = '758321000000000';
+    UPDATE shared.districts SET mnemonic = NULL WHERE district = '758321000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but mnemonic required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -99,7 +99,7 @@ BEGIN
   test_name = 'region mandatory';
   ------------------------------------
   BEGIN
-    UPDATE districts SET region = NULL WHERE district = '758321000000000';
+    UPDATE shared.districts SET region = NULL WHERE district = '758321000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but district required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

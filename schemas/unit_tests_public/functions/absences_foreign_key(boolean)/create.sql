@@ -37,7 +37,7 @@ BEGIN
   test_name = 'Update absences set classroom_student with non existence subject';
   -------------------------------------------------------------------------------
   BEGIN
-    UPDATE absences SET classroom_student = 999999999 WHERE absence = 33311000000000;
+    UPDATE scuola247.absences SET classroom_student = 999999999 WHERE absence = 33311000000000;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom_student set with non existence subject', NULL::diagnostic.error);
     RETURN;
 
@@ -51,7 +51,7 @@ BEGIN
   test_name = 'Update absences set explanation with non existence subject';
   -------------------------------------------------------------------------
   BEGIN
-    UPDATE absences SET explanation = 999999999 WHERE absence = 33311000000000;
+    UPDATE scuola247.absences SET explanation = 999999999 WHERE absence = 33311000000000;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but explanation set with non existence subject', NULL::diagnostic.error);
     RETURN;
 
@@ -66,7 +66,7 @@ BEGIN
   test_name = 'Update absences set teacher with non existence subject';
   ---------------------------------------------------------------------
   BEGIN
-    UPDATE absences SET teacher = 999999999 WHERE absence = 33311000000000;
+    UPDATE scuola247.absences SET teacher = 999999999 WHERE absence = 33311000000000;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher set with non existence subject', NULL::diagnostic.error);
     RETURN;
 

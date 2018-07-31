@@ -26,7 +26,7 @@ BEGIN
   test_name = 'UPDATE grades set metric with non existence person';
   -----------------------------------------------------------------
   BEGIN
-    UPDATE grades SET metric = '0000000000000' WHERE grade = '29066000000000';
+    UPDATE  scuola247.grades SET metric = '0000000000000' WHERE grade = '29066000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but metric was excepted', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

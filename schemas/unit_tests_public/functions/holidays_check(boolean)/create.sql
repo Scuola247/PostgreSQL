@@ -22,17 +22,11 @@ BEGIN
     RETURN;
   END IF;
 
-/*
-manca check:
-- description min length
-*/
-
-
   --------------------------------
   test_name = 'duplicate on_date';
   --------------------------------
   BEGIN
-    INSERT INTO public.holidays(holiday,school,on_date,description) VALUES ('111335000000000','1000000000','2013-01-01','Capodanno');
+    INSERT INTO scuola247.holidays(holiday,school,on_date,description) VALUES ('111335000000000','1000000000','2013-01-01','Capodanno');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate on_date was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -40,11 +34,12 @@ manca check:
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23505','holidays_uq_on_date');
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
+
   -------------------------------
   test_name = 'school mandatory';
   -------------------------------
   BEGIN
-    UPDATE holidays SET school = NULL WHERE holiday = '11335000000000';
+    UPDATE scuola247.holidays SET school = NULL WHERE holiday = '11335000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -52,11 +47,12 @@ manca check:
     _results = _results || assert.sqlstate_equals(me.full_function_name, me.test_name, me.error, '23502');
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
+  
   --------------------------------
   test_name = 'on_date mandatory';
   --------------------------------
   BEGIN
-    UPDATE holidays SET on_date = NULL WHERE holiday = '11335000000000';
+    UPDATE scuola247.holidays SET on_date = NULL WHERE holiday = '11335000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but on_date required was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -69,7 +65,7 @@ manca check:
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE public.holidays SET description = '  ' WHERE holiday = '11335000000000';
+    UPDATE scuola247.holidays SET description = '  ' WHERE holiday = '11335000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN

@@ -26,7 +26,7 @@ BEGIN
   test_name = 'UPDATE metrics set school to a non existing one';
   --------------------------------------------------------------
   BEGIN
-    UPDATE public.metrics SET school = '9999999999999' WHERE metric = '11433000000000';
+    UPDATE scuola247.metrics SET school = '9999999999999' WHERE metric = '11433000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

@@ -26,7 +26,7 @@ BEGIN
   test_name = 'duplicate at_time';
   --------------------------------
   BEGIN
-    UPDATE public.signatures SET at_time = '09:47:57' WHERE signature = '11233773000000000';
+    UPDATE scuola247.signatures SET at_time = '09:47:57' WHERE signature = '11233773000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate at_time was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'duplicate classroom';
   --------------------------------
   BEGIN
-    UPDATE public.signatures SET classroom = '10035000000000' WHERE signature = '11133773000000000';
+    UPDATE scuola247.signatures SET classroom = '10035000000000' WHERE signature = '11133773000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate classroom was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -50,7 +50,7 @@ BEGIN
   test_name = 'duplicate teacher';
   --------------------------------
   BEGIN
-    UPDATE public.signatures SET teacher = '32931000000000' WHERE signature = '11033773000000000';
+    UPDATE scuola247.signatures SET teacher = '32931000000000' WHERE signature = '11033773000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate teacher was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -62,7 +62,7 @@ BEGIN
   test_name = 'duplicate on_date';
   --------------------------------
   BEGIN
-	INSERT INTO public.signatures(signature,classroom,teacher,on_date,at_time) VALUES ('1133773000000000','10035000000000','32932000000000','2013-09-19','10:10:12');
+	INSERT INTO scuola247.signatures(signature,classroom,teacher,on_date,at_time) VALUES ('1133773000000000','10035000000000','32932000000000','2013-09-19','10:10:12');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate on_date was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -74,7 +74,7 @@ BEGIN
   test_name = 'classroom mandatory';
   ----------------------------------
   BEGIN
-    UPDATE signatures SET classroom = NULL WHERE signature = '33773000000000';
+    UPDATE scuola247.signatures SET classroom = NULL WHERE signature = '33773000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -86,7 +86,7 @@ BEGIN
   test_name = 'teacher mandatory';
   --------------------------------
   BEGIN
-    UPDATE signatures SET teacher = NULL WHERE signature = '33773000000000';
+    UPDATE scuola247.signatures SET teacher = NULL WHERE signature = '33773000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -98,7 +98,7 @@ BEGIN
   test_name = 'on_date mandatory';
   --------------------------------
   BEGIN
-    UPDATE signatures SET on_date = NULL WHERE signature = '33773000000000';
+    UPDATE scuola247.signatures SET on_date = NULL WHERE signature = '33773000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but on_date required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN

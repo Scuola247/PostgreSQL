@@ -25,7 +25,7 @@ BEGIN
   test_name = 'duplicate weekly_timetable';
   -----------------------------------------
   BEGIN
-    INSERT INTO public.weekly_timetables_days(weekly_timetable_day,weekly_timetable,weekday,teacher,subject,team_teaching,from_time,to_time) VALUES ('1133008000000000','51386000000000','1','32925000000000','32911000000000','1','08:00:00','09:00:00');
+    INSERT INTO scuola247.weekly_timetables_days(weekly_timetable_day,weekly_timetable,weekday,teacher,subject,team_teaching,from_time,to_time) VALUES ('1133008000000000','51386000000000','1','32925000000000','32911000000000','1','08:00:00','09:00:00');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate weekly_timetable was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'weekly_timetable mandatory';
   -----------------------------------------
   BEGIN
-    UPDATE weekly_timetables_days SET weekly_timetable = NULL WHERE weekly_timetable_day = '33008000000000';
+    UPDATE scuola247.weekly_timetables_days SET weekly_timetable = NULL WHERE weekly_timetable_day = '33008000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but weekly_timetable required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -49,7 +49,7 @@ BEGIN
   test_name = 'mandatory weekday';
   --------------------------------
   BEGIN
-    UPDATE weekly_timetables_days SET weekday = NULL WHERE weekly_timetable_day = '33008000000000';
+    UPDATE scuola247.weekly_timetables_days SET weekday = NULL WHERE weekly_timetable_day = '33008000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but weekday required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -61,7 +61,7 @@ BEGIN
   test_name = 'mandatory from_time';
   --------------------------------
   BEGIN
-    UPDATE weekly_timetables_days SET from_time = NULL WHERE weekly_timetable_day = '33008000000000';
+    UPDATE scuola247.weekly_timetables_days SET from_time = NULL WHERE weekly_timetable_day = '33008000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but from_time required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -74,7 +74,7 @@ BEGIN
   test_name = 'mandatory to_time';
   --------------------------------
   BEGIN
-    UPDATE weekly_timetables_days SET to_time = NULL WHERE weekly_timetable_day = '33008000000000';
+    UPDATE scuola247.weekly_timetables_days SET to_time = NULL WHERE weekly_timetable_day = '33008000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but to_time required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -87,7 +87,7 @@ BEGIN
   test_name = 'weekly_timetables_days_ck_teacher_subject check';
   --------------------------------------------------------------
   BEGIN
-    UPDATE weekly_timetables_days SET teacher = NULL , subject = NULL WHERE weekly_timetable_day = '33008000000000';
+    UPDATE scuola247.weekly_timetables_days SET teacher = NULL , subject = NULL WHERE weekly_timetable_day = '33008000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher or subject shouldn''t be NULL not both', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

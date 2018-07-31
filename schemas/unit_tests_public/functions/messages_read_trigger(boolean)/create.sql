@@ -28,7 +28,7 @@ BEGIN
   test_name = 'UPDATE messages_read with a person from a different school';
   -------------------------------------------------------------------------
   BEGIN
-    UPDATE public.messages_read set person = '29120000000000' WHERE message_read = '60304000000000';
+    UPDATE scuola247.messages_read set person = '29120000000000' WHERE message_read = '60304000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the person is from a different school ', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -41,7 +41,7 @@ BEGIN
   test_name = 'INSERT messages_read with a person from a different school';
   -------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.messages_read(message_read,message,person,read_on) VALUES ('161560000000000','51368000000000','29120000000000','2014-06-01 16:55:12');
+    INSERT INTO scuola247.messages_read(message_read,message,person,read_on) VALUES ('161560000000000','51368000000000','29120000000000','2014-06-01 16:55:12');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the person is from a different school ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

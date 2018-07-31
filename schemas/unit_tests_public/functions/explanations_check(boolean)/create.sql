@@ -26,7 +26,7 @@ BEGIN
   test_name = 'student''s not null check';
   ---------------------------------------
   BEGIN
-    UPDATE explanations SET student= NULL WHERE explanation = '57319000000000';
+    UPDATE scuola247.explanations SET student= NULL WHERE explanation = '57319000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but student required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'description''s not null check';
   --------------------------------------------
   BEGIN
-    UPDATE explanations SET description= NULL WHERE explanation = '57319000000000';
+    UPDATE scuola247.explanations SET description= NULL WHERE explanation = '57319000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -50,7 +50,7 @@ BEGIN
   test_name = 'created_on''s not null check';
   -------------------------------------------
   BEGIN
-    UPDATE explanations SET created_on= NULL WHERE explanation = '57319000000000';
+    UPDATE scuola247.explanations SET created_on= NULL WHERE explanation = '57319000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but created_on required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -62,7 +62,7 @@ BEGIN
   test_name = 'created_by''s not null check';
   -------------------------------------------
   BEGIN
-    UPDATE explanations SET created_by = NULL WHERE explanation = '57325000000000';
+    UPDATE scuola247.explanations SET created_by = NULL WHERE explanation = '57325000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but created_by required was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -74,7 +74,7 @@ BEGIN
   test_name = 'leaving_at with no < coming_at';
   ---------------------------------------------
   BEGIN
-    UPDATE explanations SET leaving_at = '08:15:28' WHERE explanation = '47604000000000';
+    UPDATE scuola247.explanations SET leaving_at = '08:15:28' WHERE explanation = '47604000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK leaving_at is lower than coming_at', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -86,7 +86,7 @@ BEGIN
   test_name = 'registered_on with no >= created_on';
   --------------------------------------------------
   BEGIN
-    UPDATE explanations SET registered_on = '2013-10-24 09:44:59' WHERE explanation = '57313000000000';
+    UPDATE scuola247.explanations SET registered_on = '2013-10-24 09:44:59' WHERE explanation = '57313000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK registered_on is lower than created_on', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -98,7 +98,7 @@ BEGIN
   test_name = 'to_time with no >= from_time';
   -------------------------------------------
   BEGIN
-    UPDATE explanations SET to_time = '2013-10-23' WHERE explanation = '57313000000000';
+    UPDATE scuola247.explanations SET to_time = '2013-10-23' WHERE explanation = '57313000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but to_time is lower than from_time', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -110,7 +110,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE explanations SET description = '   ' WHERE explanation = '57313000000000' ;
+    UPDATE scuola247.explanations SET description = '   ' WHERE explanation = '57313000000000' ;
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

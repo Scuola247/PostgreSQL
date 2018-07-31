@@ -27,15 +27,15 @@ BEGIN
   test_name = 'INSERT conversations_invites';
   -------------------------------------------
   BEGIN
-    INSERT INTO public.conversations_invites(conversation_invite,conversation,invited) VALUES (831562000000000,33565000000000,5674000000000);
-    INSERT INTO public.conversations_invites(conversation_invite,conversation,invited) VALUES (831563000000000,33566000000000,6603000000000);
+    INSERT INTO scuola247.conversations_invites(conversation_invite,conversation,invited) VALUES (831562000000000,33565000000000,5674000000000);
+    INSERT INTO scuola247.conversations_invites(conversation_invite,conversation,invited) VALUES (831563000000000,33566000000000,6603000000000);
 
     _results = _results || assert.pass(full_function_name, test_name);
 
     EXCEPTION
        WHEN OTHERS THEN 
          GET STACKED DIAGNOSTICS error.returned_sqlstate = RETURNED_SQLSTATE, error.message_text = MESSAGE_TEXT, error.schema_name = SCHEMA_NAME, error.table_name = TABLE_NAME, error.column_name = COLUMN_NAME, error.constraint_name = CONSTRAINT_NAME, error.pg_exception_context = PG_EXCEPTION_CONTEXT, error.pg_exception_detail = PG_EXCEPTION_DETAIL, error.pg_exception_hint = PG_EXCEPTION_HINT, error.pg_datatype_name = PG_DATATYPE_NAME;
-         _results = _results || assert.fail(full_function_name, test_name, 'INSERT public.conversations FAILED'::text, error);   
+         _results = _results || assert.fail(full_function_name, test_name, 'INSERT scuola247.conversations_invites FAILED'::text, error);   
        RETURN; 
   END;
   RETURN; 

@@ -22,11 +22,11 @@ BEGIN
     RETURN;
   END IF;
   
-  ----------------------------------------------------------------------------------
-  test_name = 'UPDATE conversations_invites set conversation to a non existing one';
-  ----------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------
+  test_name = 'UPDATE scuola247.conversations_invites set conversation to a non existing one';
+  --------------------------------------------------------------------------------------------
   BEGIN
-    UPDATE conversations_invites SET conversation = 999999999 WHERE conversation_invite = '831562000000000';
+    UPDATE scuola247.conversations_invites SET conversation = 999999999 WHERE conversation_invite = '831562000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but conversation set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -34,11 +34,11 @@ BEGIN
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23503', 'conversations_invites_fk_conversation');
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
-  -----------------------------------------------------------------------------
-  test_name = 'UPDATE conversations_invites set invited to a non existing one';
-  -----------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------------
+  test_name = 'UPDATE scuola247.conversations_invites set invited to a non existing one';
+  ---------------------------------------------------------------------------------------
   BEGIN
-    UPDATE conversations_invites SET invited = 999999999 WHERE conversation_invite = '831562000000000';
+    UPDATE scuola247.conversations_invites SET invited = 999999999 WHERE conversation_invite = '831562000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but conversation set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

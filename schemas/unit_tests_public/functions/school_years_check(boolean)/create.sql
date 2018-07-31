@@ -25,7 +25,7 @@ BEGIN
   test_name = 'school''s mandatory';
   ----------------------------------
   BEGIN
-    UPDATE school_years  SET school = NULL WHERE school_year = '244000000000';
+    UPDATE scuola247.school_years  SET school = NULL WHERE school_year = '244000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'description''s mandatory';
   ---------------------------------------
   BEGIN
-    UPDATE school_years  SET description = NULL WHERE school_year = '244000000000';
+    UPDATE scuola247.school_years  SET description = NULL WHERE school_year = '244000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
   test_name = 'duplicate description';
   ------------------------------------
   BEGIN
-    INSERT INTO school_years (school_year, school, description, duration, lessons_duration) VALUES (1244000000000, 2000000000, '2013/2014', '[2014-09-11,2015-09-11)', '[2014-09-11,2015-06-08)');
+    INSERT INTO scuola247.school_years (school_year, school, description, duration, lessons_duration) VALUES (1244000000000, 2000000000, '2013/2014', '[2014-09-11,2015-09-11)', '[2014-09-11,2015-06-08)');
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -64,7 +64,7 @@ BEGIN
   test_name = 'check duration';
   -----------------------------
   BEGIN
-    INSERT INTO school_years (school_year, school, description, duration, lessons_duration) VALUES (1244000000000, 2000000000, '2013/2014', '[2013-09-11,2014-05-11)', '[2013-09-11,2014-06-08)');
+    INSERT INTO scuola247.school_years (school_year, school, description, duration, lessons_duration) VALUES (1244000000000, 2000000000, '2013/2014', '[2013-09-11,2014-05-11)', '[2013-09-11,2014-06-08)');
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but duration is out of range', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -77,7 +77,7 @@ BEGIN
   test_name = 'check duration overlap'; -- da controllare se funziona
   -------------------------------------
   BEGIN
-    UPDATE school_years SET description = '2014/2015', school = '28961000000000' WHERE school_year = '244000000000';
+    UPDATE scuola247.school_years SET description = '2014/2015', school = '28961000000000' WHERE school_year = '244000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but duration overlaps', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -90,7 +90,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE school_years SET description = '  ' WHERE school_year = '244000000000';
+    UPDATE scuola247.school_years SET description = '  ' WHERE school_year = '244000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

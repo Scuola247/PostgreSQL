@@ -28,7 +28,7 @@ BEGIN
   --------------------------------------------------------------------------------------------
 
   BEGIN
-    UPDATE public.grading_meetings_valutations SET subject = '166675000000000' where grading_meeting_valutation = '131709000000000';
+    UPDATE scuola247.grading_meetings_valutations SET subject = '166675000000000' where grading_meeting_valutation = '131709000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but subject is not in the school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -42,7 +42,7 @@ BEGIN
   ------------------------------------------------------------------------------------------
 
 BEGIN
-    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('1021130752000000000','119533000000000','166675000000000','11463000000000',NULL,'f','f',NULL,10395000000000);
+    INSERT INTO scuola247.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('1021130752000000000','119533000000000','166675000000000','11463000000000',NULL,'f','f',NULL,10395000000000);
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but subject is not in the school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -55,7 +55,7 @@ BEGIN
   test_name = 'UPDATE grading_meetings_valutations with grade from a different school';
   -------------------------------------------------------------------------------------
    BEGIN
-    UPDATE public.grading_meetings_valutations SET grade = '29067000000000' where grading_meeting_valutation = '131709000000000';
+    UPDATE scuola247.grading_meetings_valutations SET grade = '29067000000000' where grading_meeting_valutation = '131709000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but grade is from a different school', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -68,7 +68,7 @@ BEGIN
   test_name = 'INSERT grading_meetings_valutations with grade from a different school';
   -------------------------------------------------------------------------------------
    BEGIN
-      INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('1031130752000000000','119533000000000','32919000000000','29067000000000',NULL,'f','f',NULL,10395000000000);
+      INSERT INTO scuola247.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('1031130752000000000','119533000000000','32919000000000','29067000000000',NULL,'f','f',NULL,10395000000000);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but grade is from a different school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -81,7 +81,7 @@ BEGIN
   test_name = 'UPDATE grading_meeting_valutation with closed grading meeting';
   ----------------------------------------------------------------------------
      BEGIN
-    UPDATE public.grading_meetings_valutations SET grading_meeting = '119533000000000' where grading_meeting_valutation = '131709000000000';
+    UPDATE scuola247.grading_meetings_valutations SET grading_meeting = '119533000000000' where grading_meeting_valutation = '131709000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but grading_meeting is closed', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -94,7 +94,7 @@ BEGIN
   test_name = 'INSERT grading_meeting_valutation with closed grading meeting';
   ----------------------------------------------------------------------------
      BEGIN
-    INSERT INTO public.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('1041130752000000000', '119533000000000','32919000000000', '11463000000000', NULL, 'f', 'f', NULL,10395000000000);
+    INSERT INTO scuola247.grading_meetings_valutations(grading_meeting_valutation,grading_meeting,subject,grade,notes,lack_of_training,council_vote,teacher,classroom_student) VALUES ('1041130752000000000', '119533000000000','32919000000000', '11463000000000', NULL, 'f', 'f', NULL,10395000000000);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but grading_meeting is closed', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -107,7 +107,7 @@ BEGIN
   test_name = 'DELETE grading_meeting_valutation with closed grading meeting';
   ----------------------------------------------------------------------------
   BEGIN
-    DELETE FROM public.grading_meetings_valutations WHERE grading_meeting_valutation = 126034000000000; 
+    DELETE FROM scuola247.grading_meetings_valutations WHERE grading_meeting_valutation = 126034000000000; 
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but grading_meeting is closed', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

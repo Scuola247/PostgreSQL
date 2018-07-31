@@ -48,9 +48,9 @@ BEGIN
 
   BEGIN
 
-     INSERT INTO public.classrooms(classroom,school_year,degree,section,course_year,description,branch) VALUES ('10410062000000000','243000000000','9942000000000','C','1','Infanzia 6C','9952000000000');
+     INSERT INTO scuola247.classrooms(classroom,school_year,degree,section,course_year,description,branch) VALUES ('10410062000000000','243000000000','9942000000000','C','1','Infanzia 6C','9952000000000');
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate classrooms_uq_classroom was expected', NULL::diagnostic.error);
+    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate scuola247.classrooms_uq_classroom was expected', NULL::diagnostic.error);
 
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -72,9 +72,9 @@ BEGIN
 
   BEGIN
 
-     INSERT INTO public.classrooms(classroom,school_year,degree,section,course_year,description,branch) VALUES ('10510062000000000','243000000000','28970000000000','C','2','Infanzia 1C','9952000000000');
+     INSERT INTO scuola247.classrooms(classroom,school_year,degree,section,course_year,description,branch) VALUES ('10510062000000000','243000000000','28970000000000','C','2','Infanzia 1C','9952000000000');
 
-    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate classrooms_uq_classroom was expected', NULL::diagnostic.error);
+    _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate scuola247.classrooms_uq_classroom was expected', NULL::diagnostic.error);
 
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -95,7 +95,7 @@ END;
 
   BEGIN
 
-    UPDATE classrooms SET school_year = NULL WHERE classroom = '10062000000000';
+    UPDATE scuola247.classrooms SET school_year = NULL WHERE classroom = '10062000000000';
 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school_year required was expected', NULL::diagnostic.error);
 
@@ -117,7 +117,7 @@ END;
 
   BEGIN
 
-    UPDATE classrooms SET degree = NULL WHERE classroom = '10062000000000';
+    UPDATE scuola247.classrooms SET degree = NULL WHERE classroom = '10062000000000';
 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but degree required was expected', NULL::diagnostic.error);
 
@@ -139,7 +139,7 @@ END;
 
   BEGIN
 
-    UPDATE classrooms SET course_year = NULL WHERE classroom = '10062000000000';
+    UPDATE scuola247.classrooms SET course_year = NULL WHERE classroom = '10062000000000';
 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but course_year required was expected', NULL::diagnostic.error);
 
@@ -161,7 +161,7 @@ END;
 
   BEGIN
 
-    UPDATE classrooms SET description = NULL WHERE classroom = '10062000000000';
+    UPDATE scuola247.classrooms SET description = NULL WHERE classroom = '10062000000000';
 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
 
@@ -181,7 +181,7 @@ END;
 
   BEGIN
 
-    UPDATE classrooms SET description = ' ' WHERE classroom = '10062000000000';
+    UPDATE scuola247.classrooms SET description = ' ' WHERE classroom = '10062000000000';
 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description was empty', NULL::diagnostic.error);
 
@@ -203,7 +203,7 @@ END;
 
   BEGIN
 
-    UPDATE classrooms SET section = ' ' WHERE classroom = '10062000000000';
+    UPDATE scuola247.classrooms SET section = ' ' WHERE classroom = '10062000000000';
 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but section was empty', NULL::diagnostic.error);
 
@@ -223,7 +223,7 @@ END;
 
   BEGIN
 
-    UPDATE classrooms SET branch = NULL WHERE classroom = '10062000000000';
+    UPDATE scuola247.classrooms SET branch = NULL WHERE classroom = '10062000000000';
 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but branch required was expected', NULL::diagnostic.error);
 

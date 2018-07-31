@@ -22,15 +22,11 @@ BEGIN
     RETURN;
   END IF;
 
-/*
-futuri lavori cambiare i codici ed utilizzare quelli dello unit tests
-*/
-
   ---------------------------------
   test_name = 'duplicate usenamme';
   ---------------------------------
   BEGIN
-    INSERT INTO public.usenames_schools(usename_school,usename,school) VALUES ('726619','teacher-e@scuola-28961.it','28961');
+    UPDATE scuola247.usenames_schools SET usename = 'test_unit_special_testing_user@scuola_2000000200.it' WHERE usename = 'unit_testing_user@scuola.it';
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate usename was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -43,7 +39,7 @@ futuri lavori cambiare i codici ed utilizzare quelli dello unit tests
   test_name = 'usename''s mandatory';
   -----------------------------------
   BEGIN
-    UPDATE usenames_schools SET usename = NULL WHERE usename_school = '726620';
+    UPDATE scuola247.usenames_schools SET usename = NULL WHERE usename = 'unit_testing_user@scuola.it';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but usename required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -56,7 +52,7 @@ futuri lavori cambiare i codici ed utilizzare quelli dello unit tests
   test_name = 'school''s mandatory';
   ----------------------------------
   BEGIN
-    UPDATE usenames_schools SET school = NULL WHERE usename_school = '726620';
+    UPDATE scuola247.usenames_schools SET school = NULL WHERE usename = 'unit_testing_executive_g@scuola_2000000200.it';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -68,7 +64,7 @@ futuri lavori cambiare i codici ed utilizzare quelli dello unit tests
   test_name = 'usename min length';
   ---------------------------------
   BEGIN
-    UPDATE usenames_schools SET usename = ' ' WHERE usename_school = '726620';
+    UPDATE scuola247.usenames_schools SET usename = ' ' WHERE usename_school = 'unit_testing_user@scuola.it';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but usename required was empty', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN

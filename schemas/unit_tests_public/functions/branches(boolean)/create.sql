@@ -25,15 +25,15 @@ BEGIN
   test_name = 'INSERT branches';
   ------------------------------
   BEGIN
-    INSERT INTO branches (branch, school, description) VALUES (9948000000000, 1000000000, 'Sede');
-    INSERT INTO branches (branch, school, description) VALUES (9953000000000, 2000000000, 'Sede');
-    INSERT INTO branches (branch, school, description) VALUES (9952000000000, 1000000000, 'Filiale Borgo Trento');
-    INSERT INTO branches (branch, school, description) VALUES (9954000000000, 2000000000, 'Filiale Borgo Roma');
-    INSERT INTO branches (branch, school, description) VALUES (28962000000000, 28961000000000, 'Primaria Borgo Trento');
-    INSERT INTO branches (branch, school, description) VALUES (28965000000000, 28961000000000, 'Infanzia frazione Quinzano');
-    INSERT INTO branches (branch, school, description) VALUES (28963000000000, 28961000000000, 'Infanzia frazione Avesa');
-    INSERT INTO branches (branch, school, description) VALUES (28964000000000, 28961000000000, 'Primaria Borgo Nuovo');
-    INSERT INTO branches (branch, school, description) VALUES (28966000000000, 28961000000000, 'Secondaria di I grado frazione Borgo Milano');       
+    INSERT INTO scuola247.branches(branch, school, description) VALUES (9948000000000, 1000000000, 'Sede');
+    INSERT INTO scuola247.branches(branch, school, description) VALUES (9953000000000, 2000000000, 'Sede');
+    INSERT INTO scuola247.branches(branch, school, description) VALUES (9952000000000, 1000000000, 'Filiale Borgo Trento');
+    INSERT INTO scuola247.branches(branch, school, description) VALUES (9954000000000, 2000000000, 'Filiale Borgo Roma');
+    INSERT INTO scuola247.branches(branch, school, description) VALUES (28962000000000, 28961000000000, 'Primaria Borgo Trento');
+    INSERT INTO scuola247.branches(branch, school, description) VALUES (28965000000000, 28961000000000, 'Infanzia frazione Quinzano');
+    INSERT INTO scuola247.branches(branch, school, description) VALUES (28963000000000, 28961000000000, 'Infanzia frazione Avesa');
+    INSERT INTO scuola247.branches(branch, school, description) VALUES (28964000000000, 28961000000000, 'Primaria Borgo Nuovo');
+    INSERT INTO scuola247.branches(branch, school, description) VALUES (28966000000000, 28961000000000, 'Secondaria di I grado frazione Borgo Milano');       
    
     _results = _results || assert.pass(full_function_name, test_name);    
 

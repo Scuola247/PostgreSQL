@@ -27,7 +27,7 @@ BEGIN
   test_name = 'description mandatory';
   ------------------------------------
   BEGIN
-  UPDATE public.cities SET description = NULL WHERE city  = '758438000000000';
+  UPDATE shared.cities SET description = NULL WHERE city  = '758438000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'fiscal_code mandatory';
   ------------------------------------
   BEGIN
-  UPDATE public.cities SET fiscal_code = NULL WHERE city  = '758438000000000';
+  UPDATE shared.cities SET fiscal_code = NULL WHERE city  = '758438000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but fiscal_code was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -52,7 +52,7 @@ BEGIN
   test_name = 'district mandatory';
   ---------------------------------
   BEGIN
-  UPDATE public.cities SET district = NULL WHERE city  = '758438000000000';
+  UPDATE shared.cities SET district = NULL WHERE city  = '758438000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but district was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -65,7 +65,7 @@ BEGIN
   test_name = 'duplicate "description and district" with insert'; 
   -------------------------------------------------------------
   BEGIN
-    INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('01','Airasca (test)','758321000000000','1758438000000000');
+    INSERT INTO shared.cities(fiscal_code,description,district,city) VALUES ('01','Airasca (test)','758321000000000','1758438000000000');
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -78,7 +78,7 @@ BEGIN
   test_name = 'duplicate "description and district" with update';
   -------------------------------------------------------------
   BEGIN
-    UPDATE public.cities SET description = 'Airasca (test)' WHERE city  = 758440000000000;
+    UPDATE shared.cities SET description = 'Airasca (test)' WHERE city  = 758440000000000;
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -91,7 +91,7 @@ BEGIN
   test_name = 'duplicate "district and description" setting district with update';
   --------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.cities SET district = 758331000000000 WHERE city  = 761346000000000;
+    UPDATE shared.cities SET district = 758331000000000 WHERE city  = 761346000000000;
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -104,7 +104,7 @@ BEGIN
   test_name = 'duplicate fiscal_code with update';
   ------------------------------------------------
   BEGIN
-    UPDATE public.cities SET fiscal_code = '1' WHERE city  = 758440000000000;
+    UPDATE shared.cities SET fiscal_code = '1' WHERE city  = 758440000000000;
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but duplicate fiscal code was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -117,7 +117,7 @@ BEGIN
   test_name = 'duplicate fiscal_code with insert'; 
   ------------------------------------------------
   BEGIN
-     INSERT INTO public.cities(fiscal_code,description,district,city) VALUES ('2','(test) Ala di Stura (test)','758321000000000','1758437000000000');
+     INSERT INTO shared.cities(fiscal_code,description,district,city) VALUES ('2','(test) Ala di Stura (test)','758321000000000','1758437000000000');
     _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate fiscal code was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -130,7 +130,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE public.cities SET description = '  ' WHERE city = '758439000000000';
+    UPDATE shared.cities SET description = '  ' WHERE city = '758439000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -143,7 +143,7 @@ BEGIN
   test_name = 'fiscal_code''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE public.cities SET fiscal_code = '  ' WHERE city = '758438000000000';
+    UPDATE shared.cities SET fiscal_code = '  ' WHERE city = '758438000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

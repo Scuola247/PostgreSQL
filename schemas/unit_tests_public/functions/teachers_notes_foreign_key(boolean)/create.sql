@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE classroom with a non existing one';
   -------------------------------------------------------
   BEGIN
-    UPDATE teachears_notes SET classroom = 999999999 WHERE teacher_notes = '61764000000000';
+    UPDATE scuola247.teachears_notes SET classroom = 999999999 WHERE teacher_notes = '61764000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'UPDATE student with a non existing one';
   -----------------------------------------------------
   BEGIN
-    UPDATE teachears_notes SET student = 999999999 WHERE teacher_notes = '61764000000000';
+    UPDATE scuola247.teachears_notes SET student = 999999999 WHERE teacher_notes = '61764000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but student does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -49,7 +49,7 @@ BEGIN
   test_name = 'UPDATE teacher with a non existing one';
   -----------------------------------------------------
   BEGIN
-    UPDATE teachears_notes SET teacher = 999999999 WHERE teacher_notes = '61764000000000';
+    UPDATE scuola247.teachears_notes SET teacher = 999999999 WHERE teacher_notes = '61764000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE degree with a non existent one';
   ----------------------------------------------------
   BEGIN
-    UPDATE topics SET degree = '999999999' WHERE topic ='33242000000000' ;
+    UPDATE scuola247.topics SET degree = '999999999' WHERE topic ='33242000000000' ;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but degree does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'UPDATE subject with a non existent one';
   -----------------------------------------------------
   BEGIN
-    UPDATE topics SET subject = '999999999' WHERE topic ='33242000000000' ;
+    UPDATE scuola247.topics SET subject = '999999999' WHERE topic ='33242000000000' ;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but subject does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

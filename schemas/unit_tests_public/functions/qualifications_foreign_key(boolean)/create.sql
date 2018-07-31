@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE metric with a non existing one';
   ----------------------------------------------------
   BEGIN
-    UPDATE qualifications SET metric = 999999999 WHERE qualification = '95977000000000';
+    UPDATE scuola247.qualifications SET metric = 999999999 WHERE qualification = '95977000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but metric does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'UPDATE qualification_parent with a non existing one';
   ------------------------------------------------------------------
   BEGIN
-    UPDATE qualifications SET qualification_parent = 999999999 WHERE qualification = '95977000000000';
+    UPDATE scuola247.qualifications SET qualification_parent = 999999999 WHERE qualification = '95977000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but qualification_parent does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
   test_name = 'UPDATE school with a non existing one';
   ----------------------------------------------------
   BEGIN
-    UPDATE qualifications SET school = 999999999 WHERE qualification = '95977000000000';
+    UPDATE scuola247.qualifications SET school = 999999999 WHERE qualification = '95977000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

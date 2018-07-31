@@ -25,7 +25,7 @@ BEGIN
   test_name = 'duplicate name';
   -----------------------------
   BEGIN
-    INSERT INTO public.qualifications(qualification,school,"name",description,metric,"type") VALUES ('11195977000000000','1000000000','Padroneggiare gli strumenti espressivi','Padroneggiare gli strumenti espressivi ed argomentativi indispensabili per gestire l’interazione comunicativa verbale in vari contesti','11435000000000','Expertise');
+    INSERT INTO scuola247.qualifications(qualification,school,"name",description,metric,"type") VALUES ('11195977000000000','1000000000','Padroneggiare gli strumenti espressivi','Padroneggiare gli strumenti espressivi ed argomentativi indispensabili per gestire l’interazione comunicativa verbale in vari contesti','11435000000000','Expertise');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate name was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'school mandatory';
   -------------------------------
   BEGIN
-    UPDATE qualifications SET school = NULL WHERE qualification = '95977000000000';
+    UPDATE scuola247.qualifications SET school = NULL WHERE qualification = '95977000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -49,7 +49,7 @@ BEGIN
   test_name = 'name mandatory';
   -----------------------------
   BEGIN
-    UPDATE qualifications SET name = NULL WHERE qualification = '95977000000000';
+    UPDATE scuola247.qualifications SET name = NULL WHERE qualification = '95977000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but name required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -62,7 +62,7 @@ BEGIN
   test_name = 'description mandatory';
   ------------------------------------
   BEGIN
-    UPDATE qualifications SET description = NULL WHERE qualification = '95977000000000';
+    UPDATE scuola247.qualifications SET description = NULL WHERE qualification = '95977000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -74,7 +74,7 @@ BEGIN
   test_name = 'metric mandatory';
   -------------------------------
   BEGIN
-    UPDATE qualifications SET metric = NULL WHERE qualification = '95977000000000';
+    UPDATE scuola247.qualifications SET metric = NULL WHERE qualification = '95977000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but metric required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -86,7 +86,7 @@ BEGIN
   test_name = 'type mandatory';
   -----------------------------
   BEGIN
-    UPDATE qualifications SET "type" = NULL WHERE qualification = '95977000000000';
+    UPDATE scuola247.qualifications SET "type" = NULL WHERE qualification = '95977000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but type required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN

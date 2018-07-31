@@ -26,7 +26,7 @@ BEGIN
   test_name = 'Update with classroom NULL';
   -----------------------------------------
   BEGIN
-    UPDATE lessons SET  classroom= NULL WHERE lesson = '98581000000000';
+    UPDATE scuola247.lessons SET  classroom= NULL WHERE lesson = '98581000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'Update with on_date NULL';
   ---------------------------------------
   BEGIN
-    UPDATE lessons SET  on_date= NULL WHERE lesson = '98581000000000';
+    UPDATE scuola247.lessons SET  on_date= NULL WHERE lesson = '98581000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but on_date was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -50,7 +50,7 @@ BEGIN
   test_name = 'Update with subject NULL';
   ---------------------------------------
   BEGIN
-    UPDATE lessons SET  subject= NULL WHERE lesson = '98581000000000';
+    UPDATE scuola247.lessons SET  subject= NULL WHERE lesson = '98581000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but subject was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -62,7 +62,7 @@ BEGIN
   test_name = 'Update with teacher NULL';
   ---------------------------------------
   BEGIN
-    UPDATE lessons SET  teacher= NULL WHERE lesson = '98581000000000';
+    UPDATE scuola247.lessons SET  teacher= NULL WHERE lesson = '98581000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -74,7 +74,7 @@ BEGIN
   test_name = 'Update with on description NULL';
   ----------------------------------------------
   BEGIN
-    UPDATE lessons SET  description= NULL WHERE lesson = '98581000000000';
+    UPDATE scuola247.lessons SET  description= NULL WHERE lesson = '98581000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -87,7 +87,7 @@ BEGIN
   test_name = 'Update with from_time NULL';
   -----------------------------------------
   BEGIN
-    UPDATE lessons SET  from_time= NULL WHERE lesson = '98581000000000';
+    UPDATE scuola247.lessons SET  from_time= NULL WHERE lesson = '98581000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but from_time was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -99,7 +99,7 @@ BEGIN
   test_name = 'Update with to_time NULL';
   ---------------------------------------
   BEGIN
-    UPDATE lessons SET  to_time= NULL WHERE lesson = '98581000000000';
+    UPDATE scuola247.lessons SET  to_time= NULL WHERE lesson = '98581000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but to_time was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -112,7 +112,7 @@ BEGIN
   test_name = 'assignment''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE lessons SET assignment = ' ' WHERE lesson = '98581000000000';
+    UPDATE scuola247.lessons SET assignment = ' ' WHERE lesson = '98581000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty assignment was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -124,7 +124,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE lessons SET description = ' ' WHERE lesson = '98581000000000';
+    UPDATE scuola247.lessons SET description = ' ' WHERE lesson = '98581000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty description was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -136,7 +136,7 @@ BEGIN
   test_name = 'to_time > from_time';
   ----------------------------------------
   BEGIN
-    UPDATE lessons SET to_time = '07:00:00' WHERE lesson = '98581000000000';
+    UPDATE scuola247.lessons SET to_time = '07:00:00' WHERE lesson = '98581000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but to_time > from_time was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

@@ -25,7 +25,7 @@ BEGIN
   test_name = 'update schools set school with non existence subject';
   -------------------------------------------------------------------
   BEGIN
-    UPDATE communication_types SET school = '999999999' WHERE communication_type = 138012000000000;
+    UPDATE scuola247.communication_types SET school = '999999999' WHERE communication_type = 138012000000000;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school set with non existence subject', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

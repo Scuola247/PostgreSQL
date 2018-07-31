@@ -26,7 +26,7 @@ BEGIN
   test_name = 'duplicated person';
   --------------------------------
   BEGIN
-    INSERT INTO public.persons_roles(person_role,person,role) VALUES ('100156239000000000','4008000000000','Relative');
+    INSERT INTO scuola247.persons_roles(person_role,person,role) VALUES ('100156239000000000','4008000000000','Relative');
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate person was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'person''s mandatory';
   ----------------------------------
   BEGIN
-    UPDATE persons_roles SET person = NULL WHERE person_role ='156239000000000' ;
+    UPDATE scuola247.persons_roles SET person = NULL WHERE person_role ='156239000000000' ;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person mandatory was expected', NULL::diagnostic.error);
     RETURN;
 	 EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
   test_name = 'role''s mandatory';
   --------------------------------
   BEGIN
-    UPDATE persons_roles SET role = NULL WHERE person_role ='156239000000000' ;
+    UPDATE scuola247.persons_roles SET role = NULL WHERE person_role ='156239000000000' ;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but role mandatory was expected', NULL::diagnostic.error);
     RETURN;
 	 EXCEPTION WHEN OTHERS THEN

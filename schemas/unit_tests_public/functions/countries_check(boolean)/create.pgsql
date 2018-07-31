@@ -26,7 +26,7 @@ BEGIN
   test_name = 'country''s mandatory';
   -----------------------------------
   BEGIN
-    UPDATE public.countries SET country = NULL WHERE country = 201000000000;
+    UPDATE shared.countries SET country = NULL WHERE country = 201000000000;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but country mandatory was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'description''s mandatory';
   ---------------------------------------
   BEGIN
-    UPDATE public.countries SET description = NULL WHERE country = 201000000000;
+    UPDATE shared.countries SET description = NULL WHERE country = 201000000000;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description mandatory was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -50,7 +50,7 @@ BEGIN
   test_name = 'Duplicate description'; 
   ------------------------------------
   BEGIN
-    UPDATE public.countries SET description = 'DANIMARCA (test)' WHERE country = 201000000000;
+    UPDATE shared.countries SET description = 'DANIMARCA (test)' WHERE country = 201000000000;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description is duplicated', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -62,7 +62,7 @@ BEGIN
   test_name = 'Duplicate processing_code'; 
   ----------------------------------------
   BEGIN
-    UPDATE public.countries SET processing_code = 1202 WHERE country = 201000000000;
+    UPDATE shared.countries SET processing_code = 1202 WHERE country = 201000000000;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but processing_code is duplicated', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -74,7 +74,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE public.countries SET description = '  ' WHERE country = 201000000000;
+    UPDATE shared.countries SET description = '  ' WHERE country = 201000000000;
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

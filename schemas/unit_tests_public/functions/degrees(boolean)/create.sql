@@ -25,14 +25,14 @@ BEGIN
   test_name = 'INSERT degree';
   ----------------------------
   BEGIN
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (9942000000000, 1000000000, 'Scuola dell''infanzia', 3);
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (9943000000000, 1000000000, 'Scuola primaria', 5);
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (9944000000000, 1000000000, 'Scuola secondaria di primo grado', 3);
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (9945000000000, 2000000000, 'Elettronica', 5);
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (9947000000000, 2000000000, 'Informatica', 5);
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (28970000000000, 28961000000000, 'scuola dell''infanzia', 3);
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (28971000000000, 28961000000000, 'scuola primaria', 5);
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (28972000000000, 28961000000000, 'scuola secondaria di I grado', 3);
+    INSERT INTO scuola247.degrees (degree, school, description, course_years) VALUES (9942000000000, 1000000000, 'Scuola dell''infanzia', 3);
+    INSERT INTO scuola247.degrees (degree, school, description, course_years) VALUES (9943000000000, 1000000000, 'Scuola primaria', 5);
+    INSERT INTO scuola247.degrees (degree, school, description, course_years) VALUES (9944000000000, 1000000000, 'Scuola secondaria di primo grado', 3);
+    INSERT INTO scuola247.degrees (degree, school, description, course_years) VALUES (9945000000000, 2000000000, 'Elettronica', 5);
+    INSERT INTO scuola247.degrees (degree, school, description, course_years) VALUES (9947000000000, 2000000000, 'Informatica', 5);
+    INSERT INTO scuola247.degrees (degree, school, description, course_years) VALUES (28970000000000, 28961000000000, 'scuola dell''infanzia', 3);
+    INSERT INTO scuola247.degrees (degree, school, description, course_years) VALUES (28971000000000, 28961000000000, 'scuola primaria', 5);
+    INSERT INTO scuola247.degrees (degree, school, description, course_years) VALUES (28972000000000, 28961000000000, 'scuola secondaria di I grado', 3);
    
     _results = _results || assert.pass(full_function_name, test_name);    
 

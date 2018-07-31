@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE messages with a person from a different school';
   --------------------------------------------------------------------
   BEGIN
-    UPDATE messages SET  person='4450000000000'  WHERE message ='50112000000000';
+    UPDATE scuola247.messages SET  person='4450000000000'  WHERE message ='50112000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but who wrote the messages is not form the same school ', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'Insert messages with a person from a different school';
   --------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.messages(message,conversation,written_on,message_text,person) VALUES ('10050112000000000','46328000000000','2013-09-16 08:26:43','Giustifico il ritardo di mio figlio.','4450000000000');
+    INSERT INTO scuola247.messages(message,conversation,written_on,message_text,person) VALUES ('10050112000000000','46328000000000','2013-09-16 08:26:43','Giustifico il ritardo di mio figlio.','4450000000000');
     _results = _results || assert.fail(full_function_name, test_name,'Who wrote the messages is not form the same school', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN

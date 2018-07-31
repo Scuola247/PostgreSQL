@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE subject from a different school';
   -----------------------------------------------------
   BEGIN
-    UPDATE topics SET subject='29117000000000' WHERE topic = '33242000000000';
+    UPDATE scuola247.topics SET subject='29117000000000' WHERE topic = '33242000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but subject is from a different', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'INSERT subject from a different school';
   -----------------------------------------------------
     BEGIN
-      INSERT INTO public.topics(topic,subject,description,course_year,degree) VALUES ('10033242000000000','29117000000000','I congiuntivi, gli imperativi, i condizionali','1','9944000000000');
+      INSERT INTO scuola247.topics(topic,subject,description,course_year,degree) VALUES ('10033242000000000','29117000000000','I congiuntivi, gli imperativi, i condizionali','1','9944000000000');
     _results = _results || assert.fail(full_function_name, test_name,'the subject set has different school', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -50,7 +50,7 @@ BEGIN
   test_name = 'UPDATE course year bigger than permitted';
   -------------------------------------------------------
     BEGIN
-      UPDATE topics SET course_year='6' WHERE topic='33242000000000';
+      UPDATE scuola247.topics SET course_year='6' WHERE topic='33242000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the course_year set is major than course_year permitted', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -62,7 +62,7 @@ BEGIN
   test_name = 'INSERT course year bigger than permitted';
   -------------------------------------------------------
       BEGIN
-      INSERT INTO public.topics(topic,subject,description,course_year,degree) VALUES ('10033242000000000','32911000000000','I congiuntivi, gli imperativi, i condizionali','6','9944000000000');
+      INSERT INTO scuola247.topics(topic,subject,description,course_year,degree) VALUES ('10033242000000000','32911000000000','I congiuntivi, gli imperativi, i condizionali','6','9944000000000');
     _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but the course_year set is major than course_year permitted', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN

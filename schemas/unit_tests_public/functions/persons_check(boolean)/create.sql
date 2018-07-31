@@ -27,7 +27,7 @@ BEGIN
   test_name = 'duplicate school tax_code';
   ----------------------------------------
   BEGIN
-    INSERT INTO public.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('130962000000000','Barbara','Licci','2004-11-07',NULL,NULL,'LCCBBR04S47L781Z','F','28961000000000','3590457000000000','L781',NULL,NULL,NULL,NULL,'761554000000000');
+    INSERT INTO scuola247.persons(person,name,surname,born,deceased,country_of_birth,tax_code,sex,school,sidi,city_of_birth_fiscal_code,thumbnail,note,usename,photo,city_of_birth) VALUES ('130962000000000','Barbara','Licci','2004-11-07',NULL,NULL,'LCCBBR04S47L781Z','F','28961000000000','3590457000000000','L781',NULL,NULL,NULL,NULL,'761554000000000');
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate tax_code was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -40,8 +40,8 @@ BEGIN
   test_name = 'duplicate usename'; -- controllato che il primo update viene annullato quando viene fatto il secondo
   --------------------------------
   BEGIN
-    UPDATE persons SET usename = 'student-f@scuola-28961.it' WHERE person = '31185000000000';
-    UPDATE persons SET usename = 'student-f@scuola-28961.it' WHERE person = '29130000000000';
+    UPDATE scuola247.persons SET usename = 'student-f@scuola-28961.it' WHERE person = '31185000000000';
+    UPDATE scuola247.persons SET usename = 'student-f@scuola-28961.it' WHERE person = '29130000000000';
 
    _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but duplicate usename was expected', NULL::diagnostic.error);
     RETURN;
@@ -56,7 +56,7 @@ BEGIN
   test_name = 'name''s mandatory';
   --------------------------------
   BEGIN
-    UPDATE persons SET name = NULL WHERE person = '30962000000000';
+    UPDATE scuola247.persons SET name = NULL WHERE person = '30962000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but name mandatory was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -69,7 +69,7 @@ BEGIN
   test_name = 'surname''s mandatory';
   -----------------------------------
   BEGIN
-    UPDATE persons SET surname = NULL WHERE person = '30962000000000';
+    UPDATE scuola247.persons SET surname = NULL WHERE person = '30962000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but surname mandatory was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -82,7 +82,7 @@ BEGIN
   test_name = 'sex''s mandatory';
   -------------------------------
   BEGIN
-    UPDATE persons SET sex = NULL WHERE person = '30962000000000';
+    UPDATE scuola247.persons SET sex = NULL WHERE person = '30962000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but sex mandatory was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -95,7 +95,7 @@ BEGIN
   test_name = 'city_of_birth_fiscal_code''s min length';
   ------------------------------------------------------
   BEGIN
-    UPDATE persons SET city_of_birth_fiscal_code = '  ' WHERE person = '30962000000000';
+    UPDATE scuola247.persons SET city_of_birth_fiscal_code = '  ' WHERE person = '30962000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty city of birth was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -108,7 +108,7 @@ BEGIN
   test_name = 'name''s min length';
   ---------------------------------
   BEGIN
-    UPDATE persons SET name = '  ' WHERE person = '30962000000000';
+    UPDATE scuola247.persons SET name = '  ' WHERE person = '30962000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty name was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -121,7 +121,7 @@ BEGIN
   test_name = 'note''s min length';
   ---------------------------------
   BEGIN
-    UPDATE persons SET note = '  ' WHERE person = '30962000000000';
+    UPDATE scuola247.persons SET note = '  ' WHERE person = '30962000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty note was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -134,7 +134,7 @@ BEGIN
   test_name = 'surname''s min length';
   ------------------------------------
   BEGIN
-    UPDATE persons SET surname = '  ' WHERE person = '30962000000000';
+    UPDATE scuola247.persons SET surname = '  ' WHERE person = '30962000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty surname was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -147,7 +147,7 @@ BEGIN
   test_name = 'tax_code''s min length';
   -------------------------------------
   BEGIN
-    UPDATE persons SET tax_code = '  ' WHERE person = '30962000000000';
+    UPDATE scuola247.persons SET tax_code = '  ' WHERE person = '30962000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty tax code was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -160,7 +160,7 @@ BEGIN
   test_name = 'usename''s min length';
   ------------------------------------
   BEGIN
-    UPDATE persons SET usename = '  ' WHERE person = '30962000000000';
+    UPDATE scuola247.persons SET usename = '  ' WHERE person = '30962000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty usename was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN

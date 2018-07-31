@@ -26,7 +26,7 @@ BEGIN
   test_name = 'person mandatory';
   -------------------------------
   BEGIN
-  UPDATE public.communications_media SET person = NULL WHERE communication_media = '112027000000000';
+  UPDATE scuola247.communications_media SET person = NULL WHERE communication_media = '112027000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but person was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -40,7 +40,7 @@ BEGIN
   test_name = 'communication type mandatory';
   -------------------------------------------
   BEGIN
-  UPDATE public.communications_media SET communication_type = NULL WHERE communication_media = '112027000000000';
+  UPDATE scuola247.communications_media SET communication_type = NULL WHERE communication_media = '112027000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but communication type was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -53,7 +53,7 @@ BEGIN
   test_name = 'uri mandatory';
   ----------------------------
   BEGIN
-  UPDATE public.communications_media SET uri = NULL WHERE communication_media = '112027000000000';
+  UPDATE scuola247.communications_media SET uri = NULL WHERE communication_media = '112027000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but uri was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -66,7 +66,7 @@ BEGIN
   test_name = 'notification mandatory';
   ------------------------------------
   BEGIN
-  UPDATE public.communications_media SET notification = NULL WHERE communication_media = '112027000000000';
+  UPDATE scuola247.communications_media SET notification = NULL WHERE communication_media = '112027000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK  notification was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -79,7 +79,7 @@ BEGIN
   test_name = 'Duplicate description';
   ------------------------------------
   BEGIN
-    INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1102027000000000','3959000000000','138027000000000','casa','Lara.Lupini@example.org','t');
+    INSERT INTO scuola247.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1102027000000000','3959000000000','138027000000000','casa','Lara.Lupini@example.org','t');
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but description is duplicated', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -92,7 +92,7 @@ BEGIN
   test_name = 'Duplicate uri';
   ----------------------------
   BEGIN
-    INSERT INTO public.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1002027000000000','3959000000000','138027000000000','lavoro','Lara.Lupini@example.org','t');
+    INSERT INTO scuola247.communications_media(communication_media,person,communication_type,description,uri,notification) VALUES ('1002027000000000','3959000000000','138027000000000','lavoro','Lara.Lupini@example.org','t');
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but uri is duplicated', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -105,7 +105,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE communications_media SET description = '  ' WHERE communication_media = '112027000000000';
+    UPDATE scuola247.communications_media SET description = '  ' WHERE communication_media = '112027000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -118,7 +118,7 @@ BEGIN
   test_name = 'uri''s min lenght';
   --------------------------------
   BEGIN
-    UPDATE communications_media SET uri = '  ' WHERE communication_media = '112027000000000';
+    UPDATE scuola247.communications_media SET uri = '  ' WHERE communication_media = '112027000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but uri min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

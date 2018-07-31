@@ -28,7 +28,7 @@ BEGIN
   test_name = 'duplicate on_date_at_time';
   ----------------------------------------
   BEGIN
-    INSERT INTO public.teachears_notes(teacher_notes,student,description,teacher,on_date,at_time,classroom) VALUES ('10361764000000000','6617000000000','alunno con molta difficoltÃ  nell''apprendimento','8863000000000','2014-02-13','11:50:52','10033000000000');
+    INSERT INTO scuola247.teachears_notes(teacher_notes,student,description,teacher,on_date,at_time,classroom) VALUES ('10361764000000000','6617000000000','alunno con molta difficoltÃ  nell''apprendimento','8863000000000','2014-02-13','11:50:52','10033000000000');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate on_date_at_time was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -41,7 +41,7 @@ BEGIN
   test_name = 'description''s mandatory';
   ---------------------------------------
   BEGIN
-    UPDATE public.teachears_notes SET description = NULL WHERE teacher_notes = '61764000000000';
+    UPDATE scuola247.teachears_notes SET description = NULL WHERE teacher_notes = '61764000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -54,7 +54,7 @@ BEGIN
   test_name = 'description min length';
   -------------------------------------
   BEGIN
-    UPDATE public.teachears_notes SET description = ' '  WHERE teacher_notes = '61764000000000';
+    UPDATE scuola247.teachears_notes SET description = ' '  WHERE teacher_notes = '61764000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but empty description was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -66,7 +66,7 @@ BEGIN
   test_name = 'teacher''s mandatory';
   -----------------------------------
   BEGIN
-    UPDATE public.teachears_notes SET teacher = NULL WHERE teacher_notes = '61764000000000';
+    UPDATE scuola247.teachears_notes SET teacher = NULL WHERE teacher_notes = '61764000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -78,7 +78,7 @@ BEGIN
   test_name = 'on_date''s mandatory';
   -----------------------------------
   BEGIN
-    UPDATE public.teachears_notes SET on_date = NULL WHERE teacher_notes = '61764000000000';
+    UPDATE scuola247.teachears_notes SET on_date = NULL WHERE teacher_notes = '61764000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but on_date required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -90,7 +90,7 @@ BEGIN
   test_name = 'classroom''s mandatory';
   -------------------------------------
   BEGIN
-    UPDATE public.teachears_notes SET classroom = NULL WHERE teacher_notes = '61764000000000';
+    UPDATE scuola247.teachears_notes SET classroom = NULL WHERE teacher_notes = '61764000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN

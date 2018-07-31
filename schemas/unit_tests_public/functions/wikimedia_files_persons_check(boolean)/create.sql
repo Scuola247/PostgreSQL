@@ -27,7 +27,7 @@ BEGIN
   test_name = 'wikimedia_file''s mandatory';
   ------------------------------------------
   BEGIN
-    UPDATE wikimedia_files_persons SET wikimedia_file = NULL WHERE wikimedia_file_person = '329668000000000';
+    UPDATE scuola247.wikimedia_files_persons SET wikimedia_file = NULL WHERE wikimedia_file_person = '329668000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but wikimedia_file required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -40,7 +40,7 @@ BEGIN
   test_name = 'person''s mandatory';
   ----------------------------------
   BEGIN
-    UPDATE wikimedia_files_persons SET person = NULL WHERE wikimedia_file_person = '329668000000000';
+    UPDATE scuola247.wikimedia_files_persons SET person = NULL WHERE wikimedia_file_person = '329668000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -53,7 +53,7 @@ BEGIN
   test_name = 'duplicate wikimedia_file';
   ---------------------------------------
   BEGIN
-    INSERT INTO public.wikimedia_files_persons(wikimedia_file_person, wikimedia_file, person) VALUES ('1329668000000000', '301735000000000', '9046000000000');
+    INSERT INTO scuola247.wikimedia_files_persons(wikimedia_file_person, wikimedia_file, person) VALUES ('1329668000000000', '301735000000000', '9046000000000');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate mnemonic was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

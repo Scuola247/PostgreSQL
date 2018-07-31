@@ -26,7 +26,7 @@ BEGIN
   test_name = 'message mandatory';
   --------------------------------
   BEGIN
-  UPDATE public.messages_read SET message = NULL WHERE message_read = '60304000000000';
+  UPDATE scuola247.messages_read SET message = NULL WHERE message_read = '60304000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but message was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'person mandatory';
   -------------------------------
   BEGIN
-  UPDATE public.messages_read SET person = NULL WHERE message_read = '60304000000000';
+  UPDATE scuola247.messages_read SET person = NULL WHERE message_read = '60304000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but person was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -52,7 +52,7 @@ BEGIN
   test_name = 'duplicate read on';
   --------------------------------
   BEGIN
-    INSERT INTO public.messages_read(message_read,message,person,read_on) VALUES ('160304000000000','50112000000000','32925000000000','2013-09-16 16:26:43');
+    INSERT INTO scuola247.messages_read(message_read,message,person,read_on) VALUES ('160304000000000','50112000000000','32925000000000','2013-09-16 16:26:43');
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but person already read this message', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN

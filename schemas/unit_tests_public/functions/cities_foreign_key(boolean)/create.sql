@@ -26,7 +26,7 @@ BEGIN
   test_name = 'UPDATE cities with a non existing district';
   --------------------------------------------------------------
   BEGIN
-    UPDATE public.cities set district = '999999999' WHERE city = '758441000000000';
+    UPDATE shared.cities set district = '999999999' WHERE city = '758441000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the district does not exist ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

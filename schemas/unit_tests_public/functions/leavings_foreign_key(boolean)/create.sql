@@ -31,7 +31,7 @@ BEGIN
   test_name = 'UPDATE schools set classroom_student to a non existence one';
   --------------------------------------------------------------------------
    BEGIN
-     UPDATE leavings SET classroom_student = '9999' WHERE leaving = '58393000000000';
+     UPDATE scuola247.leavings SET classroom_student = '9999' WHERE leaving = '58393000000000';
      _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom_student set with non existence code', NULL::diagnostic.error);
      RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -43,7 +43,7 @@ BEGIN
   test_name = 'UPDATE leavings set explanation to a non existence one';
   ---------------------------------------------------------------------
   BEGIN
-    UPDATE leavings SET explanation = '999999999' WHERE leaving = '58393000000000';
+    UPDATE scuola247.leavings SET explanation = '999999999' WHERE leaving = '58393000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but explanation set with non existence code', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -55,7 +55,7 @@ BEGIN
   test_name = 'UPDATE leavings set teacher to a non existence one';
   -----------------------------------------------------------------
   BEGIN
-    UPDATE leavings SET teacher = '999999999' WHERE leaving = '58393000000000';
+    UPDATE scuola247.leavings SET teacher = '999999999' WHERE leaving = '58393000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher set with non existence code', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

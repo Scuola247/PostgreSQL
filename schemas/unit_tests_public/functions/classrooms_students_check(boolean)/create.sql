@@ -25,7 +25,7 @@ BEGIN
   test_name = 'duplicate classrooms_student';
   -------------------------------------------
   BEGIN
-    INSERT INTO public.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('110246000000000','10024000000000','457000000000',NULL,NULL);
+    INSERT INTO scuola247.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('110246000000000','10024000000000','457000000000',NULL,NULL);
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate classrooms_student was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'student mandatory';
   --------------------------------
   BEGIN
-    UPDATE classrooms_students SET student = NULL WHERE classroom_student = '10246000000000';
+    UPDATE scuola247.classrooms_students SET student = NULL WHERE classroom_student = '10246000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but student required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -49,7 +49,7 @@ BEGIN
   test_name = 'classroom mandatory';
   ---------------------------------
   BEGIN
-    UPDATE classrooms_students SET classroom = NULL WHERE classroom_student = '10246000000000';
+    UPDATE scuola247.classrooms_students SET classroom = NULL WHERE classroom_student = '10246000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

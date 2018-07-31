@@ -27,7 +27,7 @@ BEGIN
   test_name = 'UPDATE conversations_invites with invited of a different school';
   ------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.conversations_invites set invited = 7599000000000 WHERE conversation_invite = 831562000000000;
+    UPDATE scuola247.conversations_invites set invited = 7599000000000 WHERE conversation_invite = 831562000000000;
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the invited is from a different school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'INSERT conversations_invites with invited of a different school';
   ------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.conversations_invites(conversation_invite,conversation,invited) VALUES (1831562000000000,33565000000000,7599000000000);
+    INSERT INTO scuola247.conversations_invites(conversation_invite,conversation,invited) VALUES (1831562000000000,33565000000000,7599000000000);
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the invited is from a different school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

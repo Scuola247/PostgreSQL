@@ -29,7 +29,7 @@ BEGIN
   test_name = 'duplicate note';
   -----------------------------
   BEGIN
-    INSERT INTO public.notes_signed(note_signed,person,on_date,note) VALUES ('100113134000000000','8579000000000','2014-06-10 10:39:00','104925000000000');
+    INSERT INTO scuola247.notes_signed(note_signed,person,on_date,note) VALUES ('100113134000000000','8579000000000','2014-06-10 10:39:00','104925000000000');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate note was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -42,7 +42,7 @@ BEGIN
   test_name = 'person''s mandatory'; 
   ----------------------------------
   BEGIN
-    UPDATE notes_signed SET person = NULL WHERE note = '104925000000000';
+    UPDATE scuola247.notes_signed SET person = NULL WHERE note = '104925000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -55,7 +55,7 @@ BEGIN
   test_name = 'note''s mandatory'; 
   --------------------------------
    BEGIN
-    UPDATE notes_signed SET note = NULL WHERE note = '104925000000000';
+    UPDATE scuola247.notes_signed SET note = NULL WHERE note = '104925000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but note required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

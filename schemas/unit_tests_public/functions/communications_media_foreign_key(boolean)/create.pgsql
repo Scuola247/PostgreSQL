@@ -25,7 +25,7 @@ BEGIN
   test_name = 'update communication_media set communication_type to a non existing one';
   --------------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.communications_media SET communication_type = '9999999999999' WHERE communication_media = '112027000000000';
+    UPDATE scuola247.communications_media SET communication_type = '9999999999999' WHERE communication_media = '112027000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but communication_type does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'update communication_media set person with a non existing one';
   ----------------------------------------------------------------------------
   BEGIN
-    UPDATE public.communications_media SET person = '9999999999999' WHERE communication_media = '112027000000000';
+    UPDATE scuola247.communications_media SET person = '9999999999999' WHERE communication_media = '112027000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

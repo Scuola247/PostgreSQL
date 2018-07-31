@@ -31,7 +31,7 @@ BEGIN
   test_name = 'duplicate classroom_student';
   ------------------------------------------
   BEGIN
-     INSERT INTO public.leavings(leaving,teacher,explanation,on_date,at_time,classroom_student) VALUES ('10658393000000000','32932000000000','1057135000000000','2013-09-19','11:52:54','10685000000000');
+     INSERT INTO scuola247.leavings(leaving,teacher,explanation,on_date,at_time,classroom_student) VALUES ('10658393000000000','32932000000000','1057135000000000','2013-09-19','11:52:54','10685000000000');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate classroom_student was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -44,7 +44,7 @@ BEGIN
   test_name = 'teacher''s mandatory';
   -----------------------------------
   BEGIN
-    UPDATE leavings SET teacher = NULL WHERE leaving = '58393000000000';
+    UPDATE scuola247.leavings SET teacher = NULL WHERE leaving = '58393000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher required was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -57,7 +57,7 @@ BEGIN
   test_name = 'explanation''s mandatory';
   ---------------------------------------
   BEGIN
-    UPDATE leavings SET explanation = NULL WHERE leaving = '58393000000000';
+    UPDATE scuola247.leavings SET explanation = NULL WHERE leaving = '58393000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but explanation required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -70,7 +70,7 @@ BEGIN
   test_name = 'on_date''s mandatory';
   -----------------------------------
   BEGIN
-    UPDATE leavings SET on_date = NULL WHERE leaving = '58393000000000';
+    UPDATE scuola247.leavings SET on_date = NULL WHERE leaving = '58393000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but on_date required was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -82,7 +82,7 @@ BEGIN
   test_name = 'at_time''s mandatory';
   -----------------------------------
   BEGIN
-    UPDATE leavings SET at_time = NULL WHERE leaving = '58393000000000';
+    UPDATE scuola247.leavings SET at_time = NULL WHERE leaving = '58393000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but at_time required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

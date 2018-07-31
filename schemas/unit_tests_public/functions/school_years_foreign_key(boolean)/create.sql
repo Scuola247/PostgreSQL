@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE school with a non existing one';
   ----------------------------------------------------
   BEGIN
-    UPDATE public.school_years set school = '99999999999999' WHERE school_year = '244000000000';
+    UPDATE scuola247.school_years set school = '99999999999999' WHERE school_year = '244000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the school does not exist ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

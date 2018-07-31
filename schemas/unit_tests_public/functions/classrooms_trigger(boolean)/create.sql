@@ -24,10 +24,10 @@ BEGIN
     RETURN;
   END IF;
   ---------------------------------------------------------------------
-  test_name = 'UPDATE classrooms school_year from a different school ';
+  test_name = 'UPDATE scuola247.classrooms school_year from a different school ';
   ---------------------------------------------------------------------
   BEGIN
-    UPDATE classrooms SET school_year='28969000000000' WHERE classroom = '10062000000000';
+    UPDATE scuola247.classrooms SET school_year='28969000000000' WHERE classroom = '10062000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the school_year is not from the same school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -38,10 +38,10 @@ BEGIN
 
 
  ----------------------------------------------------------------------
-  test_name = 'INSERT classrooms school_year from a different school ';
+  test_name = 'INSERT scuola247.classrooms school_year from a different school ';
   ---------------------------------------------------------------------
   BEGIN
-      INSERT INTO public.classrooms(classroom,school_year,degree,section,course_year,description,branch) VALUES ('10010062000000000','28969000000000','9942000000000','C','1','Infanzia 1C','9952000000000');
+      INSERT INTO scuola247.classrooms(classroom,school_year,degree,section,course_year,description,branch) VALUES ('10010062000000000','28969000000000','9942000000000','C','1','Infanzia 1C','9952000000000');
     _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but the school_year is not from the same school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -51,10 +51,10 @@ BEGIN
   END;
 
   -----------------------------------------------------------------------------
-  test_name = 'UPDATE classrooms degree from a different school ';
+  test_name = 'UPDATE scuola247.classrooms degree from a different school ';
   -----------------------------------------------------------------------------
   BEGIN
-    UPDATE classrooms SET degree='28970000000000' WHERE classroom = '10062000000000';
+    UPDATE scuola247.classrooms SET degree='28970000000000' WHERE classroom = '10062000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the degree is not from the same school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -63,10 +63,10 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
   -----------------------------------------------------------------------------
-  test_name = 'INSERT classrooms degree from a different school ';
+  test_name = 'INSERT scuola247.classrooms degree from a different school ';
   -----------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.classrooms(classroom,school_year,degree,section,course_year,description,branch) VALUES ('10110062000000000','243000000000','28970000000000','C','5','Infanzia 5C','9952000000000');
+    INSERT INTO scuola247.classrooms(classroom,school_year,degree,section,course_year,description,branch) VALUES ('10110062000000000','243000000000','28970000000000','C','5','Infanzia 5C','9952000000000');
     _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but the degree is not from the same school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

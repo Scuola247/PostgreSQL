@@ -26,8 +26,8 @@ BEGIN
   test_name = 'UPDATE schools set behavior';
   ------------------------------------------
   BEGIN
-    _results = _results || assert.check_update_done('UPDATE schools SET behavior = 166130000000000 WHERE school = 28961000000000;',1);
-    _results = _results || assert.check_update_done('UPDATE schools SET behavior = 166129000000000 WHERE school = 1000000000;',1);
+    _results = _results || assert.check_update_done('UPDATE scuola247.schools SET behavior = 166130000000000 WHERE school = 28961000000000;',1);
+    _results = _results || assert.check_update_done('UPDATE scuola247.schools SET behavior = 166129000000000 WHERE school = 1000000000;',1);
 
     _results = _results || assert.pass(full_function_name, test_name);
 

@@ -36,7 +36,7 @@ BEGIN
   test_name = 'Insert absence with on_date to NULL';
   --------------------------------------------------
   BEGIN
-    UPDATE absences SET on_date = NULL WHERE absence = '33312000000000';
+    UPDATE scuola247.absences SET on_date = NULL WHERE absence = '33312000000000';
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but on_date NULL value was expected', NULL::diagnostic.error);
     RETURN;
 
@@ -50,7 +50,7 @@ BEGIN
   test_name = 'Insert absence with teacher to NULL';
   --------------------------------------------------
   BEGIN
-    UPDATE absences SET teacher = NULL WHERE absence = '33312000000000';
+    UPDATE scuola247.absences SET teacher = NULL WHERE absence = '33312000000000';
     _results =  _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher NULL value was expected', NULL::diagnostic.error);
     RETURN;
 

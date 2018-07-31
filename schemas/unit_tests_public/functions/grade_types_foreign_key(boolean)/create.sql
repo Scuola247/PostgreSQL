@@ -25,7 +25,7 @@ BEGIN
   test_name = 'update grade_types set subject with a non existing one';
   ---------------------------------------------------------------------
   BEGIN
-    UPDATE grade_types SET subject = 999999999 WHERE grade_type = '46299000000000';
+    UPDATE scuola247.grade_types SET subject = 999999999 WHERE grade_type = '46299000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but subject set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

@@ -26,7 +26,7 @@ BEGIN
   test_name = 'duplicate on_date';
   --------------------------------
   BEGIN
-    INSERT INTO public.out_of_classrooms(out_of_classroom,school_operator,description,on_date,from_time,to_time,classroom_student) VALUES ('198577000000000','32937000000000','per selezioni sportive','2013-09-21','08:00:00','12:00:00','10379000000000');
+    INSERT INTO scuola247.out_of_classrooms(out_of_classroom,school_operator,description,on_date,from_time,to_time,classroom_student) VALUES ('198577000000000','32937000000000','per selezioni sportive','2013-09-21','08:00:00','12:00:00','10379000000000');
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate on_date was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'school_operator''s mandatory';
   -------------------------------------------
   BEGIN
-    UPDATE public.out_of_classrooms SET school_operator = NULL WHERE out_of_classroom = '98577000000000';
+    UPDATE scuola247.out_of_classrooms SET school_operator = NULL WHERE out_of_classroom = '98577000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school_operator required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -52,7 +52,7 @@ BEGIN
   test_name = 'description''s mandatory';
   ---------------------------------------
   BEGIN
-    UPDATE public.out_of_classrooms SET description = NULL WHERE out_of_classroom = '98577000000000';
+    UPDATE scuola247.out_of_classrooms SET description = NULL WHERE out_of_classroom = '98577000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -65,7 +65,7 @@ BEGIN
   test_name = 'on_date''s mandatory';
   -----------------------------------
   BEGIN
-    UPDATE public.out_of_classrooms SET on_date = NULL WHERE out_of_classroom = '98577000000000';
+    UPDATE scuola247.out_of_classrooms SET on_date = NULL WHERE out_of_classroom = '98577000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but on_date required was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -79,7 +79,7 @@ BEGIN
   test_name = 'from_time''s mandatory';
   -------------------------------------
   BEGIN
-    UPDATE public.out_of_classrooms SET from_time = NULL WHERE out_of_classroom = '98577000000000';
+    UPDATE scuola247.out_of_classrooms SET from_time = NULL WHERE out_of_classroom = '98577000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but from_time required was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -92,7 +92,7 @@ BEGIN
   test_name = 'to_time''s mandatory';
   -----------------------------------
   BEGIN
-    UPDATE public.out_of_classrooms SET to_time = NULL WHERE out_of_classroom = '98577000000000';
+    UPDATE scuola247.out_of_classrooms SET to_time = NULL WHERE out_of_classroom = '98577000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but to_time required was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -105,7 +105,7 @@ BEGIN
   test_name = 'to_time greater than from_time';
   ---------------------------------------------
   BEGIN
-    UPDATE public.out_of_classrooms SET to_time = '07:00:00' WHERE out_of_classroom = '98577000000000';
+    UPDATE scuola247.out_of_classrooms SET to_time = '07:00:00' WHERE out_of_classroom = '98577000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but to_time must be greater than from_time', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -117,7 +117,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE out_of_classrooms SET description = '  ' WHERE out_of_classroom = '98577000000000';
+    UPDATE scuola247.out_of_classrooms SET description = '  ' WHERE out_of_classroom = '98577000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN

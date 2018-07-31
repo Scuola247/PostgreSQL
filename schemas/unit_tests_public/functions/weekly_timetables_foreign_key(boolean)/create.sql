@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE weekly_timetables set classroom with a non existing one';
   -----------------------------------------------------------------------------
   BEGIN
-    UPDATE weekly_timetables SET classroom = 999999999 WHERE weekly_timetable = '51386000000000';
+    UPDATE scuola247.weekly_timetables SET classroom = 999999999 WHERE weekly_timetable = '51386000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

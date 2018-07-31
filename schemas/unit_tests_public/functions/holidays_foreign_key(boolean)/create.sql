@@ -25,7 +25,7 @@ BEGIN
   test_name = 'update holidays set school to a non existing one';
   ---------------------------------------------------------------
   BEGIN
-    UPDATE holidays SET school = 999999999 WHERE holiday = '11335000000000';
+    UPDATE scuola247.holidays SET school = 999999999 WHERE holiday = '11335000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school set to a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

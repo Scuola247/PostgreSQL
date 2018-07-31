@@ -26,7 +26,7 @@ BEGIN
   test_name = 'school mandatory';
   -------------------------------
   BEGIN
-  UPDATE public.degrees SET school = NULL WHERE degree = '9942000000000';
+  UPDATE scuola247.degrees SET school = NULL WHERE degree = '9942000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but school was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'description mandatory';
   ------------------------------------
   BEGIN
-  UPDATE public.degrees SET description = NULL WHERE degree = '9942000000000';
+  UPDATE scuola247.degrees SET description = NULL WHERE degree = '9942000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but description was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -52,7 +52,7 @@ BEGIN
   test_name = 'course_years mandatory';
   ------------------------------------
   BEGIN
-  UPDATE public.degrees SET course_years = NULL WHERE degree = '9942000000000';
+  UPDATE scuola247.degrees SET course_years = NULL WHERE degree = '9942000000000';
    _results =  _results || assert.fail(full_function_name, test_name, 'UPDATE was OK but course_years was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -65,7 +65,7 @@ BEGIN
   test_name = 'duplicate school';
   -------------------------------
   BEGIN
-    INSERT INTO degrees (degree, school, description, course_years) VALUES (99420000000000, 1000000000, 'Scuola dell''infanzia', 3);
+    INSERT INTO scuola247.degrees (degree, school, description, course_years) VALUES (99420000000000, 1000000000, 'Scuola dell''infanzia', 3);
    _results =  _results || assert.fail(full_function_name, test_name, 'Insert was OK but this (school, description) already exist', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -78,7 +78,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE degrees SET description = '   ' WHERE degree = '9942000000000';
+    UPDATE scuola247.degrees SET description = '   ' WHERE degree = '9942000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

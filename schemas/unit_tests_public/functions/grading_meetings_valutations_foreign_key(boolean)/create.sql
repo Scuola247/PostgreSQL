@@ -25,7 +25,7 @@ BEGIN
   test_name = 'update grading_meetings_valutations set classroom with a non existing one';
   ----------------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.grading_meetings_valutations SET classroom_student = '9999999999999' WHERE grading_meeting_valutation= '130752000000000';
+    UPDATE scuola247.grading_meetings_valutations SET classroom_student = '9999999999999' WHERE grading_meeting_valutation= '130752000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'update grading_meetings_valutations set grade with a non existing one';
   ------------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.grading_meetings_valutations SET grade = '9999999999999' WHERE grading_meeting_valutation= '130752000000000';
+    UPDATE scuola247.grading_meetings_valutations SET grade = '9999999999999' WHERE grading_meeting_valutation= '130752000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but grade does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
    test_name = 'update grading_meetings_valutations set grading_meeting with a non existing one';
   -----------------------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.grading_meetings_valutations SET grading_meeting = '9999999999999' WHERE grading_meeting_valutation= '130752000000000';
+    UPDATE scuola247.grading_meetings_valutations SET grading_meeting = '9999999999999' WHERE grading_meeting_valutation= '130752000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but grading_meeting does not exist', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -63,7 +63,7 @@ BEGIN
    test_name = 'update grading_meetings_valutations set subject with a non existing one';
   ---------------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.grading_meetings_valutations SET subject = '9999999999999' WHERE grading_meeting_valutation= '130752000000000';
+    UPDATE scuola247.grading_meetings_valutations SET subject = '9999999999999' WHERE grading_meeting_valutation= '130752000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but subject does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

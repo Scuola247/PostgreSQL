@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE valutations with a non existing classroom_student';
   -----------------------------------------------------------------------
   BEGIN
-    UPDATE public.valutations set classroom_student = '99999999999999' WHERE valutation = '86813000000000';
+    UPDATE scuola247.valutations set classroom_student = '99999999999999' WHERE valutation = '86813000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the classroom_student does not exist ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'UPDATE valutations with a non existing grade';
   -----------------------------------------------------------
   BEGIN
-    UPDATE public.valutations set grade  = '99999999999999' WHERE valutation = '86813000000000';
+    UPDATE scuola247.valutations set grade  = '99999999999999' WHERE valutation = '86813000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the grade does not exist ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
   test_name = 'UPDATE valutations with a non existing grade_type';
   ----------------------------------------------------------------
   BEGIN
-    UPDATE public.valutations set grade_type  = '99999999999999' WHERE valutation = '86813000000000';
+    UPDATE scuola247.valutations set grade_type  = '99999999999999' WHERE valutation = '86813000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the grade_type does not exist ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -66,7 +66,7 @@ BEGIN
   test_name = 'UPDATE valutations with a non existing note';
   ----------------------------------------------------------
   BEGIN
-    UPDATE public.valutations set note  = '99999999999999' WHERE valutation = '86813000000000';
+    UPDATE scuola247.valutations set note  = '99999999999999' WHERE valutation = '86813000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the note does not exist ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -79,7 +79,7 @@ BEGIN
   test_name = 'UPDATE valutations with a non existing teacher';
   -------------------------------------------------------------
   BEGIN
-    UPDATE public.valutations set teacher = '99999999999999' WHERE valutation = '86813000000000';
+    UPDATE scuola247.valutations set teacher = '99999999999999' WHERE valutation = '86813000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the teacher does not exist ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -92,7 +92,7 @@ BEGIN
   test_name = 'UPDATE valutations with a non existing topic';
   -----------------------------------------------------------
   BEGIN
-    UPDATE public.valutations set topic = '99999999999999' WHERE valutation = '86813000000000';
+    UPDATE scuola247.valutations set topic = '99999999999999' WHERE valutation = '86813000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the topic does not exist ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

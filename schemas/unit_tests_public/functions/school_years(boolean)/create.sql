@@ -26,9 +26,9 @@ BEGIN
   ----------------------------------
   BEGIN
 
-    INSERT INTO school_years (school_year, school, description, duration, lessons_duration) VALUES (244000000000, 2000000000, '2013/2014', '[2013-09-11,2014-09-11)', '[2013-09-11,2014-06-08)');
-    INSERT INTO school_years (school_year, school, description, duration, lessons_duration) VALUES (28969000000000, 28961000000000, '2013/2014', '[2013-09-12,2014-09-12)', '[2013-09-12,2014-06-08)');
-    INSERT INTO school_years (school_year, school, description, duration, lessons_duration) VALUES (243000000000, 1000000000, '2013/2014', '[2013-09-11,2014-09-11)', '[2013-09-11,2014-06-08)');
+    INSERT INTO scuola247.school_years (school_year, school, description, duration, lessons_duration) VALUES (244000000000, 2000000000, '2013/2014', '[2013-09-11,2014-09-11)', '[2013-09-11,2014-06-08)');
+    INSERT INTO scuola247.school_years (school_year, school, description, duration, lessons_duration) VALUES (28969000000000, 28961000000000, '2013/2014', '[2013-09-12,2014-09-12)', '[2013-09-12,2014-06-08)');
+    INSERT INTO scuola247.school_years (school_year, school, description, duration, lessons_duration) VALUES (243000000000, 1000000000, '2013/2014', '[2013-09-11,2014-09-11)', '[2013-09-11,2014-06-08)');
 
     _results = _results || assert.pass(full_function_name, test_name);
 

@@ -26,7 +26,7 @@ BEGIN
   test_name = 'mandatory subject';
   --------------------------------
   BEGIN
-    UPDATE topics SET subject = NULL WHERE topic ='33242000000000' ;
+    UPDATE scuola247.topics SET subject = NULL WHERE topic ='33242000000000' ;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but subject required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'mandatory description';
   ------------------------------------
   BEGIN
-    UPDATE topics SET description = NULL WHERE topic ='33242000000000' ;
+    UPDATE scuola247.topics SET description = NULL WHERE topic ='33242000000000' ;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -50,7 +50,7 @@ BEGIN
   test_name = 'mandatory degree';
   -------------------------------
   BEGIN
-    UPDATE topics SET degree = NULL WHERE topic ='33242000000000' ;
+    UPDATE scuola247.topics SET degree = NULL WHERE topic ='33242000000000' ;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but degree required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -63,7 +63,7 @@ BEGIN
   test_name = 'duplicate description';
   ------------------------------------
   BEGIN
-    INSERT INTO public.topics(topic,subject,description,course_year,degree) VALUES ('133242000000000','32911000000000','I congiuntivi, gli imperativi, i condizionali','1','9944000000000');
+    INSERT INTO scuola247.topics(topic,subject,description,course_year,degree) VALUES ('133242000000000','32911000000000','I congiuntivi, gli imperativi, i condizionali','1','9944000000000');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -76,7 +76,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE topics SET description = '  ' WHERE topic = '33242000000000';
+    UPDATE scuola247.topics SET description = '  ' WHERE topic = '33242000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty description was expected', NULL::diagnostic.error);    
     RETURN;
     EXCEPTION WHEN OTHERS THEN

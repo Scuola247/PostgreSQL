@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE conversations set classroom_student with a non existing one';
   ---------------------------------------------------------------------------------
   BEGIN
-    UPDATE conversations SET classroom_student = 999999999 WHERE conversation = '33670000000000';
+    UPDATE scuola247.conversations SET classroom_student = 999999999 WHERE conversation = '33670000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom_student set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

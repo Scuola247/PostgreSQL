@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE parents_meetings with teacher from different school';
   -------------------------------------------------------------------------
   BEGIN
-    UPDATE parents_meetings SET teacher = '29122000000000' WHERE  parents_meeting = '33433000000000';
+    UPDATE scuola247.parents_meetings SET teacher = '29122000000000' WHERE  parents_meeting = '33433000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the teacher is not from the same school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'INSERT parents_meetings with teacher from different school';
   -------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.parents_meetings(parents_meeting,teacher,person,on_date) VALUES ('10033433000000000','29122000000000','6603000000000','2013-10-01 00:00:00');
+    INSERT INTO scuola247.parents_meetings(parents_meeting,teacher,person,on_date) VALUES ('10033433000000000','29122000000000','6603000000000','2013-10-01 00:00:00');
     _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but the teacher is not from the same school', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN

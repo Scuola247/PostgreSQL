@@ -21,11 +21,11 @@ BEGIN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
-  -------------------------------------------------------------------
-  test_name = 'update classrooms set branch with a non existing one';
-  -------------------------------------------------------------------
+  -----------------------------------------------------------------------------
+  test_name = 'update scuola247.classrooms set branch with a non existing one';
+  -----------------------------------------------------------------------------
   BEGIN
-    UPDATE classrooms SET branch = 999999999 WHERE classroom = '10062000000000';
+    UPDATE scuola247.classrooms SET branch = 999999999 WHERE classroom = '10062000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but branch set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -33,11 +33,11 @@ BEGIN
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23503', 'classrooms_fk_branch');
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
-  -------------------------------------------------------------------
-  test_name = 'update classrooms set degree with a non existing one';
-  -------------------------------------------------------------------
+  -----------------------------------------------------------------------------
+  test_name = 'update scuola247.classrooms set degree with a non existing one';
+  -----------------------------------------------------------------------------
   BEGIN
-    UPDATE classrooms SET degree = 999999999 WHERE classroom = '10062000000000';
+    UPDATE scuola247.classrooms SET degree = 999999999 WHERE classroom = '10062000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but degree set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -46,11 +46,11 @@ BEGIN
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
 
-  ---------------------------------------------------------------------------
-  test_name = 'update classrooms set school_year with a non existing one';
-  ---------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------
+  test_name = 'update scuola247.classrooms set school_year with a non existing one';
+  ----------------------------------------------------------------------------------
   BEGIN
-    UPDATE classrooms SET school_year = 999999999 WHERE classroom = '10062000000000';
+    UPDATE scuola247.classrooms SET school_year = 999999999 WHERE classroom = '10062000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school_year set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

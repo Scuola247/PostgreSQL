@@ -27,7 +27,7 @@ BEGIN
   test_name = 'UPDATE grading_meetings_valutations_qua qualification in a different school';
   ------------------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.grading_meetings_valutations_qua set qualification = '195977000000000' WHERE grading_meeting_valutation = '124388000000000' ;
+    UPDATE scuola247.grading_meetings_valutations_qua set qualification = '195977000000000' WHERE grading_meeting_valutation = '124388000000000' ;
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but qualification is in a different school', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'INSERT grading_meetings_valutations_qua qualification in a different school from the student';
   -----------------------------------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.grading_meetings_valutations_qua(grading_meeting_valutation_qua,grading_meeting_valutation,qualification,grade,notes) VALUES ('1126109000000000','124388000000000','195977000000000','11478000000000','Esempio di una nota testuale a commento della valutazione della qualifica');
+    INSERT INTO scuola247.grading_meetings_valutations_qua(grading_meeting_valutation_qua,grading_meeting_valutation,qualification,grade,notes) VALUES ('1126109000000000','124388000000000','195977000000000','11478000000000','Esempio di una nota testuale a commento della valutazione della qualifica');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but qualification is in a different school from the student', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
   test_name = 'UPDATE grading_meetings_valutations_qua qualification in a different school from the metric';
   ----------------------------------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.grading_meetings_valutations_qua set grade = '11501000000000' WHERE qualification = '95977000000000';
+    UPDATE scuola247.grading_meetings_valutations_qua set grade = '11501000000000' WHERE qualification = '95977000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but qualification is in a different school from the metric', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -63,7 +63,7 @@ BEGIN
   test_name = 'INSERT grading_meetings_valutations_qua qualification in a different school from the metric';
   ----------------------------------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.grading_meetings_valutations_qua(grading_meeting_valutation_qua,grading_meeting_valutation,qualification,grade,notes) VALUES ('1126109000000000','124388000000000','96103000000000','11501000000000','Esempio di una nota testuale a commento della valutazione della qualifica');
+    INSERT INTO scuola247.grading_meetings_valutations_qua(grading_meeting_valutation_qua,grading_meeting_valutation,qualification,grade,notes) VALUES ('1126109000000000','124388000000000','96103000000000','11501000000000','Esempio di una nota testuale a commento della valutazione della qualifica');
 
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but qualification is in a different school from the metric', NULL::diagnostic.error);
     RETURN;
@@ -76,7 +76,7 @@ BEGIN
   test_name = 'UPDATE grading_meeting_valutation_qua where grading_meeting is closed';
   ------------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.grading_meetings_valutations_qua set grading_meeting_valutation = '1130752000000000' WHERE grading_meeting_valutation_qua = '126109000000000';
+    UPDATE scuola247.grading_meetings_valutations_qua set grading_meeting_valutation = '1130752000000000' WHERE grading_meeting_valutation_qua = '126109000000000';
 
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but grading_meeting is closed', NULL::diagnostic.error);
     RETURN;
@@ -89,7 +89,7 @@ BEGIN
   test_name = 'INSERT grading_meeting_valutation_qua  where grading_meeting is closed';
   -------------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.grading_meetings_valutations_qua(grading_meeting_valutation_qua,grading_meeting_valutation,qualification,grade,notes) VALUES ('1126109000000000','1130752000000000','95977000000000','11478000000000','Esempio di una nota testuale a commento della valutazione della qualifica');
+    INSERT INTO scuola247.grading_meetings_valutations_qua(grading_meeting_valutation_qua,grading_meeting_valutation,qualification,grade,notes) VALUES ('1126109000000000','1130752000000000','95977000000000','11478000000000','Esempio di una nota testuale a commento della valutazione della qualifica');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK grading_meeting is closed', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -102,7 +102,7 @@ BEGIN
   test_name = 'DELETE grading_meeting_valutation_qua with closed grading meeting';
   --------------------------------------------------------------------------------
   BEGIN
-    DELETE FROM public.grading_meetings_valutations_qua WHERE grading_meeting_valutation = 124388000000000; 
+    DELETE FROM scuola247.grading_meetings_valutations_qua WHERE grading_meeting_valutation = 124388000000000; 
     _results = _results || assert.fail(full_function_name, test_name,'DELETE was OK but grading_meeting is closed', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

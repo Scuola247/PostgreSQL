@@ -25,7 +25,7 @@ BEGIN
   test_name = 'duplicate on_date';
   --------------------------------
   BEGIN
-      INSERT INTO public.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1048855000000000','32926000000000','47595000000000','2013-09-19','08:42:35','10368000000000');
+      INSERT INTO scuola247.delays(delay,teacher,explanation,on_date,at_time,classroom_student) VALUES ('1048855000000000','32926000000000','47595000000000','2013-09-19','08:42:35','10368000000000');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate on_date was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'on_date mandatory';
   --------------------------------
   BEGIN
-    UPDATE delays SET on_date = NULL WHERE delay = '48854000000000';
+    UPDATE scuola247.delays SET on_date = NULL WHERE delay = '48854000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but on_date required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -49,7 +49,7 @@ BEGIN
   test_name = 'at_time mandatory';
   --------------------------------
   BEGIN
-    UPDATE delays SET at_time = NULL WHERE delay = '48854000000000';
+    UPDATE scuola247.delays SET at_time = NULL WHERE delay = '48854000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but at_time required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -61,7 +61,7 @@ BEGIN
   test_name = 'teacher mandatory';
   --------------------------------
   BEGIN
-    UPDATE delays SET teacher = NULL WHERE delay = '48854000000000';
+    UPDATE scuola247.delays SET teacher = NULL WHERE delay = '48854000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

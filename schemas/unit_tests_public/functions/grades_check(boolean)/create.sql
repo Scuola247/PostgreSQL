@@ -25,7 +25,7 @@ BEGIN
   test_name = 'duplicate grades_uq_description (metric, description)';
   --------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.grades(grade,metric,description,thousandths,mnemonic) VALUES ('10029066000000000','29062000000000','0/1','60','3Â½');
+    INSERT INTO scuola247.grades(grade,metric,description,thousandths,mnemonic) VALUES ('10029066000000000','29062000000000','0/1','60','3Â½');
     _results = _results || assert.fail(full_function_name, test_name, 'INSERT was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'duplicate grades_uq_mnemonic (metric, mnemonic)';
   --------------------------------------------------------------
   BEGIN
-    INSERT INTO public.grades(grade,metric,description,thousandths,mnemonic) VALUES ('10129066000000000','29062000000000','1/5','60','0Â½');
+    INSERT INTO scuola247.grades(grade,metric,description,thousandths,mnemonic) VALUES ('10129066000000000','29062000000000','1/5','60','0Â½');
     _results = _results || assert.fail(full_function_name, test_name, 'INSERT was OK but duplicate mnemonic was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
   test_name = 'description not empty';
   ------------------------------------
   BEGIN
-    UPDATE public.grades SET description = ' ' WHERE grade = '29066000000000';
+    UPDATE scuola247.grades SET description = ' ' WHERE grade = '29066000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description was empty', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -64,7 +64,7 @@ BEGIN
   test_name = 'mnemonic not empty';
   ---------------------------------
   BEGIN
-    UPDATE public.grades SET mnemonic = ' ' WHERE grade = '29066000000000';
+    UPDATE scuola247.grades SET mnemonic = ' ' WHERE grade = '29066000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but mnemonic was empty', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -76,7 +76,7 @@ BEGIN
   test_name = 'metric''s mandatory';
   ----------------------------------
   BEGIN
-    UPDATE public.grades SET metric = NULL WHERE grade = '29066000000000';
+    UPDATE scuola247.grades SET metric = NULL WHERE grade = '29066000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but metric was null', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -88,7 +88,7 @@ BEGIN
   test_name = 'mnemonic''s mandatory';
   ------------------------------------
   BEGIN
-    UPDATE public.grades SET mnemonic = NULL WHERE grade = '29066000000000';
+    UPDATE scuola247.grades SET mnemonic = NULL WHERE grade = '29066000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but mnemonic was null', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -100,7 +100,7 @@ BEGIN
   test_name = 'description''s mandatory';
   ---------------------------------------
   BEGIN
-    UPDATE public.grades SET description = NULL WHERE grade = '29066000000000';
+    UPDATE scuola247.grades SET description = NULL WHERE grade = '29066000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description was null', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -112,7 +112,7 @@ BEGIN
   test_name = 'thousandths''s mandatory';
   ---------------------------------------
   BEGIN
-    UPDATE public.grades SET thousandths = NULL WHERE grade = '29066000000000';
+    UPDATE scuola247.grades SET thousandths = NULL WHERE grade = '29066000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but thousandths was null', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

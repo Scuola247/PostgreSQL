@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE wikimedia_files_persons with a non existing person';
   ------------------------------------------------------------------------
   BEGIN
-    UPDATE public.wikimedia_files_persons set person = '99999999999999' WHERE wikimedia_file_person = '329668000000000';
+    UPDATE scuola247.wikimedia_files_persons set person = '99999999999999' WHERE wikimedia_file_person = '329668000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the person does not exist ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'UPDATE wikimedia_files_persons with a non existing wikimedia_file';
   --------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.wikimedia_files_persons set wikimedia_file = '99999999999999' WHERE wikimedia_file_person = '329668000000000';
+    UPDATE scuola247.wikimedia_files_persons set wikimedia_file = '99999999999999' WHERE wikimedia_file_person = '329668000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the wikimedia_file does not exist ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

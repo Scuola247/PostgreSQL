@@ -26,7 +26,7 @@ BEGIN
   test_name = 'description''s mandatory';
   ---------------------------------------
   BEGIN
-    UPDATE communication_types SET description = NULL WHERE communication_type = 138012000000000;
+    UPDATE scuola247.communication_types SET description = NULL WHERE communication_type = 138012000000000;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'description min lenght';
   --------------------------------------
   BEGIN
-    UPDATE communication_types SET description = '   ' WHERE communication_type =138012000000000 ;
+    UPDATE scuola247.communication_types SET description = '   ' WHERE communication_type =138012000000000 ;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
   test_name = 'duplicate description';
   ------------------------------------
   BEGIN
-    INSERT INTO communication_types (communication_type, description, notification_management, school) VALUES (100138012000000000,'MSN messenger',FALSE, 1000000000);
+    INSERT INTO scuola247.communication_types (communication_type, description, notification_management, school) VALUES (100138012000000000,'MSN messenger',FALSE, 1000000000);
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN

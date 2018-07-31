@@ -26,7 +26,7 @@ BEGIN
   test_name = 'UPDATE classrooms_students with student on a different school classroom';
   --------------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.classrooms_students set student = '2012000000000' WHERE classroom_student = '10246000000000';
+    UPDATE scuola247.classrooms_students set student = '2012000000000' WHERE classroom_student = '10246000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student is on a different school classroom', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'INSERT classrooms_students with student on a different school classroom';
   --------------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('110246000000000','10023000000000','2012000000000',NULL,NULL);
+    INSERT INTO scuola247.classrooms_students(classroom_student,classroom,student,retreat_on,classroom_destination) VALUES ('110246000000000','10023000000000','2012000000000',NULL,NULL);
     
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student is on a different school classroom', NULL::diagnostic.error);
     RETURN;

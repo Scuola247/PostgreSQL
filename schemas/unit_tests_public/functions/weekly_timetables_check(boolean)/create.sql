@@ -26,7 +26,7 @@ BEGIN
   test_name = 'duplicate description';
   ------------------------------------
   BEGIN
-    INSERT INTO public.weekly_timetables(weekly_timetable,classroom,description) VALUES ('151386000000000','10033000000000','Settimana standard');
+    INSERT INTO scuola247.weekly_timetables(weekly_timetable,classroom,description) VALUES ('151386000000000','10033000000000','Settimana standard');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'classroom mandatory';
   ----------------------------------
   BEGIN
-    UPDATE weekly_timetables SET classroom = NULL WHERE weekly_timetable = '51386000000000';
+    UPDATE scuola247.weekly_timetables SET classroom = NULL WHERE weekly_timetable = '51386000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -52,7 +52,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE public.weekly_timetables SET description = '  ' WHERE weekly_timetable = '51386000000000';
+    UPDATE scuola247.weekly_timetables SET description = '  ' WHERE weekly_timetable = '51386000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

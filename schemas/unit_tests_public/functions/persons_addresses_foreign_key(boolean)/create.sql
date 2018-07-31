@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE person with a non existing one';
   ----------------------------------------------------
   BEGIN
-    UPDATE persons_addresses SET person = 999999999 WHERE person_address = '16765000000000';
+    UPDATE scuola247.persons_addresses SET person = 999999999 WHERE person_address = '16765000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'UPDATE city with a non existing one';
   --------------------------------------------------
   BEGIN
-    UPDATE persons_addresses SET city = 9999 WHERE person_address = '16765000000000';
+    UPDATE scuola247.persons_addresses SET city = 9999 WHERE person_address = '16765000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but city set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

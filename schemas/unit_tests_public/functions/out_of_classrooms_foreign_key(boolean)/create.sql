@@ -26,7 +26,7 @@ BEGIN
   test_name = 'UPDATE out_of_classrooms set classroom_student with a non existing one';
   -------------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.out_of_classrooms SET classroom_student = '9999999999999' WHERE out_of_classroom = '98577000000000';
+    UPDATE scuola247.out_of_classrooms SET classroom_student = '9999999999999' WHERE out_of_classroom = '98577000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom_student does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'UPDATE out_of_classrooms set school_operator with a non existing one';
   -----------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.out_of_classrooms SET school_operator = '9999999999999' WHERE out_of_classroom = '98577000000000';
+    UPDATE scuola247.out_of_classrooms SET school_operator = '9999999999999' WHERE out_of_classroom = '98577000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school_operator does not exist', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN

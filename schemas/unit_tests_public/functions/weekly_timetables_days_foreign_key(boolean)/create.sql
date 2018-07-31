@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE weekly_timetables_days set subject with a non existing one';
   --------------------------------------------------------------------------------
   BEGIN
-    UPDATE weekly_timetables_days SET subject = 999999999 WHERE weekly_timetable_day = '33008000000000';
+    UPDATE scuola247.weekly_timetables_days SET subject = 999999999 WHERE weekly_timetable_day = '33008000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but subject does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'UPDATE delays set teacher with a non existing one';
   ----------------------------------------------------------------
   BEGIN
-    UPDATE weekly_timetables_days SET teacher = 999999999 WHERE weekly_timetable_day = '33008000000000';
+    UPDATE scuola247.weekly_timetables_days SET teacher = 999999999 WHERE weekly_timetable_day = '33008000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -50,7 +50,7 @@ BEGIN
   test_name = 'UPDATE delays set weekly_timetable with a non existing one';
   -------------------------------------------------------------------------
   BEGIN
-    UPDATE weekly_timetables_days SET weekly_timetable = 999999999 WHERE weekly_timetable_day = '33008000000000';
+    UPDATE scuola247.weekly_timetables_days SET weekly_timetable = 999999999 WHERE weekly_timetable_day = '33008000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but weekly_timetable does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

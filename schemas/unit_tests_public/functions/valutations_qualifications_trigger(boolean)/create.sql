@@ -26,7 +26,7 @@ BEGIN
   test_name = 'UPDATE valutations_qualifications with qualification in a different school from student';
   ------------------------------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.valutations_qualifications set qualification = '195977000000000' WHERE valutation_qualificationtion = '107038000000000';
+    UPDATE scuola247.valutations_qualifications set qualification = '195977000000000' WHERE valutation_qualificationtion = '107038000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the student is in a different school', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'INSERT valutations_qualifications with qualification in a different school from student';
   ------------------------------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.valutations_qualifications(valutation_qualificationtion,valutation,qualification,grade,note) VALUES ('1107038000000000','105226000000000','195977000000000','11478000000000','Esempio di nota associata ad una qualifica');
+    INSERT INTO scuola247.valutations_qualifications(valutation_qualificationtion,valutation,qualification,grade,note) VALUES ('1107038000000000','105226000000000','195977000000000','11478000000000','Esempio di nota associata ad una qualifica');
 	
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the student is in a different school', NULL::diagnostic.error);
     RETURN;
@@ -52,7 +52,7 @@ BEGIN
   test_name = 'UPDATE valutations_qualifications with grade in a different school from qualification';
   ----------------------------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.valutations_qualifications set grade = '30420000000000' WHERE valutation_qualificationtion = '107137000000000';
+    UPDATE scuola247.valutations_qualifications set grade = '30420000000000' WHERE valutation_qualificationtion = '107137000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the grade is in a different school', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -64,7 +64,7 @@ BEGIN
   test_name = 'INSERT valutations_qualifications with grade in a different from qualification';
   ---------------------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.valutations_qualifications(valutation_qualificationtion,valutation,qualification,grade,note) VALUES ('1107038000000000','105226000000000','95985000000000','30421000000000','Esempio di nota associata ad una qualifica');
+    INSERT INTO scuola247.valutations_qualifications(valutation_qualificationtion,valutation,qualification,grade,note) VALUES ('1107038000000000','105226000000000','95985000000000','30421000000000','Esempio di nota associata ad una qualifica');
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the grade is in a different school', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN

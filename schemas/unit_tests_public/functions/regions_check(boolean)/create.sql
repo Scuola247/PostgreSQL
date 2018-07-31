@@ -26,7 +26,7 @@ BEGIN
   test_name = 'duplicate description';
   ------------------------------------
   BEGIN
-      INSERT INTO public.regions(region,description,geographical_area) VALUES ('22','Valle d''Aosta/Vallée d''Aoste','Center');
+      INSERT INTO shared.regions(region,description,geographical_area) VALUES ('22','Valle d''Aosta/Vallée d''Aoste','Center');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'description''s mandatory';
   ---------------------------------------
   BEGIN
-    UPDATE regions SET description = NULL WHERE region = '2';
+    UPDATE shared.regions SET description = NULL WHERE region = '2';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
   test_name = 'description empty ';
   ---------------------------------------
   BEGIN
-    UPDATE regions SET description = ' ' WHERE region = '2';
+    UPDATE shared.regions SET description = ' ' WHERE region = '2';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but empty description was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN

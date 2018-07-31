@@ -26,7 +26,7 @@ BEGIN
   test_name = 'name''s min lenght';
   ---------------------------------
   BEGIN
-    UPDATE wikimedia_files SET name = ' ' WHERE wikimedia_file = '301735000000000';
+    UPDATE scuola247.wikimedia_files SET name = ' ' WHERE wikimedia_file = '301735000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty name was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'name''s mandatory';
   --------------------------------
   BEGIN
-    UPDATE wikimedia_files SET name = NULL WHERE wikimedia_file = '301735000000000';
+    UPDATE scuola247.wikimedia_files SET name = NULL WHERE wikimedia_file = '301735000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but name required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -52,7 +52,7 @@ BEGIN
   test_name = 'type''s mandatory';
   --------------------------------
   BEGIN
-    UPDATE wikimedia_files SET type = NULL WHERE wikimedia_file = '301735000000000';
+    UPDATE scuola247.wikimedia_files SET type = NULL WHERE wikimedia_file = '301735000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but type required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN

@@ -26,7 +26,7 @@ BEGIN
   test_name = 'UPDATE grading_meetings set school_year with non existence code';
   ------------------------------------------------------------------------------
   BEGIN
-    UPDATE grading_meetings SET school_year = '999999999' WHERE grading_meeting = '119537000000000';
+    UPDATE scuola247.grading_meetings SET school_year = '999999999' WHERE grading_meeting = '119537000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school_year set with non existence code', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

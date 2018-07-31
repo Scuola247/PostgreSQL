@@ -26,7 +26,7 @@ BEGIN
   test_name = 'UPDATE grading_meetings and on_date are not in the same school_year';
   ----------------------------------------------------------------------------------
   BEGIN
-    UPDATE public.grading_meetings set on_date = '2017-06-16' WHERE grading_meeting = '119537000000000';
+    UPDATE scuola247.grading_meetings set on_date = '2017-06-16' WHERE grading_meeting = '119537000000000';
     _results = _results || assert.fail(full_function_name, test_name,'UPDATE was OK but the date is 2 years later than end duration', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'INSERT grading_meetings and on_date are not in the same school_year';
   ----------------------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.grading_meetings(grading_meeting,school_year,on_date,description,closed) VALUES ('1000119537000000000','244000000000','2017-06-16','Scrutinio secondo quadrimestre (prova trigger)','f');
+    INSERT INTO scuola247.grading_meetings(grading_meeting,school_year,on_date,description,closed) VALUES ('1000119537000000000','244000000000','2017-06-16','Scrutinio secondo quadrimestre (prova trigger)','f');
 
     _results = _results || assert.fail(full_function_name, test_name,'INSERT was OK but the date is 2 years later then end duration', NULL::diagnostic.error);
     RETURN;

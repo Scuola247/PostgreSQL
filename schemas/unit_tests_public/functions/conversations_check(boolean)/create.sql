@@ -26,7 +26,7 @@ BEGIN
   test_name = 'classroom_student mandatory';
   ------------------------------------------
   BEGIN
-    UPDATE conversations SET classroom_student = NULL WHERE conversation = '33670000000000';
+    UPDATE scuola247.conversations SET classroom_student = NULL WHERE conversation = '33670000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom_student required was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'subject mandatory';
   --------------------------------
   BEGIN
-    UPDATE conversations SET subject = NULL WHERE conversation = '33670000000000';
+    UPDATE scuola247.conversations SET subject = NULL WHERE conversation = '33670000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but subject required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
   test_name = 'subject''s min lenght';
   ------------------------------------
   BEGIN
-    UPDATE conversations SET subject = '  ' WHERE conversation = '33670000000000';
+    UPDATE scuola247.conversations SET subject = '  ' WHERE conversation = '33670000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but subject min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -64,7 +64,7 @@ BEGIN
   test_name = 'end_on begin_on check';
   ----------------------------------------
   BEGIN
-    UPDATE conversations SET begin_on = '2013-10-25 10:44:59' , end_on = '2013-10-24 10:44:59' WHERE conversation = '33670000000000';
+    UPDATE scuola247.conversations SET begin_on = '2013-10-25 10:44:59' , end_on = '2013-10-24 10:44:59' WHERE conversation = '33670000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but begin_on bigger than end_on was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

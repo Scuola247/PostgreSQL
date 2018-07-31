@@ -21,11 +21,11 @@ BEGIN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
-  ---------------------------------------------------------------------------
-  test_name = 'update explanations set created_by with non existence person';
-  ---------------------------------------------------------------------------
+  --------------------------------------------------------------------------
+  test_name = 'update explanation set created_by with non existence person';
+  --------------------------------------------------------------------------
   BEGIN
-    UPDATE explanations SET created_by = '0000000000000' WHERE explanation = '57325000000000';
+    UPDATE scuola247.explanations SET created_by = '0000000000000' WHERE explanation = '57325000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person set with non existence person', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'update explanation set registered_by with non existence person';
   -----------------------------------------------------------------------------
   BEGIN
-    UPDATE explanations SET registered_by = '0000000000000' WHERE explanation = '57325000000000';
+    UPDATE scuola247.explanations SET registered_by = '0000000000000' WHERE explanation = '57325000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but explanation set with non existence person', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -49,7 +49,7 @@ BEGIN
   test_name = 'update explanation set student with non existence person';
   -----------------------------------------------------------------------
   BEGIN
-    UPDATE explanations SET student = '9999999999999' WHERE explanation = '57325000000000';
+    UPDATE scuola247.explanations SET student = '9999999999999' WHERE explanation = '57325000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but explanation set with non existence person', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

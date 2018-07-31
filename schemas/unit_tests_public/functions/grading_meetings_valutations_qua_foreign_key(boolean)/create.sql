@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE grading_meetings_valutations_qua set grade with a non existing one';
   ----------------------------------------------------------------------------------------
   BEGIN
-    UPDATE grading_meetings_valutations_qua SET grade = 999999999 WHERE grading_meeting_valutation_qua = '126109000000000';
+    UPDATE scuola247.grading_meetings_valutations_qua SET grade = 999999999 WHERE grading_meeting_valutation_qua = '126109000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but grade set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'UPDATE grading_meetings_valutations_qua set grading_meeting_valutation with a non existing one';
   ---------------------------------------------------------------------------------------------------------------
   BEGIN
-    UPDATE grading_meetings_valutations_qua SET grading_meeting_valutation = 999999999 WHERE grading_meeting_valutation_qua = '126109000000000';
+    UPDATE scuola247.grading_meetings_valutations_qua SET grading_meeting_valutation = 999999999 WHERE grading_meeting_valutation_qua = '126109000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but explanation set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -49,7 +49,7 @@ BEGIN
   test_name = 'UPDATE grading_meetings_valutations_qua set qualification with a non existing one';
   ------------------------------------------------------------------------------------------------
   BEGIN
-    UPDATE grading_meetings_valutations_qua SET qualification = 999999999 WHERE grading_meeting_valutation_qua = '126109000000000';
+    UPDATE scuola247.grading_meetings_valutations_qua SET qualification = 999999999 WHERE grading_meeting_valutation_qua = '126109000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher set with a non existing one', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN

@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE branches with non existence school';
   --------------------------------------------------------
   BEGIN
-    UPDATE branches SET school = 9999999 WHERE branch = 28962000000000; 
+    UPDATE scuola247.branches SET school = 9999999 WHERE branch = 28962000000000; 
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school was set with non existence value', NULL::diagnostic.error);   
     RETURN;
     EXCEPTION WHEN OTHERS THEN

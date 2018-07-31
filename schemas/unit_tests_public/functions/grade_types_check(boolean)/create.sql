@@ -26,7 +26,7 @@ BEGIN
   test_name = 'duplicate mnemonic';
   ---------------------------------
   BEGIN
-    INSERT INTO public.grade_types(grade_type,description,subject,mnemonic) VALUES ('146300000000000','Scritto','29108000000000','S');
+    INSERT INTO scuola247.grade_types(grade_type,description,subject,mnemonic) VALUES ('146300000000000','Scritto','29108000000000','S');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate mnemonic was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'duplicate description';
   ------------------------------------
   BEGIN
-    INSERT INTO public.grade_types(grade_type,description,subject,mnemonic) VALUES ('1146299000000000','Scritto','29107000000000','SS');
+    INSERT INTO scuola247.grade_types(grade_type,description,subject,mnemonic) VALUES ('1146299000000000','Scritto','29107000000000','SS');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -50,7 +50,7 @@ BEGIN
   test_name = 'subject mandatory';
   --------------------------------
   BEGIN
-    UPDATE grade_types SET subject = NULL WHERE grade_type = '46299000000000';
+    UPDATE scuola247.grade_types SET subject = NULL WHERE grade_type = '46299000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but subject required was expected', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -62,7 +62,7 @@ BEGIN
   test_name = 'description mandatory';
   ------------------------------------
   BEGIN
-    UPDATE grade_types SET description = NULL WHERE grade_type = '46299000000000';
+    UPDATE scuola247.grade_types SET description = NULL WHERE grade_type = '46299000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -75,7 +75,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE grade_types SET description = '' WHERE grade_type = '46299000000000';
+    UPDATE scuola247.grade_types SET description = '' WHERE grade_type = '46299000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -88,7 +88,7 @@ BEGIN
   test_name = 'mnemonic''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE grade_types SET mnemonic = '' WHERE grade_type = '46299000000000';
+    UPDATE scuola247.grade_types SET mnemonic = '' WHERE grade_type = '46299000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

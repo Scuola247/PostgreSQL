@@ -29,7 +29,7 @@ BEGIN
   test_name = 'UPDATE on_date to a day without lessons';
   ------------------------------------------------------
  BEGIN
-    UPDATE public.teachears_notes SET on_date = '2013-09-22' WHERE teacher_notes = '61764000000000';
+    UPDATE scuola247.teachears_notes SET on_date = '2013-09-22' WHERE teacher_notes = '61764000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but on_date there is no lessons', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -42,7 +42,7 @@ BEGIN
   test_name = 'INSERT on_date to a day without lessons';
   ------------------------------------------------------
  BEGIN
-     INSERT INTO public.teachears_notes(teacher_notes,student,description,teacher,on_date,at_time,classroom) VALUES ('10061764000000000','6617000000000','alunno con difficoltÃ  nell''apprendimento','32926000000000','2013-09-22',NULL,'10033000000000');
+     INSERT INTO scuola247.teachears_notes(teacher_notes,student,description,teacher,on_date,at_time,classroom) VALUES ('10061764000000000','6617000000000','alunno con difficoltÃ  nell''apprendimento','32926000000000','2013-09-22',NULL,'10033000000000');
     _results = _results || assert.fail(full_function_name, test_name,'Inser was OK but on_date there is no lessons', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -56,7 +56,7 @@ BEGIN
   test_name = 'UPDATE student with a student from another school';
   ----------------------------------------------------------------
  BEGIN
-    UPDATE public.teachears_notes SET student = '9804000000000' WHERE teacher_notes = '61764000000000';
+    UPDATE scuola247.teachears_notes SET student = '9804000000000' WHERE teacher_notes = '61764000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but student is from another school', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -69,7 +69,7 @@ BEGIN
   test_name = 'INSERT student with a student from another school';
   ----------------------------------------------------------------
  BEGIN
-    INSERT INTO public.teachears_notes(teacher_notes,student,description,teacher,on_date,at_time,classroom) VALUES ('10061764000000000','9804000000000','alunno con difficoltÃ  nell''apprendimento','32926000000000','2014-02-13',NULL,'10033000000000');
+    INSERT INTO scuola247.teachears_notes(teacher_notes,student,description,teacher,on_date,at_time,classroom) VALUES ('10061764000000000','9804000000000','alunno con difficoltÃ  nell''apprendimento','32926000000000','2014-02-13',NULL,'10033000000000');
     _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but student is from another school', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -82,7 +82,7 @@ BEGIN
   test_name = 'UPDATE teacher with a teacher from another school';
   ----------------------------------------------------------------
  BEGIN
-      UPDATE public.teachears_notes SET teacher = '4207000000000' WHERE teacher_notes = '61764000000000';
+      UPDATE scuola247.teachears_notes SET teacher = '4207000000000' WHERE teacher_notes = '61764000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but teacher is from another school', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -95,7 +95,7 @@ BEGIN
   test_name = 'INSERT teacher with a teacher from another school';
   ----------------------------------------------------------------
  BEGIN
-      INSERT INTO public.teachears_notes(teacher_notes,student,description,teacher,on_date,at_time,classroom) VALUES ('10061764000000000','6617000000000','alunno con difficoltÃ  nell''apprendimento','4207000000000','2014-02-13',NULL,'10033000000000');
+      INSERT INTO scuola247.teachears_notes(teacher_notes,student,description,teacher,on_date,at_time,classroom) VALUES ('10061764000000000','6617000000000','alunno con difficoltÃ  nell''apprendimento','4207000000000','2014-02-13',NULL,'10033000000000');
     _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but teacher is from another school', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN

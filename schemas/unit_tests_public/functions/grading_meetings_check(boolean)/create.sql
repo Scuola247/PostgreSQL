@@ -27,7 +27,7 @@ BEGIN
   test_name = 'description''s mandatory';
   ---------------------------------------
   BEGIN
-    UPDATE grading_meetings SET description = NULL WHERE grading_meeting = '119537000000000';
+    UPDATE scuola247.grading_meetings SET description = NULL WHERE grading_meeting = '119537000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but description required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -39,7 +39,7 @@ BEGIN
   test_name = 'duplicate description';
   ------------------------------------
   BEGIN
-      INSERT INTO public.grading_meetings(grading_meeting,school_year,on_date,description,closed) VALUES ('10119537000000000','244000000000','2014-06-17','Scrutinio secondo quadrimestre','f');
+      INSERT INTO scuola247.grading_meetings(grading_meeting,school_year,on_date,description,closed) VALUES ('10119537000000000','244000000000','2014-06-17','Scrutinio secondo quadrimestre','f');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate description was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -51,7 +51,7 @@ BEGIN
   test_name = 'duplicate on_date';
   --------------------------------
   BEGIN
-      INSERT INTO public.grading_meetings(grading_meeting,school_year,on_date,description,closed) VALUES ('11119537000000000','244000000000','2014-06-16','Scrutinio del secondo quadrimestre','f');
+      INSERT INTO scuola247.grading_meetings(grading_meeting,school_year,on_date,description,closed) VALUES ('11119537000000000','244000000000','2014-06-16','Scrutinio del secondo quadrimestre','f');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate on_date was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -63,7 +63,7 @@ BEGIN
   test_name = 'description''s min lenght';
   ----------------------------------------
   BEGIN
-    UPDATE grading_meetings SET description = '   ' WHERE grading_meeting = '119537000000000';
+    UPDATE scuola247.grading_meetings SET description = '   ' WHERE grading_meeting = '119537000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but description min lenght was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

@@ -25,7 +25,7 @@ BEGIN
   test_name = 'duplicate qualification';
   --------------------------------------
   BEGIN
-    INSERT INTO public.valutations_qualifications(valutation_qualificationtion,valutation,qualification,grade,note) VALUES ('1107038000000000','105226000000000','95979000000000','11478000000000','Esempio di nota associata ad una qualifica');
+    INSERT INTO scuola247.valutations_qualifications(valutation_qualificationtion,valutation,qualification,grade,note) VALUES ('1107038000000000','105226000000000','95979000000000','11478000000000','Esempio di nota associata ad una qualifica');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate qualification was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'valutation mandatory';
   -----------------------------------
   BEGIN
-    UPDATE valutations_qualifications SET valutation = NULL WHERE valutation_qualificationtion = '107038000000000';
+    UPDATE scuola247.valutations_qualifications SET valutation = NULL WHERE valutation_qualificationtion = '107038000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but valutation required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -49,7 +49,7 @@ BEGIN
   test_name = 'qualification mandatory';
   --------------------------------------
   BEGIN
-    UPDATE valutations_qualifications SET qualification = NULL WHERE valutation_qualificationtion = '107038000000000';
+    UPDATE scuola247.valutations_qualifications SET qualification = NULL WHERE valutation_qualificationtion = '107038000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but qualification required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -61,7 +61,7 @@ BEGIN
   test_name = 'grade mandatory';
   ------------------------------
   BEGIN
-    UPDATE valutations_qualifications SET grade = NULL WHERE valutation_qualificationtion = '107038000000000';
+    UPDATE scuola247.valutations_qualifications SET grade = NULL WHERE valutation_qualificationtion = '107038000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but grade required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN
@@ -74,7 +74,7 @@ BEGIN
   test_name = 'note''s min lenght';
   ---------------------------------
   BEGIN
-    UPDATE valutations_qualifications SET note = ' ' WHERE valutation_qualificationtion = '107038000000000';
+    UPDATE scuola247.valutations_qualifications SET note = ' ' WHERE valutation_qualificationtion = '107038000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty note was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

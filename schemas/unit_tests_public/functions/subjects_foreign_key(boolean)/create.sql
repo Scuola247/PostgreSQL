@@ -25,7 +25,7 @@ BEGIN
   test_name = 'update school with non existence subject';
   ---------------------------------------------------------------------
   BEGIN
-    UPDATE subjects SET school = '999999999' WHERE subject = '29105000000000' ;
+    UPDATE  scuola247.subjects SET school = '999999999' WHERE subject = '29105000000000' ;
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

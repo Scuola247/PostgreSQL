@@ -29,7 +29,7 @@ BEGIN
   test_name = 'UPDATE notes_signed set note with a non existence one'; -- da controllare se si possono usare i codici moltiplicati per un miliardo
   --------------------------------------------------------------------
   BEGIN
-    UPDATE notes_signed SET note = '99999' WHERE note = '104925';
+    UPDATE scuola247.notes_signed SET note = '99999' WHERE note = '104925';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but note set with non existence code', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -42,7 +42,7 @@ BEGIN
   test_name = 'UPDATE notes_signed_fk_person set person with a non existence one'; -- da controllare se si possono usare i codici moltiplicati per un miliardo
   --------------------------------------------------------------------------------
   BEGIN
-    UPDATE notes_signed SET person = '99999' WHERE note = '104925';
+    UPDATE scuola247.notes_signed SET person = '99999' WHERE note = '104925';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person set with non existence code', NULL::diagnostic.error);
     RETURN;
       EXCEPTION WHEN OTHERS THEN

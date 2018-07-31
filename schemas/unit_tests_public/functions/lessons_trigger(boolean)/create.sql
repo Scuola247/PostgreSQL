@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE lessons with subject from a different school';
   ------------------------------------------------------------------
   BEGIN
-    UPDATE lessons SET subject ='96334000000000'  WHERE lesson = '98608000000000';
+    UPDATE scuola247.lessons SET subject ='96334000000000'  WHERE lesson = '98608000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the subject is not from the same school ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'INSERT OF lessons with subjects from a different school';
   ----------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.lessons(lesson,classroom,on_date,subject,teacher,description,substitute,from_time,to_time,assignment,period) VALUES ('10098608000000000','10033000000000','2013-09-21','96334000000000','32938000000000','descrizione di esempio della lezione tenuta','f','10:00:00','11:00:00',NULL,NULL);
+    INSERT INTO scuola247.lessons(lesson,classroom,on_date,subject,teacher,description,substitute,from_time,to_time,assignment,period) VALUES ('10098608000000000','10033000000000','2013-09-21','96334000000000','32938000000000','descrizione di esempio della lezione tenuta','f','10:00:00','11:00:00',NULL,NULL);
     _results = _results || assert.fail(full_function_name, test_name,' the subject is not from the same school ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -50,7 +50,7 @@ BEGIN
   test_name = 'UPDATE lessons with teacher from a different school';
   ------------------------------------------------------------------
   BEGIN
-    UPDATE lessons SET teacher='29120000000000' WHERE lesson='98581000000000';
+    UPDATE scuola247.lessons SET teacher='29120000000000' WHERE lesson='98581000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the teacher is from a different school ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -62,7 +62,7 @@ BEGIN
   test_name = 'INSERT lessons with teacher from a different school';
   ------------------------------------------------------------------
   BEGIN
-    INSERT INTO public.lessons(lesson,classroom,on_date,subject,teacher,description,substitute,from_time,to_time,assignment,period) VALUES ('10098581000000000','10033000000000','2013-09-16','32911000000000','29120000000000','descrizione di esempio della lezione tenuta','t','08:00:00','09:00:00',NULL,NULL);
+    INSERT INTO scuola247.lessons(lesson,classroom,on_date,subject,teacher,description,substitute,from_time,to_time,assignment,period) VALUES ('10098581000000000','10033000000000','2013-09-16','32911000000000','29120000000000','descrizione di esempio della lezione tenuta','t','08:00:00','09:00:00',NULL,NULL);
     _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but the teacher is not from the same school ', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -74,7 +74,7 @@ BEGIN
   test_name = 'UPDATE teacher with a non teacher';
   ------------------------------------------------
   BEGIN
-    UPDATE lessons SET teacher='5662000000000' WHERE lesson='98581000000000';
+    UPDATE scuola247.lessons SET teacher='5662000000000' WHERE lesson='98581000000000';
     _results = _results || assert.fail(full_function_name, test_name,'Update was OK but the person is not a teacher', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -86,7 +86,7 @@ BEGIN
   test_name = 'INSERT teacher with a non teacher';
   ------------------------------------------------
   BEGIN
-    INSERT INTO public.lessons(lesson,classroom,on_date,subject,teacher,description,substitute,from_time,to_time,assignment,period) VALUES ('10198581000000000','10033000000000','2013-09-16','32911000000000','5662000000000','descrizione di esempio della lezione tenuta','t','08:00:00','09:00:00',NULL,NULL);
+    INSERT INTO scuola247.lessons(lesson,classroom,on_date,subject,teacher,description,substitute,from_time,to_time,assignment,period) VALUES ('10198581000000000','10033000000000','2013-09-16','32911000000000','5662000000000','descrizione di esempio della lezione tenuta','t','08:00:00','09:00:00',NULL,NULL);
     _results = _results || assert.fail(full_function_name, test_name,'Insert was OK but the person is not in role teacher ', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN

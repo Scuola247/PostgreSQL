@@ -26,7 +26,7 @@ BEGIN
   test_name = 'duplicate address';
   --------------------------------
   BEGIN
-     INSERT INTO public.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('116765000000000','3326000000000','Residence','Via G. Segantini 91','37069','L949','761559000000000');
+     INSERT INTO scuola247.persons_addresses(person_address,person,address_type,street,zip_code,city_fiscal_code,city) VALUES ('116765000000000','3326000000000','Residence','Via G. Segantini 91','37069','L949','761559000000000');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate address was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -38,7 +38,7 @@ BEGIN
   test_name = 'person mandatory';
   -------------------------------
   BEGIN
-    UPDATE persons_addresses SET person = NULL WHERE person_address = '16765000000000';
+    UPDATE scuola247. persons_addresses SET person = NULL WHERE person_address = '16765000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but person required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -50,7 +50,7 @@ BEGIN
   test_name = 'address_type mandatory';
   -------------------------------------
   BEGIN
-    UPDATE persons_addresses SET address_type = NULL WHERE person_address = '16765000000000';
+    UPDATE scuola247. persons_addresses SET address_type = NULL WHERE person_address = '16765000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but address_type required was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -62,7 +62,7 @@ BEGIN
   test_name = 'street mandatory';
   -------------------------------
   BEGIN
-    UPDATE persons_addresses SET street = NULL WHERE person_address = '16765000000000';
+    UPDATE scuola247. persons_addresses SET street = NULL WHERE person_address = '16765000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but street required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -74,7 +74,7 @@ BEGIN
   test_name = 'zip_code mandatory';
   ---------------------------------
   BEGIN
-    UPDATE persons_addresses SET zip_code = NULL WHERE person_address = '16765000000000';
+    UPDATE scuola247. persons_addresses SET zip_code = NULL WHERE person_address = '16765000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but zip_code required was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -86,7 +86,7 @@ BEGIN
   test_name = 'city_fiscal_code mandatory';
   -----------------------------------------
   BEGIN
-    UPDATE persons_addresses SET city_fiscal_code = NULL WHERE person_address = '16765000000000';
+    UPDATE scuola247. persons_addresses SET city_fiscal_code = NULL WHERE person_address = '16765000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but city required was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -99,7 +99,7 @@ BEGIN
   test_name = 'street''s min length';
   -----------------------------------
   BEGIN
-    UPDATE persons_addresses SET street = '  ' WHERE person_address = '16765000000000';
+    UPDATE scuola247. persons_addresses SET street = '  ' WHERE person_address = '16765000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty street was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN
@@ -111,7 +111,7 @@ BEGIN
   test_name = 'city_fiscal_code''s min lenght';
   ---------------------------------------------
   BEGIN
-    UPDATE persons_addresses SET city_fiscal_code = '  ' WHERE person_address = '16765000000000';
+    UPDATE scuola247. persons_addresses SET city_fiscal_code = '  ' WHERE person_address = '16765000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty city_fiscal_code was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -124,7 +124,7 @@ BEGIN
   test_name = 'zip_code''s min lenght';
   -------------------------------------
   BEGIN
-    UPDATE persons_addresses SET zip_code = '  ' WHERE person_address = '16765000000000';
+    UPDATE scuola247. persons_addresses SET zip_code = '  ' WHERE person_address = '16765000000000';
     _results = _results ||  assert.fail(full_function_name, test_name, 'Update was OK but empty zip_code was expected', NULL::diagnostic.error);
     RETURN;
      EXCEPTION WHEN OTHERS THEN

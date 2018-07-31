@@ -21,11 +21,11 @@ BEGIN
     PERFORM unit_testing.build_function_dependencies(diagnostic.function_name(context),'unit_tests_public._after_data_insert');
     RETURN;
   END IF;
-  --------------------------------------------------------------------------
-  test_name = 'Update delays set classroom_student with a non existing one';
-  --------------------------------------------------------------------------
+  ------------------------------------------------------------------------------------
+  test_name = 'Update scuola247.delays set classroom_student with a non existing one';
+  ------------------------------------------------------------------------------------
   BEGIN
-    UPDATE delays SET classroom_student = 999999999 WHERE delay = '48895000000000';
+    UPDATE scuola247.delays SET classroom_student = 999999999 WHERE delay = '48895000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but classroom_student set with a non existing one', NULL::diagnostic.error);
     RETURN;
    EXCEPTION WHEN OTHERS THEN
@@ -33,11 +33,11 @@ BEGIN
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23503','delays_fk_classroom_student');
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
-  --------------------------------------------------------------------
-  test_name = 'Update delays set explanation with a non existing one';
-  --------------------------------------------------------------------
+  ------------------------------------------------------------------------------
+  test_name = 'Update scuola247.delays set explanation with a non existing one';
+  ------------------------------------------------------------------------------
   BEGIN
-    UPDATE delays SET explanation = 999999999 WHERE delay = '48895000000000';
+    UPDATE scuola247.delays SET explanation = 999999999 WHERE delay = '48895000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but explanation set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -45,11 +45,11 @@ BEGIN
     _results = _results || assert.sqlstate_constraint_equals(me.full_function_name, me.test_name, me.error, '23503','delays_fk_explanation');
 	IF unit_testing.last_checkpoint_failed(_results) THEN RETURN; END IF;
   END;
-  ----------------------------------------------------------------
-  test_name = 'Update delays set teacher with a non existing one';
-  ----------------------------------------------------------------
+  --------------------------------------------------------------------------
+  test_name = 'Update scuola247.delays set teacher with a non existing one';
+  --------------------------------------------------------------------------
   BEGIN
-    UPDATE delays SET teacher = 999999999 WHERE delay = '48895000000000';
+    UPDATE scuola247.delays SET teacher = 999999999 WHERE delay = '48895000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but teacher set with a non existing one', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

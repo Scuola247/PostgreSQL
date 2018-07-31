@@ -26,7 +26,7 @@ BEGIN
   test_name = 'UPDATE school with a non existence one';
   -----------------------------------------------------
   BEGIN
-    UPDATE usenames_schools SET school = '2222' WHERE usename_school = '726620';
+    UPDATE scuola247.usenames_schools SET school = '2222' WHERE usename = 'unit_testing_user@scuola.it';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but school does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

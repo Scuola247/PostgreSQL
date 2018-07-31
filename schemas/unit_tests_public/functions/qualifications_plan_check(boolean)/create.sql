@@ -25,7 +25,7 @@ BEGIN
   test_name = 'duplicate qualification';
   --------------------------------------
   BEGIN
-	INSERT INTO public.qualifications_plan(qualification_plan,qualification,degree,course_year,subject) VALUES ('1128989000000000','96108000000000','9944000000000','1','32911000000000');
+	INSERT INTO scuola247.qualifications_plan(qualification_plan,qualification,degree,course_year,subject) VALUES ('1128989000000000','96108000000000','9944000000000','1','32911000000000');
     _results = _results || assert.fail(full_function_name, test_name, 'Insert was OK but duplicate qualification was expected', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'qualification mandatory';
   --------------------------------------
   BEGIN
-    UPDATE qualifications_plan SET qualification = NULL WHERE qualification_plan = '128989000000000';
+    UPDATE scuola247.qualifications_plan SET qualification = NULL WHERE qualification_plan = '128989000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but qualification required was expected', NULL::diagnostic.error);
     RETURN;
 	EXCEPTION WHEN OTHERS THEN

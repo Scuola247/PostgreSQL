@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE grade with a non existing one';
   ---------------------------------------------------
   BEGIN
-    UPDATE valutations_qualifications SET grade = 999999999 WHERE valutation_qualificationtion = '107038000000000';
+    UPDATE scuola247.valutations_qualifications SET grade = 999999999 WHERE valutation_qualificationtion = '107038000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but grade does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = ' UPDATE qualification with a non existing one';
   ------------------------------------------------------------
   BEGIN
-    UPDATE valutations_qualifications SET qualification = 999999999 WHERE valutation_qualificationtion = '107038000000000';
+    UPDATE scuola247.valutations_qualifications SET qualification = 999999999 WHERE valutation_qualificationtion = '107038000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but qualification does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -49,7 +49,7 @@ BEGIN
   test_name = 'UPDATE valutation with a non existing one';
   --------------------------------------------------------
   BEGIN
-    UPDATE valutations_qualifications SET valutation = 999999999 WHERE valutation_qualificationtion = '107038000000000';
+    UPDATE scuola247.valutations_qualifications SET valutation = 999999999 WHERE valutation_qualificationtion = '107038000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but valutation does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN

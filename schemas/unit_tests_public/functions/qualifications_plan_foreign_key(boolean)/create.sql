@@ -25,7 +25,7 @@ BEGIN
   test_name = 'UPDATE degree with a non existing one';
   ----------------------------------------------------
   BEGIN
-    UPDATE qualifications_plan SET degree = 999999999 WHERE qualification_plan = '128989000000000';
+    UPDATE scuola247.qualifications_plan SET degree = 999999999 WHERE qualification_plan = '128989000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but degree does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -37,7 +37,7 @@ BEGIN
   test_name = 'UPDATE qualification with a non existing one';
   -----------------------------------------------------------
   BEGIN
-    UPDATE qualifications_plan SET qualification = 999999999 WHERE qualification_plan = '128989000000000';
+    UPDATE scuola247.qualifications_plan SET qualification = 999999999 WHERE qualification_plan = '128989000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but qualification does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
@@ -49,7 +49,7 @@ BEGIN
   test_name = 'UPDATE subject with a non existing one';
   -----------------------------------------------------
   BEGIN
-    UPDATE qualifications_plan SET subject = 999999999 WHERE qualification_plan = '128989000000000';
+    UPDATE scuola247.qualifications_plan SET subject = 999999999 WHERE qualification_plan = '128989000000000';
     _results = _results || assert.fail(full_function_name, test_name, 'Update was OK but subject does not exist', NULL::diagnostic.error);
     RETURN;
     EXCEPTION WHEN OTHERS THEN
