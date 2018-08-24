@@ -63,17 +63,17 @@ GRANT scuola247_student TO scuola247_supervisor;
 GRANT scuola247_teacher TO scuola247_supervisor;
 GRANT scuola247_user TO scuola247_supervisor;
 
-REVOKE ALL ON DATABASE scuola247 FROM public;
-REVOKE ALL ON DATABASE scuola247 FROM scuola247_supervisor;
-REVOKE ALL ON DATABASE scuola247 FROM scuola247_executive;
-REVOKE ALL ON DATABASE scuola247 FROM scuola247_employee;
-REVOKE ALL ON DATABASE scuola247 FROM scuola247_teacher;
-REVOKE ALL ON DATABASE scuola247 FROM scuola247_relative;
-REVOKE ALL ON DATABASE scuola247 FROM scuola247_student;
-REVOKE ALL ON DATABASE scuola247 FROM scuola247_user;
+REVOKE ALL ON DATABASE fulcro FROM public;
+REVOKE ALL ON DATABASE fulcro FROM scuola247_supervisor;
+REVOKE ALL ON DATABASE fulcro FROM scuola247_executive;
+REVOKE ALL ON DATABASE fulcro FROM scuola247_employee;
+REVOKE ALL ON DATABASE fulcro FROM scuola247_teacher;
+REVOKE ALL ON DATABASE fulcro FROM scuola247_relative;
+REVOKE ALL ON DATABASE fulcro FROM scuola247_student;
+REVOKE ALL ON DATABASE fulcro FROM scuola247_user;
 
-GRANT ALL ON DATABASE scuola247 TO scuola247_supervisor WITH GRANT OPTION;
-GRANT CONNECT ON DATABASE scuola247 TO scuola247_user;
+GRANT ALL ON DATABASE fulcro TO scuola247_supervisor WITH GRANT OPTION;
+GRANT CONNECT ON DATABASE fulcro TO scuola247_user;
 
 GRANT ALL ON LANGUAGE plpgsql TO scuola247_supervisor WITH GRANT OPTION;
 GRANT USAGE ON LANGUAGE plpgsql TO scuola247_user;
@@ -282,817 +282,806 @@ REVOKE ALL ON ALL TABLES IN SCHEMA git FROM scuola247_relative;
 REVOKE ALL ON ALL TABLES IN SCHEMA git FROM scuola247_student;
 REVOKE ALL ON ALL TABLES IN SCHEMA git FROM scuola247_user;
 
-REVOKE ALL ON TYPE git.options FROM public;
-REVOKE ALL ON TYPE git.options FROM scuola247_supervisor;
-REVOKE ALL ON TYPE git.options FROM scuola247_executive;
-REVOKE ALL ON TYPE git.options FROM scuola247_employee;
-REVOKE ALL ON TYPE git.options FROM scuola247_teacher;
-REVOKE ALL ON TYPE git.options FROM scuola247_relative;
-REVOKE ALL ON TYPE git.options FROM scuola247_student;
-REVOKE ALL ON TYPE git.options FROM scuola247_user;
-
 GRANT ALL ON SCHEMA git TO scuola247_supervisor WITH GRANT OPTION;
 
 GRANT ALL ON ALL FUNCTIONS IN SCHEMA git TO scuola247_supervisor WITH GRANT OPTION;
 
-GRANT ALL ON TYPE git.options TO scuola247_supervisor WITH GRANT OPTION;
+-- scuol247;
+REVOKE ALL ON SCHEMA scuola247 FROM public;
+REVOKE ALL ON SCHEMA scuola247 FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA scuola247 FROM scuola247_executive;
+REVOKE ALL ON SCHEMA scuola247 FROM scuola247_employee;
+REVOKE ALL ON SCHEMA scuola247 FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA scuola247 FROM scuola247_relative;
+REVOKE ALL ON SCHEMA scuola247 FROM scuola247_student;
+REVOKE ALL ON SCHEMA scuola247 FROM scuola247_user;
 
--- PUBLIC;
-REVOKE ALL ON SCHEMA public FROM public;
-REVOKE ALL ON SCHEMA public FROM scuola247_supervisor;
-REVOKE ALL ON SCHEMA public FROM scuola247_executive;
-REVOKE ALL ON SCHEMA public FROM scuola247_employee;
-REVOKE ALL ON SCHEMA public FROM scuola247_teacher;
-REVOKE ALL ON SCHEMA public FROM scuola247_relative;
-REVOKE ALL ON SCHEMA public FROM scuola247_student;
-REVOKE ALL ON SCHEMA public FROM scuola247_user;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA scuola247 FROM public;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA scuola247 FROM scuola247_supervisor;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA scuola247 FROM scuola247_executive;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA scuola247 FROM scuola247_employee;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA scuola247 FROM scuola247_teacher;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA scuola247 FROM scuola247_relative;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA scuola247 FROM scuola247_student;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA scuola247 FROM scuola247_user;
 
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA public FROM public;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA public FROM scuola247_supervisor;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA public FROM scuola247_executive;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA public FROM scuola247_employee;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA public FROM scuola247_teacher;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA public FROM scuola247_relative;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA public FROM scuola247_student;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA public FROM scuola247_user;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA scuola247 FROM public;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA scuola247 FROM scuola247_supervisor;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA scuola247 FROM scuola247_executive;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA scuola247 FROM scuola247_employee;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA scuola247 FROM scuola247_teacher;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA scuola247 FROM scuola247_relative;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA scuola247 FROM scuola247_student;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA scuola247 FROM scuola247_user;
 
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM public;
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM scuola247_supervisor;
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM scuola247_executive;
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM scuola247_employee;
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM scuola247_teacher;
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM scuola247_relative;
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM scuola247_student;
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM scuola247_user;
+REVOKE ALL ON ALL TABLES IN SCHEMA scuola247 FROM public;
+-- REVOKE ALL ON ALL TABLES IN SCHEMA scuola247 FROM scuola247_supervisor; -- da problemi di dipendenze
+REVOKE ALL ON ALL TABLES IN SCHEMA scuola247 FROM scuola247_executive;
+REVOKE ALL ON ALL TABLES IN SCHEMA scuola247 FROM scuola247_employee;
+REVOKE ALL ON ALL TABLES IN SCHEMA scuola247 FROM scuola247_teacher;
+REVOKE ALL ON ALL TABLES IN SCHEMA scuola247 FROM scuola247_relative;
+REVOKE ALL ON ALL TABLES IN SCHEMA scuola247 FROM scuola247_student;
+REVOKE ALL ON ALL TABLES IN SCHEMA scuola247 FROM scuola247_user;
 
-REVOKE ALL ON ALL TABLES IN SCHEMA public FROM public;
--- REVOKE ALL ON ALL TABLES IN SCHEMA public FROM scuola247_supervisor; -- da problemi di dipendenze
-REVOKE ALL ON ALL TABLES IN SCHEMA public FROM scuola247_executive;
-REVOKE ALL ON ALL TABLES IN SCHEMA public FROM scuola247_employee;
-REVOKE ALL ON ALL TABLES IN SCHEMA public FROM scuola247_teacher;
-REVOKE ALL ON ALL TABLES IN SCHEMA public FROM scuola247_relative;
-REVOKE ALL ON ALL TABLES IN SCHEMA public FROM scuola247_student;
-REVOKE ALL ON ALL TABLES IN SCHEMA public FROM scuola247_user;
+REVOKE ALL ON DOMAIN scuola247.course_year FROM public;
+REVOKE ALL ON DOMAIN scuola247.course_year FROM scuola247_supervisor;
+REVOKE ALL ON DOMAIN scuola247.course_year FROM scuola247_executive;
+REVOKE ALL ON DOMAIN scuola247.course_year FROM scuola247_employee;
+REVOKE ALL ON DOMAIN scuola247.course_year FROM scuola247_teacher;
+REVOKE ALL ON DOMAIN scuola247.course_year FROM scuola247_relative;
+REVOKE ALL ON DOMAIN scuola247.course_year FROM scuola247_student;
+REVOKE ALL ON DOMAIN scuola247.course_year FROM scuola247_user;
 
-REVOKE ALL ON DOMAIN public.course_year FROM public;
-REVOKE ALL ON DOMAIN public.course_year FROM scuola247_supervisor;
-REVOKE ALL ON DOMAIN public.course_year FROM scuola247_executive;
-REVOKE ALL ON DOMAIN public.course_year FROM scuola247_employee;
-REVOKE ALL ON DOMAIN public.course_year FROM scuola247_teacher;
-REVOKE ALL ON DOMAIN public.course_year FROM scuola247_relative;
-REVOKE ALL ON DOMAIN public.course_year FROM scuola247_student;
-REVOKE ALL ON DOMAIN public.course_year FROM scuola247_user;
+REVOKE ALL ON DOMAIN utility.mime_type_image FROM public;
+REVOKE ALL ON DOMAIN utility.mime_type_image FROM scuola247_supervisor;
+REVOKE ALL ON DOMAIN utility.mime_type_image FROM scuola247_executive;
+REVOKE ALL ON DOMAIN utility.mime_type_image FROM scuola247_employee;
+REVOKE ALL ON DOMAIN utility.mime_type_image FROM scuola247_teacher;
+REVOKE ALL ON DOMAIN utility.mime_type_image FROM scuola247_relative;
+REVOKE ALL ON DOMAIN utility.mime_type_image FROM scuola247_student;
+REVOKE ALL ON DOMAIN utility.mime_type_image FROM scuola247_user;
 
-REVOKE ALL ON DOMAIN public.mime_type_image FROM public;
-REVOKE ALL ON DOMAIN public.mime_type_image FROM scuola247_supervisor;
-REVOKE ALL ON DOMAIN public.mime_type_image FROM scuola247_executive;
-REVOKE ALL ON DOMAIN public.mime_type_image FROM scuola247_employee;
-REVOKE ALL ON DOMAIN public.mime_type_image FROM scuola247_teacher;
-REVOKE ALL ON DOMAIN public.mime_type_image FROM scuola247_relative;
-REVOKE ALL ON DOMAIN public.mime_type_image FROM scuola247_student;
-REVOKE ALL ON DOMAIN public.mime_type_image FROM scuola247_user;
+REVOKE ALL ON DOMAIN scuola247.period_lesson FROM public;
+REVOKE ALL ON DOMAIN scuola247.period_lesson FROM scuola247_supervisor;
+REVOKE ALL ON DOMAIN scuola247.period_lesson FROM scuola247_executive;
+REVOKE ALL ON DOMAIN scuola247.period_lesson FROM scuola247_employee;
+REVOKE ALL ON DOMAIN scuola247.period_lesson FROM scuola247_teacher;
+REVOKE ALL ON DOMAIN scuola247.period_lesson FROM scuola247_relative;
+REVOKE ALL ON DOMAIN scuola247.period_lesson FROM scuola247_student;
+REVOKE ALL ON DOMAIN scuola247.period_lesson FROM scuola247_user;
 
-REVOKE ALL ON DOMAIN public.period_lesson FROM public;
-REVOKE ALL ON DOMAIN public.period_lesson FROM scuola247_supervisor;
-REVOKE ALL ON DOMAIN public.period_lesson FROM scuola247_executive;
-REVOKE ALL ON DOMAIN public.period_lesson FROM scuola247_employee;
-REVOKE ALL ON DOMAIN public.period_lesson FROM scuola247_teacher;
-REVOKE ALL ON DOMAIN public.period_lesson FROM scuola247_relative;
-REVOKE ALL ON DOMAIN public.period_lesson FROM scuola247_student;
-REVOKE ALL ON DOMAIN public.period_lesson FROM scuola247_user;
+REVOKE ALL ON DOMAIN utility.week FROM public;
+REVOKE ALL ON DOMAIN utility.week FROM scuola247_supervisor;
+REVOKE ALL ON DOMAIN utility.week FROM scuola247_executive;
+REVOKE ALL ON DOMAIN utility.week FROM scuola247_employee;
+REVOKE ALL ON DOMAIN utility.week FROM scuola247_teacher;
+REVOKE ALL ON DOMAIN utility.week FROM scuola247_relative;
+REVOKE ALL ON DOMAIN utility.week FROM scuola247_student;
+REVOKE ALL ON DOMAIN utility.week FROM scuola247_user;
 
-REVOKE ALL ON DOMAIN public.week FROM public;
-REVOKE ALL ON DOMAIN public.week FROM scuola247_supervisor;
-REVOKE ALL ON DOMAIN public.week FROM scuola247_executive;
-REVOKE ALL ON DOMAIN public.week FROM scuola247_employee;
-REVOKE ALL ON DOMAIN public.week FROM scuola247_teacher;
-REVOKE ALL ON DOMAIN public.week FROM scuola247_relative;
-REVOKE ALL ON DOMAIN public.week FROM scuola247_student;
-REVOKE ALL ON DOMAIN public.week FROM scuola247_user;
+REVOKE ALL ON DOMAIN utility.week_day FROM public;
+REVOKE ALL ON DOMAIN utility.week_day FROM scuola247_supervisor;
+REVOKE ALL ON DOMAIN utility.week_day FROM scuola247_executive;
+REVOKE ALL ON DOMAIN utility.week_day FROM scuola247_employee;
+REVOKE ALL ON DOMAIN utility.week_day FROM scuola247_teacher;
+REVOKE ALL ON DOMAIN utility.week_day FROM scuola247_relative;
+REVOKE ALL ON DOMAIN utility.week_day FROM scuola247_student;
+REVOKE ALL ON DOMAIN utility.week_day FROM scuola247_user;
 
-REVOKE ALL ON DOMAIN public.week_day FROM public;
-REVOKE ALL ON DOMAIN public.week_day FROM scuola247_supervisor;
-REVOKE ALL ON DOMAIN public.week_day FROM scuola247_executive;
-REVOKE ALL ON DOMAIN public.week_day FROM scuola247_employee;
-REVOKE ALL ON DOMAIN public.week_day FROM scuola247_teacher;
-REVOKE ALL ON DOMAIN public.week_day FROM scuola247_relative;
-REVOKE ALL ON DOMAIN public.week_day FROM scuola247_student;
-REVOKE ALL ON DOMAIN public.week_day FROM scuola247_user;
+REVOKE ALL ON TYPE scuola247.address_type FROM public;
+REVOKE ALL ON TYPE scuola247.address_type FROM scuola247_supervisor;
+REVOKE ALL ON TYPE scuola247.address_type FROM scuola247_executive;
+REVOKE ALL ON TYPE scuola247.address_type FROM scuola247_employee;
+REVOKE ALL ON TYPE scuola247.address_type FROM scuola247_teacher;
+REVOKE ALL ON TYPE scuola247.address_type FROM scuola247_relative;
+REVOKE ALL ON TYPE scuola247.address_type FROM scuola247_student;
+REVOKE ALL ON TYPE scuola247.address_type FROM scuola247_user;
 
-REVOKE ALL ON TYPE public.address_type FROM public;
-REVOKE ALL ON TYPE public.address_type FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.address_type FROM scuola247_executive;
-REVOKE ALL ON TYPE public.address_type FROM scuola247_employee;
-REVOKE ALL ON TYPE public.address_type FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.address_type FROM scuola247_relative;
-REVOKE ALL ON TYPE public.address_type FROM scuola247_student;
-REVOKE ALL ON TYPE public.address_type FROM scuola247_user;
+REVOKE ALL ON TYPE scuola247.explanation_type FROM public;
+REVOKE ALL ON TYPE scuola247.explanation_type FROM scuola247_supervisor;
+REVOKE ALL ON TYPE scuola247.explanation_type FROM scuola247_executive;
+REVOKE ALL ON TYPE scuola247.explanation_type FROM scuola247_employee;
+REVOKE ALL ON TYPE scuola247.explanation_type FROM scuola247_teacher;
+REVOKE ALL ON TYPE scuola247.explanation_type FROM scuola247_relative;
+REVOKE ALL ON TYPE scuola247.explanation_type FROM scuola247_student;
+REVOKE ALL ON TYPE scuola247.explanation_type FROM scuola247_user;
 
-REVOKE ALL ON TYPE public.explanation_type FROM public;
-REVOKE ALL ON TYPE public.explanation_type FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.explanation_type FROM scuola247_executive;
-REVOKE ALL ON TYPE public.explanation_type FROM scuola247_employee;
-REVOKE ALL ON TYPE public.explanation_type FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.explanation_type FROM scuola247_relative;
-REVOKE ALL ON TYPE public.explanation_type FROM scuola247_student;
-REVOKE ALL ON TYPE public.explanation_type FROM scuola247_user;
+REVOKE ALL ON TYPE utility.file_extension FROM public;
+REVOKE ALL ON TYPE utility.file_extension FROM scuola247_supervisor;
+REVOKE ALL ON TYPE utility.file_extension FROM scuola247_executive;
+REVOKE ALL ON TYPE utility.file_extension FROM scuola247_employee;
+REVOKE ALL ON TYPE utility.file_extension FROM scuola247_teacher;
+REVOKE ALL ON TYPE utility.file_extension FROM scuola247_relative;
+REVOKE ALL ON TYPE utility.file_extension FROM scuola247_student;
+REVOKE ALL ON TYPE utility.file_extension FROM scuola247_user;
 
-REVOKE ALL ON TYPE public.file_extension FROM public;
-REVOKE ALL ON TYPE public.file_extension FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.file_extension FROM scuola247_executive;
-REVOKE ALL ON TYPE public.file_extension FROM scuola247_employee;
-REVOKE ALL ON TYPE public.file_extension FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.file_extension FROM scuola247_relative;
-REVOKE ALL ON TYPE public.file_extension FROM scuola247_student;
-REVOKE ALL ON TYPE public.file_extension FROM scuola247_user;
+REVOKE ALL ON TYPE shared.geographical_area FROM public;
+REVOKE ALL ON TYPE shared.geographical_area FROM scuola247_supervisor;
+REVOKE ALL ON TYPE shared.geographical_area FROM scuola247_executive;
+REVOKE ALL ON TYPE shared.geographical_area FROM scuola247_employee;
+REVOKE ALL ON TYPE shared.geographical_area FROM scuola247_teacher;
+REVOKE ALL ON TYPE shared.geographical_area FROM scuola247_relative;
+REVOKE ALL ON TYPE shared.geographical_area FROM scuola247_student;
+REVOKE ALL ON TYPE shared.geographical_area FROM scuola247_user;
 
-REVOKE ALL ON TYPE public.geographical_area FROM public;
-REVOKE ALL ON TYPE public.geographical_area FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.geographical_area FROM scuola247_executive;
-REVOKE ALL ON TYPE public.geographical_area FROM scuola247_employee;
-REVOKE ALL ON TYPE public.geographical_area FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.geographical_area FROM scuola247_relative;
-REVOKE ALL ON TYPE public.geographical_area FROM scuola247_student;
-REVOKE ALL ON TYPE public.geographical_area FROM scuola247_user;
+REVOKE ALL ON TYPE utility.image FROM public;
+REVOKE ALL ON TYPE utility.image FROM scuola247_supervisor;
+REVOKE ALL ON TYPE utility.image FROM scuola247_executive;
+REVOKE ALL ON TYPE utility.image FROM scuola247_employee;
+REVOKE ALL ON TYPE utility.image FROM scuola247_teacher;
+REVOKE ALL ON TYPE utility.image FROM scuola247_relative;
+REVOKE ALL ON TYPE utility.image FROM scuola247_student;
+REVOKE ALL ON TYPE utility.image FROM scuola247_user;
 
-REVOKE ALL ON TYPE public.image FROM public;
-REVOKE ALL ON TYPE public.image FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.image FROM scuola247_executive;
-REVOKE ALL ON TYPE public.image FROM scuola247_employee;
-REVOKE ALL ON TYPE public.image FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.image FROM scuola247_relative;
-REVOKE ALL ON TYPE public.image FROM scuola247_student;
-REVOKE ALL ON TYPE public.image FROM scuola247_user;
+REVOKE ALL ON TYPE scuola247.language FROM public;
+REVOKE ALL ON TYPE scuola247.language FROM scuola247_supervisor;
+REVOKE ALL ON TYPE scuola247.language FROM scuola247_executive;
+REVOKE ALL ON TYPE scuola247.language FROM scuola247_employee;
+REVOKE ALL ON TYPE scuola247.language FROM scuola247_teacher;
+REVOKE ALL ON TYPE scuola247.language FROM scuola247_relative;
+REVOKE ALL ON TYPE scuola247.language FROM scuola247_student;
+REVOKE ALL ON TYPE scuola247.language FROM scuola247_user;
 
-REVOKE ALL ON TYPE public.language FROM public;
-REVOKE ALL ON TYPE public.language FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.language FROM scuola247_executive;
-REVOKE ALL ON TYPE public.language FROM scuola247_employee;
-REVOKE ALL ON TYPE public.language FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.language FROM scuola247_relative;
-REVOKE ALL ON TYPE public.language FROM scuola247_student;
-REVOKE ALL ON TYPE public.language FROM scuola247_user;
+REVOKE ALL ON TYPE scuola247.marital_status FROM public;
+REVOKE ALL ON TYPE scuola247.marital_status FROM scuola247_supervisor;
+REVOKE ALL ON TYPE scuola247.marital_status FROM scuola247_executive;
+REVOKE ALL ON TYPE scuola247.marital_status FROM scuola247_employee;
+REVOKE ALL ON TYPE scuola247.marital_status FROM scuola247_teacher;
+REVOKE ALL ON TYPE scuola247.marital_status FROM scuola247_relative;
+REVOKE ALL ON TYPE scuola247.marital_status FROM scuola247_student;
+REVOKE ALL ON TYPE scuola247.marital_status FROM scuola247_user;
 
-REVOKE ALL ON TYPE public.marital_status FROM public;
-REVOKE ALL ON TYPE public.marital_status FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.marital_status FROM scuola247_executive;
-REVOKE ALL ON TYPE public.marital_status FROM scuola247_employee;
-REVOKE ALL ON TYPE public.marital_status FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.marital_status FROM scuola247_relative;
-REVOKE ALL ON TYPE public.marital_status FROM scuola247_student;
-REVOKE ALL ON TYPE public.marital_status FROM scuola247_user;
+REVOKE ALL ON TYPE utility.mime_type FROM public;
+REVOKE ALL ON TYPE utility.mime_type FROM scuola247_supervisor;
+REVOKE ALL ON TYPE utility.mime_type FROM scuola247_executive;
+REVOKE ALL ON TYPE utility.mime_type FROM scuola247_employee;
+REVOKE ALL ON TYPE utility.mime_type FROM scuola247_teacher;
+REVOKE ALL ON TYPE utility.mime_type FROM scuola247_relative;
+REVOKE ALL ON TYPE utility.mime_type FROM scuola247_student;
+REVOKE ALL ON TYPE utility.mime_type FROM scuola247_user;
 
-REVOKE ALL ON TYPE public.mime_type FROM public;
-REVOKE ALL ON TYPE public.mime_type FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.mime_type FROM scuola247_executive;
-REVOKE ALL ON TYPE public.mime_type FROM scuola247_employee;
-REVOKE ALL ON TYPE public.mime_type FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.mime_type FROM scuola247_relative;
-REVOKE ALL ON TYPE public.mime_type FROM scuola247_student;
-REVOKE ALL ON TYPE public.mime_type FROM scuola247_user;
+REVOKE ALL ON TYPE scuola247.relationships FROM public;
+REVOKE ALL ON TYPE scuola247.relationships FROM scuola247_supervisor;
+REVOKE ALL ON TYPE scuola247.relationships FROM scuola247_executive;
+REVOKE ALL ON TYPE scuola247.relationships FROM scuola247_employee;
+REVOKE ALL ON TYPE scuola247.relationships FROM scuola247_teacher;
+REVOKE ALL ON TYPE scuola247.relationships FROM scuola247_relative;
+REVOKE ALL ON TYPE scuola247.relationships FROM scuola247_student;
+REVOKE ALL ON TYPE scuola247.relationships FROM scuola247_user;
 
-REVOKE ALL ON TYPE public.relationships FROM public;
-REVOKE ALL ON TYPE public.relationships FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.relationships FROM scuola247_executive;
-REVOKE ALL ON TYPE public.relationships FROM scuola247_employee;
-REVOKE ALL ON TYPE public.relationships FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.relationships FROM scuola247_relative;
-REVOKE ALL ON TYPE public.relationships FROM scuola247_student;
-REVOKE ALL ON TYPE public.relationships FROM scuola247_user;
+REVOKE ALL ON TYPE scuola247.role FROM public;
+REVOKE ALL ON TYPE scuola247.role FROM scuola247_supervisor;
+REVOKE ALL ON TYPE scuola247.role FROM scuola247_executive;
+REVOKE ALL ON TYPE scuola247.role FROM scuola247_employee;
+REVOKE ALL ON TYPE scuola247.role FROM scuola247_teacher;
+REVOKE ALL ON TYPE scuola247.role FROM scuola247_relative;
+REVOKE ALL ON TYPE scuola247.role FROM scuola247_student;
+REVOKE ALL ON TYPE scuola247.role FROM scuola247_user;
 
-REVOKE ALL ON TYPE public.role FROM public;
-REVOKE ALL ON TYPE public.role FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.role FROM scuola247_executive;
-REVOKE ALL ON TYPE public.role FROM scuola247_employee;
-REVOKE ALL ON TYPE public.role FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.role FROM scuola247_relative;
-REVOKE ALL ON TYPE public.role FROM scuola247_student;
-REVOKE ALL ON TYPE public.role FROM scuola247_user;
+REVOKE ALL ON TYPE scuola247.sex FROM public;
+REVOKE ALL ON TYPE scuola247.sex FROM scuola247_supervisor;
+REVOKE ALL ON TYPE scuola247.sex FROM scuola247_executive;
+REVOKE ALL ON TYPE scuola247.sex FROM scuola247_employee;
+REVOKE ALL ON TYPE scuola247.sex FROM scuola247_teacher;
+REVOKE ALL ON TYPE scuola247.sex FROM scuola247_relative;
+REVOKE ALL ON TYPE scuola247.sex FROM scuola247_student;
+REVOKE ALL ON TYPE scuola247.sex FROM scuola247_user;
 
-REVOKE ALL ON TYPE public.sex FROM public;
-REVOKE ALL ON TYPE public.sex FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.sex FROM scuola247_executive;
-REVOKE ALL ON TYPE public.sex FROM scuola247_employee;
-REVOKE ALL ON TYPE public.sex FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.sex FROM scuola247_relative;
-REVOKE ALL ON TYPE public.sex FROM scuola247_student;
-REVOKE ALL ON TYPE public.sex FROM scuola247_user;
+REVOKE ALL ON TYPE scuola247.wikimedia_type FROM public;
+REVOKE ALL ON TYPE scuola247.wikimedia_type FROM scuola247_supervisor;
+REVOKE ALL ON TYPE scuola247.wikimedia_type FROM scuola247_executive;
+REVOKE ALL ON TYPE scuola247.wikimedia_type FROM scuola247_employee;
+REVOKE ALL ON TYPE scuola247.wikimedia_type FROM scuola247_teacher;
+REVOKE ALL ON TYPE scuola247.wikimedia_type FROM scuola247_relative;
+REVOKE ALL ON TYPE scuola247.wikimedia_type FROM scuola247_student;
+REVOKE ALL ON TYPE scuola247.wikimedia_type FROM scuola247_user;
 
-REVOKE ALL ON TYPE public.wikimedia_type FROM public;
-REVOKE ALL ON TYPE public.wikimedia_type FROM scuola247_supervisor;
-REVOKE ALL ON TYPE public.wikimedia_type FROM scuola247_executive;
-REVOKE ALL ON TYPE public.wikimedia_type FROM scuola247_employee;
-REVOKE ALL ON TYPE public.wikimedia_type FROM scuola247_teacher;
-REVOKE ALL ON TYPE public.wikimedia_type FROM scuola247_relative;
-REVOKE ALL ON TYPE public.wikimedia_type FROM scuola247_student;
-REVOKE ALL ON TYPE public.wikimedia_type FROM scuola247_user;
+GRANT ALL ON SCHEMA scuola247 TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON SCHEMA scuola247 TO scuola247_user;
 
-GRANT ALL ON SCHEMA public TO scuola247_supervisor WITH GRANT OPTION;
-GRANT USAGE ON SCHEMA public TO scuola247_user;
+GRANT ALL ON DOMAIN scuola247.course_year TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON DOMAIN utility.mime_type_image TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON DOMAIN scuola247.period_lesson TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON DOMAIN utility.week TO scuola247_supervisor WITH GRANT OPTION;
+GRANT ALL ON DOMAIN utility.week_day TO scuola247_supervisor WITH GRANT OPTION;
 
-GRANT ALL ON DOMAIN public.course_year TO scuola247_supervisor WITH GRANT OPTION;
-GRANT ALL ON DOMAIN public.mime_type_image TO scuola247_supervisor WITH GRANT OPTION;
-GRANT ALL ON DOMAIN public.period_lesson TO scuola247_supervisor WITH GRANT OPTION;
-GRANT ALL ON DOMAIN public.week TO scuola247_supervisor WITH GRANT OPTION;
-GRANT ALL ON DOMAIN public.week_day TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON DOMAIN scuola247.course_year TO scuola247_user WITH GRANT OPTION;
+GRANT USAGE ON DOMAIN utility.mime_type_image TO scuola247_user WITH GRANT OPTION;
+GRANT USAGE ON DOMAIN scuola247.period_lesson TO scuola247_user WITH GRANT OPTION;
+GRANT USAGE ON DOMAIN utility.week TO scuola247_user WITH GRANT OPTION;
+GRANT USAGE ON DOMAIN utility.week_day TO scuola247_user WITH GRANT OPTION;
 
-GRANT USAGE ON DOMAIN public.course_year TO scuola247_user WITH GRANT OPTION;
-GRANT USAGE ON DOMAIN public.mime_type_image TO scuola247_user WITH GRANT OPTION;
-GRANT USAGE ON DOMAIN public.period_lesson TO scuola247_user WITH GRANT OPTION;
-GRANT USAGE ON DOMAIN public.week TO scuola247_user WITH GRANT OPTION;
-GRANT USAGE ON DOMAIN public.week_day TO scuola247_user WITH GRANT OPTION;
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA scuola247 TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA scuola247 TO scuola247_user;
 
-GRANT ALL ON ALL FUNCTIONS IN SCHEMA public TO scuola247_supervisor WITH GRANT OPTION;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO scuola247_user;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA scuola247 TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON ALL SEQUENCES IN SCHEMA scuola247 TO scuola247_user;
 
-GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO scuola247_supervisor WITH GRANT OPTION;
-GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO scuola247_user;
+GRANT ALL ON TYPE scuola247.address_type TO scuola247_supervisor;
+GRANT ALL ON TYPE scuola247.explanation_type TO scuola247_supervisor;
+GRANT ALL ON TYPE utility.file_extension TO scuola247_supervisor;
+GRANT ALL ON TYPE shared.geographical_area TO scuola247_supervisor;
+GRANT ALL ON TYPE utility.image TO scuola247_supervisor;
+GRANT ALL ON TYPE scuola247.language TO scuola247_supervisor;
+GRANT ALL ON TYPE scuola247.marital_status TO scuola247_supervisor;
+GRANT ALL ON TYPE utility.mime_type TO scuola247_supervisor;
+GRANT ALL ON TYPE scuola247.relationships TO scuola247_supervisor;
+GRANT ALL ON TYPE scuola247.role TO scuola247_supervisor;
+GRANT ALL ON TYPE scuola247.sex TO scuola247_supervisor;
+GRANT ALL ON TYPE scuola247.wikimedia_type TO scuola247_supervisor;
 
-GRANT ALL ON TYPE public.address_type TO scuola247_supervisor;
-GRANT ALL ON TYPE public.explanation_type TO scuola247_supervisor;
-GRANT ALL ON TYPE public.file_extension TO scuola247_supervisor;
-GRANT ALL ON TYPE public.geographical_area TO scuola247_supervisor;
-GRANT ALL ON TYPE public.image TO scuola247_supervisor;
-GRANT ALL ON TYPE public.language TO scuola247_supervisor;
-GRANT ALL ON TYPE public.marital_status TO scuola247_supervisor;
-GRANT ALL ON TYPE public.mime_type TO scuola247_supervisor;
-GRANT ALL ON TYPE public.relationships TO scuola247_supervisor;
-GRANT ALL ON TYPE public.role TO scuola247_supervisor;
-GRANT ALL ON TYPE public.sex TO scuola247_supervisor;
-GRANT ALL ON TYPE public.wikimedia_type TO scuola247_supervisor;
-
-GRANT USAGE ON TYPE public.address_type TO scuola247_user;
-GRANT USAGE ON TYPE public.explanation_type TO scuola247_user;
-GRANT USAGE ON TYPE public.file_extension TO scuola247_user;
-GRANT USAGE ON TYPE public.geographical_area TO scuola247_user;
-GRANT USAGE ON TYPE public.image TO scuola247_user;
-GRANT USAGE ON TYPE public.language TO scuola247_user;
-GRANT USAGE ON TYPE public.marital_status TO scuola247_user;
-GRANT USAGE ON TYPE public.mime_type TO scuola247_user;
-GRANT USAGE ON TYPE public.relationships TO scuola247_user;
-GRANT USAGE ON TYPE public.role TO scuola247_user;
-GRANT USAGE ON TYPE public.sex TO scuola247_user;
-GRANT USAGE ON TYPE public.wikimedia_type TO scuola247_user;
+GRANT USAGE ON TYPE scuola247.address_type TO scuola247_user;
+GRANT USAGE ON TYPE scuola247.explanation_type TO scuola247_user;
+GRANT USAGE ON TYPE utility.file_extension TO scuola247_user;
+GRANT USAGE ON TYPE shared.geographical_area TO scuola247_user;
+GRANT USAGE ON TYPE utility.image TO scuola247_user;
+GRANT USAGE ON TYPE scuola247.language TO scuola247_user;
+GRANT USAGE ON TYPE scuola247.marital_status TO scuola247_user;
+GRANT USAGE ON TYPE utility.mime_type TO scuola247_user;
+GRANT USAGE ON TYPE scuola247.relationships TO scuola247_user;
+GRANT USAGE ON TYPE scuola247.role TO scuola247_user;
+GRANT USAGE ON TYPE scuola247.sex TO scuola247_user;
+GRANT USAGE ON TYPE scuola247.wikimedia_type TO scuola247_user;
 
 -- absences
-GRANT ALL ON TABLE public.absences TO scuola247_supervisor;
-GRANT ALL ON TABLE public.absences TO scuola247_executive;
-GRANT ALL ON TABLE public.absences TO scuola247_teacher;
-GRANT ALL ON TABLE public.absences TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.absences TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.absences TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.absences TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.absences TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.absences TO scuola247_student;
-GRANT SELECT ON TABLE public.absences TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.absences TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.absences TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- branches
-GRANT ALL ON TABLE public.branches TO scuola247_supervisor;
-GRANT ALL ON TABLE public.branches TO scuola247_executive;
-GRANT ALL ON TABLE public.branches TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.branches TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.branches TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.branches TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.branches TO scuola247_teacher;
-GRANT SELECT ON TABLE public.branches TO scuola247_student;
-GRANT SELECT ON TABLE public.branches TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.branches TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.branches TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.branches TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- cities
-GRANT ALL ON TABLE public.cities TO scuola247_supervisor;
+GRANT ALL ON TABLE shared.cities TO scuola247_supervisor;
 
-GRANT SELECT ON TABLE public.cities TO scuola247_executive;
-GRANT SELECT ON TABLE public.cities TO scuola247_employee;
-GRANT SELECT ON TABLE public.cities TO scuola247_teacher;
-GRANT SELECT ON TABLE public.cities TO scuola247_student;
-GRANT SELECT ON TABLE public.cities TO scuola247_relative;
+GRANT SELECT ON TABLE shared.cities TO scuola247_executive;
+GRANT SELECT ON TABLE shared.cities TO scuola247_employee;
+GRANT SELECT ON TABLE shared.cities TO scuola247_teacher;
+GRANT SELECT ON TABLE shared.cities TO scuola247_student;
+GRANT SELECT ON TABLE shared.cities TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- classrooms
-GRANT ALL ON TABLE public.classrooms TO scuola247_supervisor;
-GRANT ALL ON TABLE public.classrooms TO scuola247_executive;
-GRANT ALL ON TABLE public.classrooms TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.classrooms TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.classrooms TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.classrooms TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.classrooms TO scuola247_teacher;
-GRANT SELECT ON TABLE public.classrooms TO scuola247_student;
-GRANT SELECT ON TABLE public.classrooms TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.classrooms TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.classrooms TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.classrooms TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- classrooms_students
-GRANT ALL ON TABLE public.classrooms_students TO scuola247_supervisor;
-GRANT ALL ON TABLE public.classrooms_students TO scuola247_executive;
-GRANT ALL ON TABLE public.classrooms_students TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.classrooms_students TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.classrooms_students TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.classrooms_students TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.classrooms_students TO scuola247_teacher;
-GRANT SELECT ON TABLE public.classrooms_students TO scuola247_student;
-GRANT SELECT ON TABLE public.classrooms_students TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.classrooms_students TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.classrooms_students TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.classrooms_students TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- communication_types
-GRANT ALL ON TABLE public.communication_types TO scuola247_supervisor;
-GRANT ALL ON TABLE public.communication_types TO scuola247_executive;
-GRANT ALL ON TABLE public.communication_types TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.communication_types TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.communication_types TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.communication_types TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.communication_types TO scuola247_teacher;
-GRANT SELECT ON TABLE public.communication_types TO scuola247_student;
-GRANT SELECT ON TABLE public.communication_types TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.communication_types TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.communication_types TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.communication_types TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- communications_media
-GRANT ALL ON TABLE public.communications_media TO scuola247_supervisor;
-GRANT ALL ON TABLE public.communications_media TO scuola247_executive;
-GRANT ALL ON TABLE public.communications_media TO scuola247_employee;
-GRANT ALL ON TABLE public.communications_media TO scuola247_teacher;
-GRANT ALL ON TABLE public.communications_media TO scuola247_student;
-GRANT ALL ON TABLE public.communications_media TO scuola247_relative;
+GRANT ALL ON TABLE scuola247.communications_media TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.communications_media TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.communications_media TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.communications_media TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.communications_media TO scuola247_student;
+GRANT ALL ON TABLE scuola247.communications_media TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- conversations
-GRANT ALL ON TABLE public.conversations TO scuola247_supervisor;
-GRANT ALL ON TABLE public.conversations TO scuola247_executive;
-GRANT ALL ON TABLE public.conversations TO scuola247_employee;
-GRANT ALL ON TABLE public.conversations TO scuola247_teacher;
-GRANT ALL ON TABLE public.conversations TO scuola247_student;
-GRANT ALL ON TABLE public.conversations TO scuola247_relative;
+GRANT ALL ON TABLE scuola247.conversations TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.conversations TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.conversations TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.conversations TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.conversations TO scuola247_student;
+GRANT ALL ON TABLE scuola247.conversations TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- conversations_invites
-GRANT ALL ON TABLE public.conversations_invites TO scuola247_supervisor;
-GRANT ALL ON TABLE public.conversations_invites TO scuola247_executive;
-GRANT ALL ON TABLE public.conversations_invites TO scuola247_employee;
-GRANT ALL ON TABLE public.conversations_invites TO scuola247_teacher;
-GRANT ALL ON TABLE public.conversations_invites TO scuola247_student;
-GRANT ALL ON TABLE public.conversations_invites TO scuola247_relative;
+GRANT ALL ON TABLE scuola247.conversations_invites TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.conversations_invites TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.conversations_invites TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.conversations_invites TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.conversations_invites TO scuola247_student;
+GRANT ALL ON TABLE scuola247.conversations_invites TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- countries
-GRANT ALL ON TABLE public.countries TO scuola247_supervisor;
+GRANT ALL ON TABLE shared.countries TO scuola247_supervisor;
 
-GRANT SELECT ON TABLE public.countries TO scuola247_executive;
-GRANT SELECT ON TABLE public.countries TO scuola247_employee;
-GRANT SELECT ON TABLE public.countries TO scuola247_teacher;
-GRANT SELECT ON TABLE public.countries TO scuola247_student;
-GRANT SELECT ON TABLE public.countries TO scuola247_relative;
+GRANT SELECT ON TABLE shared.countries TO scuola247_executive;
+GRANT SELECT ON TABLE shared.countries TO scuola247_employee;
+GRANT SELECT ON TABLE shared.countries TO scuola247_teacher;
+GRANT SELECT ON TABLE shared.countries TO scuola247_student;
+GRANT SELECT ON TABLE shared.countries TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- degrees
-GRANT ALL ON TABLE public.degrees TO scuola247_supervisor;
-GRANT ALL ON TABLE public.degrees TO scuola247_executive;
-GRANT ALL ON TABLE public.degrees TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.degrees TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.degrees TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.degrees TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.degrees TO scuola247_teacher;
-GRANT SELECT ON TABLE public.degrees TO scuola247_student;
-GRANT SELECT ON TABLE public.degrees TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.degrees TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.degrees TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.degrees TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- delays
-GRANT ALL ON TABLE public.delays TO scuola247_supervisor;
-GRANT ALL ON TABLE public.delays TO scuola247_executive;
-GRANT ALL ON TABLE public.delays TO scuola247_employee;
-GRANT ALL ON TABLE public.delays TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.delays TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.delays TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.delays TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.delays TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.delays TO scuola247_student;
-GRANT SELECT ON TABLE public.delays TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.delays TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.delays TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- districts
-GRANT ALL ON TABLE public.districts TO scuola247_supervisor;
+GRANT ALL ON TABLE shared.districts TO scuola247_supervisor;
 
-GRANT SELECT ON TABLE public.districts TO scuola247_executive;
-GRANT SELECT ON TABLE public.districts TO scuola247_employee;
-GRANT SELECT ON TABLE public.districts TO scuola247_teacher;
-GRANT SELECT ON TABLE public.districts TO scuola247_student;
-GRANT SELECT ON TABLE public.districts TO scuola247_relative;
+GRANT SELECT ON TABLE shared.districts TO scuola247_executive;
+GRANT SELECT ON TABLE shared.districts TO scuola247_employee;
+GRANT SELECT ON TABLE shared.districts TO scuola247_teacher;
+GRANT SELECT ON TABLE shared.districts TO scuola247_student;
+GRANT SELECT ON TABLE shared.districts TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- explanations
-GRANT ALL ON TABLE public.explanations TO scuola247_supervisor;
-GRANT ALL ON TABLE public.explanations TO scuola247_executive;
-GRANT ALL ON TABLE public.explanations TO scuola247_employee;
-GRANT ALL ON TABLE public.explanations TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.explanations TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.explanations TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.explanations TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.explanations TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.explanations TO scuola247_relative;
-GRANT SELECT ON TABLE public.explanations TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.explanations TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.explanations TO scuola247_student;
 ------------------------------------------------------
 ------------------------------------------------------
 
 -- faults
-GRANT ALL ON TABLE public.faults TO scuola247_supervisor;
-GRANT ALL ON TABLE public.faults TO scuola247_executive;
-GRANT ALL ON TABLE public.faults TO scuola247_employee;
-GRANT ALL ON TABLE public.faults TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.faults TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.faults TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.faults TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.faults TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.faults TO scuola247_student;
-GRANT SELECT ON TABLE public.faults TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.faults TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.faults TO scuola247_relative;
 ------------------------------------------------------
 ------------------------------------------------------
 
 -- grade_types
-GRANT ALL ON TABLE public.grade_types TO scuola247_supervisor;
-GRANT ALL ON TABLE public.grade_types TO scuola247_executive;
-GRANT ALL ON TABLE public.grade_types TO scuola247_teacher;
-GRANT ALL ON TABLE public.grade_types TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.grade_types TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.grade_types TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.grade_types TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.grade_types TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.grade_types TO scuola247_relative;
-GRANT SELECT ON TABLE public.grade_types TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.grade_types TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.grade_types TO scuola247_student;
 ------------------------------------------------------
 ------------------------------------------------------
 
 -- grades
-GRANT ALL ON TABLE public.grades TO scuola247_supervisor;
-GRANT ALL ON TABLE public.grades TO scuola247_executive;
-GRANT ALL ON TABLE public.grades TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.grades TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.grades TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.grades TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.grades TO scuola247_employee;
-GRANT SELECT ON TABLE public.grades TO scuola247_student;
-GRANT SELECT ON TABLE public.grades TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.grades TO scuola247_employee;
+GRANT SELECT ON TABLE scuola247.grades TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.grades TO scuola247_relative;
 ------------------------------------------------------
 ------------------------------------------------------
 
 -- grading_meetings
-GRANT ALL ON TABLE public.grading_meetings TO scuola247_supervisor;
-GRANT ALL ON TABLE public.grading_meetings TO scuola247_executive;
-GRANT ALL ON TABLE public.grading_meetings TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.grading_meetings TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.grading_meetings TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.grading_meetings TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.grading_meetings TO scuola247_teacher;
-GRANT SELECT ON TABLE public.grading_meetings TO scuola247_student;
-GRANT SELECT ON TABLE public.grading_meetings TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.grading_meetings TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.grading_meetings TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.grading_meetings TO scuola247_relative;
 ------------------------------------------------------
 ------------------------------------------------------
 
 -- grading_meetings_valutations
-GRANT ALL ON TABLE public.grading_meetings_valutations TO scuola247_supervisor;
-GRANT ALL ON TABLE public.grading_meetings_valutations TO scuola247_executive;
-GRANT ALL ON TABLE public.grading_meetings_valutations TO scuola247_teacher;
-GRANT ALL ON TABLE public.grading_meetings_valutations TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.grading_meetings_valutations TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.grading_meetings_valutations TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.grading_meetings_valutations TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.grading_meetings_valutations TO scuola247_employee;
 
 
-GRANT SELECT ON TABLE public.grading_meetings_valutations TO scuola247_relative;
-GRANT SELECT ON TABLE public.grading_meetings_valutations TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.grading_meetings_valutations TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.grading_meetings_valutations TO scuola247_student;
 ------------------------------------------------------
 ------------------------------------------------------
 
 -- grading_meetings_valutations_qua
-GRANT ALL ON TABLE public.grading_meetings_valutations_qua TO scuola247_supervisor;
-GRANT ALL ON TABLE public.grading_meetings_valutations_qua TO scuola247_executive;
-GRANT ALL ON TABLE public.grading_meetings_valutations_qua TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.grading_meetings_valutations_qua TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.grading_meetings_valutations_qua TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.grading_meetings_valutations_qua TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.grading_meetings_valutations_qua TO scuola247_employee;
-GRANT SELECT ON TABLE public.grading_meetings_valutations_qua TO scuola247_relative;
-GRANT SELECT ON TABLE public.grading_meetings_valutations_qua TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.grading_meetings_valutations_qua TO scuola247_employee;
+GRANT SELECT ON TABLE scuola247.grading_meetings_valutations_qua TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.grading_meetings_valutations_qua TO scuola247_student;
 ------------------------------------------------------
 ------------------------------------------------------
 
 -- holidays
-GRANT ALL ON TABLE public.holidays TO scuola247_supervisor;
-GRANT ALL ON TABLE public.holidays TO scuola247_executive;
-GRANT ALL ON TABLE public.holidays TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.holidays TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.holidays TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.holidays TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.holidays TO scuola247_teacher;
-GRANT SELECT ON TABLE public.holidays TO scuola247_relative;
-GRANT SELECT ON TABLE public.holidays TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.holidays TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.holidays TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.holidays TO scuola247_student;
 ------------------------------------------------------
 ------------------------------------------------------
 
 -- leavings
-GRANT ALL ON TABLE public.leavings TO scuola247_supervisor;
-GRANT ALL ON TABLE public.leavings TO scuola247_executive;
-GRANT ALL ON TABLE public.leavings TO scuola247_employee;
-GRANT ALL ON TABLE public.leavings TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.leavings TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.leavings TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.leavings TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.leavings TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.leavings TO scuola247_student;
-GRANT SELECT ON TABLE public.leavings TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.leavings TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.leavings TO scuola247_relative;
 ------------------------------------------------------
 ------------------------------------------------------
 
 -- lessons
-GRANT ALL ON TABLE public.lessons TO scuola247_supervisor;
-GRANT ALL ON TABLE public.lessons TO scuola247_executive;
-GRANT ALL ON TABLE public.lessons TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.lessons TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.lessons TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.lessons TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.lessons TO scuola247_employee;
-GRANT SELECT ON TABLE public.lessons TO scuola247_student;
-GRANT SELECT ON TABLE public.lessons TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.lessons TO scuola247_employee;
+GRANT SELECT ON TABLE scuola247.lessons TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.lessons TO scuola247_relative;
 ------------------------------------------------------
 ------------------------------------------------------
 
 -- messages
-GRANT ALL ON TABLE public.messages TO scuola247_supervisor;
-GRANT ALL ON TABLE public.messages TO scuola247_executive;
-GRANT ALL ON TABLE public.messages TO scuola247_employee;
-GRANT ALL ON TABLE public.messages TO scuola247_teacher;
-GRANT ALL ON TABLE public.messages TO scuola247_student;
-GRANT ALL ON TABLE public.messages TO scuola247_relative;
+GRANT ALL ON TABLE scuola247.messages TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.messages TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.messages TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.messages TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.messages TO scuola247_student;
+GRANT ALL ON TABLE scuola247.messages TO scuola247_relative;
 ------------------------------------------------------
 ------------------------------------------------------
 
 -- messages_read
-GRANT ALL ON TABLE public.messages_read TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.messages_read TO scuola247_supervisor;
 
-GRANT SELECT, INSERT ON TABLE public.messages_read TO scuola247_executive;
-GRANT SELECT, INSERT ON TABLE public.messages_read TO scuola247_employee;
-GRANT SELECT, INSERT ON TABLE public.messages_read TO scuola247_teacher;
-GRANT SELECT, INSERT ON TABLE public.messages_read TO scuola247_student;
-GRANT SELECT, INSERT ON TABLE public.messages_read TO scuola247_relative;
+GRANT SELECT, INSERT ON TABLE scuola247.messages_read TO scuola247_executive;
+GRANT SELECT, INSERT ON TABLE scuola247.messages_read TO scuola247_employee;
+GRANT SELECT, INSERT ON TABLE scuola247.messages_read TO scuola247_teacher;
+GRANT SELECT, INSERT ON TABLE scuola247.messages_read TO scuola247_student;
+GRANT SELECT, INSERT ON TABLE scuola247.messages_read TO scuola247_relative;
 ------------------------------------------------------
 ------------------------------------------------------
 
 -- metrics
-GRANT ALL ON TABLE public.metrics TO scuola247_supervisor;
-GRANT ALL ON TABLE public.metrics TO scuola247_executive;
-GRANT ALL ON TABLE public.metrics TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.metrics TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.metrics TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.metrics TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.metrics TO scuola247_teacher;
-GRANT SELECT ON TABLE public.metrics TO scuola247_student;
-GRANT SELECT ON TABLE public.metrics TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.metrics TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.metrics TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.metrics TO scuola247_relative;
 ------------------------------------------------------
 ------------------------------------------------------
 
 -- notes
-GRANT ALL ON TABLE public.notes TO scuola247_supervisor;
-GRANT ALL ON TABLE public.notes TO scuola247_executive;
-GRANT ALL ON TABLE public.notes TO scuola247_employee;
-GRANT ALL ON TABLE public.notes TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.notes TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.notes TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.notes TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.notes TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.notes TO scuola247_student;
-GRANT SELECT ON TABLE public.notes TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.notes TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.notes TO scuola247_relative;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
 -- notes_signed
-GRANT ALL ON TABLE public.notes_signed TO scuola247_supervisor;
-GRANT ALL ON TABLE public.notes_signed TO scuola247_executive;
-GRANT ALL ON TABLE public.notes_signed TO scuola247_employee;
-GRANT ALL ON TABLE public.notes_signed TO scuola247_relative;
-GRANT ALL ON TABLE public.notes_signed TO scuola247_teacher;
-GRANT ALL ON TABLE public.notes_signed TO scuola247_student;
+GRANT ALL ON TABLE scuola247.notes_signed TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.notes_signed TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.notes_signed TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.notes_signed TO scuola247_relative;
+GRANT ALL ON TABLE scuola247.notes_signed TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.notes_signed TO scuola247_student;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
 -- out_of_classrooms
-GRANT ALL ON TABLE public.out_of_classrooms TO scuola247_supervisor;
-GRANT ALL ON TABLE public.out_of_classrooms TO scuola247_executive;
-GRANT ALL ON TABLE public.out_of_classrooms TO scuola247_employee;
-GRANT ALL ON TABLE public.out_of_classrooms TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.out_of_classrooms TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.out_of_classrooms TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.out_of_classrooms TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.out_of_classrooms TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.out_of_classrooms TO scuola247_student;
-GRANT SELECT ON TABLE public.out_of_classrooms TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.out_of_classrooms TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.out_of_classrooms TO scuola247_relative;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
 -- parents_meetings
-GRANT ALL ON TABLE public.parents_meetings TO scuola247_supervisor;
-GRANT ALL ON TABLE public.parents_meetings TO scuola247_executive;
-GRANT ALL ON TABLE public.parents_meetings TO scuola247_employee;
-GRANT ALL ON TABLE public.parents_meetings TO scuola247_teacher;
-GRANT ALL ON TABLE public.parents_meetings TO scuola247_relative;
+GRANT ALL ON TABLE scuola247.parents_meetings TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.parents_meetings TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.parents_meetings TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.parents_meetings TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.parents_meetings TO scuola247_relative;
 
 /* date grant alla sola colonna person */
-GRANT SELECT(parents_meeting, person) ON TABLE public.parents_meetings TO scuola247_student;
+GRANT SELECT(parents_meeting, person) ON TABLE scuola247.parents_meetings TO scuola247_student;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
 -- persons
-GRANT ALL ON TABLE public.persons TO scuola247_supervisor;
-GRANT ALL ON TABLE public.persons TO scuola247_executive;
-GRANT ALL ON TABLE public.persons TO scuola247_employee;
-GRANT ALL ON TABLE public.persons TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.persons TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.persons TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.persons TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.persons TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.persons TO scuola247_student;
-GRANT SELECT ON TABLE public.persons TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.persons TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.persons TO scuola247_relative;
 ---------------------------------------------------------------
 ---------------------------------------------------------------
 
 -- persons_addresses
-GRANT ALL ON TABLE public.persons_addresses TO scuola247_supervisor;
-GRANT ALL ON TABLE public.persons_addresses TO scuola247_executive;
-GRANT ALL ON TABLE public.persons_addresses TO scuola247_employee;
-GRANT ALL ON TABLE public.persons_addresses TO scuola247_teacher;
-GRANT ALL ON TABLE public.persons_addresses TO scuola247_student;
-GRANT ALL ON TABLE public.persons_addresses TO scuola247_relative;
+GRANT ALL ON TABLE scuola247.persons_addresses TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.persons_addresses TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.persons_addresses TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.persons_addresses TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.persons_addresses TO scuola247_student;
+GRANT ALL ON TABLE scuola247.persons_addresses TO scuola247_relative;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
 -- persons_relations
-GRANT ALL ON TABLE public.persons_relations TO scuola247_supervisor;
-GRANT ALL ON TABLE public.persons_relations TO scuola247_executive;
-GRANT ALL ON TABLE public.persons_relations TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.persons_relations TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.persons_relations TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.persons_relations TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.persons_relations TO scuola247_teacher;
-GRANT SELECT ON TABLE public.persons_relations TO scuola247_student;
-GRANT SELECT ON TABLE public.persons_relations TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.persons_relations TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.persons_relations TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.persons_relations TO scuola247_relative;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
 -- persons_roles
-GRANT ALL ON TABLE public.persons_roles TO scuola247_supervisor;
-GRANT ALL ON TABLE public.persons_roles TO scuola247_executive;
-GRANT ALL ON TABLE public.persons_roles TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.persons_roles TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.persons_roles TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.persons_roles TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.persons_roles TO scuola247_teacher;
-GRANT SELECT ON TABLE public.persons_roles TO scuola247_student;
-GRANT SELECT ON TABLE public.persons_roles TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.persons_roles TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.persons_roles TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.persons_roles TO scuola247_relative;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
 -- qualifications
-GRANT ALL ON TABLE public.qualifications TO scuola247_supervisor;
-GRANT ALL ON TABLE public.qualifications TO scuola247_executive;
-GRANT ALL ON TABLE public.qualifications TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.qualifications TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.qualifications TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.qualifications TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.qualifications TO scuola247_teacher;
-GRANT SELECT ON TABLE public.qualifications TO scuola247_student;
-GRANT SELECT ON TABLE public.qualifications TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.qualifications TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.qualifications TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.qualifications TO scuola247_relative;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
 -- qualifications_plan
-GRANT ALL ON TABLE public.qualifications_plan TO scuola247_supervisor;
-GRANT ALL ON TABLE public.qualifications_plan TO scuola247_executive;
-GRANT ALL ON TABLE public.qualifications_plan TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.qualifications_plan TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.qualifications_plan TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.qualifications_plan TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.qualifications_plan TO scuola247_teacher;
-GRANT SELECT ON TABLE public.qualifications_plan TO scuola247_student;
-GRANT SELECT ON TABLE public.qualifications_plan TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.qualifications_plan TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.qualifications_plan TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.qualifications_plan TO scuola247_relative;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
 -- regions
-GRANT ALL ON TABLE public.regions TO scuola247_supervisor;
+GRANT ALL ON TABLE shared.regions TO scuola247_supervisor;
 
-GRANT SELECT ON TABLE public.regions TO scuola247_executive;
-GRANT SELECT ON TABLE public.regions TO scuola247_employee;
-GRANT SELECT ON TABLE public.regions TO scuola247_teacher;
-GRANT SELECT ON TABLE public.regions TO scuola247_student;
-GRANT SELECT ON TABLE public.regions TO scuola247_relative;
+GRANT SELECT ON TABLE shared.regions TO scuola247_executive;
+GRANT SELECT ON TABLE shared.regions TO scuola247_employee;
+GRANT SELECT ON TABLE shared.regions TO scuola247_teacher;
+GRANT SELECT ON TABLE shared.regions TO scuola247_student;
+GRANT SELECT ON TABLE shared.regions TO scuola247_relative;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
 -- school_years
-GRANT ALL ON TABLE public.school_years TO scuola247_supervisor;
-GRANT ALL ON TABLE public.school_years TO scuola247_executive;
-GRANT ALL ON TABLE public.school_years TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.school_years TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.school_years TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.school_years TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.school_years TO scuola247_teacher;
-GRANT SELECT ON TABLE public.school_years TO scuola247_student;
-GRANT SELECT ON TABLE public.school_years TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.school_years TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.school_years TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.school_years TO scuola247_relative;
 
-REVOKE ALL ON TABLE public.school_years FROM public;
+REVOKE ALL ON TABLE scuola247.school_years FROM public;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
 -- schools
-GRANT ALL ON TABLE public.schools TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.schools TO scuola247_supervisor;
 
-GRANT SELECT ON TABLE public.schools TO scuola247_executive;
-GRANT SELECT ON TABLE public.schools TO scuola247_employee;
-GRANT SELECT ON TABLE public.schools TO scuola247_teacher;
-GRANT SELECT ON TABLE public.schools TO scuola247_student;
-GRANT SELECT ON TABLE public.schools TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.schools TO scuola247_executive;
+GRANT SELECT ON TABLE scuola247.schools TO scuola247_employee;
+GRANT SELECT ON TABLE scuola247.schools TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.schools TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.schools TO scuola247_relative;
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 
 -- signatures
-GRANT ALL ON TABLE public.signatures TO scuola247_supervisor;
-GRANT ALL ON TABLE public.signatures TO scuola247_executive;
-GRANT ALL ON TABLE public.signatures TO scuola247_employee;
-GRANT ALL ON TABLE public.signatures TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.signatures TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.signatures TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.signatures TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.signatures TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.signatures TO scuola247_student;
-GRANT SELECT ON TABLE public.signatures TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.signatures TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.signatures TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- subjects
-GRANT ALL ON TABLE public.subjects TO scuola247_supervisor;
-GRANT ALL ON TABLE public.subjects TO scuola247_executive;
-GRANT ALL ON TABLE public.subjects TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.subjects TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.subjects TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.subjects TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.subjects TO scuola247_teacher;
-GRANT SELECT ON TABLE public.subjects TO scuola247_student;
-GRANT SELECT ON TABLE public.subjects TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.subjects TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.subjects TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.subjects TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- teachears_notes
-GRANT ALL ON TABLE public.teachears_notes TO scuola247_supervisor;
-GRANT ALL ON TABLE public.teachears_notes TO scuola247_executive;
-GRANT ALL ON TABLE public.teachears_notes TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.teachears_notes TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.teachears_notes TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.teachears_notes TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.teachears_notes TO scuola247_employee;
-GRANT SELECT ON TABLE public.teachears_notes TO scuola247_student;
-GRANT SELECT ON TABLE public.teachears_notes TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.teachears_notes TO scuola247_employee;
+GRANT SELECT ON TABLE scuola247.teachears_notes TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.teachears_notes TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- topics
-GRANT ALL ON TABLE public.topics TO scuola247_supervisor;
-GRANT ALL ON TABLE public.topics TO scuola247_executive;
-GRANT ALL ON TABLE public.topics TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.topics TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.topics TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.topics TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.topics TO scuola247_employee;
-GRANT SELECT ON TABLE public.topics TO scuola247_student;
-GRANT SELECT ON TABLE public.topics TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.topics TO scuola247_employee;
+GRANT SELECT ON TABLE scuola247.topics TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.topics TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- usenames_ex
-GRANT ALL ON TABLE public.usenames_ex TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.usenames_ex TO scuola247_supervisor;
 
 /* possono fare l'update della lingua */
 /* il token non può essere visto da nessuno*/
-GRANT SELECT(usename, language), UPDATE(language) ON TABLE public.usenames_ex TO scuola247_executive;
-GRANT SELECT(usename, language), UPDATE(language) ON TABLE public.usenames_ex TO scuola247_employee;
-GRANT SELECT(usename, language), UPDATE(language) ON TABLE public.usenames_ex TO scuola247_teacher;
-GRANT SELECT(usename, language), UPDATE(language) ON TABLE public.usenames_ex TO scuola247_student;
-GRANT SELECT(usename, language), UPDATE(language) ON TABLE public.usenames_ex TO scuola247_relative;
+GRANT SELECT(usename, language), UPDATE(language) ON TABLE scuola247.usenames_ex TO scuola247_executive;
+GRANT SELECT(usename, language), UPDATE(language) ON TABLE scuola247.usenames_ex TO scuola247_employee;
+GRANT SELECT(usename, language), UPDATE(language) ON TABLE scuola247.usenames_ex TO scuola247_teacher;
+GRANT SELECT(usename, language), UPDATE(language) ON TABLE scuola247.usenames_ex TO scuola247_student;
+GRANT SELECT(usename, language), UPDATE(language) ON TABLE scuola247.usenames_ex TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- usenames_schools
-GRANT ALL ON TABLE public.usenames_schools TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.usenames_schools TO scuola247_supervisor;
 
-GRANT SELECT ON TABLE public.usenames_schools TO scuola247_executive;
-GRANT SELECT ON TABLE public.usenames_schools TO scuola247_employee;
-GRANT SELECT ON TABLE public.usenames_schools TO scuola247_teacher;
-GRANT SELECT ON TABLE public.usenames_schools TO scuola247_student;
-GRANT SELECT ON TABLE public.usenames_schools TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.usenames_schools TO scuola247_executive;
+GRANT SELECT ON TABLE scuola247.usenames_schools TO scuola247_employee;
+GRANT SELECT ON TABLE scuola247.usenames_schools TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.usenames_schools TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.usenames_schools TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- valutations
-GRANT ALL ON TABLE public.valutations TO scuola247_supervisor;
-GRANT ALL ON TABLE public.valutations TO scuola247_executive;
-GRANT ALL ON TABLE public.valutations TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.valutations TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.valutations TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.valutations TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.valutations TO scuola247_employee;
-GRANT SELECT ON TABLE public.valutations TO scuola247_student;
-GRANT SELECT ON TABLE public.valutations TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.valutations TO scuola247_employee;
+GRANT SELECT ON TABLE scuola247.valutations TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.valutations TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- valutations_qualifications
-GRANT ALL ON TABLE public.valutations_qualifications TO scuola247_supervisor;
-GRANT ALL ON TABLE public.valutations_qualifications TO scuola247_executive;
-GRANT ALL ON TABLE public.valutations_qualifications TO scuola247_teacher;
+GRANT ALL ON TABLE scuola247.valutations_qualifications TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.valutations_qualifications TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.valutations_qualifications TO scuola247_teacher;
 
-GRANT SELECT ON TABLE public.valutations_qualifications TO scuola247_employee;
-GRANT SELECT ON TABLE public.valutations_qualifications TO scuola247_student;
-GRANT SELECT ON TABLE public.valutations_qualifications TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.valutations_qualifications TO scuola247_employee;
+GRANT SELECT ON TABLE scuola247.valutations_qualifications TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.valutations_qualifications TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- weekly_timetables
-GRANT ALL ON TABLE public.weekly_timetables TO scuola247_supervisor;
-GRANT ALL ON TABLE public.weekly_timetables TO scuola247_executive;
-GRANT ALL ON TABLE public.weekly_timetables TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.weekly_timetables TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.weekly_timetables TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.weekly_timetables TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.weekly_timetables TO scuola247_teacher;
-GRANT SELECT ON TABLE public.weekly_timetables TO scuola247_student;
-GRANT SELECT ON TABLE public.weekly_timetables TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.weekly_timetables TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.weekly_timetables TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.weekly_timetables TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- weekly_timetables_days
-GRANT ALL ON TABLE public.weekly_timetables_days TO scuola247_supervisor;
-GRANT ALL ON TABLE public.weekly_timetables_days TO scuola247_executive;
-GRANT ALL ON TABLE public.weekly_timetables_days TO scuola247_employee;
+GRANT ALL ON TABLE scuola247.weekly_timetables_days TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.weekly_timetables_days TO scuola247_executive;
+GRANT ALL ON TABLE scuola247.weekly_timetables_days TO scuola247_employee;
 
-GRANT SELECT ON TABLE public.weekly_timetables_days TO scuola247_teacher;
-GRANT SELECT ON TABLE public.weekly_timetables_days TO scuola247_student;
-GRANT SELECT ON TABLE public.weekly_timetables_days TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.weekly_timetables_days TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.weekly_timetables_days TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.weekly_timetables_days TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- wikimedia_files
-GRANT ALL ON TABLE public.wikimedia_files TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.wikimedia_files TO scuola247_supervisor;
 
-GRANT SELECT ON TABLE public.wikimedia_files TO scuola247_executive;
-GRANT SELECT ON TABLE public.wikimedia_files TO scuola247_employee;
-GRANT SELECT ON TABLE public.wikimedia_files TO scuola247_teacher;
-GRANT SELECT ON TABLE public.wikimedia_files TO scuola247_student;
-GRANT SELECT ON TABLE public.wikimedia_files TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.wikimedia_files TO scuola247_executive;
+GRANT SELECT ON TABLE scuola247.wikimedia_files TO scuola247_employee;
+GRANT SELECT ON TABLE scuola247.wikimedia_files TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.wikimedia_files TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.wikimedia_files TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 -- wikimedia_files_persons
 
-GRANT ALL ON TABLE public.wikimedia_files_persons TO scuola247_supervisor;
+GRANT ALL ON TABLE scuola247.wikimedia_files_persons TO scuola247_supervisor;
 
-GRANT SELECT ON TABLE public.wikimedia_files_persons TO scuola247_executive;
-GRANT SELECT ON TABLE public.wikimedia_files_persons TO scuola247_employee;
-GRANT SELECT ON TABLE public.wikimedia_files_persons TO scuola247_teacher;
-GRANT SELECT ON TABLE public.wikimedia_files_persons TO scuola247_student;
-GRANT SELECT ON TABLE public.wikimedia_files_persons TO scuola247_relative;
+GRANT SELECT ON TABLE scuola247.wikimedia_files_persons TO scuola247_executive;
+GRANT SELECT ON TABLE scuola247.wikimedia_files_persons TO scuola247_employee;
+GRANT SELECT ON TABLE scuola247.wikimedia_files_persons TO scuola247_teacher;
+GRANT SELECT ON TABLE scuola247.wikimedia_files_persons TO scuola247_student;
+GRANT SELECT ON TABLE scuola247.wikimedia_files_persons TO scuola247_relative;
 -------------------------------------------------------------
 -------------------------------------------------------------
 
@@ -1406,48 +1395,48 @@ GRANT USAGE ON SCHEMA unit_tests_horizontal_security TO scuola247_user;
 GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_horizontal_security TO scuola247_supervisor WITH GRANT OPTION;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_horizontal_security TO scuola247_user;
 
--- UNIT_TESTS_PUBLIC;
-REVOKE ALL ON SCHEMA unit_tests_public FROM public;
-REVOKE ALL ON SCHEMA unit_tests_public FROM scuola247_supervisor;
-REVOKE ALL ON SCHEMA unit_tests_public FROM scuola247_executive;
-REVOKE ALL ON SCHEMA unit_tests_public FROM scuola247_employee;
-REVOKE ALL ON SCHEMA unit_tests_public FROM scuola247_teacher;
-REVOKE ALL ON SCHEMA unit_tests_public FROM scuola247_relative;
-REVOKE ALL ON SCHEMA unit_tests_public FROM scuola247_student;
-REVOKE ALL ON SCHEMA unit_tests_public FROM scuola247_user;
+-- unit_tests_scuola247;
+REVOKE ALL ON SCHEMA unit_tests_scuola247 FROM public;
+REVOKE ALL ON SCHEMA unit_tests_scuola247 FROM scuola247_supervisor;
+REVOKE ALL ON SCHEMA unit_tests_scuola247 FROM scuola247_executive;
+REVOKE ALL ON SCHEMA unit_tests_scuola247 FROM scuola247_employee;
+REVOKE ALL ON SCHEMA unit_tests_scuola247 FROM scuola247_teacher;
+REVOKE ALL ON SCHEMA unit_tests_scuola247 FROM scuola247_relative;
+REVOKE ALL ON SCHEMA unit_tests_scuola247 FROM scuola247_student;
+REVOKE ALL ON SCHEMA unit_tests_scuola247 FROM scuola247_user;
 
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_public FROM public;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_public FROM scuola247_supervisor;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_public FROM scuola247_executive;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_public FROM scuola247_employee;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_public FROM scuola247_teacher;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_public FROM scuola247_relative;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_public FROM scuola247_student;
-REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_public FROM scuola247_user;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_scuola247 FROM public;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_scuola247 FROM scuola247_supervisor;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_scuola247 FROM scuola247_executive;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_scuola247 FROM scuola247_employee;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_scuola247 FROM scuola247_teacher;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_scuola247 FROM scuola247_relative;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_scuola247 FROM scuola247_student;
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_scuola247 FROM scuola247_user;
 
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_public FROM public;
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_public FROM scuola247_supervisor;
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_public FROM scuola247_executive;
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_public FROM scuola247_employee;
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_public FROM scuola247_teacher;
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_public FROM scuola247_relative;
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_public FROM scuola247_student;
-REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_public FROM scuola247_user;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_scuola247 FROM public;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_scuola247 FROM scuola247_supervisor;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_scuola247 FROM scuola247_executive;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_scuola247 FROM scuola247_employee;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_scuola247 FROM scuola247_teacher;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_scuola247 FROM scuola247_relative;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_scuola247 FROM scuola247_student;
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA unit_tests_scuola247 FROM scuola247_user;
 
-REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_public FROM public;
-REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_public FROM scuola247_supervisor;
-REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_public FROM scuola247_executive;
-REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_public FROM scuola247_employee;
-REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_public FROM scuola247_teacher;
-REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_public FROM scuola247_relative;
-REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_public FROM scuola247_student;
-REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_public FROM scuola247_user;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_scuola247 FROM public;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_scuola247 FROM scuola247_supervisor;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_scuola247 FROM scuola247_executive;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_scuola247 FROM scuola247_employee;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_scuola247 FROM scuola247_teacher;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_scuola247 FROM scuola247_relative;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_scuola247 FROM scuola247_student;
+REVOKE ALL ON ALL TABLES IN SCHEMA unit_tests_scuola247 FROM scuola247_user;
 
-GRANT ALL ON SCHEMA unit_tests_public TO scuola247_supervisor WITH GRANT OPTION;
-GRANT USAGE ON SCHEMA unit_tests_public TO scuola247_user;
+GRANT ALL ON SCHEMA unit_tests_scuola247 TO scuola247_supervisor WITH GRANT OPTION;
+GRANT USAGE ON SCHEMA unit_tests_scuola247 TO scuola247_user;
 
-GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_public TO scuola247_supervisor WITH GRANT OPTION;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_public TO scuola247_user;
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA unit_tests_scuola247 TO scuola247_supervisor WITH GRANT OPTION;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA unit_tests_scuola247 TO scuola247_user;
 
 -- UNIT_TESTS_SECURITY;
 REVOKE ALL ON SCHEMA unit_tests_security FROM public;
